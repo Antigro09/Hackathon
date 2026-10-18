@@ -3,5 +3,8 @@ ml/*.py text eol=lf
 ml/*.md text eol=lf
 ml/*.txt text eol=lf
 ml/browser/** text eol=lf
+# These dependencies are hashed by both browser and Node extraction contracts.
+src/ai/model.ts text eol=lf
+src/ai/resample.ts text eol=lf
 # Preserve the exact downloaded bytes covered by recorded experiment checksums.
 ml/runs/** -text
