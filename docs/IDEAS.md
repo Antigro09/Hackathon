@@ -65,6 +65,9 @@ Technical core: Graph connectivity and constrained search. With a small candidat
 Keep the scope credible: Report connectivity under your stated assumptions. A prototype cannot establish actual population recovery.
 Why I like it: It has a clear environmental purpose, a satisfying visual transformation, and relatively few dependencies that could derail your build.
 
+maybe like something about recycling precious minerals and scanning trash yards or something like that
+
+
 GridWeave — make an electric school-bus fleet fit its available power
 The idea: A school wants to run electric buses, but charging every bus immediately would exceed the depot’s electrical capacity. Your app figures out whether the buses can all be ready on time using the connection the school already has.
 Managed charging is a real research and deployment problem; studies of school-bus electrification examine how charging schedules affect depot demand. National Laboratory of the Rockies
