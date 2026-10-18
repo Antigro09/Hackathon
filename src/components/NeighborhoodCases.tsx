@@ -16,6 +16,7 @@ import { approximateCommunityCoordinates, communityScreeningPreview, makeCommuni
 import { communityTabStorage, readCommunitySession, removalAccess, writeCommunitySession } from './communityMapSession';
 import type { CommunityMapSession, RemovalAccess } from './communityMapSession';
 import { NoiseSolutions } from './NoiseSolutions';
+import CaseActionWorkflow from './CaseActionWorkflow';
 import '../neighborhood-cases.css';
 
 export interface NeighborhoodCasesProps {
@@ -259,6 +260,7 @@ function CaseDetail({ caseId, currentResult, onContribute, includeReport, state 
         {ownedCase ? <div className="cases-owner"><h3>Manage your case</h3><p className="cases-note">This tab retains case removal access. Removing the case keeps its observations on the public community map.</p><label className="cases-consent"><input type="checkbox" checked={deleteConsent} onChange={event => setDeleteConsent(event.target.checked)} />I want to remove this case. Its public observations will remain.</label><button className="cases-link-button" type="button" disabled={!deleteConsent || busy} onClick={() => { void removeCase(); }}>Remove my case</button></div> : null}
       </section>
       <section className="panel cases-panel" aria-labelledby="case-observations-title"><div className="cases-section-heading"><h2 id="case-observations-title">Linked observations</h2></div><p className="cases-note">{detail.notice} Read recordings separately: uncalibrated phone levels cannot be averaged into a neighborhood noise level.</p>{detail.observations.length ? <CaseObservationList observations={detail.observations} /> : <div className="cases-empty"><h3>Be the first to document an observation</h3><p>No linked reports yet does not mean quiet conditions. Invite others and record where you actually are.</p></div>}</section>
+      <CaseActionWorkflow detail={detail} ownerToken={ownedCase?.deleteToken} onContribute={onContribute} onRefresh={() => { void refresh(); }} />
       <NoiseSolutions caseId={caseId} caseTitle={detail.case.title} includeReport={includeReport} />
       </div><aside className="panel cases-panel" aria-labelledby="case-contribute-title"><p className="eyebrow">Add your own observation</p><h2 id="case-contribute-title">Contribute deliberately</h2><p>Audio stays in your browser. Your reviewed public label, note, approximate location and screening metadata go to the community map; linking makes them part of this case too.</p>
         {contribution && !contribution.attached ? <div className="cases-recovery"><h3>{contribution.observationId ? 'Finish linking your public observation' : 'Recover an interrupted publication'}</h3>
