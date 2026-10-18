@@ -19,7 +19,7 @@ from typing import Any
 
 import numpy as np
 
-from ml.canonical_v3 import CanonicalBatch, derive_embedding_contract, load_canonical_batches
+from ml.canonical_v3 import CanonicalBatch, _strict_equal, derive_embedding_contract, load_canonical_batches
 from ml.data_v3 import DEFAULT_PINNED_SOURCES, KNOWN, SEED, _aliases, _license
 from ml.experiment_v3 import DEFAULT_CRITERIA, ROLES, _json_hash, _validated_head, audit_frozen_v3, fit_research_v3
 
@@ -48,7 +48,7 @@ def _bytes(value: Any) -> bytes:
 
 
 def _equal(a: Any, b: Any) -> bool:
-    return _bytes(a) == _bytes(b)
+    return _strict_equal(a, b)
 
 
 def _read(path: str | Path, expected: str | None = None) -> tuple[bytes, Any]:

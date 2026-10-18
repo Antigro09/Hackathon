@@ -8,7 +8,7 @@ from pathlib import Path
 
 import numpy as np
 
-from ml.canonical_v3 import CanonicalBatch, EXECUTION, MODEL_ID, MODEL_REVISION, NORMALIZATION, PREPROCESSING, RUNTIME, TRANSFORMERS_SHA, derive_embedding_contract, load_canonical_batches
+from ml.canonical_v3 import CanonicalBatch, EXECUTION, MODEL_ID, MODEL_REVISION, NORMALIZATION, PREPROCESSING, RUNTIME, TRANSFORMERS_SHA, _strict_equal, derive_embedding_contract, load_canonical_batches
 from ml.features import ARTIFACT_SHA256
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -57,6 +57,37 @@ def mutate_output(batch, mutation):
 class CanonicalV3Tests(unittest.TestCase):
     def setUp(self):self.temporary=tempfile.TemporaryDirectory();self.directory=Path(self.temporary.name)
     def tearDown(self):self.temporary.cleanup()
+
+    def test_json_value_equality_accepts_exact_number_spelling_without_bool_coercion(self):
+        python=json.loads('{"duration":5.0,"nested":[1e20,1e-7,"5.0",null,true]}')
+        node=json.loads('{"nested":[100000000000000000000,0.0000001,"5.0",null,true],"duration":5}')
+        self.assertTrue(_strict_equal(python,node));self.assertTrue(_strict_equal(node,python))
+        for left,right in [(True,1),(False,0),({'flag':[True]},{'flag':[1.0]}),(None,False),('5',5),([1,2],[2,1]),({'a':1},{'a':1,'b':2})]:
+            with self.subTest(left=left,right=right):self.assertFalse(_strict_equal(left,right))
+
+    def test_json_value_equality_rejects_nextafter_nonfinite_and_large_integer_loss(self):
+        self.assertFalse(_strict_equal(1.0,float(np.nextafter(1.0,2.0))))
+        self.assertFalse(_strict_equal({'n':9007199254740993},{'n':float(9007199254740993)}))
+        self.assertFalse(_strict_equal({'n':9007199254740993},{'n':9007199254740992}))
+        self.assertTrue(_strict_equal(2**53,float(2**53)))
+        self.assertTrue(_strict_equal(2**53+2,float(2**53+2)))
+        for value in (float('inf'),float('-inf'),float('nan')):
+            with self.subTest(value=value):self.assertFalse(_strict_equal({'n':value},{'n':value}))
+
+    def test_node_serialized_source_numbers_preserve_staged_raw_identity_and_load(self):
+        batch=make_batch(self.directory,'json-numbers',[source('a',crop_duration_seconds=5.0,nested_metadata={'duration':5.0,'large':1e20,'small':1e-7})])
+        staged_before=Path(batch.staged_manifest_path).read_bytes()
+        def node_numbers(document):
+            record=document['records'][0]['source_record'];record['crop_duration_seconds']=5
+            record['nested_metadata']={'duration':5,'large':10**20,'small':0.0000001}
+        mutate_output(batch,node_numbers)
+        result=load_canonical_batches([batch],{'a':'train'})
+        self.assertEqual(result.X.shape,(1,512));self.assertEqual(Path(batch.staged_manifest_path).read_bytes(),staged_before)
+
+    def test_node_serialization_cannot_hide_large_integer_rounding_in_source_record(self):
+        batch=make_batch(self.directory,'json-loss',[source('a',nested_metadata={'count':9007199254740993})])
+        mutate_output(batch,lambda d:d['records'][0]['source_record']['nested_metadata'].update(count=9007199254740992))
+        with self.assertRaisesRegex(ValueError,'row differs'):load_canonical_batches([batch],{'a':'train'})
 
     def test_two_platform_batches_share_stable_contract_and_preserve_exact_values(self):
         first=make_batch(self.directory,'first',[source('a')])

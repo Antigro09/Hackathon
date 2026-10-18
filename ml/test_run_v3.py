@@ -147,6 +147,13 @@ class RunnerV3Tests(unittest.TestCase):
             self.fit()
         call.assert_not_called()
 
+    def test_runner_json_guard_uses_exact_numeric_values_and_distinguishes_booleans(self):
+        self.assertTrue(runner._equal({'n':[5.0,1e20,1e-7]},{'n':[5,10**20,0.0000001]}))
+        self.assertFalse(runner._equal({'n':[True]},{'n':[1]}))
+        self.assertFalse(runner._equal({'n':1.0},{'n':float(np.nextafter(1.0,2.0))}))
+        self.assertFalse(runner._equal({'n':2**53+1},{'n':float(2**53+1)}))
+        self.assertFalse(runner._equal({'n':float('inf')},{'n':float('inf')}))
+
     def test_failed_fit_preserves_evidence_and_cannot_resume(self):
         with patch.object(runner, 'fit_research_v3', side_effect=RuntimeError('synthetic failure')), self.assertRaises(RuntimeError):
             self.fit()

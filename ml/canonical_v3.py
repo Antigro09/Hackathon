@@ -9,6 +9,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import hashlib
 import json
+import math
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
@@ -75,8 +76,27 @@ def _read(path: str | Path) -> tuple[bytes, dict[str, Any]]:
 
 
 def _strict_equal(left: Any, right: Any) -> bool:
-    # JSON bool/int equality must not silently turn true into schemaVersion 1.
-    return _json_hash(left) == _json_hash(right)
+    """Exact JSON VALUE equality, independent of number serialization spelling.
+
+    Node writes 5.0 as 5, and may write exponent notation as an integer. Compare
+    finite int/float values directly: Python's mixed numeric equality does not
+    coerce a large integer to an imprecise float. Booleans remain distinct from
+    numbers; keys, strings and list order are exact. No epsilon is permitted.
+    Raw-byte and contract SHA checks remain separate and unchanged.
+    """
+    a, b = type(left), type(right)
+    if a in (int, float) and b in (int, float):
+        return (a is not float or math.isfinite(left)) and (b is not float or math.isfinite(right)) and left == right
+    if a is not b:
+        return False
+    if a in (str, bool) or left is None:
+        return left == right
+    if a is list:
+        return len(left) == len(right) and all(_strict_equal(x, y) for x, y in zip(left, right))
+    if a is dict:
+        return (all(type(key) is str for key in left) and all(type(key) is str for key in right)
+                and left.keys() == right.keys() and all(_strict_equal(left[key], right[key]) for key in left))
+    return False
 
 
 def _text(value: Any, name: str) -> str:
