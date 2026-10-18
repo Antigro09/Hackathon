@@ -64,3 +64,5 @@ Your seven-hour MVP
 Technical core: Graph connectivity and constrained search. With a small candidate set, you can evaluate combinations directly.
 Keep the scope credible: Report connectivity under your stated assumptions. A prototype cannot establish actual population recovery.
 Why I like it: It has a clear environmental purpose, a satisfying visual transformation, and relatively few dependencies that could derail your build.
+
+maybe like something about recycling precious minerals and scanning trash yards or something like that
