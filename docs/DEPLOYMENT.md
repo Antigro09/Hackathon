@@ -2,6 +2,18 @@
 
 Verified October 18, 2026, in Chrome 155 on Windows.
 
+## Expanded app release
+
+- Public production URL: [tonalwatch.vercel.app](https://tonalwatch.vercel.app), unauthenticated HTTP200.
+- Application source: main commit `e14bffa`; deployment `dpl_CfJbc9bjbwua57MzWRWoWyv1i4g1`, production **READY**. Later research/lab commits do not change these deployed app sources.
+- Built from an exact Git archive while separate research work continued. Fresh `npm ci` reported zero vulnerabilities; **259 application tests across12 files** and TypeScript/Vite production build passed. The five obsolete lab-retirement tests were excluded from that release check because the team restored the separate instrument; its replacement tests are recorded separately.
+- The release includes explicit Home navigation, Learn tones/actual-PSD exhibit, the synthetic/manual map,5/15/30-second observations, full-duration reports, and previous-capture comparison. The experimental trained classifier remains outside the live app.
+- Public HTTPS checks passed all30 combinations of six pages and320/375/760/1280/1920px without horizontal overflow. A15-second WAV import retained720,000samples,174frames,5.859Hz/bin in Learn, and the full15.000s report/export. Buddy showed−20.4dB for the contrasting fixtures. Fourteen synthetic map pins/cards remained accessible; manual placed/unplaced entries persisted across navigation and reset on reload.
+- No page/console/HTTP errors, external map requests, or model downloads before Explore occurred in this release check. A street map still requires explicit opt-in. Existing AI inference was validated in the prior release below; the new release's bounded five-second AI-copy policy has its own tests.
+- Research audio/model caches and experiment records are excluded from deployment uploads through `.vercelignore`. Standalone lab HTML remains a repository tool; Vite's single-entry app build does not publish it as a separate instrument page.
+
+## Prior release evidence
+
 - Public production URL: [tonalwatch.vercel.app](https://tonalwatch.vercel.app).
 - Deployed application source: commit `aca4b19` on `main`. Later documentation-only commits do not change the deployed application.
 - Immutable deployment: `dpl_Bnzna8LYCxCbvuNwtoYXHuWBjmmX`.

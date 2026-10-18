@@ -31,13 +31,12 @@ notes, not independently established facts.
   exclusion rules or a professional measurement protocol. Do not silently drop
   an observation to support a desired interpretation.
 
-The incoming standalone `field_lab.html` instrument has been retired. Its old
-implementation used a smoothed final analyser spectrum instead of a validated
-full-recording PCM analysis, had incomplete quality/resource handling, and
-conflated the gap with a tonal verdict. We cannot establish from these notes
-whether that instrument or another version produced each listed number.
-[The replacement lab guide](../field_lab.html) links to the main app rather than
-reimplementing capture, DSP or export.
+The team retained [the standalone field instrument](../field_lab.html) for its
+separate campaign workflow. Its earlier implementation used a final analyser
+spectrum and conflated a large gap with a tonal verdict. The repaired version
+uses sample-counted full-window PCM analysis, separate quality/peak indicators,
+and explicit provenance. New software checks do not retroactively validate
+these notes: we cannot establish which instrument/version produced each row.
 
 ## Original supplied notes — verbatim, unverified
 

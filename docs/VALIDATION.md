@@ -2,7 +2,7 @@
 
 Build date: **October 18, 2026 (America/New_York)**. This record distinguishes software checks from browser integration and physical measurement validation. Algorithm: **`tw-screen-v1`**.
 
-**Expanded-workflow status:** Home navigation, Learn listening/actual-PSD exhibits, the synthetic/manual map, 5/15/30-second capture, and Buddy-check comparison passed the combined **264-test suite across 13 files** and production build. Local browser checks are recorded below. Deployment verification for this expanded version is pending; historical 129-test evidence remains separately labeled.
+**Current status:** the combined checkout passed **294 tests across14 files** (259 application +35 standalone-lab checks) and TypeScript/Vite build. Home navigation, Learn exhibits, map,5/15/30-second observations, and comparison passed public HTTPS verification. See [deployment evidence](DEPLOYMENT.md). Historical129/264-test runs remain separately labeled.
 
 ## Environment and pinned dependencies
 
@@ -44,7 +44,7 @@ This table records the earlier release, not a new total after the approved exten
 
 ## Expanded-workflow checks
 
-**Combined release checks:** `npm test` passed **264 tests across 13 files**; `npm run build` passed TypeScript checking and the Vite production build. The following focused counts describe earlier implementation runs and are not additional tests beyond that combined total.
+**First expanded integration:** `npm test` passed264 tests across13 files before the team restored the separate lab. Its five retirement tests were replaced; the current combined result is294 tests across14 files, including259 application and35 standalone checks. The exact deployed application archive passed259 application tests and build. Focused counts below overlap and are not additional tests.
 
 The following focused runs were observed during implementation. Their test files overlap; **do not add these counts together** or treat them as a full-suite count.
 
@@ -72,7 +72,7 @@ Local Chrome integration observations for the expanded build:
 | Learn layout and print | Twenty viewport cases passed. Two- and three-page learning PDF outputs passed visual QA. Reference lines remain distinct from the actual PSD/candidate; no additional frequency resolution or source identity is claimed. |
 | Map behavior | Online/offline, manual placement, and reset checks passed. Resize verification retained **14 synthetic icons and 14 provenance badges**. The neutral grid/list remains the fallback when tiles are unavailable. |
 
-The exact expanded deployment still requires verification before these local results are treated as hosted-release evidence. Current screenshots cover all six pages. All six pages passed 30 route/width cases at 320, 390, 760, 1280, and 1920 CSS pixels without document-width overflow, with accessible footers. Physical microphone, independent field, and AI promotion checks remain outside this software integration result.
+The expanded deployment passed the public checks in [DEPLOYMENT.md](DEPLOYMENT.md). Current screenshots cover all six pages. Locally all30 route/width cases at320/390/760/1280/1920px had no document-width overflow and accessible footers; production repeated30 cases at320/375/760/1280/1920px. Physical microphone, independent field, and AI promotion checks remain outside this software result.
 
 ## Observed numerical fixture results
 
@@ -158,6 +158,8 @@ Held-out metrics and their sample limits are documented in [AI_EXPERIMENT_RESULT
 
 The React/TypeScript app, PCM estimator, fixtures, worker, capture path, and report implementation were created for the current corrected-plan implementation. Existing `mic_spike.html` and `range_finder.html` remain research artifacts and are not part of the current runtime. Their historical “validated” or “calibration” descriptions are not adopted as results for this app. Event eligibility and any organizer reuse ruling require a separate team record.
 
-The restored standalone [`field_lab.html`](../field_lab.html) serves the E1–E5 field-research campaign, including its own logging and CSV export. Its measurement implementation and resource/quality handling are under review; the main React app's 264-test result does not validate this separate instrument. Lab fixes, deterministic checks, and actual field observations require their own recorded evidence before drawing experimental conclusions. [FIELD_LOG.md](FIELD_LOG.md) preserves the original hand-entered notes with explicit missing-provenance, duration, source, and unsupported-device-offset limitations. Those notes are not validated field data and do not establish which instrument/version produced them.
+The standalone [`field_lab.html`](../field_lab.html) serves the E1–E5 campaign, with its own persistent logging, CSV, comparison, and optional PCM WAV export. Its35 separate tests cover all10 main-engine fixtures at both rates, full PSD/weighted-level parity, changing-signal averages, quality gates, true-bin60/120 candidates, collection/storage/export behavior, and interruption races. Native virtual-microphone captures at48k yielded240,000/720,000/1,440,000 samples and57/174/350 frames for5/15/30s. Every track ended and context closed. Stop, hidden page, muted/pre-muted input, and late permission canceled without logging a numeric row. Corrupt storage was preserved for recovery; Clear persisted after reload. Browser widths320/390/1280 had no document overflow or page/console errors. The campaign table intentionally scrolls horizontally within its container.
+
+These checks do not establish hardware accuracy or retroactively validate [FIELD_LOG.md](FIELD_LOG.md). Its original notes retain explicit missing-provenance, duration, source, and unsupported-device-offset limitations; the instrument/version that produced them is unknown.
 
 OpenAI Codex assisted development and software verification. Core calculations and report wording are deterministic. The optional local CLAP comparison uses downloaded model/runtime files and no remote inference endpoint. No generative legal text, audio upload, or automated complaint submission is included. Upstream model and library attribution is recorded in [RESOURCES.md](RESOURCES.md).
