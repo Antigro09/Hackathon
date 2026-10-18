@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TonalWatch — Range Finder (low/high chain limits)</title>
+<style>
+  body { font-family: system-ui, sans-serif; background: #101418; color: #e8e8e8; max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+  h1 { font-size: 1.3rem; } small { color: #9ab; }
+  .big { font-size: 2rem; font-weight: 700; }
+  button { font-size: 1rem; padding: .5rem 1rem; margin: .25rem .25rem .25rem 0; border-radius: 6px; border: 1px solid #456; background: #223040; color: #cde; cursor: pointer; }
+  #alive { padding: .3rem .8rem; border-radius: 6px; background: #3a1414; color: #ff8f8f; display: inline-block; }
+  #alive.ok { background: #12351c; color: #6fe38f; }
+  .row { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
+  .card { background: #1a2027; border-radius: 10px; padding: 1rem; flex: 1; min-width: 170px; }
+  .band { transition: background .15s; }
+  .band.det { background: #12351c; }
+  .band.det .big { color: #6fe38f; }
+  input[type=range] { width: 100%; }
+  #freq { font-size: 1.8rem; font-weight: 700; color: #7ab8ff; }
+  canvas { width: 100%; height: 140px; background: #0c1015; border-radius: 6px; }
+</style>
+</head>
+<body>
+<h1>Range Finder — how far LOW and HIGH does this machine's sound chain reach?</h1>
+<p><small>Tests speaker→air→mic chain (that's the demo chain, so it's the honest test). Mid-frequency energy is FILTERED OUT of both band cards — only the edges report. Play a tone, sweep the slider, watch which band lights up.</small></p>
+
+<button id="start">▶ Start mic</button> <span id="alive">mic: not started</span> <span id="status"></span>
+
+<h2 style="font-size:1rem">Tone — drag the slider:</h2>
+<input type="range" id="slide" min="1" max="1000" value="500">
+<div><span id="freq">— Hz</span> <button id="mute">■ Mute</button> <label><input type="checkbox" id="vol" checked> audible volume</label> <small>(low volumes below ~30 Hz you mostly FEEL; uncheck to test at max drive)</small></div>
+
+<div class="row">
+  <div class="card band" id="bandL"><small>LOW BAND · 5–45 Hz (mains + chiller)</small><div class="big" id="low">—</div><span id="lowv">—</span></div>
+  <div class="card band" id="bandH"><small>HIGH BAND · 16k–24k Hz</small><div class="big" id="high">—</div><span id="highv">—</span></div>
+  <div class="card"><small>MID (filtered out)</small><div class="big" id="mid">rej.</div><small>45 Hz–16 kHz excluded per test design</small></div>
+</div>
+
+<p><small><b>Found edges (updated live as you sweep):</b></small></p>
+<div class="row">
+  <div class="card"><small>Lowest FREQ the chain heard</small><div class="big" id="foundLow">—</div></div>
+  <div class="card"><small>Highest FREQ the chain heard</small><div class="big" id="foundHigh">—</div></div>
+</div>
+
+<canvas id="spectrum"></canvas>
+
+<script>
+let ctx, analyser, buf, tbuf, running = false, audioCtx = null, osc = null, gain = null;
+let foundLow = null, foundHigh = null;
+const SPL_OFF = 100;
+
+document.getElementById('start').onclick = async () => {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({audio: {echoCancellation: false, noiseSuppression: false, autoGainControl: false}});
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const src = ctx.createMediaStreamSource(stream);
+    analyser = ctx.createAnalyser(); analyser.fftSize = 16384; analyser.smoothingTimeConstant = 0.4;
+    src.connect(analyser);
+    buf = new Float32Array(analyser.frequencyBinCount);
+    tbuf = new Float32Array(analyser.fftSize);
+    running = true;
+    document.getElementById('status').textContent = 'live — sweep the slider';
+    loop();
+  } catch (e) { document.getElementById('status').textContent = 'error: ' + e.message; }
+};
+
+function toneOn(f) {
+  audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+  if (osc) { osc.stop(); osc = null; }
+  osc = audioCtx.createOscillator();
+  osc.frequency.value = f;
+  gain = audioCtx.createGain();
+  gain.gain.value = document.getElementById('vol').checked ? 0.25 : 0.5;
+  osc.connect(gain); gain.connect(audioCtx.destination);
+  osc.start();
+}
+
+document.getElementById('slide').oninput = e => {
+  // 1..1000 slider → 10 Hz..22 kHz log scale
+  const t = e.target.value / 1000;
+  const f = 10 * Math.pow(2200, t);
+  document.getElementById('freq').textContent = (f < 100 ? f.toFixed(1) : f.toFixed(0)) + ' Hz';
+  if (running || osc) toneOn(f);
+};
+document.getElementById('mute').onclick = () => { if (osc) { osc.stop(); osc = null; } };
+document.getElementById('vol').onchange = () => { if (osc) { const f = osc.frequency.value; toneOn(f); } };
+
+function loop() {
+  if (!running) return;
+  analyser.getFloatFrequencyData(buf);
+  analyser.getFloatTimeDomainData(tbuf);
+  let sum = 0; for (let i = 0; i < tbuf.length; i++) sum += tbuf[i]*tbuf[i];
+  const dbfs = 20*Math.log10(Math.max(Math.sqrt(sum/tbuf.length), 1e-10));
+  const aliveEl = document.getElementById('alive');
+  if (dbfs > -75) { aliveEl.className = 'ok'; aliveEl.textContent = 'mic LIVE'; }
+  else { aliveEl.className = ''; aliveEl.textContent = 'stream silent — check device'; }
+
+  const nyq = ctx.sampleRate/2, n = buf.length, binHz = nyq/n;
+  let lowP = 0, highP = 0, midP = 0;
+  for (let i = 1; i < n; i++) {
+    const f = i * binHz;
+    if (f < 5 || f > 24000) continue;
+    const lin = Math.pow(10, (isFinite(buf[i]) ? buf[i] : -200)/10);
+    if (f <= 45) lowP += lin;
+    else if (f >= 16000) highP += lin;
+    else midP += lin;
+  }
+  const lowDb = 10*Math.log10(Math.max(lowP, 1e-24)) + SPL_OFF;
+  const highDb = 10*Math.log10(Math.max(highP, 1e-24)) + SPL_OFF;
+  const midDb = 10*Math.log10(Math.max(midP, 1e-24)) + SPL_OFF;
+  // detection = band energy clearly above mid "rejection" reference
+  const detL = (midDb - lowDb) < -5;   // low band at least 5 dB above mid
+  const detH = (midDb - highDb) < -5;
+  document.getElementById('low').textContent = lowDb.toFixed(0) + '*';
+  document.getElementById('high').textContent = highDb.toFixed(0) + '*';
+  document.getElementById('mid').textContent = midDb.toFixed(0) + '*';
+  document.getElementById('bandL').className = 'card band' + (detL ? ' det' : '');
+  document.getElementById('bandH').className = 'card band' + (detH ? ' det' : '');
+  document.getElementById('lowv').textContent = detL ? 'DETECTED' : 'below detection';
+  document.getElementById('highv').textContent = detH ? 'DETECTED' : 'below detection';
+
+  // edge tracking: which tone is playing + which band lit → record extreme
+  if (osc) {
+    const f = osc.frequency.value;
+    if (detL && f <= 45 && (foundLow === null || f < foundLow)) {
+      foundLow = f; document.getElementById('foundLow').textContent = foundLow.toFixed(1) + ' Hz';
+    }
+    if (detH && f >= 16000 && (foundHigh === null || f > foundHigh)) {
+      foundHigh = f; document.getElementById('foundHigh').textContent = foundHigh.toFixed(0) + ' Hz';
+    }
+  }
+
+  const c = document.getElementById('spectrum'); const g = c.getContext('2d');
+  g.fillStyle = '#0c1015'; g.fillRect(0,0,c.width,c.height);
+  const bw = c.width / 96;
+  for (let b = 0; b < 96; b++) {
+    const i0 = Math.floor(Math.pow(b/96, 2) * n * 0.55);
+    let peak = -200; for (let i = i0; i < i0 + 4 && i < n; i++) peak = Math.max(peak, buf[i]);
+    f_color = (i0 * binHz <= 45) ? '#4a9cff' : (i0 * binHz >= 16000 ? '#ff8f4a' : '#555');
+    g.fillStyle = f_color;
+    const h = Math.max(2, (Math.max(peak, -100) + 100) / 100 * c.height);
+    g.fillRect(b*bw, c.height - h, bw-1, h);
+  }
+  requestAnimationFrame(loop);
+}
+</script>
+<small>Blue bars = low band, orange = high band, grey = filtered mid. Sweep slider slowly: 10→300 Hz watching blue; 8k→21k watching orange. The "found edges" cards store your extremes.</small>
+</body>
+</html>

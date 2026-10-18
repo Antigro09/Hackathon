@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TonalWatch — Mic Spike v2 (debugged)</title>
+<style>
+  body { font-family: system-ui, sans-serif; background: #101418; color: #e8e8e8; max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+  h1 { font-size: 1.3rem; } .verdict { font-size: 1.6rem; font-weight: 700; padding: .6rem 1rem; border-radius: 8px; margin: 1rem 0; }
+  .pass { background: #12351c; color: #6fe38f; } .fail { background: #3a1414; color: #ff8f8f; }
+  .row { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
+  .card { background: #1a2027; border-radius: 10px; padding: 1rem; flex: 1; min-width: 170px; }
+  .big { font-size: 2rem; font-weight: 700; } small { color: #9ab; }
+  button { font-size: 1rem; padding: .5rem 1rem; margin: .25rem .25rem .25rem 0; border-radius: 6px; border: 1px solid #456; background: #223040; color: #cde; cursor: pointer; }
+  canvas { width: 100%; height: 120px; background: #0c1015; border-radius: 6px; }
+  select { background: #223040; color: #cde; padding: .4rem; border-radius: 6px; max-width: 100%; }
+  #alive { padding: .3rem .8rem; border-radius: 6px; background: #3a1414; color: #ff8f8f; display: inline-block; }
+  #alive.ok { background: #12351c; color: #6fe38f; }
+</style>
+</head>
+<body>
+<h1>TonalWatch spike v2 — levels sanity-fixed, floor-corrected, device-picker</h1>
+<p><small>Uncalibrated spike. GAP (C−A) is calibration-free — trust the gap, not the level. Level card labeled honestly: dBFS +100 offset, ≈SPL magnitude only.</small></p>
+
+<button id="start">▶ Start mic</button>
+<select id="device"><option value="">default input</option></select>
+<span id="alive">mic: not started</span>
+<span id="status"></span>
+
+<div class="row">
+  <div class="card"><small>≈ SPL* (dBFS+100, uncalibrated)</small><div class="big" id="spl">—</div></div>
+  <div class="card"><small>rel dBA-weighted</small><div class="big" id="dba">—</div></div>
+  <div class="card"><small>rel dBC-weighted</small><div class="big" id="dbc">—</div></div>
+  <div class="card"><small>GAP (tonal ≥ 15)</small><div class="big" id="gap">—</div></div>
+</div>
+<div class="verdict" id="verdict">Waiting…</div>
+
+<canvas id="spectrum"></canvas>
+
+<p><small><b>Protocol:</b> 1) Clap once — bars + SPL must jump (proves the right device). 2) 63/100/200 Hz → GAP should climb. 3) 1 kHz → GAP ≈ 0 (control). Clap = the sanity anchor the judges' room wifi can't break.</small></p>
+<button class="tone" data-f="63">63 Hz</button>
+<button class="tone" data-f="100">100 Hz</button>
+<button class="tone" data-f="200">200 Hz</button>
+<button class="tone" data-f="500">500 Hz</button>
+<button class="tone" data-f="1000">1 kHz</button>
+<button id="stopTone">■ Stop tone</button>
+
+<script>
+const SPL_OFFSET = 100; // honest label: dBFS + 100 for display only; GAP needs no offset
+let ctx, analyser, buf, tbuf, running = false;
+let floor = null, floorReady = false;
+
+const A_W = f => {
+  const f2 = f*f;
+  const num = 148693636*f2*f2;
+  const den = (f2+424.36)*Math.sqrt((f2+11599.29)*(f2+544476.41))*(f2+148693636);
+  return 20*Math.log10(num/den) + 2.0;
+};
+const C_W = f => {
+  const f2 = f*f;
+  const num = 148693636*f2, den = (f2+424.36)*(f2+148693636);
+  return 20*Math.log10(num/den);
+};
+function powerToRel(p) { return 10*Math.log10(Math.max(p, 1e-24)); }
+
+document.getElementById('start').onclick = async () => {
+  try {
+    const sel = document.getElementById('device');
+    const constraints = {audio: {echoCancellation: false, noiseSuppression: false, autoGainControl: false}};
+    if (sel.value) constraints.audio.deviceId = {exact: sel.value};
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const src = ctx.createMediaStreamSource(stream);
+    analyser = ctx.createAnalyser(); analyser.fftSize = 8192; analyser.smoothingTimeConstant = 0.5;
+    src.connect(analyser);
+    buf = new Float32Array(analyser.frequencyBinCount);
+    tbuf = new Float32Array(analyser.fftSize);
+    running = true;
+    document.getElementById('status').textContent = 'capturing noise floor (2s — stay)';
+    setTimeout(() => captureFloor(), 100);
+    setTimeout(() => { floorReady = true; document.getElementById('status').textContent = 'live — floor captured'; }, 2200);
+    loop();
+  } catch (e) { document.getElementById('status').textContent = 'error: ' + e.message; }
+};
+
+function captureFloor() {
+  analyser.getFloatFrequencyData(buf);
+  floor = new Float32Array(buf.length);
+  for (let i = 0; i < buf.length; i++) {
+    const lin = Math.pow(10, (isFinite(buf[i]) ? buf[i] : -200)/10);
+    floor[i] = lin * 0.25;
+  }
+}
+
+function loop() {
+  if (!running) return;
+  analyser.getFloatFrequencyData(buf);
+  analyser.getFloatTimeDomainData(tbuf);
+  let sum = 0; for (let i = 0; i < tbuf.length; i++) sum += tbuf[i]*tbuf[i];
+  const rms = Math.sqrt(sum/tbuf.length);
+  const dbfs = 20*Math.log10(Math.max(rms, 1e-10));
+  const aliveEl = document.getElementById('alive');
+  if (dbfs > -75) { aliveEl.className = 'ok'; aliveEl.textContent = 'mic LIVE'; }
+  else { aliveEl.className = ''; aliveEl.textContent = 'stream silent — try another input'; }
+
+  const nyq = ctx.sampleRate/2, n = buf.length;
+  let pa = 0, pc = 0;
+  for (let i = 1; i < n; i++) {
+    const f = i * nyq / n;
+    if (f < 20 || f > 20000) continue;
+    let lin = Math.pow(10, (isFinite(buf[i]) ? buf[i] : -200)/10);
+    if (floorReady && floor) lin = Math.max(0, lin - floor[i]);
+    pa += lin * Math.pow(10, A_W(f)/10);
+    pc += lin * Math.pow(10, C_W(f)/10);
+  }
+  const spl = (dbfs + SPL_OFFSET);
+  const dBA = powerToRel(pa), dBC = powerToRel(pc);
+  const gap = dBC - dBA;
+  document.getElementById('spl').textContent = spl.toFixed(0) + '*';
+  document.getElementById('dba').textContent = dBA.toFixed(1);
+  document.getElementById('dbc').textContent = dBC.toFixed(1);
+  document.getElementById('gap').textContent = gap.toFixed(1);
+  const v = document.getElementById('verdict');
+  if (dbfs < -75) { v.className = 'verdict fail'; v.textContent = 'STREAM SILENT — check device / OS mute'; }
+  else if (gap >= 15) { v.className = 'verdict pass'; v.textContent = 'TONAL SIGNATURE DETECTED'; }
+  else { v.className = 'verdict fail'; v.textContent = 'no tonal signature (gap < 15)'; }
+
+  const c = document.getElementById('spectrum'); const g = c.getContext('2d');
+  g.fillStyle = '#0c1015'; g.fillRect(0,0,c.width,c.height);
+  g.fillStyle = '#3bcf74';
+  const bw = c.width / 64;
+  for (let b = 0; b < 64; b++) {
+    const i0 = Math.floor(Math.pow(b/64, 2) * n * 0.5);
+    let peak = -200; for (let i = i0; i < i0 + bw && i < n; i++) peak = Math.max(peak, buf[i]);
+    const h = Math.max(2, (Math.max(peak, -100) + 100) / 100 * c.height);
+    g.fillRect(b*bw, c.height - h, bw-2, h);
+  }
+  requestAnimationFrame(loop);
+}
+
+async function listDevices() {
+  const sel = document.getElementById('device');
+  try {
+    const devs = await navigator.mediaDevices.enumerateDevices();
+    devs.filter(d => d.kind === 'audioinput').forEach(d => {
+      const o = document.createElement('option'); o.value = d.deviceId;
+      o.textContent = d.label || 'input ' + d.deviceId.slice(0, 6);
+      sel.appendChild(o);
+    });
+  } catch (e) {}
+}
+listDevices();
+
+let osc = null, tctx = null;
+document.querySelectorAll('.tone').forEach(b => b.onclick = () => {
+  tctx = tctx || new (window.AudioContext || window.webkitAudioContext)();
+  if (osc) osc.stop();
+  osc = tctx.createOscillator(); osc.frequency.value = +b.dataset.f;
+  const g = tctx.createGain(); g.gain.value = 0.2;
+  osc.connect(g); g.connect(tctx.destination); osc.start();
+});
+document.getElementById('stopTone').onclick = () => { if (osc) { osc.stop(); osc = null; } };
+</script>
+</body>
+</html>
