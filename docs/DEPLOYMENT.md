@@ -2,7 +2,31 @@
 
 Verified October 18, 2026, in Chrome 155 on Windows.
 
-## Current public community-map release
+## Current automatic street-map release
+
+Public [tonalwatch.vercel.app](https://tonalwatch.vercel.app) is READY from main
+commit `cb79bd23919575bd607aafd6269652b4143dbc7b`, deployment
+`dpl_ANe2uzWAmLw9UnJQWeTELkBkoQ24`. The immutable URL is
+`https://tonalwatch-qua1yp25i-antigro09s-projects.vercel.app`. Street tiles now
+load when the community map opens. Connection recovery retries automatically;
+failed tiles leave the directory and public observations available with a retry
+action. The privacy notice explains the automatic OpenStreetMap request.
+
+All 497 tests and strict TypeScript/Vite build passed. An API-local TypeScript
+configuration separates server types from browser/test globals; the final
+production build completed without the earlier missing-type diagnostics. Six
+current public frontend artifacts matched the local build byte for byte, and
+the real community API returned a valid feed with HTTP 200.
+
+Fifteen local browser checks covered automatic loading, navigation cleanup,
+offline/online recovery, rapid reconnect and intentional tile failure/retry.
+Four expected request errors belong to that intentional failure test. Fourteen
+public checks covered automatic tiles, explicit city search, real public-feed
+reads, and 320/390/1280 px layouts at scale 1. The public run had no page or
+console errors. No posts or model inference were requested in these checks.
+See [automatic-map evidence](qa/2026-10-18-auto-street-map.json).
+
+## Previous public community-map release
 
 Public [tonalwatch.vercel.app](https://tonalwatch.vercel.app) is READY from main
 commit `6a9f558eedc55b7839e45b1058d005f333089c3b`, deployment

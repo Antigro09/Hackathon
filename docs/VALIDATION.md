@@ -4,6 +4,17 @@ Build date: **October 18, 2026 (America/New_York)**. This record distinguishes s
 
 **Current application/lab status:** **497 tests across 27 files**, with strict TypeScript/Vite build passed. The public community map passed real persistence, independent-visitor, retry, privacy and removal checks; all 32 release assets, including the unchanged 23 opaque AI payloads, matched. Observation accepts live microphone capture only. The UI keeps all three durations, the input meter, negative-dB explanations, concise text exports and the printed spectrum. The AI copy uses deterministic, independently checked resampling. See [deployment evidence](DEPLOYMENT.md). Historical test runs remain separately labeled.
 
+## Automatic street-map follow-up
+
+Street tiles load automatically when the map opens, recover on reconnect and
+show retry only after failure. Fifteen local checks passed, including deliberate
+tile failure and offline recovery; four expected request errors were confined
+to the deliberate failure. Fourteen public checks passed with no page/console
+errors, explicit city search and working layouts at 320/390/1280 px. The final
+server-type configuration build was clean; six frontend artifacts matched and
+the real public feed returned HTTP 200. No public writes or model queries were
+performed. [Evidence](qa/2026-10-18-auto-street-map.json).
+
 ## Public community map
 
 The current map replaces synthetic example pins with shared, self-reported
