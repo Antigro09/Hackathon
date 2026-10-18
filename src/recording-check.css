@@ -1,0 +1,18 @@
+.recording-check{min-width:0;margin:25px 0;padding:22px;border:1px solid #cad4c6;border-radius:12px;background:#f3f6ee;color:#243c31;font-size:14px;line-height:1.65;overflow-wrap:anywhere}
+.recording-check-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.recording-check h3{margin:0;font-size:20px;line-height:1.35}
+.recording-check-status{padding:5px 10px;border:1px solid #b5c5ae;border-radius:6px;background:#e4edda;font-size:12px;font-weight:700;line-height:1.5}
+.recording-check-caution .recording-check-status{background:#f4eacb;border-color:#dbc99c;color:#614719}
+.recording-check-retake .recording-check-status{background:#f3e0d9;border-color:#d7b9aa;color:#743c27}
+.recording-check-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0;padding:16px 0;border-top:1px solid #d8dfd1;border-bottom:1px solid #d8dfd1}
+.recording-check-facts>div,.recording-check-processing dl>div{min-width:0}
+.recording-check dt{font-size:12px;color:#596c5e}
+.recording-check dd{margin:3px 0 0;font-weight:650}
+.recording-check h4{font-size:14px;margin:0 0 10px}
+.recording-check-processing dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0}
+.recording-check-processing p{font-size:12px;color:#596c5e;margin:10px 0 0}
+.recording-check-advice{margin:20px 0;padding-left:20px}
+.recording-check-advice li+li{margin-top:10px}
+.recording-check .recording-check-boundary{font-size:12px;color:#526459;margin:18px 0 0;padding-top:14px;border-top:1px solid #d8dfd1}
+@media(max-width:650px){.recording-check{padding:17px}.recording-check-facts,.recording-check-processing dl{grid-template-columns:minmax(0,1fr);gap:12px}}
+@media print{.recording-check{background:#fff;border-color:#777;color:#111;break-inside:auto}.recording-check h3{break-after:avoid}.recording-check-status,.recording-check-caution .recording-check-status,.recording-check-retake .recording-check-status{background:#fff;color:#111;border-color:#777}.recording-check dd,.recording-check dt,.recording-check-processing p,.recording-check .recording-check-boundary{color:#111}.recording-check-facts>div,.recording-check-processing dl>div,.recording-check-advice li{break-inside:avoid}}

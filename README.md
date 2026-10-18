@@ -9,6 +9,8 @@ TonalWatch helps residents document recurring noise near data centers: record a 
 
 The app reports **uncalibrated weighted digital levels**, a captured-spectrum C−A difference, and a separate experimental sustained-peak indicator. Optional local AI can suggest one of five broad sound families or leave a sound unclassified. These limited experimental hints do not identify equipment, establish legal compliance, or replace a qualified acoustic measurement. A weak or inconclusive result still supports a descriptive observation.
 
+**Recording check:** every completed observation now reviews the actual recorded window, digital capture/analysis flags, and browser-reported echo cancellation, noise suppression and automatic gain control. It recommends a retake or explains limitations. This check does not certify microphone fidelity. **Data-center-specific AI comparison remains unvalidated**; broad sound identification and digital usability are separate results. See the [reference-audio review and validation requirements](docs/DATACENTER_AUDIO_READINESS.md).
+
 **V3 release status, October 18, 2026:** the frozen comparison against the website's actual eight-description baseline passed all recorded relative recognition criteria. The mounted V3 app passed local build and browser QA; public V3 HTTPS deployment is verified at source `3488836`. See [measured results and remaining limits](docs/AI_V3_RESULTS.md) and [browser evidence](docs/qa/2026-10-18-v3-browser.json); [public release evidence](docs/qa/2026-10-18-v3-public.json) records the deployed V3 workflow. Earlier deployment records remain historical.
 
 ## Run locally

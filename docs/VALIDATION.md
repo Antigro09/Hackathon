@@ -2,7 +2,34 @@
 
 Build date: **October 18, 2026 (America/New_York)**. This record distinguishes software checks from browser integration and physical measurement validation. Current algorithm: **`tw-screen-v2`**; earlier v1 checks remain historical evidence for unchanged weighting/PSD and their original peak-selection method.
 
-**Current application/lab status:** **497 tests across 27 files**, with strict TypeScript/Vite build passed. The public community map passed real persistence, independent-visitor, retry, privacy and removal checks; all 32 release assets, including the unchanged 23 opaque AI payloads, matched. Observation accepts live microphone capture only. The UI keeps all three durations, the input meter, negative-dB explanations, concise text exports and the printed spectrum. The AI copy uses deterministic, independently checked resampling. See [deployment evidence](DEPLOYMENT.md). Historical test runs remain separately labeled.
+**Current application/lab status:** **529 tests across 28 files**, with strict TypeScript/Vite build passed. The public community map passed real persistence, independent-visitor, retry, privacy and removal checks; all 32 release assets, including the unchanged 23 opaque AI payloads, matched. Observation accepts live microphone capture only. The UI keeps all three durations, the input meter, negative-dB explanations, concise text exports and the printed spectrum. The AI copy uses deterministic, independently checked resampling. See [deployment evidence](DEPLOYMENT.md). Historical test runs remain separately labeled.
+
+## Recording usability and sound identification
+
+The Recording check is a deterministic interpretation of the actual result's
+recorded duration, sample/frame shape, quality flags, analysis availability and
+three reported processing settings. Thirty-two additional tests cover all six
+supported duration/rate combinations, early zero-frame analysis exits, clipping
+after the AI's first-five-second window, active/missing processing settings and
+source/fidelity boundaries. It never claims the requested capture duration was
+completed merely from the currently selected control. A near-full-scale warning
+remains a caution while the existing AI block remains unchanged.
+
+A generated 63 Hz/48 kHz virtual microphone passed the actual 15-second capture,
+meter, Recording check (720,000 samples/174 complete frames), visible AI scope
+notice, report and unchanged print-spectrum path. Observation and Sources fit
+320/390/1280 px at viewport scale 1 with reachable footers and no page/console
+errors. No model inference or audio upload was requested for this UI check.
+An initial harness assertion ran before Sources navigation committed; the
+corrected check waits for its heading. An attempted same-document hash navigation
+preserved the session, as intended; a fresh reload preceded the final clean run.
+
+This feature changes interpretation and display, not the frozen classifier,
+quality gates, DSP, reports or community schema. No candidate was trained or
+promoted. The [reference-audio audit](DATACENTER_AUDIO_READINESS.md) records the
+absence of a qualified outdoor source-attribution dataset in its bounded search;
+indoor server-room examples do not qualify data-center identification or faithful
+microphone capture.
 
 ## Automatic street-map follow-up
 

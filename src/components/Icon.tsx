@@ -1,4 +1,4 @@
-export function Icon({ name, size = 20 }: { name: 'home' | 'wave' | 'arrow' | 'mic' | 'file' | 'demo' | 'check' | 'shield' | 'external' | 'download' | 'print'; size?: number }) {
+export function Icon({ name, size = 20 }: { name: 'home' | 'wave' | 'arrow' | 'mic' | 'file' | 'demo' | 'check' | 'shield' | 'info' | 'external' | 'download' | 'print'; size?: number }) {
   const paths = {
     home: 'm3 10 9-7 9 7v11h-7v-7h-4v7H3V10',
     wave: 'M2 12h4l2-7 4 14 4-16 3 12 2-3h2',
@@ -8,6 +8,7 @@ export function Icon({ name, size = 20 }: { name: 'home' | 'wave' | 'arrow' | 'm
     demo: 'M9 3h6m-5 0v6L4 19a1.4 1.4 0 0 0 1 2h14a1.4 1.4 0 0 0 1-2L14 9V3M8 14h8',
     check: 'm5 12 4 4L19 6',
     shield: 'm12 2 8 3v6c0 5-8 11-8 11S4 16 4 11V5l8-3m-4 10 3 3 5-6',
+    info: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20m0 5v1m0 3v6',
     external: 'M14 3h7v7m0-7L10 14m-1-9H3v16h16v-6',
     download: 'M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5',
     print: 'M7 8V2h10v6M6 17H3V8h18v9h-3M7 14h10v8H7z',
