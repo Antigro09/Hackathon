@@ -188,17 +188,24 @@ function TonePlayer({ disabled = false, onPlaybackChange }: LearnPlaybackProps) 
     </div>
     {disabled && <p className="learn-disabled" role="status">Tone playback is unavailable while an observation is being captured or analyzed.</p>}
     {state.error && <p className="learn-error" role="alert">{state.error}</p>}
-    <p className="learn-player-note">Listening demonstration only; not a microphone calibration. Stop playback before recording an observation. No recording, download, or external audio service is used.</p>
+    <p className="learn-player-note">Data centers emit most of their bothersome noise at LOW frequencies — 63 Hz is right in the hum band. Listening demonstration only; not a microphone calibration. Stop playback before recording an observation. No recording, download, or external audio service is used.</p>
     <p className="learn-print-tones">Synthetic listening frequencies: 63 Hz, 125 Hz, 500 Hz, 1 kHz, and 8 kHz. Playback requires a click and is stopped for printing.</p>
   </section>;
 }
 
 function WeightingExplanation() {
   return <>
+    <article className="learn-gap" style={{marginBottom:'18px'}}><h3>Why your meter and your ears disagree</h3>
+      <p>Sound meters &quot;hear&quot; the way a standard ear-weighting hears &mdash; and the standard (A-weighting) barely hears bass. That&apos;s why a hum that&apos;s keeping you up at night can read as &quot;quiet&quot; on the county&apos;s meter. TonalWatch measures twice: once the way the law hears (A-weighting), once the way your body hears it (C-weighting)</p>
+      <p><strong>When C is much higher than A, there&apos;s a low hum the county&apos;s number can&apos;t see.</strong> That gap is what TonalWatch shows you.</p>
+    </article>
     <div className="learn-weighting-grid">
-      <article className="learn-weighting-card"><p className="eyebrow">A-weighting</p><h3>Less contribution from low frequencies</h3><p>A-weighting reduces the contribution of low frequencies more than C-weighting.</p></article>
-      <article className="learn-weighting-card"><p className="eyebrow">C-weighting</p><h3>More of the captured low frequencies</h3><p>TonalWatch applies these two frequency weightings to the same captured digital samples.</p></article>
+      <article className="learn-weighting-card"><p className="eyebrow">A-weighting</p><h3>The law&apos;s ear</h3><p>Mimics how human hearing behaves at quiet volumes &mdash; it deeply discounts low frequencies, treating a strong bass hum as if it were almost silent.</p></article>
+      <article className="learn-weighting-card"><p className="eyebrow">C-weighting</p><h3>Your body&apos;s ear</h3><p>Nearly flat &mdash; it &quot;hears&quot; the low frequencies the way your chest and walls do. Both weightings are applied to the same capture, so the difference between them is a real signal, not noise.</p></article>
     </div>
+    <details style={{margin:'12px 0'}}><summary><strong>For the student who wants the mechanics</strong></summary>
+      <p style={{padding:'8px 4px'}}>A- and C-weighting are standardized sensitivity curves (IEC 61672). A steeply discounts energy below ~500 Hz &mdash; at 63 Hz the A-curve applies roughly &minus;26&nbsp;dB relative to 1&nbsp;kHz; C is nearly flat. Both applied to the same recording: the difference C&minus;A isolates the low-frequency share, and any constant volume offset cancels because both ride the same gain. That&apos;s why the gap &mdash; not either number alone &mdash; is the signature of the hum family. Data center cooling plants (fan walls, chillers, compressors) concentrate their energy exactly in this low band, around 50&ndash;250&nbsp;Hz &mdash; which is also where the A-weighting is the most deaf.</p>
+    </details>
     <p className="learn-digital-note">These are uncalibrated weighted digital levels, not sound-pressure levels or a direct measure of discomfort. A speaker or microphone may reproduce low frequencies poorly.</p>
     <article className="learn-gap"><p className="eyebrow">The C−A difference</p><h3>One spectrum, two weightings</h3><p>C-weighted digital level minus A-weighted digital level describes the captured spectrum. A larger difference can suggest low-frequency contribution. It does not by itself establish a tone, identify its source, measure what someone feels, or determine legal compliance. The sustained-peak indicator is a separate experimental check.</p></article>
   </>;
@@ -267,7 +274,7 @@ export function LearnPanel({ result = null, ...playback }: LearnProps) {
 
 export function LearnPage({ result = null, ...playback }: LearnProps) {
   return <main id="main-content" tabIndex={-1} className="page-shell learn-page">
-    <div className="page-heading"><p className="eyebrow">Listen, then interpret carefully</p><h1>Learn the signal</h1><p>Explore frequency, digital weighting, and the difference between two independent screening indicators.</p><button type="button" className="button secondary learn-print-button" onClick={() => window.print()}>Print learning guide</button></div>
+    <div className="page-heading"><p className="eyebrow">Noise, explained plainly</p><h1>Learn more about data center noise</h1><p>Why data center hum bothers people, why normal meters miss it, and how TonalWatch hears the difference.</p></div>
     <div className="panel learn-panel"><TonePlayer {...playback}/><WeightingExplanation/><p className="learn-honesty">{honestyLine}</p></div>
     <div className="panel learn-panel learn-exhibit-panel"><LowFrequencyExhibit result={result}/></div>
     <section className="panel learn-examples" aria-label="Synthetic examples of independent indicators"><p className="eyebrow">Synthetic examples</p><h2>A large gap and a sustained peak answer different questions</h2><p>These illustrative signal types show why the two indicators need separate interpretation. The tone player is a listening aid; microphone observations measure the sound around you.</p><div className="learn-example-grid"><article><span>Synthetic · 1 kHz tone</span><h3>A peak with almost no gap</h3><p>The A and C curves are normalized near 1 kHz, so this clear sustained tone has a C−A difference close to zero.</p></article><article><span>Synthetic · Low-frequency broadband</span><h3>A large gap without an isolated sustained peak</h3><p>This generated noise concentrates energy at low frequencies. It demonstrates low-frequency contribution without a persistent isolated peak under the prototype heuristic.</p></article></div><a className="button secondary" href="#/measure">Record an observation</a></section>
