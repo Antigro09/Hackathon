@@ -1,12 +1,14 @@
-# Field Validation Findings — TonalWatch (804 Hacks, 2026-10-18)
+# Exploratory Field Findings — TonalWatch (804 Hacks, 2026-10-18)
 
-**Protocol:** stationary, 15 s captures (E1: 5/15/30 s ladder), 3 per condition, gap = C−A, threshold 15 dB.
+**Status:** These are exploratory **legacy/unverified observations**, not completed instrument validation or confirmed tonal/source findings. The raw CSV is preserved. [FIELD_REVIEW.md](FIELD_REVIEW.md) records its SHA256, arithmetic checks, missing metadata and interpretation limits. `SIGNATURE` and `borderline` below are archived software labels.
+
+**Reported protocol:** mostly stationary, 15 s selections (E1: 5/15/30 s ladder), three repeats per E1/E2 condition; E4 includes walking. Gap = C−A, intended threshold 15 dB. The export does not establish actual analyzed durations.
 **Instrument:** `field_lab.html` standalone; CSV export; provenance = "legacy-unverified" (honest label).
-**Raw data:** `FIELDTEST1.csv` (29 captures, 12:28–12:48, same-day venue measurements).
+**Raw data:** `FIELDTEST1.csv` (29 entries, observer clock notes 12:28–12:48; reported same-day venue observations).
 
-## E2 — The Distance Law (headline finding)
+## E2 — Distance observations (headline hypothesis)
 
-Stairwell AC unit, same source, three distances, three captures each:
+Observer-identified stairwell AC unit, three estimated distances, three entries each. Source identity and unchanged operating conditions were not independently established:
 
 | Distance | Gap (C−A) mean | sd   | A level mean |
 |----------|----------------|------|--------------|
@@ -14,13 +16,13 @@ Stairwell AC unit, same source, three distances, three captures each:
 | 8 m      | 8.7 dB         | 2.11 | −73.5 dB     |
 | **15 m + floor between** | **20.3 dB** | **0.67** | −80.1 dB |
 
-**Three consecutive SIGNATURE verdicts (21.1 / 20.0 / 19.9 dB, sd 0.67) at 15 m — through a floor.**
+**Three consecutive legacy SIGNATURE labels (21.1 / 20.0 / 19.9 dB, sd 0.67) at the observer-reported 15 m position with a floor between.** These labels do not confirm a tone or its transmission path.
 
-- Raw level DROPPED ~7 dB with distance (−73 → −80), correctly reporting "quieter."
-- The GAP ROSE from 6 to 20 dB. **Levels fall off with distance; the tonal signature does not — it grows more prominent as broadband masking drops.** This is the miniature of the data-center complaint mechanism (NBC4: hum audible >1 mile from the fence line). The county's dBA standard reads "quieter" with distance; the gap reads "still tonal."
-- Physics check: A-weighting discounts low-frequency tone energy; when the broadband masking floor decays faster (higher frequencies attenuate faster with distance + indoor absorption), the tone's relative prominence increases. Measured, not modeled.
+- The recorded A-weighted digital summary fell ~7 dB (−73 → −80). This is not a calibrated raw sound-pressure level or a verified acoustic attenuation measurement.
+- The recorded GAP ROSE from 6 to 20 dB. A larger C−A difference is consistent with a change in captured low-frequency contribution. It does not establish a sustained narrowband tone. Distance, floor/position, source activity, background sound and microphone processing were not isolated.
+- Observer hypothesis to retest: changing broadband background content could change C−A while the sound remains audible. The proposed analogy to data-center complaints and county measurements was not tested by these entries.
 
-## E1 — The Duration Law
+## E1 — Duration observations
 
 Same spot (stairwell @ 2 m), three captures per duration:
 
@@ -30,39 +32,39 @@ Same spot (stairwell @ 2 m), three captures per duration:
 | 15 s     | 2.44   | 5.8–10.3 |
 | 30 s     | **0.29** | 5.1–5.6 |
 
-**30 s captures are the most stable (sd 0.29); 15 s is workable; 5 s is noisier.** One 15 s outlier (10.3, borderline) shows the practical risk of short windows. **Protocol conclusion: field protocol = 15 s minimum; 30 s preferred for evidence-grade captures.** This matches the county procedure's ≥15-second sample rule.
+**The three entries labeled 30 s have the lowest observed sd (0.29). The 15 s group is more variable than the 5 s group here (2.44 versus 0.75).** The 15 s value 10.3 carries a legacy borderline label and remains included. Three repeats per duration, changing conditions and missing sample/frame metadata cannot establish a duration law. A 15/30 s follow-up protocol is a proposal to test with verified full-window PCM analysis; these entries do not establish evidence-grade captures or compliance with a county sampling procedure.
 
-## E3 — The Masking Law
+## E3 — Masking hypothesis
 
 Kitchen-corner spot, freezer audible to ears:
 
-- Quiet corner: gap 9.0 dB (borderline-ish)
+- Quiet corner (observer description): gap 9.0 dB (legacy not-indicated)
 - With hall noise / activity: **gap 0.6 dB, 3.2 dB**
 
-**Broadband human/activity noise collapsed the gap from 9 to ~1–3 dB.** The tone didn't stop — the masking floor hid it from the weighting. Measured demonstration of auditory masking: the same reason data-center hum complaints are worse at night, in quiet suburbs, and inside homes near the fence line.
+**The recorded gap changed from 9 to ~1–3 dB during observer-described hall noise/activity.** The observer continued to note "freezer in kitchen audible" in all three entries. Changing broadband content is a hypothesis consistent with the pattern; these summaries cannot establish auditory masking, constant source output, or an explanation for nighttime data-center complaints.
 
 ## E5 — Signature Hunt (elevator, refrigerator)
 
-- Elevator fan @ 15 m: **12.2 dB (borderline)** — closest non-AC hit
-- Elevator @ 1 m: 5.7–9.7 dB (closer is NOT better for gap — consistent with E2: close range = broadband components dominate)
-- Refrigerator @ 1 m: 10.2 dB borderline (5 s capture — see E1's duration law)
+- Observer-described elevator fan @ 15 m: **12.2 dB (legacy borderline)** — highest non-AC legacy gap in this set
+- Elevator @ 1 m: 5.7–9.7 dB. The observer's broadband-content explanation remains a hypothesis; these positions do not isolate distance effects.
+- Observer-described refrigerator @ 1 m: 10.2 dB legacy borderline (duration selection labeled 5 s — see E1's duration observations)
 
 ## Cross-cutting observations
 
-- All 29 captures: gap range 0.6–21.1 dB; the instrument discriminates conditions, no pegging, no dead zones.
-- Verdict distribution: 3 SIGNATURE, 5 borderline, 21 not-indicated — the instrument says "no" most of the time in a normal building, and "yes" with confirmations exactly where a tonal source dominates. **A detector that screams everywhere is useless; this one doesn't.**
-- Ears-vs-instrument agreement: rumbling audible at 15 m ("CAN HEAR RUMBLING" in the log) = the two highest gap rows. Human ears and the gap agree.
+- All 29 entries: recorded gap range 0.6–21.1 dB. This shows variation in the archived summaries; sensitivity, saturation and missed sounds were not independently tested.
+- Archived verdict distribution: **3 SIGNATURE, 6 borderline, 20 not-indicated**. These are descriptive counts, not confirmed positives/negatives or an accuracy estimate. C−A alone does not establish that a detector fires only on tonal sources.
+- Observer hearing notes: "CAN HEAR RUMBLING" occurs in rows 17/18 (20.0/19.9 dB), two of the three highest gaps. The highest gap, row 16 (21.1 dB), has a different note. The coexistence of an audible report and a large gap does not independently establish tonality or source identity.
 
 ## Honest-claims labeling (per plan §4.3)
 
-- All levels are digital (dB re RMS 1), uncalibrated — levels compare only within-device, same-session.
-- The gap is the robust cross-condition number (offset cancels); device-fair within this session's mic.
-- Source class: residential/commercial HVAC + elevator + kitchen refrigeration = **same equipment class as data-center cooling plant** (fan banks, compressors, transformers — documented tone band 50–250 Hz). NOT a data center; the signature class and physics are the claimed commonality.
-- Sample: 29 captures, one building, one mic chain, one afternoon. Findings are directional, statistically modest, honest.
+- Recorded A/C values are uncalibrated digital summaries. The legacy export does not establish estimator normalization, acoustic response, browser processing or a sound-pressure reference.
+- A constant scalar gain can cancel in C−A; frequency response, processing and contamination still affect it. Device fairness and cross-condition reliability were not established here.
+- HVAC, elevator and refrigeration names are observer interpretations. Similarity to data-center cooling equipment and a 50–250 Hz source band remain pitch hypotheses; no retained waveform or spectrum establishes that band or equipment identity for these entries.
+- Sample: 29 entries, reportedly one building, one mic chain, one afternoon. Repeats are not independent buildings/devices, and the small sample supports exploratory follow-up.
 
 ## What this means for the pitch (one line each)
 
-1. "We validated the instrument in the field the same day we built it — 29 captures, four experiments."
-2. "The headline: with distance, raw level falls but the tonal gap RISES — the county's dBA metric says 'quieter' while the tonal signature grows. That's the measurement failure our tool fixes."
-3. "Masking, measured: normal human activity closes the gap from 9 dB to 1 dB — the physics of why these complaints arrive at night."
-4. "Instrument discrimination: 21 quiet-building readings, 5 borderline, 3 confirmed signatures — a detector that only fires on tonal sources."
+1. "We collected 29 exploratory legacy observations across five experiment labels; the raw notes are retained and the measurement method needs verified follow-up."
+2. "At the observer-reported stairwell positions, recorded A values fell while C−A rose. We want to retest the background-content explanation with retained audio and controlled conditions."
+3. "During observer-described activity, recorded gaps changed from 9.0 to 0.6/3.2 dB. That is a hypothesis-generating observation, not a demonstrated cause of complaints."
+4. "The archive contains 20 not-indicated, 6 borderline and 3 SIGNATURE labels. Independent tone/source checks are needed before claiming detector accuracy."
