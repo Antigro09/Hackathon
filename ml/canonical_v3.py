@@ -236,6 +236,13 @@ def load_canonical_batches(
             source = row.get("source_record")
             if not isinstance(source, dict) or source.get("clip_id") != clip or source.get("label") != label or source.get("split") != row.get("split") or source.get("uploader") != row.get("uploader"):
                 raise ValueError("Source record identity differs")
+            for role_key in ("role", "v3_role"):
+                if role_key in source and source[role_key] != role:
+                    raise ValueError("Assigned role differs from frozen source role")
+            if source.get("split") in ROLES and source["split"] != role:
+                raise ValueError("Assigned role differs from frozen development split")
+            if "v3_phase" in source and source["v3_phase"] != phase:
+                raise ValueError("Assigned phase differs from frozen source phase")
             dataset = _text(source.get("dataset"), "dataset")
             if "mimii" in dataset.casefold():
                 raise ValueError("MIMII is excluded from v3 source policy; parity goldens are not training data")
@@ -249,6 +256,11 @@ def load_canonical_batches(
             uploader = _group(row.get("uploader"))
             original_group = _group(source.get("uploader_group", source.get("uploader")))
             group = _group(group_by_clip_id[clip]) if group_by_clip_id is not None and clip in group_by_clip_id else original_group
+            if "v3_group" in source:
+                frozen_group = _text(source["v3_group"], "frozen v3 group")
+                raw_group = group_by_clip_id[clip] if group_by_clip_id is not None and clip in group_by_clip_id else source.get("uploader_group", source.get("uploader"))
+                if raw_group != frozen_group or group != frozen_group:
+                    raise ValueError("Effective model group differs from frozen v3 lineage group; pass the frozen group map")
             identities = {("model-group", group), ("source-owner", original_group), ("uploader", uploader)}
             for key in ("hive_id", "session_id", "session_group", "source_group", "source_recording_id", "recording_group"):
                 if source.get(key) is not None:

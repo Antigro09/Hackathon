@@ -146,6 +146,23 @@ class CanonicalV3Tests(unittest.TestCase):
         result=load_canonical_batches([batch],{'a':'train','b':'unknown_train'})
         self.assertEqual(result.groups.tolist(),['shared','shared'])
 
+    def test_frozen_union_group_cannot_fall_back_to_specimen_or_be_overridden(self):
+        frozen='v3-lineage:'+digest('shared-collection')
+        batch=make_batch(self.directory,'union',[source('a',v3_group=frozen,role='train',v3_phase='train',split='train')])
+        for overrides in [None,{'a':'a-owner'},{'a':frozen.upper()}]:
+            with self.subTest(overrides=overrides),self.assertRaisesRegex(ValueError,'frozen v3 lineage'):
+                load_canonical_batches([batch],{'a':'train'},group_by_clip_id=overrides)
+        result=load_canonical_batches([batch],{'a':'train'},group_by_clip_id={'a':frozen})
+        self.assertEqual(result.groups.tolist(),[frozen]);self.assertEqual(result.records[0]['original_source_group'],'a-owner')
+
+    def test_source_frozen_role_phase_and_explicit_development_split_cannot_be_remapped(self):
+        for index,changes in enumerate([{'role':'train'},{'v3_role':'train'},{'v3_phase':'train'},{'split':'train'}]):
+            batch=make_batch(self.directory,f'frozenrole{index}',[source('a',**changes)])
+            with self.subTest(changes=changes),self.assertRaisesRegex(ValueError,'frozen'):
+                load_canonical_batches([batch],{'a':'audit'})
+        batch=make_batch(self.directory,'frozen-unknown',[source('a',label='background',role='unknown_train',v3_phase='train',split='unknown_train')])
+        self.assertEqual(load_canonical_batches([batch],{'a':'unknown_train'}).roles.tolist(),['unknown_train'])
+
     def test_roles_are_explicit_and_exact(self):
         batch=make_batch(self.directory,'roles',[source('a')])
         for mapping in [{},{'a':'test'},{'a':'unknown_train'},{'a':'train','extra':'audit'}]:
