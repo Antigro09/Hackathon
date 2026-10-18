@@ -13,7 +13,7 @@ export function ReportView({ report }: { report: ReportModel }) {
         <p className="eyebrow">TonalWatch · observation packet</p>
         <h1 id="report-title">{report.title}</h1>
         {report.isSynthetic && <p>TonalWatch noise observation — screening only.</p>}
-        <p>Uncalibrated screening only. No source identification or legal-compliance determination.</p>
+        <p>Uncalibrated screening only. We cannot confirm any sources or if the screening truly is validated and available for legal examination.</p>
       </header>
       {report.sections.map(section => (
         <Fragment key={section.title}><section className={`report-section ${section.rows.length <= 5 && section.paragraphs.join('').length + section.rows.map(item => item.value).join('').length < 1800 ? 'compact-section' : ''}`}>
