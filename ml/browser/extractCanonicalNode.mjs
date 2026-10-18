@@ -76,6 +76,7 @@ const contract = {...CANONICAL_ENCODER, repeatCount: repeats, manifestSha256: sh
   runtimeHashes, transformersBrowserBundleSha256: sha(Buffer.from(source)), preprocessorSha256: sha(configBytes),
   preprocessingRuntimeOverride: 'Transformers.js documented Symbol.for(onnxruntime) override bound to the same ORT-Web WASM bundle',
   resamplerSourceSha256: sha(fs.readFileSync(path.join(root, 'src/ai/resample.ts'))), compiledResamplerSha256: sha(Buffer.from(resamplerJs)),
+  modelConfigSourceSha256: sha(fs.readFileSync(path.join(root, 'src/ai/model.ts'))), compiledModelSha256: sha(Buffer.from(modelJs)),
   encoderSourceSha256: sha(fs.readFileSync(path.join(root, 'ml/browser/canonicalEncoder.mjs'))), runnerSourceSha256: sha(fs.readFileSync(fileURLToPath(import.meta.url))),
   checkpointValidatorSha256: sha(fs.readFileSync(path.join(root, 'ml/browser/canonicalCheckpoint.mjs'))),
   environment: {node: process.version, v8: process.versions.v8, platform: process.platform, architecture: process.arch},
@@ -89,6 +90,7 @@ const goldens = goldenDocument ? new Map(goldenDocument.records.map(row => [row.
 if (goldens && (goldens.size !== manifest.records.length || manifest.records.some(row => !goldens.has(row.clip_id)))) throw new Error('Golden comparison must cover exactly the same clip IDs');
 if (goldenDocument) {
   if (goldenDocument.contract.modelSha256 !== CANONICAL_ENCODER.modelSha256 || goldenDocument.contract.upstreamTransformersSha256 !== contract.transformersBrowserBundleSha256 || goldenDocument.contract.resamplerSourceSha256 !== contract.resamplerSourceSha256 || goldenDocument.contract.files['/canonicalEncoder.mjs']?.sha256 !== contract.encoderSourceSha256) throw new Error('Golden encoder/preprocessor/resampler identity changed');
+  if (goldenDocument.contract.files['/app/model.js']?.sha256 !== contract.compiledModelSha256) throw new Error('Golden resampler configuration changed');
   for (const [filename, value] of Object.entries(runtimeHashes)) {
     const route = filename.startsWith('ort-wasm') ? `/runtime/${filename}` : `/${filename}`;
     if (goldenDocument.contract.files[route]?.sha256 !== value.sha256) throw new Error('Golden WASM bytes changed');
