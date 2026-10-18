@@ -1,0 +1,1239 @@
+{
+  "schemaVersion": 1,
+  "kind": "deployed-community-map-browser-verification",
+  "sourceCommit": "6a9f558eedc55b7839e45b1058d005f333089c3b",
+  "deployment": "dpl_2ajcVoTdB9PPnuPNYsF8QgQz4Bcf",
+  "url": "https://tonalwatch.vercel.app",
+  "checkedAtUtc": "2026-10-18T19:25:38.741Z",
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+  "microphoneFixture": "Generated 63 Hz/48 kHz mono through Chrome virtual microphone; software QA, not a field recording.",
+  "results": {
+    "initial": {
+      "publicFeed": true,
+      "beforeActionThirdPartyRequests": 0,
+      "noAutomaticPublication": true
+    },
+    "discovery": {
+      "facilityPins": 92,
+      "firstFacility": "OSM TAG · NOT A NOISE READING\n\nNTT VA9\n\nOperator tag: NTT\n\n2.8 km from search center · facility-tag\n\nApproximate bounding-box center: 39.020, -77.476\n\nSource tags\nOriginal OSM record ↗\nShow facility pin ↗",
+      "source": [
+        "Retrieved 10/18/2026, 3:23:52 PM. © OpenStreetMap contributors · ODbL · Snapshot via OpenDatacenterMap · 2026-10-18 · Download the complete ODbL source snapshot",
+        "Directory snapshot: 2026-10-18. 5,035 catalog records; 92 matching tags shown within 5 km. This is not a live OSM update.Directory source detailsPublisher generation time: 2026-10-18T00:21:18.778606 (timezone unspecified).Snapshot SHA256: 69e8c95a052c6e25d4ad4c2d6431327ed977ccca54fb12e036c7f9c9ff4a1a45"
+      ],
+      "geocoderRequests": 1,
+      "facilitySnapshotRequests": 1
+    },
+    "capture": {
+      "liveMeter": "-26.4 dB relative to RMS 1",
+      "plot": "Frequency spectrum\n15.00 s · 48.0 kHz",
+      "fullNativeMicrophone": true,
+      "automaticAiRequests": 0
+    },
+    "report": {
+      "spectrumCharacters": 6579,
+      "printedSpectrumUnchanged": true,
+      "privateNotesRemainInPrivateReport": true,
+      "nativeDownload": "tonalwatch-observation-2026-10-18.txt",
+      "text": {
+        "bytes": 5912,
+        "lines": 94,
+        "sha256": "10155725bb07c60933f3e113caf43e34728f3bffea6b1d128eb2f6f4f0959bb0",
+        "rawSpectrumBinRows": 0
+      }
+    },
+    "layouts": [
+      {
+        "route": "/",
+        "width": 320,
+        "document": 320,
+        "scale": 1,
+        "footer": {
+          "top": 781.234375,
+          "bottom": 899.609375,
+          "viewport": 900
+        }
+      },
+      {
+        "route": "/measure",
+        "width": 320,
+        "document": 320,
+        "scale": 1,
+        "footer": {
+          "top": 781.46875,
+          "bottom": 899.84375,
+          "viewport": 900
+        }
+      },
+      {
+        "route": "/learn",
+        "width": 320,
+        "document": 320,
+        "scale": 1,
+        "footer": {
+          "top": 781.46875,
+          "bottom": 899.84375,
+          "viewport": 900
+        }
+      },
+      {
+        "route": "/map",
+        "width": 320,
+        "document": 320,
+        "scale": 1,
+        "footer": {
+          "top": 781.90625,
+          "bottom": 900.28125,
+          "viewport": 900
+        }
+      },
+      {
+        "route": "/sources",
+        "width": 320,
+        "document": 320,
+        "scale": 1,
+        "footer": {
+          "top": 782.015625,
+          "bottom": 900.390625,
+          "viewport": 900
+        }
+      },
+      {
+        "route": "/report",
+        "width": 320,
+        "document": 320,
+        "scale": 1,
+        "footer": {
+          "top": 781.265625,
+          "bottom": 899.640625,
+          "viewport": 900
+        }
+      },
+      {
+        "route": "/",
+        "width": 390,
+        "document": 390,
+        "scale": 1,
+        "footer": {
+          "top": 810.125,
+          "bottom": 899.5625,
+          "viewport": 900
+        }
+      },
+      {
+        "route": "/measure",
+        "width": 390,
+        "document": 390,
+        "scale": 1,
+        "footer": {
+          "top": 810.6875,
+          "bottom": 900.125,
+          "viewport": 900
+        }
+      },
+      {
+        "route": "/learn",
+        "width": 390,
+        "document": 390,
+        "scale": 1,
+        "footer": {
+          "top": 810.578125,
+          "bottom": 900.015625,
+          "viewport": 900
+        }
+      },
+      {
+        "route": "/map",
+        "width": 390,
+        "document": 390,
+        "scale": 1,
+        "footer": {
+          "top": 810.75,
+          "bottom": 900.1875,
+          "viewport": 900
+        }
+      },
+      {
+        "route": "/sources",
+        "width": 390,
+        "document": 390,
+        "scale": 1,
+        "footer": {
+          "top": 810.5625,
+          "bottom": 900,
+          "viewport": 900
+        }
+      },
+      {
+        "route": "/report",
+        "width": 390,
+        "document": 390,
+        "scale": 1,
+        "footer": {
+          "top": 811,
+          "bottom": 900.4375,
+          "viewport": 900
+        }
+      },
+      {
+        "route": "/",
+        "width": 1280,
+        "document": 1280,
+        "scale": 1,
+        "footer": {
+          "top": 813.46875,
+          "bottom": 900.265625,
+          "viewport": 900
+        }
+      },
+      {
+        "route": "/measure",
+        "width": 1280,
+        "document": 1280,
+        "scale": 1,
+        "footer": {
+          "top": 813.59375,
+          "bottom": 900.390625,
+          "viewport": 900
+        }
+      },
+      {
+        "route": "/learn",
+        "width": 1280,
+        "document": 1280,
+        "scale": 1,
+        "footer": {
+          "top": 813.125,
+          "bottom": 899.921875,
+          "viewport": 900
+        }
+      },
+      {
+        "route": "/map",
+        "width": 1280,
+        "document": 1280,
+        "scale": 1,
+        "footer": {
+          "top": 812.90625,
+          "bottom": 899.703125,
+          "viewport": 900
+        }
+      },
+      {
+        "route": "/sources",
+        "width": 1280,
+        "document": 1280,
+        "scale": 1,
+        "footer": {
+          "top": 813.25,
+          "bottom": 900.046875,
+          "viewport": 900
+        }
+      },
+      {
+        "route": "/report",
+        "width": 1280,
+        "document": 1280,
+        "scale": 1,
+        "footer": {
+          "top": 813.078125,
+          "bottom": 899.875,
+          "viewport": 900
+        }
+      }
+    ],
+    "publication": {
+      "status": 201,
+      "roundedBeforeTransport": true,
+      "storedCoordinates": {
+        "latitude": 39.044,
+        "longitude": -77.487
+      },
+      "capture": {
+        "duration": 15,
+        "sampleRate": 48000,
+        "samples": 720000,
+        "frames": 174
+      },
+      "publicUnverified": true,
+      "independentVisitorPersistence": true,
+      "identicalRetry": true,
+      "wrongRemovalRejected": true,
+      "ownerSurvivedReload": true,
+      "removed": true,
+      "finalReadConfirmedAbsent": true,
+      "privateReportNotesNotShared": true,
+      "audioOrBinsOrAiShared": false
+    },
+    "tiles": {
+      "explicitAction": true,
+      "status": "Optional OpenStreetMap street tiles are loaded."
+    }
+  },
+  "requests": [
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/assets/ObservationMap-CwK2u3N_.js",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/assets/ObservationMap-C6XNpDn4.css",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://geocoding-api.open-meteo.com",
+      "path": "/v1/search",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/data/datacenters-osm-2026-10-18.json",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/assets/analysis.worker-BwKrUFVx.js",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "POST",
+      "bodyBytes": 584,
+      "keys": [
+        "schemaVersion",
+        "consent",
+        "inputKind",
+        "coordinates",
+        "label",
+        "note",
+        "capturedAtUtc",
+        "durationSeconds",
+        "sampleRateHz",
+        "sampleCount",
+        "frameCount",
+        "algorithmVersion",
+        "qualityCodes",
+        "aDigitalDb",
+        "cDigitalDb",
+        "cMinusADb",
+        "peakScreen",
+        "nearbyFacility",
+        "website"
+      ]
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "POST",
+      "bodyBytes": 584,
+      "keys": [
+        "schemaVersion",
+        "consent",
+        "inputKind",
+        "coordinates",
+        "label",
+        "note",
+        "capturedAtUtc",
+        "durationSeconds",
+        "sampleRateHz",
+        "sampleCount",
+        "frameCount",
+        "algorithmVersion",
+        "qualityCodes",
+        "aDigitalDb",
+        "cDigitalDb",
+        "cMinusADb",
+        "peakScreen",
+        "nearbyFacility",
+        "website"
+      ]
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/assets/index-D_DbMxHT.js",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/assets/index-GN5uF9hH.css",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/assets/ObservationMap-CwK2u3N_.js",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/assets/ObservationMap-C6XNpDn4.css",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/favicon.svg",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "DELETE",
+      "bodyBytes": 105,
+      "keys": [
+        "id",
+        "deleteToken"
+      ]
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "DELETE",
+      "bodyBytes": 105,
+      "keys": [
+        "id",
+        "deleteToken"
+      ]
+    },
+    {
+      "origin": "https://geocoding-api.open-meteo.com",
+      "path": "/v1/search",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/api/community",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tonalwatch.vercel.app",
+      "path": "/data/datacenters-osm-2026-10-18.json",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tile.openstreetmap.org",
+      "path": "/12/1166/1564.png",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tile.openstreetmap.org",
+      "path": "/12/1166/1563.png",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tile.openstreetmap.org",
+      "path": "/12/1165/1564.png",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tile.openstreetmap.org",
+      "path": "/12/1167/1564.png",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tile.openstreetmap.org",
+      "path": "/12/1166/1565.png",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tile.openstreetmap.org",
+      "path": "/12/1165/1563.png",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tile.openstreetmap.org",
+      "path": "/12/1167/1563.png",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tile.openstreetmap.org",
+      "path": "/12/1165/1565.png",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "origin": "https://tile.openstreetmap.org",
+      "path": "/12/1167/1565.png",
+      "method": "GET",
+      "bodyBytes": 0
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "audioUploads": false,
+  "privateTokensOrPublicationKeysRecorded": false,
+  "staticAssets": {
+    "schemaVersion": 1,
+    "kind": "read-only-public-static-deployment-verification",
+    "sourceCommit": "6a9f558eedc55b7839e45b1058d005f333089c3b",
+    "expectedSummary": "exact Git archive upload bytes; CRLF from Windows archive export",
+    "origin": "https://tonalwatch.vercel.app",
+    "requests": 32,
+    "canonicalPayloads": 23,
+    "appAssets": [
+      "ObservationMap-C6XNpDn4.css",
+      "ObservationMap-CwK2u3N_.js",
+      "analysis.worker-BwKrUFVx.js",
+      "index-D_DbMxHT.js",
+      "index-GN5uF9hH.css"
+    ],
+    "maxConcurrency": 4,
+    "expectedAggregateSha256": "f07dc2167d6d10a7d1341c83ecf84bd40a0b63334ae50b64bec67a5ee22ced2a",
+    "noAudioOrInference": true,
+    "startedAtUtc": "2026-10-18T19:25:52.483Z",
+    "completedAtUtc": "2026-10-18T19:25:57.545Z",
+    "localHead": "6a9f558eedc55b7839e45b1058d005f333089c3b",
+    "method": "GET",
+    "redirectsAllowed": false,
+    "credentials": "omit",
+    "responseBodiesStored": false,
+    "bodyHashScope": "decoded static asset bytes; identity encoding requested",
+    "modelInference": false,
+    "audioRequests": false,
+    "deliveredAggregateSha256": "f07dc2167d6d10a7d1341c83ecf84bd40a0b63334ae50b64bec67a5ee22ced2a",
+    "pass": true,
+    "matched": 32,
+    "records": [
+      {
+        "pathname": "/ai/canonical-v3/MODEL_NOTICE.txt",
+        "kind": "canonical-payload",
+        "expectedBytes": 1857,
+        "expectedSha256": "e13916e945aa5a47496b03b3c4c1ac915ed37c44a3d2a0eb4c705542fbe42e48",
+        "status": 200,
+        "bytes": 1857,
+        "sha256": "e13916e945aa5a47496b03b3c4c1ac915ed37c44a3d2a0eb4c705542fbe42e48",
+        "contentType": "text/plain; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/NOTICES.txt",
+        "kind": "canonical-payload",
+        "expectedBytes": 1694,
+        "expectedSha256": "9735c408346051f33908cf58af4b041cfa7316cc02dfdf968e24b87ce095489a",
+        "status": 200,
+        "bytes": 1694,
+        "sha256": "9735c408346051f33908cf58af4b041cfa7316cc02dfdf968e24b87ce095489a",
+        "contentType": "text/plain; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/TRAINING_ATTRIBUTION.json",
+        "kind": "canonical-payload",
+        "expectedBytes": 579873,
+        "expectedSha256": "ee3e308568fb891b34012ea358725d9d0fc468d9c49cb8a9f0a11865dab0bf36",
+        "status": 200,
+        "bytes": 579873,
+        "sha256": "ee3e308568fb891b34012ea358725d9d0fc468d9c49cb8a9f0a11865dab0bf36",
+        "contentType": "application/json; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/app/model",
+        "kind": "canonical-payload",
+        "expectedBytes": 1308,
+        "expectedSha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+        "status": 200,
+        "bytes": 1308,
+        "sha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+        "contentType": "text/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/app/model.js",
+        "kind": "canonical-payload",
+        "expectedBytes": 1308,
+        "expectedSha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+        "status": 200,
+        "bytes": 1308,
+        "sha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/app/resample.js",
+        "kind": "canonical-payload",
+        "expectedBytes": 4233,
+        "expectedSha256": "2ab0e2e2a8d3bbc8dc2d3608993c7b27c2df4726a20411e5054414f4223d0477",
+        "status": 200,
+        "bytes": 4233,
+        "sha256": "2ab0e2e2a8d3bbc8dc2d3608993c7b27c2df4726a20411e5054414f4223d0477",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/asset-manifest.json",
+        "kind": "canonical-payload",
+        "expectedBytes": 8415,
+        "expectedSha256": "12d9497e5a9bfa12c29df76eb1b816c7bfc499ceb2ed98c16835ceaedcb4213d",
+        "status": 200,
+        "bytes": 8415,
+        "sha256": "12d9497e5a9bfa12c29df76eb1b816c7bfc499ceb2ed98c16835ceaedcb4213d",
+        "contentType": "application/json; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/audio_model_quantized.onnx",
+        "kind": "canonical-payload",
+        "expectedBytes": 34301667,
+        "expectedSha256": "3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f",
+        "status": 200,
+        "bytes": 34301667,
+        "sha256": "3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f",
+        "contentType": "application/octet-stream",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/canonicalEncoder.mjs",
+        "kind": "canonical-payload",
+        "expectedBytes": 4625,
+        "expectedSha256": "6cda0b9db5fee7c1612629d014ead11a93d6e369b101a68af9e32d82c031ebb4",
+        "status": 200,
+        "bytes": 4625,
+        "sha256": "6cda0b9db5fee7c1612629d014ead11a93d6e369b101a68af9e32d82c031ebb4",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/integerHeadV3.js",
+        "kind": "canonical-payload",
+        "expectedBytes": 6814,
+        "expectedSha256": "5b969fa736aad8b336c198d24f20bf59bbe4e788ef7878ea86dd8126c20ed25f",
+        "status": 200,
+        "bytes": 6814,
+        "sha256": "5b969fa736aad8b336c198d24f20bf59bbe4e788ef7878ea86dd8126c20ed25f",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/licenses/onnxruntime-LICENSE.txt",
+        "kind": "canonical-payload",
+        "expectedBytes": 1073,
+        "expectedSha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+        "status": 200,
+        "bytes": 1073,
+        "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+        "contentType": "text/plain; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/licenses/onnxruntime-ThirdPartyNotices.txt",
+        "kind": "canonical-payload",
+        "expectedBytes": 338088,
+        "expectedSha256": "143764b952fdb1a7c69ce653bfba74a7744d6a8a573bfb73e235fba356c83de3",
+        "status": 200,
+        "bytes": 338088,
+        "sha256": "143764b952fdb1a7c69ce653bfba74a7744d6a8a573bfb73e235fba356c83de3",
+        "contentType": "text/plain; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/licenses/transformers-APACHE-2.0.txt",
+        "kind": "canonical-payload",
+        "expectedBytes": 11358,
+        "expectedSha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "status": 200,
+        "bytes": 11358,
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "contentType": "text/plain; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/config.json",
+        "kind": "canonical-payload",
+        "expectedBytes": 699,
+        "expectedSha256": "39c6d90fe29cf2cce650dd5c92c38a1e35b130d9ce0bb98585222ad687ad979b",
+        "status": 200,
+        "bytes": 699,
+        "sha256": "39c6d90fe29cf2cce650dd5c92c38a1e35b130d9ce0bb98585222ad687ad979b",
+        "contentType": "application/json; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json",
+        "kind": "canonical-payload",
+        "expectedBytes": 541,
+        "expectedSha256": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+        "status": 200,
+        "bytes": 541,
+        "sha256": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+        "contentType": "application/json; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/ort.wasm.bundle.min.mjs",
+        "kind": "canonical-payload",
+        "expectedBytes": 73123,
+        "expectedSha256": "17b52c1ac62b421dc508b4c28b9a9675251c6e25dd512ef54b83a5e2c4242869",
+        "status": 200,
+        "bytes": 73123,
+        "sha256": "17b52c1ac62b421dc508b4c28b9a9675251c6e25dd512ef54b83a5e2c4242869",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/productionWorkerV3.mjs",
+        "kind": "canonical-payload",
+        "expectedBytes": 18333,
+        "expectedSha256": "f622383fb66b1090f98f59739eea13971915eabe419af090ad833b1b436a5713",
+        "status": 200,
+        "bytes": 18333,
+        "sha256": "f622383fb66b1090f98f59739eea13971915eabe419af090ad833b1b436a5713",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.mjs",
+        "kind": "canonical-payload",
+        "expectedBytes": 24381,
+        "expectedSha256": "c57ca56328877353a575e51bbca6f18450027d6c9bf2307a2cb2c41363b4de9f",
+        "status": 200,
+        "bytes": 24381,
+        "sha256": "c57ca56328877353a575e51bbca6f18450027d6c9bf2307a2cb2c41363b4de9f",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.wasm",
+        "kind": "canonical-payload",
+        "expectedBytes": 14264838,
+        "expectedSha256": "06ba057753da3847e4c24f02d91ab133455b0817c69a44993a9a53a2146df9e3",
+        "status": 200,
+        "bytes": 14264838,
+        "sha256": "06ba057753da3847e4c24f02d91ab133455b0817c69a44993a9a53a2146df9e3",
+        "contentType": "application/wasm",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/self-test-v3-reference.json",
+        "kind": "canonical-payload",
+        "expectedBytes": 36622,
+        "expectedSha256": "6d5414df3b9413283c88f599887d149314c9c8fb189c5324205b452e33a2212d",
+        "status": 200,
+        "bytes": 36622,
+        "sha256": "6d5414df3b9413283c88f599887d149314c9c8fb189c5324205b452e33a2212d",
+        "contentType": "application/json; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/selfTestV3.mjs",
+        "kind": "canonical-payload",
+        "expectedBytes": 1775,
+        "expectedSha256": "cf4c6a95f4b5108c4c906829385f062a66ccf363a2ece78c49da31b634af4105",
+        "status": 200,
+        "bytes": 1775,
+        "sha256": "cf4c6a95f4b5108c4c906829385f062a66ccf363a2ece78c49da31b634af4105",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/tonalwatch-head-v3.json",
+        "kind": "canonical-payload",
+        "expectedBytes": 47746,
+        "expectedSha256": "1e373cd18cbd706812dac10b19a320b73a568e6ee40e3f34236e03ae6122f491",
+        "status": 200,
+        "bytes": 47746,
+        "sha256": "1e373cd18cbd706812dac10b19a320b73a568e6ee40e3f34236e03ae6122f491",
+        "contentType": "application/json; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/transformers.web.js",
+        "kind": "canonical-payload",
+        "expectedBytes": 1156772,
+        "expectedSha256": "f2da43b6b960ca15ae8678e4899a5df0031125c38e94a03e458bd762751d6367",
+        "status": 200,
+        "bytes": 1156772,
+        "sha256": "f2da43b6b960ca15ae8678e4899a5df0031125c38e94a03e458bd762751d6367",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/product-asset-index.json",
+        "kind": "asset-index",
+        "expectedBytes": 3228,
+        "expectedSha256": "fba044b9671c095a5cf848dbd804777a18f49831586f0f3eca2184af5228de13",
+        "status": 200,
+        "bytes": 3228,
+        "sha256": "fba044b9671c095a5cf848dbd804777a18f49831586f0f3eca2184af5228de13",
+        "contentType": "application/json; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/data/datacenters-osm-2026-10-18.json",
+        "kind": "dated-osm-snapshot",
+        "expectedBytes": 3142621,
+        "expectedSha256": "69e8c95a052c6e25d4ad4c2d6431327ed977ccca54fb12e036c7f9c9ff4a1a45",
+        "status": 200,
+        "bytes": 3142621,
+        "sha256": "69e8c95a052c6e25d4ad4c2d6431327ed977ccca54fb12e036c7f9c9ff4a1a45",
+        "contentType": "application/json; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/sound-hints-v3-comparison.json",
+        "kind": "comparison-summary",
+        "expectedBytes": 15460,
+        "expectedSha256": "33c22021934e76ca5e83eec7715895b2fdf6810347eb90a8744b44a788aab8a8",
+        "status": 200,
+        "bytes": 15460,
+        "sha256": "33c22021934e76ca5e83eec7715895b2fdf6810347eb90a8744b44a788aab8a8",
+        "contentType": "application/json; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/",
+        "kind": "built-html",
+        "expectedBytes": 729,
+        "expectedSha256": "bada277344aed30bf45b58e5d1de7a35cf78c782481b137c3f4e426f6d9a7087",
+        "status": 200,
+        "bytes": 729,
+        "sha256": "bada277344aed30bf45b58e5d1de7a35cf78c782481b137c3f4e426f6d9a7087",
+        "contentType": "text/html; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/assets/ObservationMap-C6XNpDn4.css",
+        "kind": "built-app-asset",
+        "expectedBytes": 26593,
+        "expectedSha256": "09e3b25e5716c0af06f64de2757cca9f8ee28c9caec800ac290c6d8ede68cc21",
+        "status": 200,
+        "bytes": 26593,
+        "sha256": "09e3b25e5716c0af06f64de2757cca9f8ee28c9caec800ac290c6d8ede68cc21",
+        "contentType": "text/css; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/assets/ObservationMap-CwK2u3N_.js",
+        "kind": "built-app-asset",
+        "expectedBytes": 199475,
+        "expectedSha256": "88528984ff14dcbb02d34a6a4684a6ea7b11a69b48019e5615485b5a333cdc1a",
+        "status": 200,
+        "bytes": 199475,
+        "sha256": "88528984ff14dcbb02d34a6a4684a6ea7b11a69b48019e5615485b5a333cdc1a",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/assets/analysis.worker-BwKrUFVx.js",
+        "kind": "built-app-asset",
+        "expectedBytes": 10766,
+        "expectedSha256": "a5918dda07bf28fd7b705d797734185446be9d13ab0feb7f5b5a5025717d443f",
+        "status": 200,
+        "bytes": 10766,
+        "sha256": "a5918dda07bf28fd7b705d797734185446be9d13ab0feb7f5b5a5025717d443f",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/assets/index-D_DbMxHT.js",
+        "kind": "built-app-asset",
+        "expectedBytes": 328751,
+        "expectedSha256": "3e112ff134b01c9447e733833861da931d18c70a05b1320fd20d59b4bb4491c8",
+        "status": 200,
+        "bytes": 328751,
+        "sha256": "3e112ff134b01c9447e733833861da931d18c70a05b1320fd20d59b4bb4491c8",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/assets/index-GN5uF9hH.css",
+        "kind": "built-app-asset",
+        "expectedBytes": 51169,
+        "expectedSha256": "b853666131ab71b8804f817dfcb27904d1b1b6cea66b66005e99f4cb2b833716",
+        "status": 200,
+        "bytes": 51169,
+        "sha256": "b853666131ab71b8804f817dfcb27904d1b1b6cea66b66005e99f4cb2b833716",
+        "contentType": "text/css; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      }
+    ]
+  },
+  "verificationNotes": [
+    "First selector attempt used an overly exact Search radius label; the script resumed from the actual selected place with the correct accessible name.",
+    "An initial footer assertion ran while the asynchronous community feed was growing the page. The settled feed and actual maximum scroll reached the footer; all 18 final cases await feed completion. Both initial logs remain in ignored output.",
+    "All public software-QA posts were removed with their owner capabilities. No field or acoustic accuracy is claimed."
+  ]
+}

@@ -19,7 +19,6 @@ import type { InputMeterReading } from './audio/meter';
 import { SoundHintsPanelV3 as SoundHintsPanel } from './components/SoundHintsPanelV3';
 import type { SoundHintsInputV3 as SoundHintsInput } from './components/SoundHintsPanelV3';
 import type { AnalysisResponse, AnalysisResult, InputMeta, ObservationContext } from './types';
-import type { SessionMapReading } from './data/readings';
 import { LOUDOUN_DATA_CENTERS, LOUDOUN_DATA_CENTER_SOURCE } from './data/loudounDataCenters';
 
 const ObservationMap = lazy(() => import('./components/ObservationMap'));
@@ -59,8 +58,8 @@ function Home() {
     <section className="hero">
       <div className="hero-copy">
         <h1>The law can’t hear it. <span>Now you can show it.</span></h1>
-        <p className="hero-description">Data center hum is deep sound that official noise readings miss. Check it with your phone in 5 seconds.</p>
-        <div className="hero-actions"><a className="button primary" href="#/measure"><Icon name="mic" size={20}/> Check a hum</a><a className="button secondary" href="#/map">See the map</a></div>
+        <p className="hero-description">Data center hum is deep sound that official noise readings miss. Check it with your phone in 5 seconds and share it on the community map.</p>
+        <div className="hero-actions"><a className="button primary" href="#/measure"><Icon name="mic" size={20}/> Check a hum</a><a className="button secondary" href="#/map">Find nearby data centers</a></div>
       </div>
       <section className="group map-preview" aria-label="Data center map preview">
         <a className="map-preview-link" href="#/map"><span className="map-preview-frame"><Suspense fallback={<DataCenterDots/>}><MapPreview/></Suspense><span className="map-preview-legend"><i/>Data center building</span></span><span className="map-preview-caption"><strong>{LOUDOUN_DATA_CENTERS.length}</strong><span>data center buildings in Loudoun County. Tap to open the map.</span><Icon name="chevron" size={20}/></span></a>
@@ -74,7 +73,7 @@ function Home() {
       <li><a className="how-row" href="#/learn"><span className="how-num">2</span><span className="how-text"><strong>Understand the signal</strong><span>See if a deep hum is there.</span></span><Icon name="chevron" size={20}/></a></li>
       <li><div className="how-row"><span className="how-num">3</span><span className="how-text"><strong>Print a report</strong><span>With your county’s own sources.</span></span></div></li>
     </ol></div></div>
-    <p className="footnote home-boundary-note">A screening tool, not a certified measurement. Audio never leaves your phone. <a href="#/sources">Method</a></p>
+    <p className="footnote home-boundary-note">A screening tool, not a certified measurement. Audio stays in your browser; you choose which map details to publish. <a href="#/sources">Method</a></p>
   </main>;
 }
 
@@ -109,7 +108,6 @@ export default function App() {
   const [report, setReport] = useState<ReportModel | null>(null);
   const [error, setError] = useState('');
   const [durationSeconds, setDurationSeconds] = useState<CaptureDurationSeconds>(5);
-  const [mapReadings, setMapReadings] = useState<SessionMapReading[]>([]);
   const [tonePlaying, setTonePlaying] = useState(false);
   const tonePlayingRef = useRef(false);
   const updateTonePlayback = useCallback((playing: boolean) => {
@@ -195,7 +193,7 @@ export default function App() {
     const url = URL.createObjectURL(new Blob([report.text], { type: 'text/plain;charset=utf-8' }));
     const a = document.createElement('a'); a.href = url; a.download = `tonalwatch-observation-${new Date().toISOString().slice(0, 10)}.txt`; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
-  const clearAll = () => { invalidate(); setContext({ ...emptyContext }); setMapReadings([]); setPreviousResult(null); lastCompletedResult.current = null; };
+  const clearAll = () => { invalidate(); setContext({ ...emptyContext }); setPreviousResult(null); lastCompletedResult.current = null; };
   const ready = Boolean(result) && !busy;
   const durationPicker = <fieldset className="duration-picker length-picker" disabled={busy} aria-describedby="duration-help"><legend>Length</legend><div className="duration-options">{CAPTURE_DURATIONS_SECONDS.map(seconds => <button type="button" key={seconds} className={durationSeconds === seconds ? 'selected' : ''} aria-label={`${seconds}-second observation`} aria-pressed={durationSeconds === seconds} onClick={() => { if (seconds !== durationSeconds) { invalidate(); setDurationSeconds(seconds); } }}>{seconds} s</button>)}</div><p id="duration-help" className="footnote">For the 60 Hz exercise, try <strong>15 seconds</strong>. Five seconds can also show a nearby peak.</p><p className="footnote duration-ai-note">The report uses all {durationSeconds} seconds. Optional sound hints use the first 5.</p></fieldset>;
 
@@ -212,7 +210,7 @@ export default function App() {
         <section className="group next-steps" aria-label="Next steps">
           <label className="field county-field">County for your report<select value={context.jurisdiction} onChange={e => { setContext({ ...context, jurisdiction: e.target.value as ObservationContext['jurisdiction'] }); setReport(null); }}><option value="unknown-other">Unknown / other jurisdiction</option><option value="loudoun">Loudoun County, VA</option><option value="prince-william">Prince William County, VA</option></select></label>
           <button className="button primary" onClick={review} disabled={!ready}>Create report</button>
-          <a className="button secondary" href="#/map"><Icon name="pin" size={20}/> Add to map</a>
+          <a className="button secondary" href="#/map"><Icon name="pin" size={20}/> Log on community map</a>
         </section>
         <p className="footnote screening-line">Screening only: not a certified measurement or a legal finding.</p>
       </> : null}
@@ -247,7 +245,7 @@ export default function App() {
     </main> : null}
     {route === '/why' ? <WhyPage/> : null}
     {route === '/learn' ? <LearnPage result={result} disabled={busy} onPlaybackChange={updateTonePlayback}/> : null}
-    {route === '/map' ? <Suspense fallback={<main id="main-content" className="page-shell"><p role="status">Loading map…</p></main>}><ObservationMap currentResult={result} sessionReadings={mapReadings} onAddReading={reading => setMapReadings(previous => [...previous, reading])} onClearSessionReadings={() => setMapReadings([])}/></Suspense> : null}
+    {route === '/map' ? <Suspense fallback={<main id="main-content" className="page-shell"><p role="status">Loading community map…</p></main>}><ObservationMap currentResult={result}/></Suspense> : null}
     {route === '/sources' ? <SourcesPage/> : null}
     {route === '/report' ? <main id="main-content" className="page-shell report-page">{report && result ? <><a className="back-link" href="#/measure">‹ Check</a><div className="page-heading report-toolbar"><div><h1>Report</h1><p>Download a concise text summary, or print / save PDF to include the graph. Review your notes before sharing.</p></div><div className="report-actions"><button className="button primary" onClick={() => window.print()}><Icon name="print" size={18}/> Print / save PDF</button><button className="button secondary" onClick={downloadText}><Icon name="download" size={18}/> Download text summary</button></div></div><ReportView report={report}/></> : <div className="empty-state"><span className="empty-icon"><Icon name="file" size={32}/></span><h1>No report yet</h1><p>Record a live microphone sample to create your analysis and report.</p><a className="button primary" href="#/measure">Go to Check</a></div>}</main> : null}
     <footer className="site-footer"><a className="brand footer-brand" href="#/"><Icon name="wave" size={18}/> TonalWatch</a><a href="#/sources">Method & sources</a></footer>

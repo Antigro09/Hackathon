@@ -112,7 +112,7 @@ Stand left to right: **Ricardo, Tate, Vihaan, Anthony.** Anthony stands beside t
 
 **If capture fails:** acknowledge the displayed permission, device, or interruption error. Retry once only if time allows. Otherwise show **Method** and explain the workflow. Use an earlier genuine report only with its original context clearly stated. Do not invent a reading or claim the live capture succeeded.
 
-**Optional Map view:** seeded pins are explicitly **synthetic, invented examples**, not measured sites or data-center buildings. A user can manually associate a current result with a location as a session-only preview. Do not describe this as a shared public measurement map. Opening the **Map** tab loads street tiles from the map provider; it is unnecessary for the short demo.
+**Optional Map view:** the **Map** tab is a community map. Public observations are **self-reported and unverified**: they appear only after a contributor reviews the fields and chooses **Publish public observation**, with the location rounded to three decimals, and removal stays in that browser tab. Black dots are Loudoun County GIS data-center buildings; **Find data centers** shows OSM data-center tags from a dated snapshot. These are building records, not noise readings, and proximity does not establish a source. Neither search starts automatically. **Load street map** contacts OpenStreetMap; it is unnecessary for the short demo.
 
 **Anthony's delivery:**
 - Tell the judges which label to look at before pointing.
@@ -219,7 +219,7 @@ Stand left to right: **Ricardo, Tate, Vihaan, Anthony.** Anthony stands beside t
 | Does anything leave the device? | Anthony | Audio is processed locally and isn't uploaded or attached to the report. Optional model downloads, external links, and explicitly loaded street tiles make network requests; users decide whether to share their exported notes and report. |
 | How are you different from other tools? | Ricardo | Our focus is the combined observation workflow: spectrum, separate screens, context, quality notes, and references. We are not claiming that no competitor offers similar features. |
 | How would you reach users or sustain it? | Ricardo | The proposed first step is one willing HOA pilot, with feedback from residents and qualified reviewers. Any broader distribution or paid service is a hypothesis, not established demand or revenue. |
-| What's on the map? | Anthony | Seeded pins are invented examples, and manually placed observations stay in this browser session. There is no shared public dataset or automatic GPS collection. |
+| What's on the map? | Anthony | Loudoun County GIS data-center buildings, news-reported noise areas, OSM data-center tags after an explicit search, and public observations that contributors chose to publish. Those observations are self-reported and unverified, with rounded locations. There is no automatic GPS collection. |
 | Can someone fake or spoil a reading? | Anthony | Live microphone input can still be contaminated or deliberately manipulated. Quality flags catch some problems, not every bad recording, and the app cannot authenticate a physical source. |
 | What did you build versus AI assistance? | Anthony | State the team's actual use of coding agents and each person's actual decisions and verification work. Do not invent authorship or claim a feature was validated because an agent generated it. |
 | Why is this an environmental concern? | Tate | Persistent neighborhood noise is part of the living environment. Loudoun's guidance discusses community concerns and acknowledges that more research is needed on long-term low-frequency effects; this app makes no health diagnosis. |
@@ -242,7 +242,7 @@ Stand left to right: **Ricardo, Tate, Vihaan, Anthony.** Anthony stands beside t
 - Uncalibrated weighted digital levels, not dBA/dBC sound-pressure measurements. Constant gain can cancel in C−A on otherwise identical unclipped samples; device filtering and processing do not.
 - A printable observation packet and a shorter text summary. No automatic complaint filing, audio upload, or calibrated compliance result.
 - Optional uncertain AI text matches from the first five seconds, excluded from the report. Research training and browser qualification remain separate from production claims.
-- Invented map examples and manually associated session-only previews, not measured data-center locations or a shared public map.
+- A community map of self-reported, unverified public observations that contributors choose to publish, with rounded locations. County GIS and OSM data-center layers are building records, not noise readings or sources.
 
 **Never substitute these claims:**
 - ~~"The law can't hear it" / "the app proves a violation."~~ Say that qualified measurements and agency review are needed.

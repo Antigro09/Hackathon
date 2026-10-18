@@ -1,6 +1,6 @@
 # V3 versus the actual website model
 
-Recorded October 18, 2026. **All frozen relative recognition criteria passed on this cohort.** The earlier strict development audit and the unchanged strict final criteria still failed. Local mounted-app V3 browser/build checks also passed; public V3 deployment verification remains pending.
+Recorded October 18, 2026. **All frozen relative recognition criteria passed on this cohort.** The earlier strict development audit and the unchanged strict final criteria still failed. Local mounted-app V3 browser/build checks also passed; public V3 HTTPS deployment also passed.
 
 The [comparison protocol](../ml/BASELINE_COMPARISON_PROTOCOL.md) was committed before either system encoded or classified the reserved cohort. It implements the user's revised goal of improving on the website's actual baseline. No model, threshold, label mapping, metric or quality rule was selected from these final outcomes. The cohort is now inspected evidence and cannot become an untouched test for a later tuned candidate.
 
@@ -81,7 +81,7 @@ The final fresh Chrome session's [browser evidence](qa/2026-10-18-v3-browser.jso
 | Report export | Native TXT: **7,718 bytes, 117 lines**, no raw bin rows or AI output. Print CSS retained the unchanged actual SVG path (**6,579 characters**) and full 15-second spectrum metadata in the generated PDF. |
 | Layout and network | Six routes at 320/390/1280 px and visual scale 1 had no horizontal overflow; footer bottoms stayed within 0.5 CSS px of the viewport bottom. Final session: **99 same-origin GETs, zero body bytes, zero page/console errors**. |
 
-An earlier session stayed open across preview rebuilds and requested an obsolete Map chunk, producing a 404. Its ignored QA logs remain preserved. The reported final checks used a fresh isolated session against a fixed build and recorded no errors. Current page screenshots are linked from the repository README. These are generated-input/software checks; physical microphone accuracy and field reliability remain unvalidated. **Public V3 deployment verification is still pending** in [DEPLOYMENT.md](DEPLOYMENT.md).
+An earlier session stayed open across preview rebuilds and requested an obsolete Map chunk, producing a 404. Its ignored QA logs remain preserved. The reported final checks used a fresh isolated session against a fixed build and recorded no errors. Current page screenshots are linked from the repository README. These are generated-input/software checks; physical microphone accuracy and field reliability remain unvalidated. **Public V3 HTTPS deployment also passed**; see [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## Immutable evidence
 

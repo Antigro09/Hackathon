@@ -1,0 +1,1275 @@
+{
+  "date": "2026-10-18",
+  "applicationSource": "34888362cfe704837d804bd706e526ba508c78bb",
+  "deploymentId": "dpl_7WQabbkCYJ53y7TrfBUTg98tJew3",
+  "readyState": "READY",
+  "publicUrl": "https://tonalwatch.vercel.app",
+  "immutableDeployment": "https://tonalwatch-85qk0ul2u-antigro09s-projects.vercel.app",
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+  "fixture": "Chromium fake microphone, generated63Hz/48kHz mono WAV; integration software check, not acoustic/field evidence.",
+  "actualBrowserEvidence": {
+    "results": {
+      "capture": {
+        "liveMeter": "-34.2 dB relative to RMS 1",
+        "plot": "Frequency spectrum\n15.00 s · 48.0 kHz",
+        "metrics": "Captured-spectrum C−A\n\n25.3 dB\nUncalibrated input\n\nA relative\n\n-47.6 dB\nWeighted digital level\n\nC relative\n\n-22.3 dB\nWeighted digital level",
+        "stoppedMeter": "Microphone inactive",
+        "beforeExploreModelGets": 0
+      },
+      "selfTestUiObserved": true,
+      "ai": {
+        "family": "No sound family suggested",
+        "observedSelfTestUi": true,
+        "startupGatePassedByVerifiedPanel": true,
+        "rendered": "No sound family suggested\n\nThis model did not accept a known family strongly enough. It leaves this sound unclassified.",
+        "requests": 18,
+        "modelGets": 17,
+        "maximumEncoderWorkers": 1
+      },
+      "lifecycle": {
+        "clearUnloaded": true,
+        "actualWorkerStartupCanceled": true,
+        "heldUnmodifiedGraphReleasedAfterNavigation": true,
+        "staleHintAbsent": true,
+        "reportAvailable": true,
+        "requests": 54,
+        "modelGets": 51,
+        "maximumEncoderWorkers": 1
+      },
+      "report": {
+        "nativeDownloadFilename": "tonalwatch-observation-2026-10-18.txt",
+        "savedText": "output/playwright/v3-observation-summary-15s.txt",
+        "pdf": "output/playwright/v3-observation-summary-15s.pdf",
+        "graphCharacters": 6579,
+        "graphUnchanged": true,
+        "caption": "MICROPHONE INPUT — uncalibrated browser capture · 15.000 s analyzed · Fresh microphone recording\nDigital PSD · dB re 1²/Hz · 20–20000 Hz analyzed band · 5.859 Hz bin spacing · 174 complete frames. The graph uses a 100 dB display range; lower bins stop at the display floor. The analysis uses the full linear spectral power.",
+        "aiExcluded": true
+      },
+      "layout-320": [
+        {
+          "route": "/",
+          "viewport": 320,
+          "document": 320,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 781.234375,
+            "bottom": 899.609375,
+            "viewport": 900,
+            "scrollY": 959,
+            "totalHeight": 1859
+          }
+        },
+        {
+          "route": "/measure",
+          "viewport": 320,
+          "document": 320,
+          "scale": 1,
+          "buttons": [
+            {
+              "text": "Explore sound families (experimental)",
+              "left": 39,
+              "right": 281,
+              "width": 242,
+              "client": 240,
+              "scroll": 240
+            }
+          ],
+          "footer": {
+            "top": 781.328125,
+            "bottom": 899.703125,
+            "viewport": 900,
+            "scrollY": 5741,
+            "totalHeight": 6641
+          }
+        },
+        {
+          "route": "/learn",
+          "viewport": 320,
+          "document": 320,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 781.46875,
+            "bottom": 899.84375,
+            "viewport": 900,
+            "scrollY": 3114,
+            "totalHeight": 4014
+          }
+        },
+        {
+          "route": "/map",
+          "viewport": 320,
+          "document": 320,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 781.125,
+            "bottom": 899.5,
+            "viewport": 900,
+            "scrollY": 7082,
+            "totalHeight": 7982
+          }
+        },
+        {
+          "route": "/sources",
+          "viewport": 320,
+          "document": 320,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 781.890625,
+            "bottom": 900.265625,
+            "viewport": 900,
+            "scrollY": 5963,
+            "totalHeight": 6863
+          }
+        },
+        {
+          "route": "/report",
+          "viewport": 320,
+          "document": 320,
+          "scale": 1,
+          "buttons": [
+            {
+              "text": "Download text summary",
+              "left": 16,
+              "right": 304,
+              "width": 288,
+              "client": 286,
+              "scroll": 286
+            },
+            {
+              "text": "Print / save PDF",
+              "left": 16,
+              "right": 304,
+              "width": 288,
+              "client": 286,
+              "scroll": 286
+            }
+          ],
+          "footer": {
+            "top": 782.046875,
+            "bottom": 900.421875,
+            "viewport": 900,
+            "scrollY": 6916,
+            "totalHeight": 7816
+          }
+        }
+      ],
+      "layout-1280": [
+        {
+          "route": "/",
+          "viewport": 1280,
+          "document": 1280,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 813.46875,
+            "bottom": 900.265625,
+            "viewport": 900,
+            "scrollY": 222,
+            "totalHeight": 1122
+          }
+        },
+        {
+          "route": "/measure",
+          "viewport": 1280,
+          "document": 1280,
+          "scale": 1,
+          "buttons": [
+            {
+              "text": "Explore sound families (experimental)",
+              "left": 68,
+              "right": 346.203125,
+              "width": 278.203125,
+              "client": 276,
+              "scroll": 276
+            }
+          ],
+          "footer": {
+            "top": 813.59375,
+            "bottom": 900.390625,
+            "viewport": 900,
+            "scrollY": 3083,
+            "totalHeight": 3983
+          }
+        },
+        {
+          "route": "/learn",
+          "viewport": 1280,
+          "document": 1280,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 813.125,
+            "bottom": 899.921875,
+            "viewport": 900,
+            "scrollY": 1839,
+            "totalHeight": 2739
+          }
+        },
+        {
+          "route": "/map",
+          "viewport": 1280,
+          "document": 1280,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 813.296875,
+            "bottom": 900.09375,
+            "viewport": 900,
+            "scrollY": 2233,
+            "totalHeight": 3133
+          }
+        },
+        {
+          "route": "/sources",
+          "viewport": 1280,
+          "document": 1280,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 813.203125,
+            "bottom": 900,
+            "viewport": 900,
+            "scrollY": 2414,
+            "totalHeight": 3314
+          }
+        },
+        {
+          "route": "/report",
+          "viewport": 1280,
+          "document": 1280,
+          "scale": 1,
+          "buttons": [
+            {
+              "text": "Download text summary",
+              "left": 910.265625,
+              "right": 1092.9375,
+              "width": 182.671875,
+              "client": 181,
+              "scroll": 181
+            },
+            {
+              "text": "Print / save PDF",
+              "left": 1102.9375,
+              "right": 1242,
+              "width": 139.0625,
+              "client": 137,
+              "scroll": 137
+            }
+          ],
+          "footer": {
+            "top": 813.390625,
+            "bottom": 900.1875,
+            "viewport": 900,
+            "scrollY": 4165,
+            "totalHeight": 5065
+          }
+        }
+      ]
+    },
+    "networkCheck": {
+      "requests": 69,
+      "modelGets": 51,
+      "maximumEncoderWorkers": 1
+    },
+    "requests": [
+      {
+        "stage": "live-15-second-capture",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/assets/analysis.worker-BwKrUFVx.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/tonalwatch-head-v3.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/integerHeadV3.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/productionWorkerV3.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/asset-manifest.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/canonicalEncoder.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/transformers.web.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/ort.wasm.bundle.min.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.wasm",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/app/resample.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/app/model.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/app/model",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/config.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/selfTestV3.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/self-test-v3-reference.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/audio_model_quantized.onnx",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/tonalwatch-head-v3.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/integerHeadV3.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/productionWorkerV3.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/asset-manifest.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/canonicalEncoder.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/transformers.web.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/ort.wasm.bundle.min.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.wasm",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/app/resample.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/app/model.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/app/model",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/config.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/selfTestV3.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/self-test-v3-reference.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/audio_model_quantized.onnx",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/tonalwatch-head-v3.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/integerHeadV3.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/productionWorkerV3.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/asset-manifest.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/canonicalEncoder.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/transformers.web.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/ort.wasm.bundle.min.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.wasm",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/app/resample.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/app/model.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/app/model",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/config.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/selfTestV3.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/self-test-v3-reference.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/ai/canonical-v3/audio_model_quantized.onnx",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "report-export",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-320",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-320",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-320",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-320",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/assets/ObservationMap-BSBpBwL5.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-320",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/assets/ObservationMap-DyBRl5Rc.css",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-320",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-320",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-320",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-1280",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-1280",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-1280",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-1280",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-1280",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-1280",
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      }
+    ],
+    "workers": [
+      {
+        "event": "created",
+        "stage": "explicit-explore",
+        "url": "https://tonalwatch.vercel.app/ai/canonical-v3/productionWorkerV3.mjs"
+      },
+      {
+        "event": "closed",
+        "stage": "clear-ready-hints",
+        "url": "https://tonalwatch.vercel.app/ai/canonical-v3/productionWorkerV3.mjs"
+      },
+      {
+        "event": "created",
+        "stage": "retry-then-cancel",
+        "url": "https://tonalwatch.vercel.app/ai/canonical-v3/productionWorkerV3.mjs"
+      },
+      {
+        "event": "closed",
+        "stage": "retry-then-cancel",
+        "url": "https://tonalwatch.vercel.app/ai/canonical-v3/productionWorkerV3.mjs"
+      },
+      {
+        "event": "created",
+        "stage": "retry-then-navigation",
+        "url": "https://tonalwatch.vercel.app/ai/canonical-v3/productionWorkerV3.mjs"
+      },
+      {
+        "event": "closed",
+        "stage": "retry-then-navigation",
+        "url": "https://tonalwatch.vercel.app/ai/canonical-v3/productionWorkerV3.mjs"
+      }
+    ],
+    "pageErrors": [],
+    "consoleErrors": [],
+    "note": "Generated fake microphone/software QA only; no field accuracy evidence and no model or classifier replaced."
+  },
+  "staticArtifactQualification": {
+    "schemaVersion": 1,
+    "kind": "public-static-release-artifact-qualification",
+    "origin": "https://tonalwatch.vercel.app",
+    "deploymentCommit": "34888362cfe704837d804bd706e526ba508c78bb",
+    "publicDeploymentId": "dpl_7WQabbkCYJ53y7TrfBUTg98tJew3",
+    "method": "Reuse 31 recorded public GET checks; inspect immutable git archive and committed blob locally",
+    "newNetworkRequests": 0,
+    "audioRequests": false,
+    "modelInference": false,
+    "deploymentArtifactChecksPassed": 31,
+    "canonicalNumericalPayloadBytePinsPassed": 23,
+    "extensionlessModelJavaScriptMimePassed": true,
+    "initialLocalRawComparisonPreserved": {
+      "matched": 30,
+      "total": 31,
+      "pass": false,
+      "path": "output/v3-public-assets.json"
+    },
+    "summarySerialization": {
+      "releaseMember": "public/ai/sound-hints-v3-comparison.json",
+      "gitArchiveCommand": [
+        "git",
+        "archive",
+        "--format=tar",
+        "34888362cfe704837d804bd706e526ba508c78bb",
+        "public/ai/sound-hints-v3-comparison.json"
+      ],
+      "releaseArchiveMemberBytes": 15460,
+      "releaseArchiveMemberSha256": "33c22021934e76ca5e83eec7715895b2fdf6810347eb90a8744b44a788aab8a8",
+      "committedBlobBytes": 14920,
+      "committedBlobSha256": "65685eac446f53fc7f6eb5adf0c2bae786a1f0199020a6fadb66ed52b847d8ae",
+      "servedBytesEqualReleaseArchive": true,
+      "servedJsonDeepEqualCommittedBlob": true,
+      "servedBytesEqualCommittedAfterCrLfNormalization": true,
+      "releaseCrLfCount": 540,
+      "committedCrLfCount": 0,
+      "scope": "Nonruntime comparison summary only; every numerical runtime/model asset matched its independent byte pin without normalization"
+    },
+    "expectedReleaseAggregateSha256": "fbf1246d4810fb304771e2a4359a75426b707281d6da7dd14ba4c3792ced98fa",
+    "deliveredReleaseAggregateSha256": "fbf1246d4810fb304771e2a4359a75426b707281d6da7dd14ba4c3792ced98fa",
+    "pass": true,
+    "evidence": {
+      "v3-public-assets.json": {
+        "bytes": 15950,
+        "sha256": "e6b6589fc8fe9912c6109b7f6507fffef87916700888a614b6bd59ca0eed18ca"
+      },
+      "v3-public-summary-observed.json": {
+        "bytes": 15460,
+        "sha256": "33c22021934e76ca5e83eec7715895b2fdf6810347eb90a8744b44a788aab8a8"
+      },
+      "v3-public-summary-observed-meta.json": {
+        "bytes": 2329,
+        "sha256": "8e6fb763de12e28a77c2d68f316f647a09d646b8dc050291e2c016568665b717"
+      },
+      "v3-public-release-summary-34888362.tar": {
+        "bytes": 20480,
+        "sha256": "25b54ec786ad0a96ef8d19f1d44cea314bca7d229ba176ccac21dd964a71260b"
+      },
+      "v3-public-release-summary-34888362.json": {
+        "bytes": 15460,
+        "sha256": "33c22021934e76ca5e83eec7715895b2fdf6810347eb90a8744b44a788aab8a8"
+      }
+    },
+    "records": [
+      {
+        "pathname": "/ai/canonical-v3/MODEL_NOTICE.txt",
+        "kind": "canonical-payload",
+        "expectedBytes": 1857,
+        "expectedSha256": "e13916e945aa5a47496b03b3c4c1ac915ed37c44a3d2a0eb4c705542fbe42e48",
+        "status": 200,
+        "bytes": 1857,
+        "sha256": "e13916e945aa5a47496b03b3c4c1ac915ed37c44a3d2a0eb4c705542fbe42e48",
+        "contentType": "text/plain; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/NOTICES.txt",
+        "kind": "canonical-payload",
+        "expectedBytes": 1694,
+        "expectedSha256": "9735c408346051f33908cf58af4b041cfa7316cc02dfdf968e24b87ce095489a",
+        "status": 200,
+        "bytes": 1694,
+        "sha256": "9735c408346051f33908cf58af4b041cfa7316cc02dfdf968e24b87ce095489a",
+        "contentType": "text/plain; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/TRAINING_ATTRIBUTION.json",
+        "kind": "canonical-payload",
+        "expectedBytes": 579873,
+        "expectedSha256": "ee3e308568fb891b34012ea358725d9d0fc468d9c49cb8a9f0a11865dab0bf36",
+        "status": 200,
+        "bytes": 579873,
+        "sha256": "ee3e308568fb891b34012ea358725d9d0fc468d9c49cb8a9f0a11865dab0bf36",
+        "contentType": "application/json; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/app/model",
+        "kind": "canonical-payload",
+        "expectedBytes": 1308,
+        "expectedSha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+        "status": 200,
+        "bytes": 1308,
+        "sha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+        "contentType": "text/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/app/model.js",
+        "kind": "canonical-payload",
+        "expectedBytes": 1308,
+        "expectedSha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+        "status": 200,
+        "bytes": 1308,
+        "sha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/app/resample.js",
+        "kind": "canonical-payload",
+        "expectedBytes": 4233,
+        "expectedSha256": "2ab0e2e2a8d3bbc8dc2d3608993c7b27c2df4726a20411e5054414f4223d0477",
+        "status": 200,
+        "bytes": 4233,
+        "sha256": "2ab0e2e2a8d3bbc8dc2d3608993c7b27c2df4726a20411e5054414f4223d0477",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/asset-manifest.json",
+        "kind": "canonical-payload",
+        "expectedBytes": 8415,
+        "expectedSha256": "12d9497e5a9bfa12c29df76eb1b816c7bfc499ceb2ed98c16835ceaedcb4213d",
+        "status": 200,
+        "bytes": 8415,
+        "sha256": "12d9497e5a9bfa12c29df76eb1b816c7bfc499ceb2ed98c16835ceaedcb4213d",
+        "contentType": "application/json; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/audio_model_quantized.onnx",
+        "kind": "canonical-payload",
+        "expectedBytes": 34301667,
+        "expectedSha256": "3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f",
+        "status": 200,
+        "bytes": 34301667,
+        "sha256": "3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f",
+        "contentType": "application/octet-stream",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/canonicalEncoder.mjs",
+        "kind": "canonical-payload",
+        "expectedBytes": 4625,
+        "expectedSha256": "6cda0b9db5fee7c1612629d014ead11a93d6e369b101a68af9e32d82c031ebb4",
+        "status": 200,
+        "bytes": 4625,
+        "sha256": "6cda0b9db5fee7c1612629d014ead11a93d6e369b101a68af9e32d82c031ebb4",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/integerHeadV3.js",
+        "kind": "canonical-payload",
+        "expectedBytes": 6814,
+        "expectedSha256": "5b969fa736aad8b336c198d24f20bf59bbe4e788ef7878ea86dd8126c20ed25f",
+        "status": 200,
+        "bytes": 6814,
+        "sha256": "5b969fa736aad8b336c198d24f20bf59bbe4e788ef7878ea86dd8126c20ed25f",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/licenses/onnxruntime-LICENSE.txt",
+        "kind": "canonical-payload",
+        "expectedBytes": 1073,
+        "expectedSha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+        "status": 200,
+        "bytes": 1073,
+        "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+        "contentType": "text/plain; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/licenses/onnxruntime-ThirdPartyNotices.txt",
+        "kind": "canonical-payload",
+        "expectedBytes": 338088,
+        "expectedSha256": "143764b952fdb1a7c69ce653bfba74a7744d6a8a573bfb73e235fba356c83de3",
+        "status": 200,
+        "bytes": 338088,
+        "sha256": "143764b952fdb1a7c69ce653bfba74a7744d6a8a573bfb73e235fba356c83de3",
+        "contentType": "text/plain; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/licenses/transformers-APACHE-2.0.txt",
+        "kind": "canonical-payload",
+        "expectedBytes": 11358,
+        "expectedSha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "status": 200,
+        "bytes": 11358,
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "contentType": "text/plain; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/config.json",
+        "kind": "canonical-payload",
+        "expectedBytes": 699,
+        "expectedSha256": "39c6d90fe29cf2cce650dd5c92c38a1e35b130d9ce0bb98585222ad687ad979b",
+        "status": 200,
+        "bytes": 699,
+        "sha256": "39c6d90fe29cf2cce650dd5c92c38a1e35b130d9ce0bb98585222ad687ad979b",
+        "contentType": "application/json; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json",
+        "kind": "canonical-payload",
+        "expectedBytes": 541,
+        "expectedSha256": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+        "status": 200,
+        "bytes": 541,
+        "sha256": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+        "contentType": "application/json; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/ort.wasm.bundle.min.mjs",
+        "kind": "canonical-payload",
+        "expectedBytes": 73123,
+        "expectedSha256": "17b52c1ac62b421dc508b4c28b9a9675251c6e25dd512ef54b83a5e2c4242869",
+        "status": 200,
+        "bytes": 73123,
+        "sha256": "17b52c1ac62b421dc508b4c28b9a9675251c6e25dd512ef54b83a5e2c4242869",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/productionWorkerV3.mjs",
+        "kind": "canonical-payload",
+        "expectedBytes": 18333,
+        "expectedSha256": "f622383fb66b1090f98f59739eea13971915eabe419af090ad833b1b436a5713",
+        "status": 200,
+        "bytes": 18333,
+        "sha256": "f622383fb66b1090f98f59739eea13971915eabe419af090ad833b1b436a5713",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.mjs",
+        "kind": "canonical-payload",
+        "expectedBytes": 24381,
+        "expectedSha256": "c57ca56328877353a575e51bbca6f18450027d6c9bf2307a2cb2c41363b4de9f",
+        "status": 200,
+        "bytes": 24381,
+        "sha256": "c57ca56328877353a575e51bbca6f18450027d6c9bf2307a2cb2c41363b4de9f",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.wasm",
+        "kind": "canonical-payload",
+        "expectedBytes": 14264838,
+        "expectedSha256": "06ba057753da3847e4c24f02d91ab133455b0817c69a44993a9a53a2146df9e3",
+        "status": 200,
+        "bytes": 14264838,
+        "sha256": "06ba057753da3847e4c24f02d91ab133455b0817c69a44993a9a53a2146df9e3",
+        "contentType": "application/wasm",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/self-test-v3-reference.json",
+        "kind": "canonical-payload",
+        "expectedBytes": 36622,
+        "expectedSha256": "6d5414df3b9413283c88f599887d149314c9c8fb189c5324205b452e33a2212d",
+        "status": 200,
+        "bytes": 36622,
+        "sha256": "6d5414df3b9413283c88f599887d149314c9c8fb189c5324205b452e33a2212d",
+        "contentType": "application/json; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/selfTestV3.mjs",
+        "kind": "canonical-payload",
+        "expectedBytes": 1775,
+        "expectedSha256": "cf4c6a95f4b5108c4c906829385f062a66ccf363a2ece78c49da31b634af4105",
+        "status": 200,
+        "bytes": 1775,
+        "sha256": "cf4c6a95f4b5108c4c906829385f062a66ccf363a2ece78c49da31b634af4105",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/tonalwatch-head-v3.json",
+        "kind": "canonical-payload",
+        "expectedBytes": 47746,
+        "expectedSha256": "1e373cd18cbd706812dac10b19a320b73a568e6ee40e3f34236e03ae6122f491",
+        "status": 200,
+        "bytes": 47746,
+        "sha256": "1e373cd18cbd706812dac10b19a320b73a568e6ee40e3f34236e03ae6122f491",
+        "contentType": "application/json; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/transformers.web.js",
+        "kind": "canonical-payload",
+        "expectedBytes": 1156772,
+        "expectedSha256": "f2da43b6b960ca15ae8678e4899a5df0031125c38e94a03e458bd762751d6367",
+        "status": 200,
+        "bytes": 1156772,
+        "sha256": "f2da43b6b960ca15ae8678e4899a5df0031125c38e94a03e458bd762751d6367",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/canonical-v3/product-asset-index.json",
+        "kind": "asset-index",
+        "expectedBytes": 3228,
+        "expectedSha256": "fba044b9671c095a5cf848dbd804777a18f49831586f0f3eca2184af5228de13",
+        "status": 200,
+        "bytes": 3228,
+        "sha256": "fba044b9671c095a5cf848dbd804777a18f49831586f0f3eca2184af5228de13",
+        "contentType": "application/json; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/ai/sound-hints-v3-comparison.json",
+        "kind": "comparison-summary",
+        "expectedBytes": 15460,
+        "expectedSha256": "33c22021934e76ca5e83eec7715895b2fdf6810347eb90a8744b44a788aab8a8",
+        "match": true,
+        "status": 200,
+        "bytes": 15460,
+        "sha256": "33c22021934e76ca5e83eec7715895b2fdf6810347eb90a8744b44a788aab8a8",
+        "contentType": "application/json; charset=utf-8",
+        "mimePass": true,
+        "qualificationBasis": "Exact immutable release archive; all JSON values equal committed source"
+      },
+      {
+        "pathname": "/",
+        "kind": "built-html",
+        "expectedBytes": 729,
+        "expectedSha256": "8bc75dd9525f8d295901fd576ea67d645d7528b80aa8a13dca1cec1cc8e62f2c",
+        "status": 200,
+        "bytes": 729,
+        "sha256": "8bc75dd9525f8d295901fd576ea67d645d7528b80aa8a13dca1cec1cc8e62f2c",
+        "contentType": "text/html; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/assets/ObservationMap-BSBpBwL5.js",
+        "kind": "built-app-asset",
+        "expectedBytes": 167729,
+        "expectedSha256": "72e172cbfd1ac9d4648a9c6411e55b81c37700c36b665d7fdc435d55fb47f2ca",
+        "status": 200,
+        "bytes": 167729,
+        "sha256": "72e172cbfd1ac9d4648a9c6411e55b81c37700c36b665d7fdc435d55fb47f2ca",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/assets/ObservationMap-DyBRl5Rc.css",
+        "kind": "built-app-asset",
+        "expectedBytes": 24433,
+        "expectedSha256": "c4dcc5cdd37b655c8320c36417b7ac5f52e1c542d330d1116853e254c92becd9",
+        "status": 200,
+        "bytes": 24433,
+        "sha256": "c4dcc5cdd37b655c8320c36417b7ac5f52e1c542d330d1116853e254c92becd9",
+        "contentType": "text/css; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/assets/analysis.worker-BwKrUFVx.js",
+        "kind": "built-app-asset",
+        "expectedBytes": 10766,
+        "expectedSha256": "a5918dda07bf28fd7b705d797734185446be9d13ab0feb7f5b5a5025717d443f",
+        "status": 200,
+        "bytes": 10766,
+        "sha256": "a5918dda07bf28fd7b705d797734185446be9d13ab0feb7f5b5a5025717d443f",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/assets/index-CMSWBtzQ.css",
+        "kind": "built-app-asset",
+        "expectedBytes": 50872,
+        "expectedSha256": "13b8a1510039602e348726e7dda77defe859132ed203d8d947072b93242e777c",
+        "status": 200,
+        "bytes": 50872,
+        "sha256": "13b8a1510039602e348726e7dda77defe859132ed203d8d947072b93242e777c",
+        "contentType": "text/css; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      },
+      {
+        "pathname": "/assets/index-xt1ZyHU-.js",
+        "kind": "built-app-asset",
+        "expectedBytes": 328295,
+        "expectedSha256": "6c05c2a789e961d53dd068ec81d1c136caa9215a1f6deb56632a90ab204defdc",
+        "status": 200,
+        "bytes": 328295,
+        "sha256": "6c05c2a789e961d53dd068ec81d1c136caa9215a1f6deb56632a90ab204defdc",
+        "contentType": "application/javascript; charset=utf-8",
+        "contentEncoding": null,
+        "match": true,
+        "mimePass": true
+      }
+    ]
+  },
+  "textSummary": {
+    "bytes": 7718,
+    "lines": 116,
+    "sha256": "369c55de65b73787dcd397a5a064f385b93b6e5f8d6512a996b757f839c14beb"
+  },
+  "scope": "Public HTTPS software check with generated virtual microphone. No physical microphone accuracy, calibration or field-source classification claim."
+}

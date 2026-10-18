@@ -2,7 +2,39 @@
 
 Build date: **October 18, 2026 (America/New_York)**. This record distinguishes software checks from browser integration and physical measurement validation. Current algorithm: **`tw-screen-v2`**; earlier v1 checks remain historical evidence for unchanged weighting/PSD and their original peak-selection method.
 
-**Current application/lab status:** **428 tests across 21 files** (388 existing checks plus 40 V3 panel/head-loader checks), with TypeScript/Vite build passed and all 23 opaque product payloads byte-exact. The mounted V3 app passed fresh-session local browser QA described below; public V3 deployment verification is pending. Observation accepts live microphone capture only. The UI keeps all three durations, the input meter, negative-dB explanations, concise text exports and the printed spectrum. The AI copy uses deterministic, independently checked resampling. See [deployment evidence](DEPLOYMENT.md). Historical test runs remain separately labeled.
+**Current application/lab status:** **497 tests across 27 files**, with strict TypeScript/Vite build passed. The public community map passed real persistence, independent-visitor, retry, privacy and removal checks; all 32 release assets, including the unchanged 23 opaque AI payloads, matched. Observation accepts live microphone capture only. The UI keeps all three durations, the input meter, negative-dB explanations, concise text exports and the printed spectrum. The AI copy uses deterministic, independently checked resampling. See [deployment evidence](DEPLOYMENT.md). Historical test runs remain separately labeled.
+
+## Public community map
+
+The current map replaces synthetic example pins with shared, self-reported
+observations and a distinct dated OSM facility layer. Eighteen API/client tests,
+40 discovery tests and 11 draft/session/UI tests passed, adding 69 checks to the
+prior 428. Real Redis executed all three fixed Lua operations in an isolated QA
+namespace: 16 checks passed, and every temporary row/bookkeeping key was removed.
+Separate mocked browser checks covered 22 recovery/privacy/race behaviors,
+30 route/width cases and the 20-owner-capability boundary. Their mock scope is
+explicit; those results alone are not persistence evidence.
+
+Public HTTPS then passed the actual browser → API → Redis → independent visitor
+flow and owner removal after reload. Coordinates were rounded before transport;
+private report context, audio, raw bins and AI hints were absent. The actual
+15-second virtual microphone retained 720,000 samples/174 frames and the report's
+printed spectrum; its native summary was 5,912 bytes/94 lines with zero bin rows.
+All six routes fit 320/390/1280 px at viewport scale 1 with reachable footers and
+no page/console errors. An initial layout assertion ran during asynchronous feed
+growth; final checks wait for the loaded feed before measuring maximum scroll.
+Initial selector/layout logs remain preserved in ignored output.
+
+The complete pinned directory is 5,035 source records dated October 18, 2026;
+92 qualifying records were displayed within 5 km of Ashburn. These are OSM tags,
+not independently confirmed active facilities or sound sources. The software
+check's public post was explicitly labeled and removed. No acoustic accuracy,
+hardware calibration, field reliability, or source attribution is established.
+See [public evidence](qa/2026-10-18-community-public.json),
+[provider checks](qa/2026-10-18-community-provider.json),
+[UI checks](qa/2026-10-18-community-ui.json), and
+[directory provenance](DATACENTER_SOURCES.md). Earlier map examples below are
+historical and are no longer displayed in the current app.
 
 ## Microphone-only observation
 
@@ -253,4 +285,4 @@ The final isolated Chrome session `v3-app-final` exercised the built app at loop
 | Six pages and footers | Home, Observation, Learn, Map, Sources and Report at **320/390/1280 px**, visual viewport scale 1: zero horizontal overflow and reachable footer bottoms within **0.5 CSS px**. |
 | Network and runtime | **99 same-origin GETs**, zero request-body bytes, zero page errors and zero console errors in the final session. |
 
-The first session crossed preview rebuilds and requested a stale Map chunk, causing a 404; its ignored logs are preserved. The final evidence above comes from a fresh session against the fixed completed build. Updated six-page screenshots are linked from [README.md](../README.md). Public V3 HTTPS deployment verification remains **pending**; previous deployed legacy-model evidence does not substitute for it. The software result leaves all recorded strict model failures, coverage limitations and outstanding hardware/field validation intact.
+The first session crossed preview rebuilds and requested a stale Map chunk, causing a 404; its ignored logs are preserved. The final evidence above comes from a fresh session against the fixed completed build. Updated six-page screenshots are linked from [README.md](../README.md). Public V3 HTTPS verification also passed at source `3488836`; [its separate evidence](qa/2026-10-18-v3-public.json) records real loading, startup checks, cancellation, report export and 320/1280 px layouts. Previous legacy-model evidence remains historical. The software result leaves all recorded strict model failures, coverage limitations and outstanding hardware/field validation intact.
