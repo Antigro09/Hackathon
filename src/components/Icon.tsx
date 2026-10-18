@@ -1,5 +1,6 @@
-export function Icon({ name, size = 20 }: { name: 'wave' | 'arrow' | 'mic' | 'file' | 'demo' | 'check' | 'shield' | 'external' | 'download' | 'print'; size?: number }) {
+export function Icon({ name, size = 20 }: { name: 'home' | 'wave' | 'arrow' | 'mic' | 'file' | 'demo' | 'check' | 'shield' | 'external' | 'download' | 'print'; size?: number }) {
   const paths = {
+    home: 'm3 10 9-7 9 7v11h-7v-7h-4v7H3V10',
     wave: 'M2 12h4l2-7 4 14 4-16 3 12 2-3h2',
     arrow: 'M4 12h16m-6-6 6 6-6 6',
     mic: 'M9 5a3 3 0 0 1 6 0v7a3 3 0 0 1-6 0V5m-3 6v1a6 6 0 0 0 12 0v-1m-6 7v4m-4 0h8',
