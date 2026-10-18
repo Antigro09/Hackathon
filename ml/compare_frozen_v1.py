@@ -91,10 +91,18 @@ def compare(args) -> dict:
         if not path.exists() or environment.get('fit_artifacts_sha256', {}).get(name) != sha_file(path):
             raise ValueError('Completed v2 evaluation/classifier checksum mismatch')
     artifact, manifest = read_json(artifact_path), read_json(args.output / 'manifest-v2.json')
+    frozen = read_json(args.output / 'fit_input_contract.json')
+    previous_manifest_path = args.previous_run / 'manifest.json'
+    previous_digest = sha_file(previous_manifest_path)
+    if any(value != previous_digest for value in (
+            artifact['featureContract']['manifest'],
+            manifest.get('previous_manifest_sha256'),
+            frozen.get('previous_manifest_sha256'))):
+        raise ValueError('Historical manifest identity differs from v1 or frozen v2 inputs')
     if artifact['classOrder'] != v2['classOrder'] or not manifest.get('validation_passed'):
         raise ValueError('Class order or manifest validation differs')
     assert_mixed_disjoint(manifest['records'])
-    old = read_json(args.previous_run / 'manifest.json')['records']
+    old = read_json(previous_manifest_path)['records']
     if any(not fresh_test_record(r, old) for r in manifest['records'] if r['split'] in {'test', 'ood_test'}):
         raise ValueError('Comparison cohort includes a previously exposed uploader or recording')
     contract = encoder_contract()
@@ -103,15 +111,18 @@ def compare(args) -> dict:
         raise ValueError('Historical and current encoder/preprocessing contracts differ')
     cache_path, key = _cache_path(args, args.output / 'manifest-v2.json', contract)
     X, completed = _load_embedding_cache(cache_path, manifest['records'], key)
-    frozen = read_json(args.output / 'fit_input_contract.json')
     if environment.get('fit_input_contract_sha256') != sha_file(args.output / 'fit_input_contract.json'):
         raise ValueError('Completed v2 fit input contract checksum mismatch')
+    scoring_source_sha256 = sha_file(ROOT / 'ml/experiment.py')
+    if frozen.get('sources_sha256', {}).get('ml/experiment.py') != scoring_source_sha256:
+        raise ValueError('Comparison scoring/metric helpers differ from the frozen source')
     if not completed.all() or frozen['embedding_cache_sha256'] != sha_file(cache_path) or frozen['manifest_sha256'] != key['manifest_sha256']:
         raise ValueError('Comparison must use the exact completed v2 audio/embedding inputs')
     previous = evaluate_frozen(artifact, X, [r['label'] for r in manifest['records']], [r['split'] for r in manifest['records']])
     comparison = {
         'historicalModelSha256': V1_MODEL_SHA256, 'v2EvaluationSha256': sha_file(result_path),
         'comparisonSourceSha256': sha_file(Path(__file__)),
+        'scoringSourceSha256': scoring_source_sha256,
         'manifestSha256': key['manifest_sha256'], 'embeddingCacheSha256': sha_file(cache_path),
         'selectionOrCalibrationPerformed': False, 'promotionAllowed': False,
         'comparison': 'Frozen v1 classifier versus completed v2 classifier on identical fresh recordings and native embeddings; not the live eight-description app.',

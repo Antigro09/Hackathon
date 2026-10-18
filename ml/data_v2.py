@@ -67,10 +67,9 @@ def prepare_dataset_v2(
 
     All max_* arguments cap FSD selection only. Supplemental limits are fixed
     in V2_PROTOCOL.md and in the separately recorded source manifest.
-    ``extra_records`` supplies separately attributed, machine-grouped MIMII fan
-    and unknown-machine recordings. FSD50K's eligible fan evaluation population
-    was exhausted by run1, so this function refuses to recycle it as fresh data.
-    The caller may prepare the FSD pool first and supply MIMII on a cached retry.
+    ``extra_records`` supplies separately attributed MIMII fan/unknown-machine
+    and IVBEE honeybee buzz recordings. FSD50K's eligible fan/buzz evaluation
+    population was exhausted by run1, so old test recordings are never recycled.
     """
     previous_path = Path(previous_manifest)
     if min(max_train_per_class, max_val_per_class, max_test_per_class, max_unknown_per_split, workers) < 1:
@@ -182,9 +181,15 @@ def prepare_dataset_v2(
             'FSD50K': {'train_per_class': max_train_per_class, 'val_per_class': max_val_per_class,
                        'test_per_class': max_test_per_class, 'unknown_per_split': max_unknown_per_split},
             'supplemental_record_counts': dict(Counter(r['split'] for r in extra_records or [])),
+            'supplemental_counts_by_dataset': {
+                dataset: dict(Counter(r['split'] for r in extra_records or [] if r['dataset'] == dataset))
+                for dataset in sorted({r['dataset'] for r in extra_records or []})},
         },
         'records': sorted(selected, key=lambda r: (r['split'], r['label'], r['clip_id'])),
         'summary': {'counts': counts, 'exclusions': dict(exclusions),
+                    'counts_by_dataset': {
+                        dataset: dict(Counter(r['split'] for r in selected if r['dataset'] == dataset))
+                        for dataset in sorted({r['dataset'] for r in selected})},
                     'uploaders_or_machine_groups': {split: len({r['uploader_group'] for r in selected if r['split'] == split}) for split in counts}},
         'validation_passed': not failures, 'validation_failures': failures,
         'limitations': previous['limitations'] + [
@@ -192,6 +197,7 @@ def prepare_dataset_v2(
             'New test excludes every run1 uploader, identifier and exact audio hash.',
             'Scarce fresh FSD categories and supplemental machine-domain data limit generalization.',
             'Supplemental machine groups are not Freesound uploaders or an official FSD evaluation split.',
+            'IVBEE buzz is a held-out honeybee laboratory collection; specimens share recording hardware/conditions and do not validate electrical hum.',
         ],
     }
     path = root / 'manifest-v2.json'

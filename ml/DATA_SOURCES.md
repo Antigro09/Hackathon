@@ -113,3 +113,12 @@ manifest_path = prepare_dataset('/content/tonalwatch-data', seed=804)
 original source metadata, attribution, and quality measurements. Only a successful
 return authorizes proceeding to the model experiment. Cache/output directories
 belong outside version control; commit scripts and small reports, not audio.
+
+## Second-experiment supplemental sources
+
+The [v2 protocol](V2_PROTOCOL.md) records the source expansion before new test predictions. Original known validation remains reused calibration material. Every first-run uploader/ID/exact audio hash is excluded from the fresh final test.
+
+- [MIMII public 1.0](https://zenodo.org/records/3384388), by Purohit and colleagues, supplies mechanical-fan audio and other-machine unknown controls under CC BY-SA 4.0. The 0 dB condition, first of eight microphones, first five seconds at 16 kHz resampled to 48 kHz, and unchanged quality gates are fixed. Physical IDs00/02 train,04 validate,06 test; these are derived partitions. Whole archive MD5 values are recorded but unverified with selective HTTP ranges; pinned member inventories/CRC and original/prepared/PCM hashes are verified. Units share collection conditions and background, which limits independence. No fault or equipment identity is learned.
+- [IVBEE-1.0](https://zenodo.org/records/20077113), Piotr Książek, CC BY 4.0, supplies an entirely held-out honeybee buzz stress test. The whole 47.7 MB original archive is verified by its published MD5 and pinned SHA-256. Of226 original files,203 are shorter than five seconds; all23 remaining first-five-second crops pass the unchanged quality gates. Six eligible role/specimen groups share **one laboratory/hardware collection**. Actual files are mono48kHz PCM16, despite the publisher's 24-bit description. No resampling, padding, stitching or gain changes are applied. The whole collection stays outside training and calibration.
+
+FSD50K's retained buzz training tags are predominantly insect-related. The bee stress test follows that taxonomy and cannot substantiate electrical-hum or appliance hints. Neither source expansion establishes field accuracy, independent pretraining separation, or representative device/room performance. Supplemental attribution manifests are included in the research result bundle; raw audio stays in ignored research storage.
