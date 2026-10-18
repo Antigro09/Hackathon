@@ -3,7 +3,7 @@ import { sourceStatus } from './buildReport';
 
 export function ReportView({ report }: { report: ReportModel }) {
   return (
-    <article className="observation-report" aria-labelledby="report-title">
+    <article className="observation-report report-document" aria-labelledby="report-title">
       <div className={`report-provenance ${report.isSynthetic ? 'synthetic-badge' : ''}`}>
         {report.provenanceLabel}
       </div>
