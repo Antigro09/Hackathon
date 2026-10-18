@@ -9,12 +9,39 @@ import { syntheticMeta } from '../src/analysis/fixtures';
 afterEach(() => vi.unstubAllGlobals());
 
 describe('observation guidance', () => {
-  it('makes longer microphone observations discoverable from the default five-second demo', () => {
+  it('opens directly to live microphone capture with every duration available', () => {
     vi.stubGlobal('window', { location: { hash: '#/measure' } });
     const html = renderToStaticMarkup(createElement(App));
-    expect(html).toContain('Demos use 5 seconds.');
-    expect(html).toContain('Microphone and file observations offer 5, 15, or 30 seconds.');
-    expect(html).toContain('Use 15-second microphone capture');
+    expect(html).toContain('Live microphone');
+    expect(html).toContain('Start 5-second capture');
+    expect(html).toContain('aria-label="5-second observation" aria-pressed="true"');
+    expect(html).toContain('aria-label="15-second observation" aria-pressed="false"');
+    expect(html).toContain('aria-label="30-second observation" aria-pressed="false"');
+    expect(html).not.toContain('type="file"');
+    expect(html).not.toContain('Analyze file');
+    expect(html).not.toContain('Analyze demo');
+    expect(html).not.toContain('Input type');
+  });
+
+  it('offers microphone capture and learning from Home without demo or import instructions', () => {
+    vi.stubGlobal('window', { location: { hash: '#/' } });
+    const html = renderToStaticMarkup(createElement(App));
+    expect(html).toContain('Start an observation');
+    expect(html).toContain('Understand the signal');
+    expect(html).toContain('Record a live microphone sample for 5, 15, or 30 seconds.');
+    expect(html).not.toContain('Try a synthetic demo');
+    expect(html).not.toContain('load a local file');
+  });
+
+  it('guides Learn and empty reports back to live microphone observation', () => {
+    for (const route of ['/learn', '/report']) {
+      vi.stubGlobal('window', { location: { hash: `#${route}` } });
+      const html = renderToStaticMarkup(createElement(App));
+      expect(html).toContain('live microphone');
+      expect(html).not.toContain('imported file');
+      expect(html).not.toContain('Observation → Demo');
+      expect(html).not.toContain('Explore synthetic demos');
+    }
   });
 
   it('describes the optional longer capture without promising finer frequency resolution', () => {
@@ -23,6 +50,8 @@ describe('observation guidance', () => {
     expect(html).toContain('15 seconds gives more analysis frames');
     expect(html).toContain('Five seconds can also show a peak near 60 Hz');
     expect(html).toContain('does not change the FFT bin spacing');
+    expect(html).toContain('live microphone capture');
+    expect(html).not.toContain('Microphone or File');
   });
 
   it('explains a negative C−A difference separately from negative digital levels beside the displayed values', () => {

@@ -2,9 +2,15 @@
 
 Build date: **October 18, 2026 (America/New_York)**. This record distinguishes software checks from browser integration and physical measurement validation. Current algorithm: **`tw-screen-v2`**; earlier v1 checks remain historical evidence for unchanged weighting/PSD and their original peak-selection method.
 
-**Current application/lab status:** **380 tests across 19 files** (341 application + 39 standalone-lab checks), with TypeScript/Vite build passed. The latest changes expose recording durations, explain negative dB, remove raw spectrum-bin dumps from text exports and preserve supported WAV decode rates/provenance; the AI copy uses deterministic, independently checked resampling. Home navigation, Learn exhibits, map, 5/15/30-second observations, and comparison passed the prior expanded public HTTPS verification. See [deployment evidence](DEPLOYMENT.md). Historical test runs remain separately labeled.
+**Current application/lab status:** **382 tests across 19 files** (343 application + 39 standalone-lab checks), with TypeScript/Vite build passed. Observation now accepts live microphone capture only. The UI keeps all three durations, the input meter, negative-dB explanations, concise text exports and the printed spectrum. The AI copy uses deterministic, independently checked resampling. See [deployment evidence](DEPLOYMENT.md). Historical test runs remain separately labeled.
 
-## Capture-control and resampling follow-up
+## Microphone-only observation
+
+Removed file-import and synthetic-demo observation controls, their runtime imports and mode state. Observation opens directly to the microphone with 5/15/30-second controls. Home, Learn, Sources, empty results/reports and every capture-error path describe the available microphone workflow. Educational listening tones, illustrative map examples and scientific fixtures remain separate from recording inputs.
+
+Chrome used a generated virtual microphone through the actual AudioWorklet: live meter samples arrived, cancel released every track without analysis, and a subsequent 15-second capture produced 720,000 samples / 174 complete frames at 48 kHz. Its report retained microphone provenance and the complete window. Native text download was 5,828 bytes / 94 lines, with no individual spectrum-bin rows; the graph remained visible under print media and controls hid. Navigating Home during another capture released every track and cleared the partial result. All six pages at 320/390/1280 px had no horizontal overflow, file inputs or stale input instructions, and scrolling reached the footer. These are software checks with generated input, not physical microphone validation.
+
+## Prior capture-control and resampling follow-up
 
 The initial Observation mode was Demo, which hid the existing recording-duration selector and displayed a fixed five-second sample. Demo now discloses that distinction and provides a direct action selecting a 15-second microphone observation. Microphone/File expose 5/15/30-second buttons with pressed states and capture-time disabling. The method text distinguishes more time frames from unchanged FFT frequency spacing. Negative A/C digital levels relative to RMS 1 are explained separately from the signed C−A difference; −20 dB corresponds to one-tenth of the reference RMS amplitude, not negative pressure or calibrated dB SPL.
 

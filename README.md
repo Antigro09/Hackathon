@@ -1,8 +1,8 @@
 # TonalWatch
 
-TonalWatch helps a resident document a recurring hum: capture or load a short audio sample, inspect its frequency content, add observation notes, and export a source-linked observation packet.
+TonalWatch helps a resident document a recurring hum: record a short live microphone sample, inspect its frequency content, add observation notes, and export a source-linked observation packet.
 
-**Live app:** [tonalwatch.vercel.app](https://tonalwatch.vercel.app). Open **Observation → File → Choose File → Analyze file** to import a recording. PCM WAV is the supported baseline: at least the selected **5, 15, or 30 seconds**, up to 10 MiB. Audio is analyzed locally and is never sent to a server. The expanded workflow passed public HTTPS verification.
+**Live app:** [tonalwatch.vercel.app](https://tonalwatch.vercel.app). Open **Observation**, select **5, 15, or 30 seconds**, then start microphone capture. Live microphone is the only observation input. Audio is analyzed locally and is never sent to a server.
 
 The app reports **uncalibrated weighted digital levels**, a captured-spectrum C−A difference, and a separate experimental sustained-peak indicator. It also offers an optional, local AI sound comparison that always remains uncertain. These features do not identify equipment, establish legal compliance, or replace a qualified acoustic measurement. A weak or inconclusive result still supports a descriptive observation.
 
@@ -27,11 +27,9 @@ The production build is written to `dist/`; preview normally serves it at `http:
 
 ## Current workflow
 
-- **Synthetic demos:** ten deterministic five-second signals, including tones, a harmonic hum, seeded broadband noise, a short beep, silence, and clipping. Every synthetic result and report remains labeled as a demonstration.
 - **Navigation and Learn:** Home, Observation, Learn, Map, and Sources & method are reachable from the main navigation. Learn and the compact explanation under the results explain the independent indicators. Five click-to-play tones (63, 125, 500, 1,000, and 8,000 Hz) start quietly, have a stop control, and release playback on navigation. Playback is blocked during capture/analysis; microphone recording is blocked while a tone plays. The 20–200 Hz exhibit plots actual PSD bins from the active result, with 60/120 Hz reference lines and the existing peak candidate when applicable. It does not identify mains electricity or add frequency resolution.
 - **Microphone:** explicit start, a 0.5-second warm-up, then exactly the selected **5, 15, or 30 seconds** of mono PCM through a silent AudioWorklet graph; five seconds is the default. A live digital RMS/peak meter previews the actual incoming samples and flags the digital limit. Capture detects missing chunks and interruptions, supports cancel, and releases audio resources.
-- **Local file:** browser decoding, first channel, first selected 5/15/30 seconds from offset zero, up to 10 MiB. Supported WAV headers request their 44.1/48 kHz rate to avoid an extra browser resampling step. Unknown/unsupported headers retain default decoding with explicit rate/fallback provenance; the browser still validates the codec. Files shorter than the selected duration are rejected without padding.
-- **Analysis:** the same worker-based PCM engine handles every input. A frequency spectrum accompanies two independent screening indicators and recording-quality flags.
+- **Analysis:** a worker-based PCM engine analyzes the captured microphone samples. A frequency spectrum accompanies two independent screening indicators and recording-quality flags.
 - **Context and report:** manual setting/location, recurrence, conditions, and unverified suspected-source notes; separate Loudoun, Prince William, and unknown/other reference profiles; a read-only preview, print/save-PDF with the captured spectrum, and concise text download with spectrum metadata and no individual bin rows. Duration, sample count, complete frames, spectrum, and weighted levels describe the **entire selected DSP window**. Reports snapshot the selected result so later inputs cannot change an export.
 - **Demonstration map:** 14 invented examples retain synthetic labels on pins and cards, with fictional devices/times and illustrative coordinates. Map colors describe only the low-frequency screen; peak results remain separate. An active observation can be added to the session list or placed using manually entered coordinates associated with that observation. No location is inferred; unknown locations stay unplaced, and inconclusive readings remain descriptive. Everything resets on reload or session clear. The default neutral coordinate grid needs no tile service. **Load street map** explicitly opts into OpenStreetMap requests that disclose the viewed area and IP address to its provider; tile failure returns to the grid/list. No offline street-map package is provided.
 - **Previous-capture comparison:** the Buddy-check control shows current C−A minus the previous completed capture's gap, retaining input provenance and synthetic warnings. Two usable gaps are required; missing/inconclusive values are not zero. This descriptive session comparison neither calibrates devices nor links phones, corrects readings, or pools map data.
@@ -40,7 +38,7 @@ The production build is written to `dist/`; preview normally serves it at `http:
 
 The app processes audio, notes, comparisons, and manual map locations in browser memory. It has no audio upload, analytics, automatic GPS, account storage, or automatic complaint submission. Optional AI requires external model/runtime downloads only after Explore; inference receives the PCM locally. Online map tiles are a separate opt-in network path. Browser caches may retain model files or tiles, not recordings or notes. Raw audio and AI suggestions are not attached to exports. Downloaded reports can include personal notes and location descriptions; the preview asks the user to review these before sharing.
 
-Once served, the bundled demonstration, Learn player/exhibit, neutral-grid map/list, calculation, meter, and report paths use no external service. Opening official reference links, choosing online map tiles, or downloading the optional AI model/runtime requires connectivity. Cached model availability depends on the browser; offline AI is not guaranteed. This repository does not include a service worker or an installable offline app.
+Once served, microphone capture, Learn player/exhibit, neutral-grid map/list, calculation, meter, and report paths use no external service. Opening official reference links, choosing online map tiles, or downloading the optional AI model/runtime requires connectivity. Cached model availability depends on the browser; offline AI is not guaranteed. This repository does not include a service worker or an installable offline app.
 
 ## Method and limits
 
@@ -61,7 +59,7 @@ Non-finite, unsupported-rate, incomplete, near-zero, clipped, and no-band-power 
 | Location | Purpose |
 | --- | --- |
 | `src/analysis/` | FFT/PSD, normalized weighting, peak heuristic, fixtures, typed worker |
-| `src/audio/` and `public/capture-worklet.js` | Capture lifetime, indexed sample collection, local decoding |
+| `src/audio/` and `public/capture-worklet.js` | Microphone lifetime and indexed sample collection (decoder retained for historical research tests) |
 | `src/ai/` | Optional local model worker, pinned downloads, resampling, fixed labels and abstention policy |
 | `src/report/` | Deterministic report model, preview, print rendering |
 | `src/data/references.ts` | Curated source summaries, dates, access status, interpretation text |
@@ -69,11 +67,11 @@ Non-finite, unsupported-rate, incomplete, near-zero, clipped, and no-band-power 
 | `src/App.tsx` and `src/components/` | Input → result → context → report workflow |
 | `tests/` | Numerical reference, quality, mocked capture/import, and report tests |
 
-The current application and lab passed **380 tests across 19 files**: 341 application tests and 39 standalone-lab checks, plus TypeScript/Vite build. Chrome checks verified AudioWorklet 5/15/30-second capture with virtual input, longer-file import/report provenance, signed comparison/reset, Learn responsive/print behavior, and map online/offline/manual-location behavior. The latest controls make all three recording durations visible and explain negative digital levels beside the results. Text downloads contain a concise spectrum summary; Print / save PDF keeps the graph. Independent SciPy references verify the AI resampler, and actual WAV decoding preserves supported source rates. The prior expanded public release passed all 30 page/viewport cases and the 15-second import-to-report workflow. Historical test runs remain in the [validation record](docs/VALIDATION.md). Software and generated-input checks do not validate a physical measurement chain or AI source accuracy.
+The current application and lab passed **382 tests across 19 files**: 343 application tests and 39 standalone-lab checks, plus TypeScript/Vite build. Observation now accepts live microphone capture only, with all three durations visible. Chrome verified the live meter, cancel and navigation cleanup, and a complete 15-second virtual-microphone capture through report and text export. Home, Learn, Sources, Observation, Map and Report fit 320/390/1280 px without horizontal overflow or an unreachable footer. Text downloads contain a concise spectrum summary; Print / save PDF keeps the graph. Independent SciPy references verify the AI resampler. Decoder utilities and generated fixtures remain for research and regression tests, outside the app's recording interface. Historical runs, including former file-import checks, remain in the [validation record](docs/VALIDATION.md). Software and generated-input checks do not validate a physical measurement chain or AI source accuracy.
 
 View the current pages: [Home](docs/screenshots/home.png) · [Observation](docs/screenshots/observation.png) · [Learn](docs/screenshots/learn.png) · [Map](docs/screenshots/map.png) · [Report](docs/screenshots/report.png) · [Sources & method](docs/screenshots/sources.png). These screenshots show the locally verified build; hosted release evidence is recorded separately.
 
-The public HTTPS deployment was checked in Chrome with native WAV decoding, AudioWorklet capture using a virtual input, optional local model inference, and report download. See [deployment verification](docs/DEPLOYMENT.md) and the [File input screenshot](docs/screenshots/file-input.png).
+The public HTTPS deployment was checked in Chrome with AudioWorklet capture using a virtual microphone, optional local model inference, and report download. See [deployment verification](docs/DEPLOYMENT.md).
 
 ## Planning history and attribution
 
