@@ -31,7 +31,7 @@ export const isNeighborhoodCaseDetail = (v: unknown): v is NeighborhoodCaseDetai
 const validCreate = (v: unknown): v is NeighborhoodCaseCreateResult => fields(v, ['case', 'deleteToken', 'replayed'])
   && isNeighborhoodCase(v.case) && typeof v.deleteToken === 'string' && /^[A-Za-z0-9_-]{43}$/.test(v.deleteToken) && typeof v.replayed === 'boolean';
 
-async function request<T>(url: string, init: RequestInit, validate: (v: unknown) => v is T, signal?: AbortSignal): Promise<T> {
+export async function request<T>(url: string, init: RequestInit, validate: (v: unknown) => v is T, signal?: AbortSignal): Promise<T> {
   const response = await fetch(url, { ...init, signal, credentials: 'same-origin', redirect: 'error', cache: 'no-store' });
   const reader = response.body?.getReader(); let value: unknown = null;
   if (reader) {

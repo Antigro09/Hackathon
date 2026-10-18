@@ -4,6 +4,7 @@ import type { NeighborhoodCase } from '../src/community/casesTypes.js';
 import type { CommunityObservation } from '../src/community/types.js';
 import { CommunityError, UUID, distanceKm, exactFields, feedCursor, inFeed, isRecord, requireValue, sha256 } from './communityValidation.js';
 import { CASE_CAPABILITY, normalizeCaseDraft, parseCaseFeed, storedCase, storedCaseObservation } from './caseValidation.js';
+import { getCaseWorkflow, updateCaseWorkflow } from './caseWorkflow.js';
 
 const CASE_PREFIX = 'tw:cases:v1:', COMMUNITY_PREFIX = 'tw:community:v1:';
 const MAX_BODY = 16_384, SCAN_LIMIT = 500, MEMBER_LIMIT = 200;
@@ -86,7 +87,7 @@ local row=redis.call('HGET',KEYS[2],ARGV[1]);if not row then return {'deleted'} 
 local ok,data=pcall(cjson.decode,row)
 if not ok or type(data)~='table' or type(data.member)~='string' then return {'invalid'} end
 if data.deleteTokenHash~=ARGV[2] then return {'denied'} end
-redis.call('HDEL',KEYS[2],ARGV[1]);redis.call('ZREM',KEYS[1],data.member);redis.call('DEL',KEYS[3])
+redis.call('HDEL',KEYS[2],ARGV[1]);redis.call('ZREM',KEYS[1],data.member);redis.call('DEL',KEYS[3],KEYS[5])
 return {'deleted'}`;
 
 type ApiRequest = IncomingMessage & { body?: unknown };
@@ -151,9 +152,14 @@ export function createCasesHandler(deps: Dependencies = {}) {
         }catch{throw new CommunityError(503,'unavailable','The shared case service is temporarily unavailable. Your local observation is unchanged.');}
       }
       const rate=()=>{throw new CommunityError(429,'rate-limited','The case request limit was reached. Wait and try again.');};
+      const workflowContext={evalRedis,rows,observationRows,prefix:prefixes.cases,readBucket,writeBucket:prefixes.cases+`workflow-write:${bucket}:${Math.floor(now/3_600_000)}`,now};
       if(req.method==='GET'){
         const params=new URL(req.url??'/api/cases','https://cases.invalid').searchParams;
         if(params.has('id')){
+          if(params.has('workflow')){
+            requireValue([...params.keys()].every(key=>key==='id'||key==='workflow')&&params.getAll('id').length===1&&UUID.test(params.get('id')!)&&params.getAll('workflow').length===1&&params.get('workflow')==='1','Choose one case action history.');
+            send(res,200,await getCaseWorkflow(workflowContext,params.get('id')!.toLowerCase()));return;
+          }
           requireValue([...params.keys()].every(key=>key==='id')&&params.getAll('id').length===1&&UUID.test(params.get('id')!), 'Choose one case ID.');
           const id=params.get('id')!.toLowerCase();
           const result=await evalRedis(CASE_DETAIL_SCRIPT,[rows,prefixes.cases+'members:'+id,observationRows,readBucket],[id]);
@@ -182,6 +188,7 @@ export function createCasesHandler(deps: Dependencies = {}) {
       const body=await readBody(req);
       if(req.method==='POST'){
         requireValue(isRecord(body));
+        if(body.action==='workflow'){send(res,200,await updateCaseWorkflow(workflowContext,body));return;}
         if(body.action==='create'){
           exactFields(body,['action','draft']);const draft=normalizeCaseDraft(body.draft);
           const nonceHeader=req.headers['idempotency-key'];requireValue(typeof nonceHeader==='string'&&UUID.test(nonceHeader),'Use one random UUID idempotency key for the reviewed case and identical retries.');
@@ -218,7 +225,7 @@ export function createCasesHandler(deps: Dependencies = {}) {
         send(res,200,{attached:true});return;
       }
       exactFields(body,['id','deleteToken']);requireValue(typeof body.id==='string'&&UUID.test(body.id)&&typeof body.deleteToken==='string'&&CASE_CAPABILITY.test(body.deleteToken));
-      const id=body.id.toLowerCase(),result=await evalRedis(CASE_DELETE_SCRIPT,[recent,rows,prefixes.cases+'members:'+id,prefixes.cases+`delete:${bucket}:${Math.floor(now/3_600_000)}`],[id,sha256(body.deleteToken)]);
+      const id=body.id.toLowerCase(),result=await evalRedis(CASE_DELETE_SCRIPT,[recent,rows,prefixes.cases+'members:'+id,prefixes.cases+`delete:${bucket}:${Math.floor(now/3_600_000)}`,prefixes.cases+'workflow:'+id],[id,sha256(body.deleteToken)]);
       if(result[0]==='rate')rate();if(result[0]==='denied')throw new CommunityError(404,'not-found','That case cannot be removed with this capability.');
       if(result[0]!=='deleted')throw new CommunityError(503,'unavailable','Case removal could not be confirmed.');send(res,200,{deleted:true});
     }catch(error){
