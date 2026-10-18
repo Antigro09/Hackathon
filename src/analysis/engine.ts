@@ -1,8 +1,9 @@
 import FFT from 'fft.js';
 import type { AnalysisResult, InputMeta, QualityCode } from '../types';
 import { weightingBins } from './weighting';
+import { ALGORITHM_VERSION } from './version';
 
-export const ALGORITHM_VERSION = 'tw-screen-v1';
+export { ALGORITHM_VERSION } from './version';
 export const FFT_SIZE = 8192;
 export const HOP_SIZE = 4096;
 export const TARGET_DURATION_SECONDS = 5;
