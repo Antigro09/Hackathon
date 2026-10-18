@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>FIELD LAB — TonalWatch spike campaign (standalone)</title>
+<style>
+  body { font-family: system-ui, sans-serif; background: #0f1418; color: #e8e8e8; max-width: 980px; margin: 1.5rem auto; padding: 0 1rem; }
+  h1 { font-size: 1.35rem; } h2 { font-size: 1.05rem; margin-top: 1.4rem; color: #9fd4ff; }
+  .tier { border: 1px solid #345; border-radius: 10px; padding: .8rem 1rem; margin: .6rem 0; background: #161d24; }
+  .tier b { color: #ffd479; }
+  small { color: #9ab; }
+  button { font-size: .95rem; padding: .45rem .9rem; margin: .2rem .4rem .2rem 0; border-radius: 6px; border: 1px solid #456; background: #223040; color: #cde; cursor: pointer; }
+  button.on { background: #2a5; color: #031; }
+  .row { display: flex; gap: 1rem; flex-wrap: wrap; margin: .6rem 0; }
+  .card { background: #1a2027; border-radius: 10px; padding: .7rem 1rem; flex: 1; min-width: 150px; }
+  .big { font-size: 1.9rem; font-weight: 700; }
+  input, select { background: #0d1216; color: #e8e8e8; border: 1px solid #345; border-radius: 6px; padding: .4rem .6rem; margin: .2rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: .85rem; margin-top: .5rem; }
+  td, th { border: 1px solid #2a3440; padding: .3rem .5rem; text-align: left; }
+  .status { font-weight: 700; }
+  .hit { color: #7fe39f; } .warn { color: #ffd479; }
+  ol { margin: .3rem 0 .3rem 1.2rem; } li { margin: .15rem 0; }
+  textarea { width: 100%; background:#0d1216; color:#e8e8e8; border:1px solid #345; border-radius:6px; min-height: 90px; }
+</style>
+</head>
+<body>
+<h1>FIELD LAB — standalone spike instrument</h1>
+<p><small>Uncalibrated consumer mic. Gap = C−A on captured signal; honest verdict = relative. This file is separate from the app — it's the experiment bench.</small></p>
+
+<h2>Protocol (every capture)</h2>
+<ol>
+  <li><b>Stand still.</b> Walk = finding spots, never measuring them.</li>
+  <li>Three captures per spot, ~30 s apart (E1 uses the duration selector).</li>
+  <li>Log spot, in/out, distance, what you hear. Auto-logged below.</li>
+  <li><b>Gap ≥ 15 → freeze, take THREE confirmations.</b></li>
+</ol>
+
+<h2>The tiers</h2>
+<div class="tier"><b>TIER 1 — signature hunt (E5).</b> Kitchen exhaust / rooftop AHU · gym air system · stairwell AC unit · exterior transformer pads (grey cabinets, HIGH VOLTAGE) · elevator machine room. Hunt: fans + transformers = the 50–250 Hz tonal band, same equipment class as data center cooling.</div>
+<div class="tier"><b>TIER 2 — controlled experiments.</b> <b>E1 duration:</b> stairwell, 5s vs 15s vs 30s ×3. <b>E2 distance:</b> one loud source, 2m / 8m / 20m — does gap hold while level drops (mile-away physics)? <b>E3 masking:</b> quiet corner alone vs same corner + talking person. <b>E4 walk test:</b> stationary ×3 vs one slow walk past the same spot — compare spread.</div>
+<div class="tier"><b>TIER 3 — free exhibits.</b> 60 Hz mains check (quiet room, nothing playing, find 60/120 Hz peak) · railroad train pass (log it, exclude as extraneous) · buddy check (two devices, same spot — Δgap = device offset).</div>
+
+<h2>Instrument</h2>
+<div>
+  <label>Experiment: <select id="exp">
+    <option>E0 free capture</option><option>E1 duration law</option><option>E2 distance attenuation</option>
+    <option>E3 masking</option><option>E4 walk-vs-still</option><option>E5 signature hunt</option><option>T3 mains check</option><option>T3 buddy check</option><option>T3 train (exclude)</option>
+  </select></label>
+  <label>Spot name: <input id="spot" size="22" placeholder="stairwell AC @2m"></label>
+  <label>In/Out: <select id="io"><option>in</option><option>out</option></select></label>
+  <label>Distance: <input id="dist" size="7" placeholder="2m / —"></label>
+  <label>Ears say: <input id="ears" size="18" placeholder="AC drone, audible"></label>
+  <label>Capture: <select id="dur"><option value="5">5 s</option><option value="15" selected>15 s</option><option value="30">30 s</option></select></label>
+</div>
+<button id="start">▶ Start capture</button> <span id="status" class="status"></span>
+<div class="row">
+  <div class="card"><small>A relative (dB re RMS1)</small><div class="big" id="a">—</div></div>
+  <div class="card"><small>C relative</small><div class="big" id="c">—</div></div>
+  <div class="card"><small>GAP (C−A)</small><div class="big" id="g">—</div><small id="peaks"></small></div>
+  <div class="card"><small>60 Hz region peak</small><div class="big" id="mains">—</div><small>dB above local floor</small></div>
+</div>
+<canvas id="spectrum" style="width:100%; height:110px; background:#0b0f13; border-radius:8px;"></canvas>
+
+<h2>Campaign log <button id="csv">⬇ Export CSV</button> <button id="wipe">Clear log</button></h2>
+<table id="log"><tr><th>#</th><th>time</th><th>exp</th><th>spot</th><th>io</th><th>dist</th><th>ears</th><th>s</th><th>A</th><th>C</th><th>gap</th><th>60Hz pk</th><th>verdict</th></tr></table>
+<p><small>Verdict: gap ≥15 → <b class="hit">TONAL SIGNATURE — take 3 confirmations now</b>; 10–15 → "borderline, confirm"; &lt;10 → "not indicated". Levels are uncalibrated relative values; only the gap compares across devices.</small></p>
+
+<script>
+const A_CON = {f1:20.598997, f2:107.65265, f3:737.86223, f4:12194.217};
+function RA(f){const {f1,f2:f1sq,f3,f4}=A_CON,f2v=f*f;return f4*f4*f2v*f2v/((f2v+f1*f1)*Math.sqrt((f2v+f1sq*f1sq)*(f2v+f3*f3))*(f2v+f4*f4));}
+function RC(f){const {f1,f4}=A_CON,f2v=f*f;return f4*f4*f2v/((f2v+f1*f1)*(f2v+f4*f4));}
+const gA=f=>RA(f)/RA(1000), gC=f=>RC(f)/RC(1000);
+
+let ctx, an, buf, running=false, target=0, got=0, t0=0;
+const $=id=>document.getElementById(id);
+$('start').onclick = async () => {
+  if (running) return;
+  try {
+    $('dur').disabled = true; $('start').disabled = true;
+    const stream = await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}});
+    ctx = new (window.AudioContext||window.webkitAudioContext)();
+    await ctx.resume();
+    an = ctx.createAnalyser(); an.fftSize = 8192; an.smoothingTimeConstant = 0.55;
+    ctx.createMediaStreamSource(stream).connect(an);
+    buf = new Float32Array(an.frequencyBinCount);
+    target = +$('dur').value; got = 0; t0 = performance.now(); running = true;
+    $('status').textContent = `capturing 0 / ${target}s`;
+    loop(stream);
+  } catch(e) { $('status').textContent = 'mic error: ' + e.message; $('start').disabled=false; }
+};
+
+function loop(stream){
+  if (!running) return;
+  an.getFloatFrequencyData(buf);
+  const nyq = ctx.sampleRate/2, n = buf.length, binHz = nyq/n;
+  let pa=0, pc=0, p60sig=0, p60ref=0, peakDb=-200, peakF=0;
+  for (let i=1;i<n;i++){
+    const f=i*binHz;
+    if (f<10||f>20000) continue;
+    const lin = Math.pow(10,(isFinite(buf[i])?buf[i]:-200)/10);
+    pa += lin*gA(f)*gA(f); pc += lin*gC(f)*gC(f);
+    if (f>=57&&f<=180){ if (buf[i]>peakDb){peakDb=buf[i];peakF=f;} }
+  }
+  // 60Hz prominence: peak vs median floor 150-400Hz
+  let fl=[]; for(let i=1;i<n;i++){const f=i*binHz; if(f>=150&&f<=400&&isFinite(buf[i])) fl.push(buf[i]);}
+  fl.sort((x,y)=>x-y); const med=fl[Math.floor(fl.length/2)];
+  const mainsProm = (peakDb - med);
+  draw();
+  const el=(performance.now()-t0)/1000;
+  if (el >= target){ running=false; finish(stream, mainsProm, peakF); }
+  else { $('status').textContent=`capturing ${el.toFixed(1)} / ${target}s`; requestAnimationFrame(()=>loop(stream)); }
+}
+
+function draw(){
+  const c=$('spectrum'), g=c.getContext('2d');
+  g.fillStyle='#0b0f13'; g.fillRect(0,0,c.width,c.height); g.fillStyle='#7fd47f';
+  const n=buf.length, nyq=ctx.sampleRate/2, binHz=nyq/n, w=c.width;
+  const step=Math.max(1,Math.floor(n/w));
+  for(let x=0;x<w;x++){
+    const i=Math.floor(Math.pow(x/w,2)*n*0.7);
+    let pk=-250; for(let k=i;k<i+step&&k<n;k++) if(isFinite(buf[k])) pk=Math.max(pk,buf[k]);
+    if (pk>-240){ const h=Math.max(1,(Math.max(pk,-120)+120)/120*c.height); g.fillRect(x,c.height-h,1,h); }
+  }
+}
+
+function finish(stream, mainsProm, peakF){
+  const binHz=(ctx.sampleRate/2)/buf.length;
+  let pa=0,pc=0;
+  for(let i=1;i<buf.length;i++){const f=i*binHz; if(f<10||f>20000)continue;
+    const lin=Math.pow(10,(isFinite(buf[i])?buf[i]:-200)/10); pa+=lin*gA(f)*gA(f); pc+=lin*gC(f)*gC(f);}
+  const LA=10*Math.log10(Math.max(pa,1e-30)), LC=10*Math.log10(Math.max(pc,1e-30)), gap=LC-LA;
+  $('a').textContent=LA.toFixed(1); $('c').textContent=LC.toFixed(1); $('g').textContent=gap.toFixed(1);
+  $('mains').textContent=mainsProm.toFixed(1)+' @'+peakF.toFixed(0)+'Hz';
+  const v=gap>=15?'<b class="hit">SIGNATURE ≥15 — confirm ×3</b>':(gap>=10?'<b class="warn">borderline 10–15</b>':'not indicated');
+  $('peaks').innerHTML=v;
+  stream.getTracks().forEach(t=>t.stop());
+  addRow(LA.toFixed(1),LC.toFixed(1),gap.toFixed(1),mainsProm.toFixed(1),gap>=15?'SIGNATURE':(gap>=10?'borderline':'not-indicated'));
+  $('status').textContent='capture complete'; $('dur').disabled=false; $('start').disabled=false;
+}
+
+const LOG=[];
+function addRow(a,c,g,m,v){
+  const e=$('exp').value, s=$('spot').value||'?', io=$('io').value, d=$('dist').value||'—', ears=$('ears').value||'—';
+  const t=new Date().toTimeString().slice(0,5);
+  LOG.push({t,e,s,io,d,ears,dur:$('dur').querySelector('option:checked').textContent,a,c,g,m,v});
+  const tb=$('log');
+  const tr=tb.insertRow(-1);
+  [String(LOG.length),t,e,s,io,d,ears,$('dur').value,a,c,g,m+'Hz',v].forEach(x=>{const td=tr.insertCell(-1);td.textContent=x;});
+  if(v==='SIGNATURE') tr.style.background='#123d1e';
+}
+$('csv').onclick=()=>{
+  const head='time,exp,spot,io,dist,ears,dur_s,A_rel,C_rel,gap,mains_prom_db,verdict';
+  const body=LOG.map(r=>[r.t,r.e,r.s,r.io,r.d,r.ears,r.dur,r.a,r.c,r.g,r.m,r.v].join(',')).join('\n');
+  const blob=new Blob([head+'\n'+body],{type:'text/csv'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='tonalwatch_field_'+Date.now()+'.csv'; a.click();
+};
+$('wipe').onclick=()=>{ if(confirm('Clear log?')){LOG.length=0;$('log').querySelectorAll('tr:not(:first-child)').forEach(r=>r.remove());} };
+</script>
+</body>
+</html>
