@@ -10,6 +10,7 @@ export const LOW_FREQUENCY_THRESHOLD_DB = 15;
 
 const FFT_CACHE = new Map<number, FFT>();
 const WINDOW_CACHE = new Map<number, Float64Array>();
+let fallbackResultId = 0;
 
 export function periodicHann(size: number): Float64Array {
   let window = WINDOW_CACHE.get(size);
@@ -131,7 +132,7 @@ export function analyzePcm(pcm: Float32Array, fs: number, meta: InputMeta): Anal
   const bandEnd = Number.isFinite(fs) && fs > 0 ? Math.min(20000, fs / 2) : 0;
   const settings = filteredSettings(meta.deviceSettings);
   const result: AnalysisResult = {
-    id: globalThis.crypto?.randomUUID?.() ?? `tw-${Date.now()}-${Math.random().toString(36).slice(2)}`,
+    id: globalThis.crypto?.randomUUID?.() ?? `tw-${Date.now()}-${++fallbackResultId}`,
     algorithmVersion: ALGORITHM_VERSION,
     inputKind: meta.inputKind,
     fixtureId: meta.fixtureId,

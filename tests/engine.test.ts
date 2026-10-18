@@ -87,12 +87,14 @@ describe('shared PCM engine reference fixtures', () => {
   });
 
   it.each([
-    ['sine-63', 25.3992], ['sine-125', 16.0162], ['sine-1000', 0],
-    ['mixed-63-1000', 2.6090], ['hum-harmonics', 20.4524],
-  ] as const)('supports 44.1 kHz without reusing 48 kHz bin frequencies: %s', (id, analytic) => {
+    ['sine-63', 25.3992, 25.3440773], ['sine-125', 16.0162, 16.0101045], ['sine-1000', 0, 0.00002502],
+    ['mixed-63-1000', 2.6090, 2.6066643], ['hum-harmonics', 20.4524, 20.4324009],
+  ] as const)('supports 44.1 kHz without reusing 48 kHz bin frequencies: %s', (id, analytic, rateGolden) => {
     const result = analyzePcm(generateFixture(id, 44100), 44100, syntheticMeta(id));
     expect(result.frameCount).toBe(52);
     expect(Math.abs(result.cMinusADb! - analytic)).toBeLessThan(0.5);
+    // Separate 44.1 kHz regression goldens, accepted only after analytic checks.
+    expect(Math.abs(result.cMinusADb! - rateGolden)).toBeLessThan(0.15);
     expect(result.spectrum.hz[1] - result.spectrum.hz[0]).toBeCloseTo(44100 / 8192, 10);
   });
 
@@ -179,6 +181,16 @@ describe('recording quality and provenance gates', () => {
     expect(result.qualityCodes).toContain('near-full-scale');
     expect(result.qualityCodes).not.toContain('clipped');
     expect(result.cMinusADb).not.toBeNull();
+  });
+
+  it('applies the clipping fraction boundary at exactly 0.1 percent', () => {
+    for (const clippedCount of [239, 240]) {
+      const pcm = generateFixture('sine-1000');
+      pcm.fill(1, 0, clippedCount);
+      const result = analyzePcm(pcm, 48000, syntheticMeta('sine-1000'));
+      expect(result.qualityCodes.includes('clipped')).toBe(clippedCount === 240);
+      expect(result.lowFrequencyScreen === 'inconclusive').toBe(clippedCount === 240);
+    }
   });
 
   it('retains useful provenance while filtering persistent hardware identifiers', () => {

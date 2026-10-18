@@ -12,10 +12,16 @@ export function cancelledError(): DOMException {
 /** Permission and decoding promises cannot themselves be cancelled. */
 export function abortable<T>(promise: Promise<T>, signal?: AbortSignal): Promise<T> {
   if (!signal) return promise;
-  if (signal.aborted) return Promise.reject(cancelledError());
   return new Promise<T>((resolve, reject) => {
     const abort = () => reject(cancelledError());
-    signal.addEventListener('abort', abort, { once: true });
-    promise.then(resolve, reject).finally(() => signal.removeEventListener('abort', abort));
+    promise.then(value => {
+      signal.removeEventListener('abort', abort);
+      resolve(value);
+    }, error => {
+      signal.removeEventListener('abort', abort);
+      reject(error);
+    });
+    if (signal.aborted) abort();
+    else signal.addEventListener('abort', abort, { once: true });
   });
 }

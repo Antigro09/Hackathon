@@ -41,8 +41,9 @@ export class CaptureCollector {
 /** Device identity and group identifiers are deliberately excluded. */
 export function filterDeviceSettings(settings: MediaTrackSettings): Record<string, unknown> {
   const filtered: Record<string, unknown> = {};
+  const supplied = settings as unknown as Record<string, unknown>;
   for (const key of ['sampleRate', 'sampleSize', 'channelCount', 'latency', 'echoCancellation', 'noiseSuppression', 'autoGainControl'] as const) {
-    const value = settings[key];
+    const value = supplied[key];
     if (typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))) {
       filtered[key] = value;
     }
