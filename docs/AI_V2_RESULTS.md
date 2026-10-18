@@ -73,6 +73,8 @@ fit-audit-bundle.zip SHA256:   909e8a3aab92f21242079532afb9f5faf313d8eda5d74c53f
 
 Raw audio and the standalone embedding cache are intentionally outside the results bundle. This review verifies their recorded fingerprint/contract bindings, not an independent audio decode or encoder rerun. The manifest consistently records first-channel/first-five-second 48 kHz PCM, no gain normalization, finite samples, RMS≥1e−5 and peak<0.999. Quality exclusions and clip-level labels change the tested population; the labeled event may be absent from a five-second crop.
 
+A subsequent [validation-only browser check](../ml/runs/2026-10-18-v2-browser-parity/README.md) preserved these fit results and thresholds. All 325 validation-vector labels matched, but three roundoff-boundary accept/reject decisions differed. Twenty fixed prepared WAVs matched PCM, labels and gates, while encoder outputs differed across platforms/backends. Agreement also included two falsely accepted unknown sounds. Strict parity failed and no model was promoted; those checks are separate from fresh-test accuracy.
+
 The Wilson intervals omit threshold-selection uncertainty, repeated-source dependence, dataset/device shift and possible encoder-pretraining overlap. For example, 23/23 accepted bee clips has a nominal 85.7–100% interval, but the one-collection dependence remains. These results establish neither electrical-hum identification nor a building/appliance source, harm, legal compliance or field accuracy. No live app promotion occurred. Full audio/browser parity, independent field data and downstream license review remain required; MIMII's BY-SA source terms differ from the FSD/IVBEE terms.
 
 Primary sources and attribution:

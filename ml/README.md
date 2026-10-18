@@ -10,14 +10,20 @@ The data loader retains individual attribution/license/source records. It preser
 
 The encoder is frozen. Full encoder fine-tuning is a later experiment if this baseline exposes errors that a larger, representative dataset can address. A higher score on a small public benchmark alone is insufficient to claim reliable source identification or replace the production model.
 
+## Completed runs
+
+The [first measured run](../docs/AI_EXPERIMENT_RESULTS.md) used 725 public clips. The [second measured run](../docs/AI_V2_RESULTS.md) used 1,226 clips and compared the unchanged first classifier with the new classifier on identical fresh recordings. Its aggregate macro F1 improved from 0.8281 to 0.8496, but correctly accepted traffic coverage fell to 0/20 and unknown false accepts remained 11/190. Neither trained candidate replaced the live app. The v2 [source/protocol/results archive](runs/2026-10-18-v2/) preserves original evidence, and the [browser scorer](browser/README.md) is isolated research code.
+
+The [actual-candidate browser check](runs/2026-10-18-v2-browser-parity/README.md) used validation only. All 325 native-vector labels matched, but three gate decisions flipped at floating-point boundaries. Twenty fixed prepared WAVs matched PCM, labels and gates while revealing backend/platform encoder drift. Strict parity failed. No thresholds were changed, fresh test rows rescored or trained model promoted.
+
 ## Local reproduction
 
 Use an isolated Python environment and the pinned dependencies in `requirements.txt`. Run the notebook top-to-bottom, or use its calls to `ml.data`, `ml.features`, and `ml.experiment`. Downloaded clips, model weights, and scratch results belong outside tracked source, normally under ignored `output/ml/` locally or `/content/tonalwatch-artifacts/` in Colab.
 
 The notebook records source commit, manifest hashes, environment versions, held-out metrics, and a small portable classifier artifact. Keep `promotionAllowed: false` until browser feature/embedding parity, realistic independent recordings, and the acceptance criteria have been checked. Native ONNX Runtime and browser WASM can differ even when they load identical quantized model weights.
 
-## Implementation checks
+## Initial implementation checks
 
-The experiment's 22 unit checks pass, covering crop/gain policy, license filtering, split leakage, fixed test thresholds, normalization, and portable coefficients. A real five-second synthetic 63 Hz signal produced valid 512-dimensional q8 audio embeddings; actual text inference also succeeded. The NumPy log-mel features matched the pinned Python CLAP extractor with explicit zero-padding exactly for that signal. These checks establish software wiring, not classification accuracy.
+The initial experiment's 22 unit checks passed, covering crop/gain policy, license filtering, split leakage, fixed test thresholds, normalization, and portable coefficients. A real five-second synthetic 63 Hz signal produced valid 512-dimensional q8 audio embeddings; actual text inference also succeeded. The NumPy log-mel features matched the pinned Python CLAP extractor with explicit zero-padding exactly for that signal. The completed v2 Colab run passed 69 then-current checks; eight exporter checks and 23 isolated JavaScript checks passed separately. These checks establish software wiring, not classification accuracy.
 
 The notebook's matched baseline ranks cosine similarities from the separately converted q8 audio/text branches. It is a fair comparator for the frozen-embedding task, but it does not reproduce the live app's combined-graph score values. On one synthetic fixture, the audio-only and combined-graph embeddings differed slightly (cosine 0.999748); a conventional cosine softmax and the combined graph's learned scale also gave different relative scores. `features.py` provides `load_reference_session` and `reference_zero_shot_scores` for a separate audit of the exact combined graph. Preserve this distinction when interpreting results.

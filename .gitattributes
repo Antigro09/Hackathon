@@ -1,2 +1,7 @@
-# Preserve the exact bytes covered by recorded experiment checksums.
+# Canonical scientific source bytes keep provenance checks portable on Windows.
+ml/*.py text eol=lf
+ml/*.md text eol=lf
+ml/*.txt text eol=lf
+ml/browser/** text eol=lf
+# Preserve the exact downloaded bytes covered by recorded experiment checksums.
 ml/runs/** -text
