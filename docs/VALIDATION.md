@@ -2,7 +2,7 @@
 
 Build date: **October 18, 2026 (America/New_York)**. This record distinguishes software checks from browser integration and physical measurement validation. Current algorithm: **`tw-screen-v2`**; earlier v1 checks remain historical evidence for unchanged weighting/PSD and their original peak-selection method.
 
-**Current application/lab status:** **388 tests across 19 files** (349 application + 39 standalone-lab checks), with TypeScript/Vite build passed. Observation now accepts live microphone capture only. The UI keeps all three durations, the input meter, negative-dB explanations, concise text exports and the printed spectrum. The AI copy uses deterministic, independently checked resampling. See [deployment evidence](DEPLOYMENT.md). Historical test runs remain separately labeled.
+**Current application/lab status:** **428 tests across 21 files** (388 existing checks plus 40 V3 panel/head-loader checks), with TypeScript/Vite build passed and all 23 opaque product payloads byte-exact. The mounted V3 app passed fresh-session local browser QA described below; public V3 deployment verification is pending. Observation accepts live microphone capture only. The UI keeps all three durations, the input meter, negative-dB explanations, concise text exports and the printed spectrum. The AI copy uses deterministic, independently checked resampling. See [deployment evidence](DEPLOYMENT.md). Historical test runs remain separately labeled.
 
 ## Microphone-only observation
 
@@ -215,3 +215,42 @@ The standalone [`field_lab.html`](../field_lab.html) serves the E1–E5 campaign
 These checks do not establish hardware accuracy or retroactively validate [FIELD_LOG.md](FIELD_LOG.md). Its original notes retain explicit missing-provenance, duration, source, and unsupported-device-offset limitations; the instrument/version that produced them is unknown.
 
 OpenAI Codex assisted development and software verification. Core calculations and report wording are deterministic. The optional local CLAP comparison uses downloaded model/runtime files and no remote inference endpoint. No generative legal text, audio upload, or automated complaint submission is included. Upstream model and library attribution is recorded in [RESOURCES.md](RESOURCES.md).
+
+## V3 recorded relative comparison — October 18, 2026
+
+The [frozen comparison protocol](../ml/BASELINE_COMPARISON_PROTOCOL.md) was committed before the 416 reserved clips were encoded or classified. The exact original website eight-description worker/runtime was compared with the frozen audio-only CLAP encoder plus trained integer head. The encoder was not fine-tuned; prompts, parameters, rejection rules, quality policy and metrics were unchanged during final evaluation.
+
+The original website DSP worker froze a common mask before either classifier: 409 eligible rows (218 known, 191 unknown), seven blocking-quality joint abstentions, zero baseline errors and all 416 paired rows retained. Full denominators remain 222 known and 194 unknown. Saved row outcomes independently reproduce known-family macro F1 **0.7779942504 versus 0.3944968826**. V3 emitted 103 known-family hints on eligible true-known rows, 98 correct (**95.15% precision; 103/218 = 47.25% coverage**); baseline emitted 216, with 95 correct (**43.98% precision**). Unknown family-hint rates were **7/191 versus 182/191**. Correct V3 accepted coverage was 18/36 buzz, 17/35 fan, 30/49 speech, 11/52 traffic and 22/46 wind. All five predeclared relative recognition checks passed; [AI_V3_RESULTS.md](AI_V3_RESULTS.md) includes full denominators, subgroups, actual top-two baseline exposure and limitations.
+
+This does **not** pass the older strict bar. The original development audit retains its 6/116 unknown accepts and 10.8268% Wilson upper bound. On eligible final unknown rows, 7/191 gives a **7.3705%** upper bound above 5%; full 194 upper bound is 7.2594%. Accepted true-known predictions of wind are 22/25 = **88%**, below 90%. Creator labels, repeated hive/collection conditions, source/class confounding and possible encoder-pretraining overlap prevent a field/general-accuracy conclusion. Traffic's 11/52 correct acceptance and ToBee OSBH's 0/11 correct acceptance remain visible.
+
+Software prechecks available before mounted-app integration:
+
+| Check | Recorded result / scope |
+| --- | --- |
+| Frozen fitted-head parity | 1,360 development/synthetic cases, zero quantized-coordinate, six-score, margin, label or gate differences. |
+| Verified worker qualification | All 26 original software fixtures plus two startup cases matched full stage hashes and 512D vectors exactly; no fresh final recordings were used for this qualification. |
+| Exact legacy transport | Two fixed synthetic inputs completed through the unchanged public eight-description worker; pinned artifact bytes/options retained, including the 307 streaming transport. |
+| Prepared panel/head loader | 40 tests passed; strict TypeScript check passed. Lazy loading, native first-five-second copying, quality blocking, one-worker ownership, abort/stale isolation, integrity rejection and accepted-family-only output were checked without mounting the new app. |
+| Comparison/harness regressions | 12 comparator and eight harness synthetic checks passed. They cover fixed denominators/arithmetic, input/source/quality/browser bindings, immutable snapshots and mismatch rejection; they do not query fresh audio. |
+| Prepared public payloads | All 23 byte-index entries verified, totaling 50,887,143 bytes. Recording credits match all 1,358 development rows; licenses are CC0/CC BY. No MIMII recording is in fitted-head data. |
+
+Recognition evidence: [paired archive](../ml/runs/2026-10-18-website-relative-comparison/), completion SHA256 `a00a2e2adfff98b7021076c62ac1a2cc82e02a635d8c24bdf2d42cdc2c1d6375`, result SHA256 `c0958e60c0bbf70dbbb1b0d3737b8a3f6a57f5fcad6b57a11dca1eacfea41e23`. Historical strict fit evidence remains in the [first-fit archive](../ml/runs/2026-10-18-v3-first-fit/README.md).
+
+### Completed local mounted-app V3 checks
+
+The final isolated Chrome session `v3-app-final` exercised the built app at loopback with a generated 63 Hz/48 kHz virtual microphone. The [raw browser record](qa/2026-10-18-v3-browser.json) binds its actual source hashes and results. This does not validate a physical microphone or recognition accuracy on real nuisance sounds.
+
+| Check | Actual observation |
+| --- | --- |
+| Combined suite and build | **428 tests across 21 files**, TypeScript/Vite build passed; all 23 opaque static payloads remained byte-exact. |
+| Live 15-second capture | Meter responded, capture completed at 48 kHz, report retained **720,000 samples and 174 frames**. AI disclosure retained first 5 seconds versus full 15-second DSP/report scope. |
+| Consent / real model | No AI request before Explore. The actual model returned **No sound family suggested** for the generated tone. This software fixture has no claimed expected family. |
+| Startup evidence | The successful result passed the panel's exact provenance and `selfTestPassed` checks. Transient self-test UI text was too quick to observe, so the record does not claim it was seen or timed. |
+| Lifetime | At most **one** encoder worker. Clear/unload, retry/cancel and navigation while the unchanged graph request was held passed; releasing the old request produced **zero stale hints**. |
+| Corruption | Same-length corrupt head and graph each failed closed, with the standard spectrum/report still available. No fallback classifier or guessed family appeared. |
+| Native text and print | **7,718-byte/117-line** native TXT omitted individual bins and AI. PDF print retained the unchanged **6,579-character** actual SVG path and full 15-second metadata. |
+| Six pages and footers | Home, Observation, Learn, Map, Sources and Report at **320/390/1280 px**, visual viewport scale 1: zero horizontal overflow and reachable footer bottoms within **0.5 CSS px**. |
+| Network and runtime | **99 same-origin GETs**, zero request-body bytes, zero page errors and zero console errors in the final session. |
+
+The first session crossed preview rebuilds and requested a stale Map chunk, causing a 404; its ignored logs are preserved. The final evidence above comes from a fresh session against the fixed completed build. Updated six-page screenshots are linked from [README.md](../README.md). Public V3 HTTPS deployment verification remains **pending**; previous deployed legacy-model evidence does not substitute for it. The software result leaves all recorded strict model failures, coverage limitations and outstanding hardware/field validation intact.

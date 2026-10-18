@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "row": 31,
+  "clipId": "839007",
+  "sourceSha256": "e19d41ce5d70b86310e19e8144786d56e73d56afe55c4a4ad80fd7a7afad47a4",
+  "pcmSha256": "5cac04cd396167a15c15b2c7c6f7299328fdbc0caf947bf992789c9ff9abb561",
+  "contractSha256": "a326e70bc14d71cce69466ccdc59e13452166234fcc2d78d35fd8f92fc0dcd14",
+  "inputUnchanged": true,
+  "rawResponse": {
+    "type": "result",
+    "sessionId": 32,
+    "result": {
+      "status": "uncertain",
+      "reason": "not-validated",
+      "provisionalGatePassed": true,
+      "rankings": [
+        {
+          "score": 0.6225540041923523,
+          "label": "outdoor industrial ventilation fans or cooling machinery humming"
+        },
+        {
+          "score": 0.19489796459674835,
+          "label": "a buzzing indoor fluorescent light fixture or lamp ballast"
+        }
+      ],
+      "modelId": "Xenova/clap-htsat-unfused",
+      "modelRevision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+      "preprocessing": {
+        "originalSampleRateHz": 48000,
+        "originalSampleCount": 240000,
+        "observationSeconds": 5,
+        "modelSampleRateHz": 48000,
+        "modelInputSamples": 240000,
+        "processorSeconds": 10,
+        "padding": "zero-pad",
+        "configuredPadding": "repeatpad",
+        "featureBandHz": [
+          50,
+          14000
+        ]
+      },
+      "timing": {
+        "modelLoadMs": 0,
+        "inferenceMs": 665,
+        "totalMs": 666.4000000953674,
+        "reusedModel": true
+      }
+    }
+  },
+  "analysis": {
+    "algorithmVersion": "tw-screen-v2",
+    "sampleRateHz": 48000,
+    "sampleCount": 240000,
+    "durationSeconds": 5,
+    "frameCount": 57,
+    "qualityCodes": [
+      "imported-processing-unknown"
+    ]
+  },
+  "qualityArtifactSha256": "3ac09ea4fc0e2fc10abe85dbd66c46c5d1e66f8f4237861912bdc8085c21105b",
+  "resampledPcmSha256": "5cac04cd396167a15c15b2c7c6f7299328fdbc0caf947bf992789c9ff9abb561",
+  "outcome": "result"
+}

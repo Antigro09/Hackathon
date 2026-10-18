@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "complete": true,
+  "total": 416,
+  "outcomes": {
+    "result": 409,
+    "blocked-by-quality": 7,
+    "error": 0
+  },
+  "browserRequestCount": 861,
+  "serverRequestCount": 851,
+  "remoteGetCount": 11,
+  "remoteDistinctArtifacts": 7,
+  "duplicateArtifactGets": "Unmodified pipeline concurrent component loads; each exact snapshot remained pinned",
+  "blockedNetworkRequests": 0,
+  "onlyPost": "loopback/checkpoint JSON allowlist; no PCM",
+  "consoleErrors": 0,
+  "consoleWarnings": 0,
+  "browserClosed": true,
+  "serverStopped": true,
+  "promotionAllowed": false
+}

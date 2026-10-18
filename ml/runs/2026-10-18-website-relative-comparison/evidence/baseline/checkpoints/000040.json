@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "row": 40,
+  "clipId": "817024",
+  "sourceSha256": "3ffbd4e444aa201bcd84f3c05ace6db4737357d84a4ecd1eb1322f055350df87",
+  "pcmSha256": "8ac5c2c52640a91453fd35ded377d2000f8ac7622487152b8c6008ab5776373f",
+  "contractSha256": "a326e70bc14d71cce69466ccdc59e13452166234fcc2d78d35fd8f92fc0dcd14",
+  "inputUnchanged": true,
+  "rawResponse": {
+    "type": "result",
+    "sessionId": 41,
+    "result": {
+      "status": "uncertain",
+      "reason": "weak-separation",
+      "provisionalGatePassed": false,
+      "rankings": [
+        {
+          "score": 0.5417661070823669,
+          "label": "an outdoor electrical transformer humming"
+        },
+        {
+          "score": 0.30576789379119873,
+          "label": "outdoor industrial ventilation fans or cooling machinery humming"
+        }
+      ],
+      "modelId": "Xenova/clap-htsat-unfused",
+      "modelRevision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+      "preprocessing": {
+        "originalSampleRateHz": 48000,
+        "originalSampleCount": 240000,
+        "observationSeconds": 5,
+        "modelSampleRateHz": 48000,
+        "modelInputSamples": 240000,
+        "processorSeconds": 10,
+        "padding": "zero-pad",
+        "configuredPadding": "repeatpad",
+        "featureBandHz": [
+          50,
+          14000
+        ]
+      },
+      "timing": {
+        "modelLoadMs": 0,
+        "inferenceMs": 966.2999999523163,
+        "totalMs": 968.5,
+        "reusedModel": true
+      }
+    }
+  },
+  "analysis": {
+    "algorithmVersion": "tw-screen-v2",
+    "sampleRateHz": 48000,
+    "sampleCount": 240000,
+    "durationSeconds": 5,
+    "frameCount": 57,
+    "qualityCodes": [
+      "imported-processing-unknown"
+    ]
+  },
+  "qualityArtifactSha256": "3ac09ea4fc0e2fc10abe85dbd66c46c5d1e66f8f4237861912bdc8085c21105b",
+  "resampledPcmSha256": "8ac5c2c52640a91453fd35ded377d2000f8ac7622487152b8c6008ab5776373f",
+  "outcome": "result"
+}

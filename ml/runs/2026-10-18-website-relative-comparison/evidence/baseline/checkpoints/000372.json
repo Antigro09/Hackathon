@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "row": 372,
+  "clipId": "153268",
+  "sourceSha256": "dd41c80cbeaecdba4c37a00ecbc3ac494b53a303fa78720090cce910ee14231a",
+  "pcmSha256": "438219423bcfa895cecda57d65d97d4e6373a10ae57f264aed5467ee59804d82",
+  "contractSha256": "a326e70bc14d71cce69466ccdc59e13452166234fcc2d78d35fd8f92fc0dcd14",
+  "inputUnchanged": true,
+  "rawResponse": {
+    "type": "result",
+    "sessionId": 373,
+    "result": {
+      "status": "uncertain",
+      "reason": "weak-separation",
+      "provisionalGatePassed": false,
+      "rankings": [
+        {
+          "score": 0.3071601986885071,
+          "label": "a buzzing indoor fluorescent light fixture or lamp ballast"
+        },
+        {
+          "score": 0.26225680112838745,
+          "label": "people talking in a room"
+        }
+      ],
+      "modelId": "Xenova/clap-htsat-unfused",
+      "modelRevision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+      "preprocessing": {
+        "originalSampleRateHz": 48000,
+        "originalSampleCount": 240000,
+        "observationSeconds": 5,
+        "modelSampleRateHz": 48000,
+        "modelInputSamples": 240000,
+        "processorSeconds": 10,
+        "padding": "zero-pad",
+        "configuredPadding": "repeatpad",
+        "featureBandHz": [
+          50,
+          14000
+        ]
+      },
+      "timing": {
+        "modelLoadMs": 0,
+        "inferenceMs": 547.2000000476837,
+        "totalMs": 548.6000001430511,
+        "reusedModel": true
+      }
+    }
+  },
+  "analysis": {
+    "algorithmVersion": "tw-screen-v2",
+    "sampleRateHz": 48000,
+    "sampleCount": 240000,
+    "durationSeconds": 5,
+    "frameCount": 57,
+    "qualityCodes": [
+      "imported-processing-unknown"
+    ]
+  },
+  "qualityArtifactSha256": "3ac09ea4fc0e2fc10abe85dbd66c46c5d1e66f8f4237861912bdc8085c21105b",
+  "resampledPcmSha256": "438219423bcfa895cecda57d65d97d4e6373a10ae57f264aed5467ee59804d82",
+  "outcome": "result"
+}

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "row": 411,
+  "clipId": "430993",
+  "sourceSha256": "bcf9f8526e98af77b08c6a025ce84d748e8d9846418017f819ce6dec029a4c33",
+  "pcmSha256": "5688b54e635ee611107939c45cc3dfb68d41dde6c64af4508e7b84bad13755c7",
+  "contractSha256": "a326e70bc14d71cce69466ccdc59e13452166234fcc2d78d35fd8f92fc0dcd14",
+  "inputUnchanged": true,
+  "rawResponse": {
+    "type": "result",
+    "sessionId": 412,
+    "result": {
+      "status": "uncertain",
+      "reason": "weak-separation",
+      "provisionalGatePassed": false,
+      "rankings": [
+        {
+          "score": 0.3024635314941406,
+          "label": "a household fan or air conditioner running"
+        },
+        {
+          "score": 0.30223098397254944,
+          "label": "outdoor industrial ventilation fans or cooling machinery humming"
+        }
+      ],
+      "modelId": "Xenova/clap-htsat-unfused",
+      "modelRevision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+      "preprocessing": {
+        "originalSampleRateHz": 48000,
+        "originalSampleCount": 240000,
+        "observationSeconds": 5,
+        "modelSampleRateHz": 48000,
+        "modelInputSamples": 240000,
+        "processorSeconds": 10,
+        "padding": "zero-pad",
+        "configuredPadding": "repeatpad",
+        "featureBandHz": [
+          50,
+          14000
+        ]
+      },
+      "timing": {
+        "modelLoadMs": 0,
+        "inferenceMs": 454.2000000476837,
+        "totalMs": 455.2999999523163,
+        "reusedModel": true
+      }
+    }
+  },
+  "analysis": {
+    "algorithmVersion": "tw-screen-v2",
+    "sampleRateHz": 48000,
+    "sampleCount": 240000,
+    "durationSeconds": 5,
+    "frameCount": 57,
+    "qualityCodes": [
+      "imported-processing-unknown"
+    ]
+  },
+  "qualityArtifactSha256": "3ac09ea4fc0e2fc10abe85dbd66c46c5d1e66f8f4237861912bdc8085c21105b",
+  "resampledPcmSha256": "5688b54e635ee611107939c45cc3dfb68d41dde6c64af4508e7b84bad13755c7",
+  "outcome": "result"
+}

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "row": 281,
+  "clipId": "819966",
+  "sourceSha256": "b0eb56a11fd5c83b4429e113c3d5d1a77e1d762b82d526754e0674f524e72069",
+  "pcmSha256": "3a10f5b9aecddd6858173d7d5d592eb37ae55f70362708f70bb1952a3f6fdfc5",
+  "contractSha256": "a326e70bc14d71cce69466ccdc59e13452166234fcc2d78d35fd8f92fc0dcd14",
+  "inputUnchanged": true,
+  "rawResponse": {
+    "type": "result",
+    "sessionId": 282,
+    "result": {
+      "status": "uncertain",
+      "reason": "weak-separation",
+      "provisionalGatePassed": false,
+      "rankings": [
+        {
+          "score": 0.32053202390670776,
+          "label": "a quiet room with background noise"
+        },
+        {
+          "score": 0.31604599952697754,
+          "label": "a household fan or air conditioner running"
+        }
+      ],
+      "modelId": "Xenova/clap-htsat-unfused",
+      "modelRevision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+      "preprocessing": {
+        "originalSampleRateHz": 48000,
+        "originalSampleCount": 240000,
+        "observationSeconds": 5,
+        "modelSampleRateHz": 48000,
+        "modelInputSamples": 240000,
+        "processorSeconds": 10,
+        "padding": "zero-pad",
+        "configuredPadding": "repeatpad",
+        "featureBandHz": [
+          50,
+          14000
+        ]
+      },
+      "timing": {
+        "modelLoadMs": 0,
+        "inferenceMs": 872.2999999523163,
+        "totalMs": 873.6000001430511,
+        "reusedModel": true
+      }
+    }
+  },
+  "analysis": {
+    "algorithmVersion": "tw-screen-v2",
+    "sampleRateHz": 48000,
+    "sampleCount": 240000,
+    "durationSeconds": 5,
+    "frameCount": 57,
+    "qualityCodes": [
+      "imported-processing-unknown"
+    ]
+  },
+  "qualityArtifactSha256": "3ac09ea4fc0e2fc10abe85dbd66c46c5d1e66f8f4237861912bdc8085c21105b",
+  "resampledPcmSha256": "3a10f5b9aecddd6858173d7d5d592eb37ae55f70362708f70bb1952a3f6fdfc5",
+  "outcome": "result"
+}

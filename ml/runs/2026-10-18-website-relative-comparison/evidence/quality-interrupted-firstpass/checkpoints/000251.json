@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "row": 251,
+  "clipId": "816325",
+  "sourceSha256": "3fcc6aa55e258091fa2a73f3cafa0938bfa34c45e6fe5ce15a1523b3d53a5d4e",
+  "pcmSha256": "071000479849e35096d8cc91774ef29663b48974f93ed8198746bbb19d1407a3",
+  "contractSha256": "7abb69140f514e409158cb2b02529a4b56112e6c74522626bbda320f29463897",
+  "inputUnchanged": true,
+  "error": null,
+  "analysis": {
+    "algorithmVersion": "tw-screen-v2",
+    "sampleRateHz": 48000,
+    "sampleCount": 240000,
+    "durationSeconds": 5,
+    "frameCount": 57,
+    "qualityCodes": [
+      "imported-processing-unknown"
+    ]
+  },
+  "outcome": "quality-eligible"
+}

@@ -1,0 +1,116 @@
+{
+  "contractSha256": "a326e70bc14d71cce69466ccdc59e13452166234fcc2d78d35fd8f92fc0dcd14",
+  "contract": {
+    "schemaVersion": 1,
+    "implementation": "tw-legacy-website-baseline-v1",
+    "mode": "final",
+    "phase": "classify",
+    "protocol": {
+      "path": "ml/BASELINE_COMPARISON_PROTOCOL.md",
+      "sha256": "b8a453622e02f340b6196c1dca62abecf2646176eb324a5401e2cf05fad38aca",
+      "commit": "dbb71588a7d4897f30fe6f64a395ace300cad6f1"
+    },
+    "qualityArtifactSha256": "3ac09ea4fc0e2fc10abe85dbd66c46c5d1e66f8f4237861912bdc8085c21105b",
+    "manifestSha256": "4f7002914f11686c7b3c4d71c3db582b44da861fa4c43b56e8cb384b9306ab3a",
+    "sourceManifestSha256": "197e24e42c36de1368f9cd25424c98a4f8935af7c60429c4521d8d80feaa9520",
+    "deployedOrigin": "https://tonalwatch.vercel.app",
+    "distAssets": {
+      "soundHints.worker-BshSXPiJ.js": {
+        "bytes": 5204,
+        "sha256": "26f40691a2c49f2c717beee0a4f415a1003db4f2d5c4c72ebc27cc2d644005b8"
+      },
+      "transformers.web-B7_wdX-V.js": {
+        "bytes": 545164,
+        "sha256": "06dfd43d60e53f8c5c191f9054abf594297c4f577eb68b337b89cd26824af8af"
+      },
+      "analysis.worker-BwKrUFVx.js": {
+        "bytes": 10766,
+        "sha256": "a5918dda07bf28fd7b705d797734185446be9d13ab0feb7f5b5a5025717d443f"
+      },
+      "ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm": {
+        "bytes": 26861777,
+        "sha256": "49871f5a4409519797e127440868a6d1923339d9185907f301a5b2a1d90af082"
+      }
+    },
+    "remoteArtifacts": [
+      {
+        "index": 0,
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/config.json",
+        "bytes": 699,
+        "sha256": "39c6d90fe29cf2cce650dd5c92c38a1e35b130d9ce0bb98585222ad687ad979b"
+      },
+      {
+        "index": 1,
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json",
+        "bytes": 541,
+        "sha256": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753"
+      },
+      {
+        "index": 2,
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/tokenizer_config.json",
+        "bytes": 1392,
+        "sha256": "2c964a338683aec3695ea37687271e75b40905233f5d2a5bbb9be8cb40c4d0a0"
+      },
+      {
+        "index": 3,
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/tokenizer.json",
+        "bytes": 2108774,
+        "sha256": "dc239041d98de27ffc3975473a1a23e3db4c937b23c138c38bbc66588bd247e5"
+      },
+      {
+        "index": 4,
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/onnx/model_quantized.onnx",
+        "bytes": 161024085,
+        "sha256": "3f559313ec268518193101007fc0569ee4b2cfac03e369091c50adb4795f5c5d"
+      },
+      {
+        "index": 5,
+        "url": "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.31.0-dev.20260914-8d85527a0/dist/ort-wasm-simd-threaded.asyncify.mjs",
+        "bytes": 53057,
+        "sha256": "0966b6105cd936744498aa60df7a22cbd47af3374dbc64a9ab561c08a71e3611"
+      },
+      {
+        "index": 6,
+        "url": "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.31.0-dev.20260914-8d85527a0/dist/ort-wasm-simd-threaded.asyncify.wasm",
+        "bytes": 26861777,
+        "sha256": "49871f5a4409519797e127440868a6d1923339d9185907f301a5b2a1d90af082"
+      }
+    ],
+    "labels": [
+      "a buzzing indoor fluorescent light fixture or lamp ballast",
+      "an outdoor electrical transformer humming",
+      "outdoor industrial ventilation fans or cooling machinery humming",
+      "a household fan or air conditioner running",
+      "road traffic passing outside",
+      "wind blowing across a microphone",
+      "people talking in a room",
+      "a quiet room with background noise"
+    ],
+    "originalWorkerReturns": "top2 only; preserve always-uncertain status/reason and provisional gate; no confidence probabilities",
+    "commonQuality": "exact deployed analysis.worker-BwKrUFVx.js on same original5s PCM; prepared-public import provenance; blocked outcomes retained",
+    "resamplerSha256": "2ab0e2e2a8d3bbc8dc2d3608993c7b27c2df4726a20411e5054414f4223d0477",
+    "execution": {
+      "transformersVersion": "4.3.1",
+      "ortVersion": "1.31.0-dev.20260914-8d85527a0",
+      "device": "wasm",
+      "dtype": "q8",
+      "numThreads": 1,
+      "proxy": false,
+      "hypothesisTemplate": "{}",
+      "executedInThisPhase": true,
+      "assertionBasis": "unchanged verified public worker and bundled source; transport artifact GET evidence"
+    },
+    "sourceHashes": {
+      "legacyBaselineServerV3.mjs": "e5d2fc9c7e5664e74a18fe2e3ed491bd004756c29cdacc4d44c8b658557c7ddd",
+      "legacyBaselineV3.mjs": "818d9fe2b8b552d43bb33431e44c04a95d05509bc4aa3fe9f9465370e2e16c22",
+      "legacyBaselinePageV3.mjs": "2aa310d4f9ba914247a3dfeafa32dca2773cd8f1400ee098347907da02c4156f",
+      "legacyBaselineRoutesV3.js": "dc50382fa5a4b3a255f530f14e71610e01d5c2bf53a9ce6c25fd449cdb652b9a"
+    },
+    "environment": {
+      "node": "v24.18.0",
+      "platform": "win32",
+      "architecture": "x64"
+    },
+    "promotionAllowed": false
+  }
+}

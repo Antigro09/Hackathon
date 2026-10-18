@@ -1,0 +1,17 @@
+// Explicit Playwright run-code action: install fixed transport and run the authorized phase.
+async page=>{
+  const origin=new URL(page.url()).origin;
+  const config=await(await page.request.get(`${origin}/remote-manifest.json`)).json();
+  await page.route('https://**/*',async route=>{
+    const request=route.request(),item=config.files.find(x=>x.url===request.url());
+    if(!item||!['GET','HEAD'].includes(request.method())||request.postDataBuffer()) {
+      await page.evaluate(x=>{window.legacyBaselineHarness.state.network.push(x);},{url:request.url(),method:request.method(),blocked:true});await route.abort('blockedbyclient');return;
+    }
+    // Let Chromium stream the large unchanged graph directly; do not serialize it through Playwright.
+    await route.fulfill({status:307,headers:{location:`${origin}/remote/${item.index}`,'access-control-allow-origin':'*'},body:''});
+    await page.evaluate(x=>{window.legacyBaselineHarness.state.network.push(x);},{url:item.url,method:request.method(),sha256:item.sha256,bytes:item.bytes,servedFromVerifiedLocalSnapshot:true,transport:'307-to-verified-loopback-GET'});
+  });
+  await page.evaluate(()=>{window.legacyBaselineRoutingInstalled=true;});
+  const result=await page.evaluate(()=>window.legacyBaselineHarness.run());
+  console.log({routingInstalled:true,pinnedArtifacts:config.files.length,phase:result.phase,completed:result.completed,total:result.total,errors:result.errors,network:result.network});
+}

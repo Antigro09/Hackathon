@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "row": 379,
+  "clipId": "187291",
+  "sourceSha256": "9a823ab8bade98beb0157e1fc5929c7f4e03365d88dcf008983170bd7dcda9d6",
+  "pcmSha256": "96edbbe848626a2572d6e4ad8f051a13e8a46fe3c6851c91afea716ca25e6daa",
+  "contractSha256": "a326e70bc14d71cce69466ccdc59e13452166234fcc2d78d35fd8f92fc0dcd14",
+  "inputUnchanged": true,
+  "rawResponse": {
+    "type": "result",
+    "sessionId": 380,
+    "result": {
+      "status": "uncertain",
+      "reason": "weak-separation",
+      "provisionalGatePassed": false,
+      "rankings": [
+        {
+          "score": 0.24063529074192047,
+          "label": "people talking in a room"
+        },
+        {
+          "score": 0.19867204129695892,
+          "label": "outdoor industrial ventilation fans or cooling machinery humming"
+        }
+      ],
+      "modelId": "Xenova/clap-htsat-unfused",
+      "modelRevision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+      "preprocessing": {
+        "originalSampleRateHz": 48000,
+        "originalSampleCount": 240000,
+        "observationSeconds": 5,
+        "modelSampleRateHz": 48000,
+        "modelInputSamples": 240000,
+        "processorSeconds": 10,
+        "padding": "zero-pad",
+        "configuredPadding": "repeatpad",
+        "featureBandHz": [
+          50,
+          14000
+        ]
+      },
+      "timing": {
+        "modelLoadMs": 0,
+        "inferenceMs": 615.1000001430511,
+        "totalMs": 617.1000001430511,
+        "reusedModel": true
+      }
+    }
+  },
+  "analysis": {
+    "algorithmVersion": "tw-screen-v2",
+    "sampleRateHz": 48000,
+    "sampleCount": 240000,
+    "durationSeconds": 5,
+    "frameCount": 57,
+    "qualityCodes": [
+      "imported-processing-unknown"
+    ]
+  },
+  "qualityArtifactSha256": "3ac09ea4fc0e2fc10abe85dbd66c46c5d1e66f8f4237861912bdc8085c21105b",
+  "resampledPcmSha256": "96edbbe848626a2572d6e4ad8f051a13e8a46fe3c6851c91afea716ca25e6daa",
+  "outcome": "result"
+}

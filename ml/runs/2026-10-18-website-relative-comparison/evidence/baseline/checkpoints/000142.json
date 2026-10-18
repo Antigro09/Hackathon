@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "row": 142,
+  "clipId": "829000",
+  "sourceSha256": "718de1e214cbcc803b60eaca831efd75f284bd3240e7e2569288ee7ba720c382",
+  "pcmSha256": "7b740a629448d573c3abe700e41a1537b796ca5c456f78b82042b7ac8baf4ae0",
+  "contractSha256": "a326e70bc14d71cce69466ccdc59e13452166234fcc2d78d35fd8f92fc0dcd14",
+  "inputUnchanged": true,
+  "rawResponse": {
+    "type": "result",
+    "sessionId": 143,
+    "result": {
+      "status": "uncertain",
+      "reason": "not-validated",
+      "provisionalGatePassed": true,
+      "rankings": [
+        {
+          "score": 0.9735235571861267,
+          "label": "wind blowing across a microphone"
+        },
+        {
+          "score": 0.012449943460524082,
+          "label": "outdoor industrial ventilation fans or cooling machinery humming"
+        }
+      ],
+      "modelId": "Xenova/clap-htsat-unfused",
+      "modelRevision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+      "preprocessing": {
+        "originalSampleRateHz": 48000,
+        "originalSampleCount": 240000,
+        "observationSeconds": 5,
+        "modelSampleRateHz": 48000,
+        "modelInputSamples": 240000,
+        "processorSeconds": 10,
+        "padding": "zero-pad",
+        "configuredPadding": "repeatpad",
+        "featureBandHz": [
+          50,
+          14000
+        ]
+      },
+      "timing": {
+        "modelLoadMs": 0,
+        "inferenceMs": 698.5,
+        "totalMs": 699.5,
+        "reusedModel": true
+      }
+    }
+  },
+  "analysis": {
+    "algorithmVersion": "tw-screen-v2",
+    "sampleRateHz": 48000,
+    "sampleCount": 240000,
+    "durationSeconds": 5,
+    "frameCount": 57,
+    "qualityCodes": [
+      "imported-processing-unknown"
+    ]
+  },
+  "qualityArtifactSha256": "3ac09ea4fc0e2fc10abe85dbd66c46c5d1e66f8f4237861912bdc8085c21105b",
+  "resampledPcmSha256": "7b740a629448d573c3abe700e41a1537b796ca5c456f78b82042b7ac8baf4ae0",
+  "outcome": "result"
+}
