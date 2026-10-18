@@ -1,0 +1,56 @@
+{
+  "source_commit": "0da8c60dee54ac961e395ec646cf657563268fdf",
+  "data_preparation_source_commit": "0da8c60dee54ac961e395ec646cf657563268fdf",
+  "python": "3.13.16",
+  "fit_runtime": {
+    "python": "3.13.16",
+    "python_implementation": "CPython",
+    "packages": {
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "scikit-learn": "1.7.2",
+      "joblib": "1.6.0"
+    }
+  },
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "completed_at_utc": "2026-10-18T17:08:03.726228+00:00",
+  "manifest_sha256": "8a22e336d2eb1806ab228b381badb46156e67f198013d77b31a0565fbb3f0ab8",
+  "encoder_contract": {
+    "model_id": "Xenova/clap-htsat-unfused",
+    "model_revision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+    "weights": "3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f",
+    "preprocessor": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+    "extractor_source": "43c1c42a38ea4eb84497f956e8d6cbc7f76a3f1774e2ccd6b44d2e37e0ef11d9",
+    "pcm": "first channel, first 240000 samples at48000Hz, no normalization",
+    "processor_padding": "append240000zeros to five-second clip; float32[1,1,1001,64]",
+    "embedding": "audio_model_quantized.onnx audio_embeds, L2-normalized float32[512]",
+    "packages": {
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "transformers": "4.57.1",
+      "onnxruntime": "1.23.2",
+      "soundfile": "0.13.1"
+    }
+  },
+  "fit_input_contract_sha256": "267cd332414ed0d27dbe6c09db10b3e15b83e4b2d6f1d37035de1cc8ccccb7bd",
+  "fit_artifacts_sha256": {
+    "results/evaluation_v2.json": "9fbd28cacb911fb57bace9835b8402894b53428595d2e7166d56c9f4bf42df39",
+    "results/classifier_v2.joblib": "c29ad0b6ed2361524560f60710fdd58c76ab57ad5086a99fe0940f003251b7d5"
+  },
+  "pip_freeze_sha256": "de277367272b340fa2bdacd9c15b6b4ff2e1dd5607fece68eccc741c922c3d24",
+  "packages": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "scikit-learn": "1.7.2",
+    "joblib": "1.6.0",
+    "transformers": "4.57.1",
+    "onnxruntime": "1.23.2",
+    "soundfile": "0.13.1"
+  },
+  "previous_run": "/content/tonalwatch-source/ml/runs/2026-10-18",
+  "baseline": "not evaluated; v1 and v2 cohorts differ",
+  "grouping": "FSD50K uploader; MIMII physical machine/model ID; IVBEE specimen (entire bee collection test only; shared collection conditions remain)",
+  "promotionAllowed": false,
+  "browserPortable": false,
+  "note": "Classifiers/group gates are experimental; MIMII BY-SA licensing and browser/field validation remain unresolved."
+}

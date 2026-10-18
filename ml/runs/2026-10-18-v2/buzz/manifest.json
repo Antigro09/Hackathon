@@ -1,0 +1,2582 @@
+{
+  "dataset": "IVBEE",
+  "source_url": "https://zenodo.org/records/20077113",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+  "archive": {
+    "url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+    "bytes": 47744028,
+    "published_md5": "7d9abe056d2f38ce3017ae940456ff95",
+    "sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+    "full_archive_checksums_verified": true
+  },
+  "previous_manifest_sha256": "1c5f7a8ba2f5d38c661073deeadc5253a5e4c70ce8d2143a975a69a392731549",
+  "seed": 18042,
+  "selection": "all>=5s first-channel first-five-second crops passing unchanged finite/RMS/clipping gates; no predictions",
+  "split_policy": "entire new collection test-only",
+  "source_wav_count": 226,
+  "actual_source_formats": {
+    "48000/1/PCM_16": 226
+  },
+  "format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+  "counts": {
+    "test_buzz": 23,
+    "specimen_groups": {
+      "ivbee:drone:id_1": 5,
+      "ivbee:drone:id_2": 6,
+      "ivbee:drone:id_3": 1,
+      "ivbee:worker:id_1": 1,
+      "ivbee:worker:id_2": 9,
+      "ivbee:worker:id_4": 1
+    },
+    "shared_laboratory_collections": 1,
+    "excluded": {
+      "shorter_than_five_seconds": 203
+    }
+  },
+  "validation_passed": true,
+  "validation_failures": [],
+  "limitations": [
+    "Six eligible specimen groups share ONE laboratory/hardware collection, not six independent studies/uploaders.",
+    "The collection is entirely held out, so it is a new-domain insect-buzz stress test rather than source-balanced field evidence.",
+    "Bee buzz does not validate electrical hum, particular equipment identity, location or calibrated confidence.",
+    "No scores were used to select recordings; changes after inspecting this test need another untouched holdout."
+  ],
+  "excluded_records": [
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-04.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "6ed95c6ae0e13321d7b426c0530cebfe8be8c3a6c90eabe81aaf27fa6c12c8df"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-44.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "714f9ccefe75242d852f59a30e044d1e7f773cdd93ef633018cc4f924d44c523"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-08.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "ca186d619e010d561cff746bc83d975d1abac0fc6aac3feaf442b9d56e14497d"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable-13.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "92058569b567486c2e161afff21a519060edd36ef4e94192005c630ea817446f"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-01.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "bdb8ef9aba8cc97d5e7a015b147f138d74cef56e27b4bf607ab2ceefca474bdc"
+    },
+    {
+      "archive_member": "stable buzz drone/2/Buzz-5.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "07b9a6327403c07a5f240a5af55e518eb2ad05c189a13f26451594d2e4a83604"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-30.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "8e6100480e2dc24aefa4d3b510cafd356cadb205bb3eb304db2364d174f4ec07"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-02.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "24c50b04b5735e28ebbc84f3cd12ca1634f66ae692f10d536b94570a6ef3b754"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-21.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "b87844d5abf0285dc032a7472d293b301436b9e858bd6b5c70d90435aa500146"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-02.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "5fb3d670c7cb39270e53d59794161636ce1c2e70a2bc050a29e2f1f8a985cda7"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-22.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "4b0b4d57bf054cf18bc5c5453ba68e5dc14e75011112e2f290056c9748ddcb1f"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable-9.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "efc27a684929c0a301edb44fc67dc277d174b47630dfd365e3ae1af3c00abb30"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-22.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "2325cecdc1ea32fffd30510a47fe737e37b07299f4636fdda46e135c996a21f3"
+    },
+    {
+      "archive_member": "stable buzz drone/3/Buzz-13.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "09836573f116826dc8280c1e2d7bbe9ad4cab6ef46b5d21b433b9ea7e8eb2728"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-43.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "72801363772c50713399df75839da6a9739dda7b00e222838979676d78a5a218"
+    },
+    {
+      "archive_member": "variable buzz drone/3/Buzz_variable-2.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "24c8764251f29d2fb9edc5a79c890701b844608427b75a8050bbe44348381c88"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-28.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "889ecfdc878465bba6e7a8101b9d1cbebf862b08c6b1c9179866bf399ab88ce5"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-24.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "93d46ca611709cd482093a2d0dfa15ec76341842af5cfa37b5b791a0373dcdbc"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-30.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "8381436443a3f38900780738b1c5c3ee7391781b36f7328d88fc3cbc4e9565d7"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-16.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "e0d76f2fb17b05d0095aabca53afbf239b43e0c98a0d265ac5a97d6ff16201df"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-6.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "f42e61b28a35ab4d2fe48940988507445f358e7c725b6553b9de1339fdf6ea86"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-07.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "f9a9363dc1e2a8b434e5bc6359ebc0ef2c03eb1952e35c1e94b3b9ef4225cf7b"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-4.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "27f71e699a554ed58d02fddf7a596b2fa9bf04e52249cadd68a1ac449925c27b"
+    },
+    {
+      "archive_member": "variable buzz worker/3/Buzz_variable.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "a3d2680b340e87c35547ec18986ca2fa4cb381ce5a8f065544de9667a364d581"
+    },
+    {
+      "archive_member": "stable buzz drone/2/Buzz-10.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "df2bef69649ebe93a937db0328272a74d53e8d7dfbf71c3d0b60a2136cd60d35"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable-18.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "a340087da59ef3b3eca9e7323e2c4e761369f61f41c749a4ee69b2776e17ce3a"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-33.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "f506a6fc67737a396a56892dafc46cd97597c10d677178e489e1e5d4aa62c272"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-41.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "c241ff1291613b6c7ef2cf6a5e1288f2d8162a9ac7d968ebe70bd14547102396"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-15.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "65490de8f4d21919199c5ffb6c35d3c6ee6802b9239238b1a986a5a7be5e616e"
+    },
+    {
+      "archive_member": "stable buzz worker/5/Buzz-2.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "13ffe1c07beed0c2dd9f3fc40f1d34cc7e00670e3465ab71cb91dfb30bf12095"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-32.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "37537f07b8594e02d0b00f942db0087269780cf6402396682d8f7ad9ce7f6f8a"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-06.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "990063ce765fb5298721e0cbf6477c1614b6e0672f180125ffc4826a3fdd6a08"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable-8.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "237913a6a5cd6130a9620e587bc2fa9e2e973aef617529af7d1c171b0343eec8"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-16.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "f4457b79505c7db40471a5e171fe2a33acc5cd21a4e08167e49aaa2712bbc607"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-36.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "43a2fb49fa48414feacc54c4dd7c52e6e240bbd9ebd77b33fbfc1f3e5545f0ea"
+    },
+    {
+      "archive_member": "stable buzz drone/2/Buzz-2.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "b634cc9f1fb2bd244563b7f54bf32ad2549533abf13c9ae5e82f9f4a6881d57a"
+    },
+    {
+      "archive_member": "variable buzz drone/1/Buzz_variable-03.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "1b6bfbf4ca0c1f2bd4cf0c03faa4df50b54e05b016d50155863e713b347daa9e"
+    },
+    {
+      "archive_member": "variable buzz drone/3/Buzz_variable-3.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "7320f2f339f9734933a213a5d79dc5f2369aa5a6479e6ac28ba82b19f6b92bc9"
+    },
+    {
+      "archive_member": "stable buzz drone/3/Buzz-10.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "645bbd2d9ab21cf4a7e396b121fb1d95166d0913630be5aac0e1ee34906d40c8"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-01.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "7f7fc8c3cdf3fdf47c7675dffdea7cc50a220d822a076897bdfb40dac982fefc"
+    },
+    {
+      "archive_member": "stable buzz worker/2/Buzz-06.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "ff1bdc7f5d65df50057803ec71cf06c864228145d02a3d9b57fdb19f8ab57a4b"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-20.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "3c19c62342256a603d053a0e067d8017f9e471e6e254696e0d4ea7a625509ad2"
+    },
+    {
+      "archive_member": "variable buzz drone/1/Buzz_variable-02.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "a7dc35ade4313077b9bc4fd48207a296e474a73b54219d28d8d4aee094ba8627"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-10.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "390180b1fc12bb790b4382778245afbca7631ed467c8b15130f0bb61a6a4cada"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-46.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "2599f40ebcf64b9c1036aa0749f2b2554e18dc560bcfb3462b665b3f349fdedf"
+    },
+    {
+      "archive_member": "stable buzz drone/1/Buzz-06.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "fb7a18ce324bfe5db5329bd49df47449e5e8467e16cee0a50877982f8cbef377"
+    },
+    {
+      "archive_member": "stable buzz drone/1/Buzz-04.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "1f701b4f4517e403041e3edd72d41159ac0f123a7f2cfa873fd118563e50af6d"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable-2.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "0c7ca0723c51ca1fb770c5a80f88f86c67bdb5d7273c1ba83f41d2bda51ad57f"
+    },
+    {
+      "archive_member": "stable buzz worker/2/Buzz-15.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "ac21d2b5af174b284380c1308a1bbf983034b2ead3dbb6871cdb5af150517fba"
+    },
+    {
+      "archive_member": "variable buzz worker/3/Buzz_variable-4.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "42a723f88f5ab0b36a263ea2b138b1cdb1258a89e99340490469afbd613b98fb"
+    },
+    {
+      "archive_member": "stable buzz drone/3/Buzz-12.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "f0290b7e91fd8f7cce97df962d739167fe514e7037c72d5675deec4c569bc793"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-11.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "cc310e5b4963544419ea7ef33c45f2e3d8af0519a135f06f26b242fe669f2ad4"
+    },
+    {
+      "archive_member": "stable buzz worker/4/Buzz-6.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "7e88652bbaf241dae9707e2bc993f443744532e17a75c553e10cc2974957ce35"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-45.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "694d2b38d10d0cc66d2fbd1f1f57f7c787c1d814d0af40a31c74badfca70d00f"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-15.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "c2818b705e3e876c2c3f3595052fbace6f5ce178aa491f72d78a6413962e650f"
+    },
+    {
+      "archive_member": "stable buzz drone/2/Buzz-8.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "f61df2230cfd77ef9908dd6716be70934bd553d576643c23a10d3cc4d6d733c9"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable-16.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "0368fd5acd46c1e4daba617a3400edbec3b3d52099a7c6fd1a80aa50510a320b"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-19.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "60b64b49db2d067cb6e35a0df77a90af0748e024043f2594b892a097fc64667d"
+    },
+    {
+      "archive_member": "variable buzz worker/3/Buzz_variable-6.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "67922139deef69ba7e01fa0c1bc6cd7b9c447dadcd0c4c5bf1a849f4b6acefaf"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable-10.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "c455b68c46a6630f1950eeb7297745b07e39473ea4ccc449e8235a76b1982505"
+    },
+    {
+      "archive_member": "stable buzz worker/2/Buzz-03.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "10af3171145f8ec59daa9cf663b8d7f59917e7e963685296be04fd79a518a8f2"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-09.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "59bafc6e8bb840864ec876e1ef45f9f9acb51393ffa21548ee27774a23779446"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-23.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "0334dd5ca637882977e367a76cb7e5306ecdd53ba75e6d0b8012d29e0a489445"
+    },
+    {
+      "archive_member": "stable buzz worker/2/Buzz-07.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "c30822d929538f412bd567a6acc8b38f83a911709d57d951457acfad97a3d930"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-10.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "845a655ef252124ad6af5978858eb7ce8243dab56ebd4c79020fbe5055628de3"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-02.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "b6994a83091af45aebe940c924489edd6b5b99005016ce23b1cf95990b97d8a8"
+    },
+    {
+      "archive_member": "stable buzz drone/1/Buzz-05.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "1f736f9601e9f6fde44d60f27325b8034cf30b6a59bd81ec128a29799c08d816"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-40.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "491a8c17b482687908fd7976573377ea63269f831a69a2229979b132934c7c9a"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-20.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "942e360d5fc549d14439c23c50755b69717954a73f6557b7ee7b48eb486b96d7"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "d6fd14a1069fbe6d92d3aac7ac89db6c37390f4d35f941be700fd6d72386a445"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-5.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "c93d5ec47cf66b0d9248b36f184c52e4f32b78f1d4d9e818c8660af337ffc00b"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-37.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "ecd2f4a4a058bdf1ac73ee7cdc5b78e8c1c7d7e782499dafa1959907bc797630"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-27.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "5bb3663241415735af957df1b7439f27226aade589e94f3660e6c1f851fb2ab4"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-17.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "557cd75a966aa7d978c2ebb8a0e583dfb9e4d387ee63a6f3506e54beba255cf8"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-06.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "bdccf3a0fc1338aad772fbf03d48cf7d6a7f1eb053b15a25b705d2372512c64e"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable-14.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "fc35a8adc067f5bef844071996c964b06c0c4059877a5e5e464fe959f8abdaef"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-11.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "7dac84fe4d243d34dfe6ac7ee696f8bd21159c05e3e0d632964d64581f4a7510"
+    },
+    {
+      "archive_member": "stable buzz worker/5/Buzz.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "9027fea2537eb2a555a8d809e58a1325096405efd992ba3922b501cc21325c3b"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable-3.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "9c776f9f0fef97826dc3e0e6f2fec7994b306282e3d8139561eb41c6cd26db4b"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-20.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "6c81530e1ffe056a4acdbd5bac3254d97e6be91af9d621635a1efdd758ab018c"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-31.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "5b592325a9aaa6bf5946a5e658dadfaf2ca081c4ef0b3ef846624ddcf68b0d30"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-17.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "af4c5ae08e29fd110aa54f522297eed89fe53f5a143940403a75eee5fb0b61b4"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-38.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "7f86dd6daea591c9cd612b46afe935596327c2cb29a3e0b5da7e7a93cf668b2a"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-47.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "753afb13b61cd4cb89153f2d1a309018c7b138c057f2a79772d7638673fc564e"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-16.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "a0617025009d4f3d84c124150b15b44af8578211c22155e46d21b9331a63bf55"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-05.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "af4c2d02e3294843b392d856a0ef445aaa38e949d41541ea26ac4e52fc092ae6"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-09.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "fdf09e8dcc32e878d81a4ef8a871b8b58ae0eed14b2fd3ec0fcfc135e7ad2a50"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable-5.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "75e938077a207bf58e8f2866a5b70270399cc8e22a69e904ec66447f1f228a01"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-03.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "b97b1d465ef8ef01d74ceef046bcc8332635de48a964b0359ddc37346a3621f6"
+    },
+    {
+      "archive_member": "stable buzz drone/3/Buzz-3.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "db41810998088408864127409f0b0602976626f504980aca3a58b765456d4706"
+    },
+    {
+      "archive_member": "variable buzz worker/3/Buzz_variable-2.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "c9a34ef44937b603f29acdba53ab6e4665917448ed006adbf0985d2edc86a02f"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-07.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "6c5773e3324cc62a9b20f81018fb65094736c4c727cbec60ead6b74095ab89c4"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-18.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "35091830b59b225eb4d532fd9baa723d91cc37683458a3dd300b4364570fd1a5"
+    },
+    {
+      "archive_member": "variable buzz drone/3/Buzz_variable.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "c01a3cedfacd4a5af888392ef686b7409f473bca25419a99393a4a4529adcf2f"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-24.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "dcb7f833a1237b61bf73851a8d4f1c8d4bbeba2d6009bf62318d183f5a8b0d5f"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-32.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "6ce6f5567f1bc6da3459e80795a45a8d3179e76e9c1e19e090e092e2e8d6985e"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-13.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "3612b23100d54daeba8d258c24b0ce7463216d5ee2a54ff66ec20700a9911c1a"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-41.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "dd127d49138bebc5999b9d2eb5b657ff7cfb1f8b02a765afb506eca7d6c54062"
+    },
+    {
+      "archive_member": "variable buzz drone/1/Buzz_variable-01.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "b88c32575f252a269cae3c2bd26fd8d0eb057dfe6c63712edca1bcc4d9bcba91"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-04.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "81defd7eb9ae8b382d7aacf7375017781f8effccbf7879074d7e057e63e88ad2"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-35.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "bddf7194d14551745d2560aa3beaa41b5d882913ef47b14930ad6115c353f360"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-7.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "381c520e892036a552e5508a3a90b2cc187813fc61f77f3519a77e6b0d038cf5"
+    },
+    {
+      "archive_member": "variable buzz worker/3/Buzz_variable-7.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "15b75518cae806c015d30cb8075f8d5ec08ee1edc6ee8b490319e82c8ea6f4d2"
+    },
+    {
+      "archive_member": "stable buzz drone/1/Buzz-01.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "735bdfaa3ce14b0203c2826d5700e5d71000d394770d82febfaa132297cbb672"
+    },
+    {
+      "archive_member": "variable buzz worker/4/Buzz_variable-2.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "718bf7d5c40b0225d68147f984e523983b9ddbf3a27eb434a3bbcfdd97c4697e"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-39.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "85612e36816e60f91cb2264ca16b6f08611448c146ed43c15a3d623e00d91175"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-37.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "367add68e2071bd47b88b619e2419ca54111a48ddc8c4f152c0bc6a067c7d308"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-12.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "438a13b8b88581e4e4826933b3482b0cc76bd734c0d0ff0078ec36292d814a14"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable-4.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "4acea29b7cbb3aa08f7eb859f172b1195dcb8e7ee981e5919a83316d6fa2bd06"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-34.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "4fd9063c33b7b22538a0005bc4d99f8756ebd3e3fd1ba82c0fd6f281ad4614c0"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-18.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "9e441cbb3a446b4a113d5e7b3a5485fc5b2f35472cdfbcb0ad6d68b007a3df33"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-19.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "02556448c1be717c2be63b810ae20f4575a96ee0001e0a6d49fa60b7b0369c2c"
+    },
+    {
+      "archive_member": "stable buzz worker/4/Buzz-5.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "2e4e26e187f9d720672df227471067b9bea09ffff5916d7756325440b487662d"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-16.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "742d571b20795391e8f65d37c36e114189caf18fbd7625af3615476896a11d53"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-29.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "14de723491d92f3ba8dde32f75a863dda9e16808ce287abaa6e900868b753825"
+    },
+    {
+      "archive_member": "stable buzz drone/1/Buzz-03.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "f68ef2e0525957408eb644abc5fec6bd2ce2ce412ff7bcea8b0261377a98879d"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-3.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "093908deaaeca58d7613c82b028c696ab3300b4c471b94fcde6d9e2a6d78d9ff"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-15.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "175f8e7f9fc10c64b4a1841cb71570abc902da3f40e029265e4028b302aadae8"
+    },
+    {
+      "archive_member": "stable buzz worker/2/Buzz-12.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "046fb28dd25c5effdcecb03ede8d995b4f2ed05b1b27a420d3c3cbafd682cb73"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-25.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "114166144f3985b89ad6d51f7d3691692276c1e9d40035e079201d0b34f4cc8c"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-21.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "cdc04bb2e208c4cd6a7f1009b646e7e4dd3a4d5ee48f82742e301aa5737c7a80"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-20.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "8a8b6f1b509831a945f23994289e0cbb1c0293260e9c19bb9d1eb74e5557083d"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-14.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "395f294877ce275cad49ca8f821bbc484a3c66903ebd57419624c16e7fcc03cc"
+    },
+    {
+      "archive_member": "variable buzz worker/3/Buzz_variable-3.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "794b5e4b9329340295e8840eabebb96e164f8e349029052c9fa09afa7ab74311"
+    },
+    {
+      "archive_member": "stable buzz worker/2/Buzz-10.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "345720f4bb768a8da68ac51b30a849d6c802d8659d0c293a27cd956c58bf3a69"
+    },
+    {
+      "archive_member": "stable buzz worker/2/Buzz-11.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "db066bb6ae7aaa337affcb59229433c186a107395c23d855de628d8a1d86fad9"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "ac0aa45176497c0e1d8b4abd68e969de5564986d124b7e0190faf2a0b8195d58"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable-7.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "a0ad31bce66fc072e4181864f0dbce91ea676842ee5c3d1fdb0cacdbe642005f"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-07.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "ccebd9b71bb80800c93112f7594d30c264073393711d75fb62e2bea3dd758f50"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-33.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "aa80efbc3c94ca72209a5a6272e21735ccfe4df33323a2bd5420e5941d2c8b6e"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-34.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "a2e4b91804d50f2a59cbe59c6e5809f4cd9199d7a69b818684112f8eafcffa97"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-05.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "948ee1c662696a825c0bb5fadd8b4c12cd8e6f6cdead68ec67a5a96eaa0f96de"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-10.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "bff9f9e42cb7482a6f08fd7ff384b3d09f3baaa03ff57551f6a707f1cdca84e1"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-01.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "639c3c075c7c17664632bca9aedf35381b0efcdf681596ba5cb12ac560f4ab47"
+    },
+    {
+      "archive_member": "stable buzz drone/3/Buzz-6.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "6f9e464a1000cdc690a6a66fe13e5f2181a28df4e4f3eefa002ef3460d08e776"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-42.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "18643cea91327a3db847e3653ad46885233aec70437bb41c478daf47367a3999"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-17.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "553c4dc5df7086235d2b036bee60186f0e597fd1c4f36022d2f7b73f24f4009d"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-45.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "003a3e0886b42aa5dbd0e7dfe9fa908906169fa66c2e6ee4e059cbdf15ab2047"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-21.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "8a56639c18bba74b07dfd0dddce5a5375cd83c601aadbb4ddc65bc39b5d25316"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-48.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "5e3c06628705e290fd8958f0d64eded4621c10207b392e0b414a74bf4c25fe04"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-13.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "9ab3e4b5c93298f6c674fe907586194e9fb3e183c2d9277801e9a446fc0cf1a1"
+    },
+    {
+      "archive_member": "variable buzz drone/3/Buzz_variable-4.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "f7f925745e3f11676253417b82da6ddb53137ba9b742f7dd72efb91f61d831b6"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-28.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "3e15baff000ff7d064872c8590462bed1c5bcc2b6c910dfc8027f82de1c23a74"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-40.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "e6b9fe596b18d25763ba52c638385e73b954a18af47e4c6f695f185cc5c292aa"
+    },
+    {
+      "archive_member": "variable buzz worker/4/Buzz_variable.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "bcdb86015583be3dfdcbfd3ba3a995ffd18a71afe0fbbf6fc7cfa7145b85998c"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-38.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "d7d8444b7db2edaf407063ece0c891cc252606e2f5583c2d8ae347e5797ef3eb"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable-11.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "f50f56c47b82ee106916a864644dee87d6885704a5645eae378a222aad21cd33"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-42.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "076936a7bed8d69cb51d840b4226a5c346806f6f2e63e2ccb1155da7adae40fd"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-11.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "bc263834858c185f43a5a455d4b8216e561a93dcaeb78938674ed0e93cf17d01"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-29.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "c73a71b0f00ce4af5bf65f95ab3b85ee9048a44f15f530ff79c39f22b1b52624"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-39.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "c07378f00d420bb2e4191e194e1843de5656c7439937f39b606ac9c1ed3f04d7"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-23.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "1496f39bb51896e4cf6a96017b254ad13489e6008b4074ebebbfeddbd277c8e3"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-12.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "19ffd3e5a24549d69b62f0d9c48a4cbbee75712f8b591e9241773659497e9891"
+    },
+    {
+      "archive_member": "stable buzz drone/3/Buzz-2.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "8951f4cc937d26db7f4fbd8a1c62d34237d59e5dbd44b587a31fe2d0c5f6df8f"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-03.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "bc19d2ffb741f571a778b063de8c325342dd3eda019b7d3a3372873e269b0763"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable-15.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "de77f81d2170be19b97e2b5a81c4dd881db1b8bacfe9c6fb552c1aa396007577"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable-6.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "cd25c0f27ac73e9121dd3fb62ddfbbbb710712c408d3c81e7adf2abd04d5dde5"
+    },
+    {
+      "archive_member": "stable buzz drone/1/Buzz-02.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "2c7965fb69513dc22e4c8b3e7fe695e6d3ef11bd1b8d956a8b5ace34bd3c6ea7"
+    },
+    {
+      "archive_member": "stable buzz worker/4/Buzz.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "82837e5927447e104e543aec33d865c49cca33a92b3f975a153112d63a816127"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-2.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "187be73a481f0cdb109f18984ce019c25f018588b26832ba1baccc44904b8fe2"
+    },
+    {
+      "archive_member": "stable buzz drone/3/Buzz-5.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "0f7f30adc8e2f1f1a5b30bfe8860fe249d400a482517df6d2db064e655530e6e"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-09.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "fad585adaa67b9eb09d7485dc61e857b71f6efcf0976de56236ae37f0c215eb1"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-17.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "b2113c2f0f960deaa709ac05027e40cff1394489e33b1515b88a7e281936f24a"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-8.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "d3e50bf20904ff3c17542d783db7e9662d55e6861bbf8a5a5b2154bfc8b1f958"
+    },
+    {
+      "archive_member": "variable buzz worker/3/Buzz_variable-5.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "3b89ed67ee129c5d29ed8f64e16340bee816439ded66f95d7fa9ec1719a5ba84"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-36.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "7023a48d74a21c182676f76aa0faa6ea5f851d2074e31f2574cbd02d4e73a05c"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-10.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "8551cc65fde8c75daf3f0aa17d82ae256c6d31fedf5d054a09480b234f6c740a"
+    },
+    {
+      "archive_member": "stable buzz worker/4/Buzz-4.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "7bfcad43d0320d9d70b45bb5e7aa054a3efca0c663295326d90098d5132bb207"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-44.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "097a007e7491634c0577666fb90ddc691493f3d9fb2c50571b8630cbdaee9cd6"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-03.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "8a949da9ee1c8c3a7d8ba6a70563c2d99bd02f74ba45d64a360336932db69373"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-14.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "d1171a07c303066d59b8179c5d6a35dee42a2aa7e9dfea90e41d54102a7f5757"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable-12.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "241dd2950578de69f612b23fd67dba582c7fc8d38cfd908fe72b9245cde3f51e"
+    },
+    {
+      "archive_member": "stable buzz drone/1/Buzz-08.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "1e1d115ac1a657bf976d98f404ef9602b6cb6cd21ec13c98e429a5e6b86e936d"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-26.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "17ac16b216a56189e5ee12e55664fada2de57b22430261bf7eb6ac38e2043e68"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-06.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "57fefc757278250e3c88205067d6a5d0d3f01d154603451c47c8db26046bfec7"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-04.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "620fc358f0116b616ae4c695f86a99bae64e27a8324ea1a3a8afdbbca75c9b73"
+    },
+    {
+      "archive_member": "stable buzz drone/3/Buzz-4.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "6c8f397bee1fbfeeedc17d8989726181ea8b0d9045c2bd40666e582b40753c34"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-35.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "3ed33cd6ec8f30bba6aa9533e2bbe4f7a67350fb644bc4d35b8140907a65bac2"
+    },
+    {
+      "archive_member": "stable buzz drone/2/Buzz-7.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "d0b59f7872db28a25945947a08cc9eb85dc7b9e9383d458319fc21be57b251b3"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-19.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "e90e3a7059ee1faf4eac316d663f5884efd503e5271f5961f2e792400fb36f2e"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-15.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "fdc94c28a68b5fafc1764f77ce4704fb0b5ad2f1456f37d7c1586d5dd7a910ba"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-08.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "f97ee1a6e552e1500246b6efc7f03c119cf20e9a9b685a6b6d3731cb66a3a7c0"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-9.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "07a17c13bbd05877472759417d002075f199502e51c3915516d6893f7ce3f8c9"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-18.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "e46f8a293d9d66bfd4a9ee35500a5d2daf0f5f02ae6b7a23bd65fc62c3c1000c"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-12.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "e57f06cd1b807dcb741c1086a0361c659f85f8e4ee9a9d2575956b1afd2ae31e"
+    },
+    {
+      "archive_member": "stable buzz drone/3/Buzz-9.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "0ba65bb5c9336225dadc674ad6b9dca19ad1eb06489ce372b5740a6b35549f68"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-08.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "0eb61fc23657d418875900c7d30d46f8e741726066de0418b2d33b5324d2947b"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-31.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "61707b4c2d7b3035b992f8a96c99f003cda36bcf1704353c589b7ce6fd0420f2"
+    },
+    {
+      "archive_member": "stable buzz worker/2/Buzz-13.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "24b88c66d926df0a8e5a7f4b8cff5245c74892965c8327cb6d34bac6d677d3f4"
+    },
+    {
+      "archive_member": "variable buzz drone/1/Buzz_variable-05.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "c4bd3626aca94e5678fe534690b8c6f8b86431f49dbde4db1a9ec7ff8c288015"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-26.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "8de78a74738fe98d5def715c5d08480ba777faa480fd5de1b54c54639bfaef02"
+    },
+    {
+      "archive_member": "variable buzz drone/1/Buzz_variable-04.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "de54acf90b257b2c983582a038746e9ff1d19dddde928068ff5c8c21469bba4f"
+    },
+    {
+      "archive_member": "stable buzz worker/1/Buzz-11.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "82ea914f9a4fee182fee3e5e41a1a8842e211c761010307abf5a6427e2a87eac"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-43.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "cf8c0022a9c8035f8c2864679cb528c09eccfb3b1bb4f8ff6c184dd44013d31d"
+    },
+    {
+      "archive_member": "stable buzz worker/4/Buzz-2.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "cb51bad7e989e72b3653d236acd21c5c9596c24a463b2c0553c1f700ee5c94cd"
+    },
+    {
+      "archive_member": "stable buzz drone/3/Buzz-7.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "0d38ecce2f5549b9b2de8d54305d9fbb50db33bda24fb0d346a05c9c2185fca2"
+    },
+    {
+      "archive_member": "variable buzz worker/1/Buzz_variable-14.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "82911635be4e920d1a273426a7b98813b3770aa993155a47b18ac78ed62c4c4e"
+    },
+    {
+      "archive_member": "variable buzz worker/2/Buzz_variable-12.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "6819bb0c3320f779112092d2eb660c4b2136a33dd3cae23155078bf07e92d2b6"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-25.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "c4f321c41ff990b6cb130ec0c007da0a4a52339b013feba4544b0a64af01caca"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-27.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "48dcd40041239ce62ebae11e9beaaac3523e2e29b4a57e06b36a07653fbb9486"
+    },
+    {
+      "archive_member": "variable buzz worker/5/Buzz_variable-49.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "60ba889a952bece6db9dc582b8ecea786932caa3fcb76b9f236f8897d9a3f838"
+    },
+    {
+      "archive_member": "variable buzz drone/2/Buzz_variable-17.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "b8c87e0367260a37c757f3606a066fd1687a73afd86bf19c5ea4ce3b5f9281e3"
+    },
+    {
+      "archive_member": "stable buzz drone/3/Buzz-8.wav",
+      "reason": "shorter_than_five_seconds",
+      "original_sha256": "d9596992b1cd2c14e573cd5dc0d0ec4c88f3a5611f6358e66a3e362172071c45"
+    }
+  ],
+  "records": [
+    {
+      "clip_id": "ivbee_drone_id1_stable_Buzz-07",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:drone:id_1",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "1",
+      "bee_role": "drone",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "drone"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz drone/1/Buzz-07.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "b11b38ce",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 580362,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_drone_id1_stable_Buzz-07.wav",
+      "sha256": "326c1908f8b7c6b10b3dfeebe57fdc91392ce1c001b90f4dbb0a89349c08c4ef",
+      "original_sha256": "973df2b043089268f57bda99cb7c7ae191cdb7efd19772be442c6dd7bf1e84a8",
+      "pcm_sha256": "e7dd54eb05094be05aaec3721002a0b2e29581cb63ec4649be08ae404be3e1d0",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 6.044979166666667,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.532958984375,
+        "rms": 0.07435388203892537,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.532958984375,
+        "rms": 0.07435388203892537,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.532958984375,
+      "rms": 0.07435388203892537,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_drone_id1_stable_Buzz-09",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:drone:id_1",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "1",
+      "bee_role": "drone",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "drone"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz drone/1/Buzz-09.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "0476f517",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 552396,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_drone_id1_stable_Buzz-09.wav",
+      "sha256": "fb1e1e442cf356121036fdc724281b78cd765373ab7b587f3975d2e9afc540eb",
+      "original_sha256": "836fabc118ffee17d3698fcb91c0ab604a8f724f1016aa7bc3b63aa0b57dd30c",
+      "pcm_sha256": "7e7977b5c1f9a217aad449395c258811e2fd9d3352d026c9d1c0d297c8a82653",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 5.753666666666667,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.775054931640625,
+        "rms": 0.07392007054412564,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.775054931640625,
+        "rms": 0.07392007054412564,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.775054931640625,
+      "rms": 0.07392007054412564,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_drone_id1_stable_Buzz-10",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:drone:id_1",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "1",
+      "bee_role": "drone",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "drone"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz drone/1/Buzz-10.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "b82aba90",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 499958,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_drone_id1_stable_Buzz-10.wav",
+      "sha256": "5bdb8cd9913567ae24aabb280f453cc9ae1f0182b195d757ef51babd34b1b64c",
+      "original_sha256": "d3065aea800ae1e51497eee940bd9df357afff4b0b427062f1d9ae7f7d3f8a4b",
+      "pcm_sha256": "0f1fbe0a8519d1fd8b15bf9569717911bbbc3aa73b2ae8e8a1b2aac1e6592b5b",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 5.2074375,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.827606201171875,
+        "rms": 0.07638952181725499,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.827606201171875,
+        "rms": 0.07638952181725499,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.827606201171875,
+      "rms": 0.07638952181725499,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_drone_id1_stable_Buzz-11",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:drone:id_1",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "1",
+      "bee_role": "drone",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "drone"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz drone/1/Buzz-11.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "70b60720",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 825076,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_drone_id1_stable_Buzz-11.wav",
+      "sha256": "a0c5fa9fa7d6959ef4fd9441854a4e3c04a210ca40ce7e43febac86b3ea74159",
+      "original_sha256": "e1efb5b9917f98ba84a31930658668b8b0949d9fb6351be12132a2557c2e39a6",
+      "pcm_sha256": "3535377e4634df60757d08b84b8ce8ed40e7cc7d3594a9563b82f842386e07f4",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 8.594083333333334,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.657928466796875,
+        "rms": 0.07303043548106987,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.657928466796875,
+        "rms": 0.07303043548106987,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.657928466796875,
+      "rms": 0.07303043548106987,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_drone_id1_stable_Buzz-12",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:drone:id_1",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "1",
+      "bee_role": "drone",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "drone"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz drone/1/Buzz-12.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "6474bb0b",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 538412,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_drone_id1_stable_Buzz-12.wav",
+      "sha256": "02e8720e5546a57304d49e7546ff644f47b4cce293bbf3add319cfefbe3cd359",
+      "original_sha256": "d7de4d9c478d75dc68c82f02ae9562f7293d38c43c02bd90dc034b88cb483ff6",
+      "pcm_sha256": "32b5408a47ac8c670560b6c2598819cf0aaf18e41d64528602e1a5d4e0297a52",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 5.608,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.722137451171875,
+        "rms": 0.07876731026358443,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.722137451171875,
+        "rms": 0.07876731026358443,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.722137451171875,
+      "rms": 0.07876731026358443,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_drone_id2_stable_Buzz-11",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:drone:id_2",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "2",
+      "bee_role": "drone",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "drone"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz drone/2/Buzz-11.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "2df0f78f",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 580416,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_drone_id2_stable_Buzz-11.wav",
+      "sha256": "c18f268d8b5ed7c8dd1ca84946c84c5934efab805ab927b905faa643d9d7f0ef",
+      "original_sha256": "b78a3edd8b4bcf32b3ce247947b1af7e0fe67fd07571098adbea310f93412a52",
+      "pcm_sha256": "e572262be9d179f4e646da78caa18d8323b2e7d8cc3ef96e44e0863249ba987a",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 6.045541666666667,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.299896240234375,
+        "rms": 0.04573033151948713,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.299896240234375,
+        "rms": 0.04573033151948713,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.299896240234375,
+      "rms": 0.04573033151948713,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_drone_id2_stable_Buzz-12",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:drone:id_2",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "2",
+      "bee_role": "drone",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "drone"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz drone/2/Buzz-12.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "7383ff70",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 534808,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_drone_id2_stable_Buzz-12.wav",
+      "sha256": "a9fa14b4dd6b21c3e7053a5499c4fb0fd40b7ba658d6d320e3c720de794be85d",
+      "original_sha256": "9a12f0cc5dfc8cebc0989ad43b59c9f0ec223a25539ea5038de0b6598021bbff",
+      "pcm_sha256": "d81c722173cf9c38219de67cdb0c606fc307c3206a1ed352ccc5740bbbb937e9",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 5.570458333333334,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.351837158203125,
+        "rms": 0.053479621280077855,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.351837158203125,
+        "rms": 0.053479621280077855,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.351837158203125,
+      "rms": 0.053479621280077855,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_drone_id2_stable_Buzz-3",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:drone:id_2",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "2",
+      "bee_role": "drone",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "drone"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz drone/2/Buzz-3.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "b898e440",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 483446,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_drone_id2_stable_Buzz-3.wav",
+      "sha256": "198fb1078422f56635ec0fe85e74ea68f4d913bd228e47cb7895d4e18b57ee5e",
+      "original_sha256": "e7c98828b8a5ad53f5cadde750eae16d3b13a7a5abb0abe39f566130d0c39842",
+      "pcm_sha256": "419076e29c4c87e701ea3fd9669d545c551f69e06d6ddb58ca14d8bf3b600ec2",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 5.0354375,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.443572998046875,
+        "rms": 0.06297944293723608,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.443572998046875,
+        "rms": 0.06297944293723608,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.443572998046875,
+      "rms": 0.06297944293723608,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_drone_id2_stable_Buzz-4",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:drone:id_2",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "2",
+      "bee_role": "drone",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "drone"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz drone/2/Buzz-4.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "62cae501",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 730314,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_drone_id2_stable_Buzz-4.wav",
+      "sha256": "78709654bc78aabca67fc45894c4b924eee46703fe4fdfaaef136e329facce92",
+      "original_sha256": "373cb49863c986d6e18e9f0b41c04e203b1b48e2d17338c84c01fc715eeac4c5",
+      "pcm_sha256": "3917c4073bfe7bf9702301839a7f58802cbe108b37c9d46b402286e56915b9b1",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 7.606979166666667,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.585113525390625,
+        "rms": 0.06370516704725881,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.585113525390625,
+        "rms": 0.06370516704725881,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.585113525390625,
+      "rms": 0.06370516704725881,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_drone_id2_stable_Buzz-6",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:drone:id_2",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "2",
+      "bee_role": "drone",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "drone"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz drone/2/Buzz-6.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "8c7c5020",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 582372,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_drone_id2_stable_Buzz-6.wav",
+      "sha256": "16c6dabc9b82cbc73bcd2b311993eff32d6d318151c1d5e3f0bdb3a7217992c1",
+      "original_sha256": "5c364dd58902feaaca3fb7ba9901e1836e958c36a9cb2903b2f0274e4c1a6a87",
+      "pcm_sha256": "9c33aefea3ff70ec24688ec581b1390bd4ce16dbce39badf2983805df9ffae41",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 6.065916666666666,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.5802001953125,
+        "rms": 0.04360705370407912,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.5802001953125,
+        "rms": 0.04360705370407912,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.5802001953125,
+      "rms": 0.04360705370407912,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_drone_id2_stable_Buzz-9",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:drone:id_2",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "2",
+      "bee_role": "drone",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "drone"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz drone/2/Buzz-9.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "772b99a2",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 509882,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_drone_id2_stable_Buzz-9.wav",
+      "sha256": "420346f17e44958538131bd665f2c37f8502b495ccb71de5b19df60a6a6be673",
+      "original_sha256": "11ffd992d42f7543d8b2efc62a55a314ddb9a82a7da6f8514bf1d8bf12294c85",
+      "pcm_sha256": "cb323bf72269dfaf780aea94a61e10058d8ef6fe26b33875e6b676c526b0c7ce",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 5.3108125,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.42108154296875,
+        "rms": 0.05794195730201691,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.42108154296875,
+        "rms": 0.05794195730201691,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.42108154296875,
+      "rms": 0.05794195730201691,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_drone_id3_stable_Buzz-11",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:drone:id_3",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "3",
+      "bee_role": "drone",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "drone"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz drone/3/Buzz-11.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "6d1a778e",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 499782,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_drone_id3_stable_Buzz-11.wav",
+      "sha256": "782663a4cd38eb47d345524fdabceeb2073c6749c99f5aa16544e121e9fa6194",
+      "original_sha256": "b5be8b8e612a2085ff7a7f927cd3ad6db4aa9e50dde9717bdb69350bbac79290",
+      "pcm_sha256": "864c5cfd0152842b3896347739c3c54201716d108c9b63d5fe1a41e1d0fed87d",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 5.205604166666666,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.3875732421875,
+        "rms": 0.07060299814426274,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.3875732421875,
+        "rms": 0.07060299814426274,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.3875732421875,
+      "rms": 0.07060299814426274,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_worker_id1_stable_Buzz-13",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:worker:id_1",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "1",
+      "bee_role": "worker",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "worker"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz worker/1/Buzz-13.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "9f8638ef",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 561122,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_worker_id1_stable_Buzz-13.wav",
+      "sha256": "93e3a9709edaad23b45e92ef51c795a4e7b9d9770c33f26a7db0618ffd13195b",
+      "original_sha256": "1f92bf7be4d58bb2a240819bdd10c4941781cd509463ad8dd93d8876f11773d6",
+      "pcm_sha256": "51e8694cbc3871345f23f461df561fad6df201daaf5233fd2cf9c858af2b4b2e",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 5.8445625,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.355255126953125,
+        "rms": 0.11696072193983445,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.355255126953125,
+        "rms": 0.11696072193983445,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.355255126953125,
+      "rms": 0.11696072193983445,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_worker_id2_stable_Buzz-00",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:worker:id_2",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "2",
+      "bee_role": "worker",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "worker"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz worker/2/Buzz-00.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "b1eeb0ab",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 3341718,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_worker_id2_stable_Buzz-00.wav",
+      "sha256": "a97b81e167abf60f122a3dd271d20317f810b0503bab94d0af3ef93f5bb91a10",
+      "original_sha256": "0f7feb3ba709201f4cb7e33dd8cff1b8a53919ad475333259d0a00202ba4e694",
+      "pcm_sha256": "46a765752b681e25b30f93e4729721fe49f6a912b8a5ea485e509edd82547b0b",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 34.809104166666664,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.263458251953125,
+        "rms": 0.06268969955007266,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.263458251953125,
+        "rms": 0.06268969955007266,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.263458251953125,
+      "rms": 0.06268969955007266,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_worker_id2_stable_Buzz-01",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:worker:id_2",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "2",
+      "bee_role": "worker",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "worker"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz worker/2/Buzz-01.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "9b429705",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 716588,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_worker_id2_stable_Buzz-01.wav",
+      "sha256": "71471a03f84182bdf0c7f8acc27e9e271fdb5d0546e270c13d0b3c5f25dc484d",
+      "original_sha256": "81cf6b21f43970996aaa55819126d0bde99b300b5a372a9abfbfe28909d45b2d",
+      "pcm_sha256": "7e850d72bc433943ce008cc6bc005c968f5e72124818326364c48d3516b3955e",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 7.464,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.2861328125,
+        "rms": 0.06757109251185747,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.2861328125,
+        "rms": 0.06757109251185747,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.2861328125,
+      "rms": 0.06757109251185747,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_worker_id2_stable_Buzz-02",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:worker:id_2",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "2",
+      "bee_role": "worker",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "worker"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz worker/2/Buzz-02.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "651b679d",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 1093022,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_worker_id2_stable_Buzz-02.wav",
+      "sha256": "480bde9511871d00c3096685294c47a10dfe6d1e75f193503de3eeae2d072283",
+      "original_sha256": "df05e52083c6dc81858aac74c18b8f09b4681611d4d0070f657028782d275c34",
+      "pcm_sha256": "1708257e0d3b728782f2f7148ad0fe5e023d682c05b23da3a12e58441598d041",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 11.3851875,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.207794189453125,
+        "rms": 0.05918516305730837,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.207794189453125,
+        "rms": 0.05918516305730837,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.207794189453125,
+      "rms": 0.05918516305730837,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_worker_id2_stable_Buzz-04",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:worker:id_2",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "2",
+      "bee_role": "worker",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "worker"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz worker/2/Buzz-04.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "ddd522af",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 1918534,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_worker_id2_stable_Buzz-04.wav",
+      "sha256": "88cf0834aa85080cfbeaeda092b23647d3a0b7081e0af19b096da211c4e930ce",
+      "original_sha256": "da790731283c60a1a08825d5ae434a2cbcb81cce1897b9c43e08c4d20d0ccefc",
+      "pcm_sha256": "71c22545bf690ded8f959618c267c6bd0a5c2e8184a5a08f50a165993f0572a0",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 19.984270833333333,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.212615966796875,
+        "rms": 0.05592933222773989,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.212615966796875,
+        "rms": 0.05592933222773989,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.212615966796875,
+      "rms": 0.05592933222773989,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_worker_id2_stable_Buzz-05",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:worker:id_2",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "2",
+      "bee_role": "worker",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "worker"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz worker/2/Buzz-05.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "e495e8d2",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 554788,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_worker_id2_stable_Buzz-05.wav",
+      "sha256": "a849e50c7a90e3d017f899c999210fd456d321d0bea0f1ec324949716335455c",
+      "original_sha256": "0ca049b7c20213f257c422a778366054107a46e0304870f9c838146dee3ec448",
+      "pcm_sha256": "7f00db701fc2ff1723294e44e063b2a46e35123a16d726d245445102c1855874",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 5.778583333333334,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.367401123046875,
+        "rms": 0.08129977388633737,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.367401123046875,
+        "rms": 0.08129977388633737,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.367401123046875,
+      "rms": 0.08129977388633737,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_worker_id2_variable_Buzz_variable-13",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:worker:id_2",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "2",
+      "bee_role": "worker",
+      "buzz_category": "variable",
+      "original_labels": [
+        "variable buzz",
+        "worker"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "variable buzz worker/2/Buzz_variable-13.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "6518254d",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 523062,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_worker_id2_variable_Buzz_variable-13.wav",
+      "sha256": "f35acd862371f0ecd0bb40e779c566b76d82cbda0dbb05c61d8995f41558fcf6",
+      "original_sha256": "bc5dc805941a6c668e1be1ed476875edfda7761b3477f1c4d13e33632494e773",
+      "pcm_sha256": "48da8f949f3f420adc7e5403437cd17279eaab8f0d5fb14ba6ac82dcbc6a7d50",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 5.448104166666667,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.6160888671875,
+        "rms": 0.08673643864025354,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.6160888671875,
+        "rms": 0.08673643864025354,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.6160888671875,
+      "rms": 0.08673643864025354,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_worker_id2_variable_Buzz_variable-14",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:worker:id_2",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "2",
+      "bee_role": "worker",
+      "buzz_category": "variable",
+      "original_labels": [
+        "variable buzz",
+        "worker"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "variable buzz worker/2/Buzz_variable-14.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "3e68711c",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 616458,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_worker_id2_variable_Buzz_variable-14.wav",
+      "sha256": "d172d1f85365d4f687acc6c67b79cb6476105c0eae897ce1e39c3ac21a46b26a",
+      "original_sha256": "c3132b5c8fcfeb0b124312dab9d88d2d1ad9457d6411edff09ec7b6f760b0ce8",
+      "pcm_sha256": "2fb5da138a091e84819b58bebaa14c7c6918c17c7d466581457e12db8ee08ff8",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 6.420979166666666,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.288970947265625,
+        "rms": 0.06991163547109204,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.288970947265625,
+        "rms": 0.06991163547109204,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.288970947265625,
+      "rms": 0.06991163547109204,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_worker_id2_variable_Buzz_variable-18",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:worker:id_2",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "2",
+      "bee_role": "worker",
+      "buzz_category": "variable",
+      "original_labels": [
+        "variable buzz",
+        "worker"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "variable buzz worker/2/Buzz_variable-18.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "d6f9677b",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 611788,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_worker_id2_variable_Buzz_variable-18.wav",
+      "sha256": "b4da01d8aaaaaaa4f3bed8531cb6e73083bde98c12bfdc6bc0dfe4b285adecf9",
+      "original_sha256": "a001714810c20f77f430e87d3eab26a357b221c4afc632ebe7f62f78588be1e4",
+      "pcm_sha256": "0a0d3d6055f201dd7628225be75aa1567cf32b117a47d5c59756b62531932ed8",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 6.372333333333334,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.667694091796875,
+        "rms": 0.07425502143855198,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.667694091796875,
+        "rms": 0.07425502143855198,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.667694091796875,
+      "rms": 0.07425502143855198,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_worker_id2_variable_Buzz_variable-19",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:worker:id_2",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "2",
+      "bee_role": "worker",
+      "buzz_category": "variable",
+      "original_labels": [
+        "variable buzz",
+        "worker"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "variable buzz worker/2/Buzz_variable-19.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "f43a7477",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 520726,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_worker_id2_variable_Buzz_variable-19.wav",
+      "sha256": "b0f76a861b37cb2640104b4f77c4b5a9722c59d9ec5a9fc26dd6778bdca3e2be",
+      "original_sha256": "947b6fd46aa0c38e189ade5a65bdbf2e638784d848b5bb3c5ba6052808f53012",
+      "pcm_sha256": "bed6a050b5e97f112101e576663298109f629e809fbeb91a50c01d75b464686f",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 5.423770833333333,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.46026611328125,
+        "rms": 0.10612902568903226,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.46026611328125,
+        "rms": 0.10612902568903226,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.46026611328125,
+      "rms": 0.10612902568903226,
+      "clipping_count": 0
+    },
+    {
+      "clip_id": "ivbee_worker_id4_stable_Buzz-3",
+      "dataset": "IVBEE",
+      "dataset_release": "1.0 (2026-05-08)",
+      "split": "test",
+      "label": "buzz",
+      "original_split": "IVBEE-1.0",
+      "original_split_is_official": false,
+      "split_policy": "entire IVBEE collection held out; no training or calibration recordings",
+      "uploader": "Piotr Książek (Wrocław University of Science and Technology)",
+      "uploader_group": "ivbee:worker:id_4",
+      "grouping_unit": "bee role/specimen ID within one shared laboratory collection; not uploader/study",
+      "collection_group": "IVBEE:single-laboratory-collection",
+      "specimen_id": "4",
+      "bee_role": "worker",
+      "buzz_category": "stable",
+      "original_labels": [
+        "stable buzz",
+        "worker"
+      ],
+      "source_url": "https://zenodo.org/records/20077113",
+      "archive_url": "https://zenodo.org/records/20077113/files/IVBEE-1.0.zip?download=1",
+      "archive_member": "stable buzz worker/4/Buzz-3.wav",
+      "archive_sha256": "ff4bd1fe46190c203489f81a23c9bce12b80ed0ca5276051a3cb13993e3a6ec5",
+      "published_archive_md5": "7d9abe056d2f38ce3017ae940456ff95",
+      "full_archive_md5_verified": true,
+      "archive_member_crc32": "297be87a",
+      "archive_member_crc_verified": true,
+      "archive_member_size": 638508,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Piotr Książek (Wrocław University of Science and Technology)",
+      "citation": "Książek, P. (2026). IVBEE-1.0 (Version1.0). Zenodo. https://doi.org/10.5281/zenodo.20077113",
+      "source_format_discrepancy": "Publisher description says24bit; all226 archived WAV files actually decode as mono48000Hz PCM_16. Actual file format governs preprocessing.",
+      "derivation": "First five seconds, channel0, native48kHz; no padding, stitching, gain adjustment or resampling.",
+      "local_path": "/content/tonalwatch-artifacts-v2b/buzz/audio/ivbee_worker_id4_stable_Buzz-3.wav",
+      "sha256": "55a30259a56bdcfa24b85a03976beab3213184f89620bafc4311432a08de2d81",
+      "original_sha256": "ed157413f1259f3d00da9d1d7a23e8997b2a2645c6c80507a62b0d1e4a78a1d3",
+      "pcm_sha256": "206d90e4b761f4364a49b0250a6c47f362cf781423fb49cd31fb08f7f9ed6b11",
+      "original_sample_rate": 48000,
+      "original_channels": 1,
+      "original_subtype": "PCM_16",
+      "original_duration_seconds": 6.650666666666667,
+      "sample_rate": 48000,
+      "samples": 240000,
+      "crop_start_seconds": 0,
+      "crop_duration_seconds": 5,
+      "channel": 0,
+      "resampler": "none (native48000Hz)",
+      "gain_applied": false,
+      "source_quality": {
+        "finite": true,
+        "peak": 0.28912353515625,
+        "rms": 0.08222138650190385,
+        "clipping_count": 0
+      },
+      "quality": {
+        "finite": true,
+        "peak": 0.28912353515625,
+        "rms": 0.08222138650190385,
+        "clipping_count": 0
+      },
+      "finite": true,
+      "peak": 0.28912353515625,
+      "rms": 0.08222138650190385,
+      "clipping_count": 0
+    }
+  ]
+}

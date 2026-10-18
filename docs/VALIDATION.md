@@ -2,7 +2,7 @@
 
 Build date: **October 18, 2026 (America/New_York)**. This record distinguishes software checks from browser integration and physical measurement validation. Algorithm: **`tw-screen-v1`**.
 
-**Current application/lab status:** **339 tests across 16 files** (304 application + 35 standalone-lab checks), with TypeScript/Vite build passed. The latest changes expose recording durations, explain negative dB and remove raw spectrum-bin dumps from text exports; the AI copy uses deterministic, independently checked resampling. Home navigation, Learn exhibits, map, 5/15/30-second observations, and comparison passed the prior expanded public HTTPS verification. See [deployment evidence](DEPLOYMENT.md). Historical 129/264/294/334-test runs remain separately labeled.
+**Current application/lab status:** **365 tests across 18 files** (330 application + 35 standalone-lab checks), with TypeScript/Vite build passed. The latest changes expose recording durations, explain negative dB, remove raw spectrum-bin dumps from text exports and preserve supported WAV decode rates/provenance; the AI copy uses deterministic, independently checked resampling. Home navigation, Learn exhibits, map, 5/15/30-second observations, and comparison passed the prior expanded public HTTPS verification. See [deployment evidence](DEPLOYMENT.md). Historical test runs remain separately labeled.
 
 ## Capture-control and resampling follow-up
 
@@ -17,6 +17,18 @@ The AI resampler matches independent SciPy references for 20 signals/rates at 44
 The text report retains recording context, important results, quality notes, references and a short spectrum summary. It no longer serializes individual frequency/power bins. Full immutable arrays, the actual SVG path and the printed graph remain unchanged. The report offers “Download text summary” and explains that Print / save PDF includes the visual graph.
 
 The focused report suite passed 35 checks, including actual 15-second, 8,192-point FFT results at 44.1/48 kHz with over 3,000 bins. A native browser download was 7,623 bytes and 109 lines, with no bin rows; notes, references and 174-frame metadata remained. The SVG path was identical before and after download, and the graph was visible in the generated PDF. Report controls fit 320/390 px without horizontal overflow. Actual report length varies with user notes and references.
+
+The public HTTPS release at `55a0dcb` independently produced a 7,610-byte, 109-line native download with no bin rows. Its 15-second result retained 720,000 samples, 174 frames, context and official references. The actual spectrum path remained visible under print media; the toolbar hid as intended. No page/HTTP errors occurred.
+
+## WAV rate and decoder provenance
+
+The original default AudioContext resampled 44.1 kHz WAV files to 48 kHz before the explicit AI converter. A bounded RIFF/WAVE hint now requests supported 44.1/48 kHz rates, while the browser remains responsible for format validation. Unknown, malformed, ambiguous and unsupported headers use default decoding; unavailable requested rates fall back explicitly. Actual decoded rate always governs cropping and analysis. Contexts close on success, failure and cancellation. Analysis and reports separately filter twelve non-identifying decoder fields and omit private device/file metadata.
+
+Two generated five-second PCM16 WAVs (63 Hz/1 kHz) decoded at 44.1 kHz in Chrome, retaining 220,500 samples. Their actual AI requests used that prefix and converted to 240,000 samples at 48 kHz, bit-exact to SciPy applied to the **browser-decoded** waveform. Chrome's slight asymmetric PCM16 conversion still differs from the native symmetric reference: maximum PCM error about 3.08e−6, with same-native-encoder cosine 0.99971/0.99966. This distinction is separate from the previously measured native/WASM ONNX drift. No gain compensation or full WAV codec was introduced, and no classifier threshold was changed. Source-rate preservation is verified; raw-file-to-native-float equivalence is not claimed. The full 365-test run includes these parsing, lifetime, provenance and privacy checks.
+
+## Second classifier experiment
+
+The completed Colab run and an independent hash/leakage/arithmetic audit are recorded in [AI_V2_RESULTS.md](AI_V2_RESULTS.md). The v2 candidate remains research-only, with useful-coverage and unknown-rejection failures. Python tests and isolated JavaScript scorer checks are separate from the app/lab count above. Saved results were not refit or retuned after fresh-test inspection.
 
 ## Environment and pinned dependencies
 

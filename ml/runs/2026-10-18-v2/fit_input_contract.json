@@ -1,0 +1,46 @@
+{
+  "manifest_sha256": "8a22e336d2eb1806ab228b381badb46156e67f198013d77b31a0565fbb3f0ab8",
+  "encoder_contract": {
+    "model_id": "Xenova/clap-htsat-unfused",
+    "model_revision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+    "weights": "3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f",
+    "preprocessor": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+    "extractor_source": "43c1c42a38ea4eb84497f956e8d6cbc7f76a3f1774e2ccd6b44d2e37e0ef11d9",
+    "pcm": "first channel, first 240000 samples at48000Hz, no normalization",
+    "processor_padding": "append240000zeros to five-second clip; float32[1,1,1001,64]",
+    "embedding": "audio_model_quantized.onnx audio_embeds, L2-normalized float32[512]",
+    "packages": {
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "transformers": "4.57.1",
+      "onnxruntime": "1.23.2",
+      "soundfile": "0.13.1"
+    }
+  },
+  "seed": 18042,
+  "previous_manifest_sha256": "1c5f7a8ba2f5d38c661073deeadc5253a5e4c70ce8d2143a975a69a392731549",
+  "data_preparation_source_commit": "0da8c60dee54ac961e395ec646cf657563268fdf",
+  "sources_sha256": {
+    "ml/features.py": "43c1c42a38ea4eb84497f956e8d6cbc7f76a3f1774e2ccd6b44d2e37e0ef11d9",
+    "ml/data.py": "87afaa2a54f59d53d26af57a0441c7ac11144070cf4527fa85001ce153a50605",
+    "ml/data_v2.py": "c0fed7121b44a2312e30dae54b7d2494d583008eb9f427591f7028272955576b",
+    "ml/mimii.py": "3a4513d3c88d034da01eafbe134718caf3885cb07977c6a508e9e2a3407bbe52",
+    "ml/buzz.py": "697c3ad1e6a5ff585bdda95f4c776906f066ae4413cf22f7cc0806f1ade798e5",
+    "ml/experiment.py": "911e000d0c79c23b17afd9979df8a4098c1f50036faf164fa2b0e36fb9e6962c",
+    "ml/experiment_v2.py": "ff5aa30baabf44677e9acd27af727f8e03e60a848bc14e7493f665c017aa8703",
+    "ml/run_v2.py": "e1a8b75aea0908fb394c882136d1000c32ab4323f16bc42c4f54ceb242ed9f8e",
+    "ml/V2_PROTOCOL.md": "57f858d302a824451d4effb014c6188b296e0829c57a52018288efa681d5c7fb",
+    "ml/requirements.txt": "38804772c3bc851042e564f20a0a83927c1e4968f212fee4d8b83714ac3bbece"
+  },
+  "fit_runtime": {
+    "python": "3.13.16",
+    "python_implementation": "CPython",
+    "packages": {
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "scikit-learn": "1.7.2",
+      "joblib": "1.6.0"
+    }
+  },
+  "embedding_cache_sha256": "25ffd41e3359c952357b941dad9be832ad604a3bb5e2046dda7324d64eaecbd7"
+}

@@ -161,12 +161,18 @@ The ZIP contains results, the Python classifier, attributed manifests, exact sou
 """),
         code('''
 archive = ARTIFACTS / "tonalwatch-v2-results.zip"
-print("Result bundle:", archive, "bytes:", archive.stat().st_size)
-try:
-    from google.colab import files
-    files.download(str(archive))
-except ImportError:
-    print("Download this file from your runtime's file pane.")
+import hashlib, zipfile
+complete = ARTIFACTS.parent / "tonalwatch-v2-complete-results.zip"
+with zipfile.ZipFile(complete, "w", zipfile.ZIP_DEFLATED) as bundle:
+    bundle.write(archive, "fit-audit-bundle.zip")
+    comparison = ARTIFACTS / "results/frozen_v1_comparison.json"
+    if comparison.exists():
+        bundle.write(comparison, "frozen_v1_comparison.json")
+        bundle.write(REPO / "ml/compare_frozen_v1.py", "comparison_source.py")
+print("Result bundle:", complete, "bytes:", complete.stat().st_size)
+print("SHA256:", hashlib.sha256(complete.read_bytes()).hexdigest())
+print("In Colab: Files > Refresh, then right-click this ZIP and choose Download.")
+print("This uses the file pane and does not require output JavaScript widgets.")
 '''),
     ]
     notebook = nbf.v4.new_notebook(cells=cells)
