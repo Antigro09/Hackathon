@@ -1,6 +1,7 @@
 output/
 .playwright-cli/
 ml/
+tests/
 notebooks/
 docs/
 .git/
