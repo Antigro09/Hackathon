@@ -90,7 +90,7 @@ export function CommunityCaseReport({ detail, isExample = false, caseUrl, prepar
           </tr>)}</tbody></table> : <div className="case-report-empty"><p>No linked observations are available in this snapshot. An empty case is not evidence of quiet. Link public observations before sharing an evidence packet.</p></div>}
       </section>
 
-      <section className="case-report-section"><NoiseSolutions compact caseId={report.caseId} caseTitle={report.title} includeReport/>
+      <section className="case-report-section"><NoiseSolutions key={report.caseId} compact caseId={report.caseId} caseTitle={report.title} includeReport/>
         <p><a href="#/sources">Sources &amp; method</a> explains the prototype indicators and limits. Individual spectrum graphs belong to separate local observation reports; no graph is reconstructed from the public metadata.</p>
       </section>
       <footer className="case-report-footer"><p>This report uses only the case description and linked public metadata. It contains no audio, spectrum bins, optional AI results, private local notes or removal credentials.</p>

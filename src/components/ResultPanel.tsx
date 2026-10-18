@@ -2,6 +2,7 @@ import type { AnalysisResult } from '../types';
 import { interpretResult } from '../data/references';
 import { Spectrum } from './Spectrum';
 import { RecordingCheck } from './RecordingCheck';
+import { DecibelGuide } from './DecibelGuide';
 
 const screenText = { suggested: 'Suggested', 'not-indicated': 'Not indicated in this sample', inconclusive: 'Inconclusive', 'not-evaluated': 'Not evaluated' };
 const number = (value: number | null) => value === null ? '—' : value.toFixed(1);
@@ -25,6 +26,7 @@ export function ResultPanel({ result, analyzing, targetDurationSeconds = 5 }: { 
       <div className="metric"><p>A relative</p><div className="metric-number secondary-number">{number(result?.aDigitalDb ?? null)} <span>dB</span></div><small>Weighted digital level</small></div>
       <div className="metric"><p>C relative</p><div className="metric-number secondary-number">{number(result?.cDigitalDb ?? null)} <span>dB</span></div><small>Weighted digital level</small></div>
     </div>
+    <DecibelGuide compact/>
     <div className="unit-caption level-explanation"><p><strong>Why can the levels be negative?</strong> A and C are digital levels relative to RMS 1. A value below 0 dB means the weighted signal is below that digital reference; for example, −20 dB is one-tenth of its RMS amplitude. It does not mean negative sound pressure. These values are not calibrated dB SPL.</p><p><strong>C−A is a separate difference.</strong> It can be negative when the C-weighted level is lower than the A-weighted level for this spectrum. Negative values alone do not indicate a recording error.</p></div>
     {result ? <>
       <div className="indicator-grid"><div className="indicator"><span className="indicator-label">Low-frequency contribution</span><strong>{screenText[result.lowFrequencyScreen]}</strong><small>C−A ≥ 15 dB · prototype convention</small></div><div className="indicator"><span className="indicator-label">Experimental sustained peak</span><strong>{result.peakCandidate ? `Candidate near ${result.peakCandidate.centerHz.toFixed(0)} Hz` : screenText[result.peakScreen]}</strong><small>{result.peakCandidate ? `${Math.round(result.peakCandidate.persistentFrameFraction * 100)}% of complete frames · not confidence` : '40–2,000 Hz search range'}</small></div></div>

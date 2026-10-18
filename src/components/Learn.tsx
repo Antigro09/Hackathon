@@ -1,6 +1,7 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { buildReportSpectrum } from '../report/spectrum';
 import type { AnalysisResult } from '../types';
+import { DecibelGuide } from './DecibelGuide';
 
 export type LearnPlaybackProps = {
   disabled?: boolean;
@@ -275,6 +276,7 @@ export function LearnPanel({ result = null, ...playback }: LearnProps) {
 export function LearnPage({ result = null, ...playback }: LearnProps) {
   return <main id="main-content" tabIndex={-1} className="page-shell learn-page">
     <div className="page-heading"><p className="eyebrow">Noise, explained plainly</p><h1>Learn more about data center noise</h1><p>What A and C weightings show, why a hum can be hard to describe, and how to read your sample.</p></div>
+    <div className="panel learn-panel"><DecibelGuide/></div>
     <div className="panel learn-panel"><TonePlayer {...playback}/><WeightingExplanation/><p className="learn-honesty">{honestyLine}</p></div>
     <div className="panel learn-panel learn-exhibit-panel"><LowFrequencyExhibit result={result}/></div>
     <section className="panel learn-examples" aria-label="Synthetic examples of independent indicators"><p className="eyebrow">Synthetic examples</p><h2>A large gap and a sustained peak answer different questions</h2><p>These illustrative signal types show why the two indicators need separate interpretation. The tone player is a listening aid; microphone observations measure the sound around you.</p><div className="learn-example-grid"><article><span>Synthetic · 1 kHz tone</span><h3>A peak with almost no gap</h3><p>The A and C curves are normalized near 1 kHz, so this clear sustained tone has a C−A difference close to zero.</p></article><article><span>Synthetic · Low-frequency broadband</span><h3>A large gap without an isolated sustained peak</h3><p>This generated noise concentrates energy at low frequencies. It demonstrates low-frequency contribution without a persistent isolated peak under the prototype heuristic.</p></article></div><a className="button secondary" href="#/measure">Record an observation</a></section>
