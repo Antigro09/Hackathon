@@ -1,21 +1,10 @@
 import type { ReactNode } from 'react';
-import type { AnalysisResult, QualityCode } from '../types';
+import type { AnalysisResult } from '../types';
 import { interpretResult } from '../data/references';
 import { Spectrum } from './Spectrum';
 import { GapRuler } from './Motif';
+import { RecordingCheck } from './RecordingCheck';
 
-const qualityText: Record<QualityCode, string> = {
-  'near-zero': 'Almost no digital signal was captured.',
-  clipped: 'Clipping distorted this recording. Retry with a lower input level or more distance.',
-  'near-full-scale': 'The signal approached the digital limit; distortion is possible.',
-  incomplete: 'The recording was interrupted or did not contain the required sample.',
-  'unsupported-rate': 'This sample rate has not been validated. Use 44.1 or 48 kHz.',
-  'processing-active': 'Device audio processing is active and may reshape the signal.',
-  'processing-unknown': 'Device audio processing could not be fully verified.',
-  'imported-processing-unknown': 'The imported recording’s original processing and recording context are unknown.',
-  'non-finite': 'The input contains invalid samples. Analysis is unavailable.',
-  'no-band-power': 'No usable power remained in the analysis band after removing DC.',
-};
 const screenText = { suggested: 'Suggested', 'not-indicated': 'Not indicated in this sample', inconclusive: 'Inconclusive', 'not-evaluated': 'Not evaluated' };
 const number = (value: number | null) => value === null ? '—' : value.toFixed(1);
 const GAP_SCALE_MAX = 30;
@@ -73,7 +62,7 @@ export function ResultPanel({ result, analyzing, targetDurationSeconds = 5 }: { 
           <div className="indicator"><dt>Steady tone check <small>{result.peakCandidate ? `Experimental · in ${Math.round(result.peakCandidate.persistentFrameFraction * 100)}% of the clip, not confidence` : 'Experimental · 40–2,000 Hz'}</small></dt><dd>{result.peakCandidate ? `Near ${result.peakCandidate.centerHz.toFixed(0)} Hz` : screenText[result.peakScreen]}</dd></div>
         </dl>
         <div className="interpretation"><strong>Technical summary</strong><p>{interpretResult(result)}</p></div>
-        {result.qualityCodes.length > 0 ? <div className="quality-notes"><strong>Recording quality</strong><ul>{result.qualityCodes.map(code => <li key={code}>{qualityText[code]}</li>)}</ul></div> : null}
+        <RecordingCheck result={result}/>
       </> : <p className="empty-guidance">Record a live microphone sample to inspect the two independent indicators.</p>}
       <details className="method-details"><summary>How the analysis works</summary><p>The same PCM engine analyzes every input. It averages linear spectral power (PSD) across complete 8,192-sample periodic Hann windows with 50% overlap, then applies A and C response curves normalized at 1 kHz over 20 Hz–20 kHz.</p><p>The C−A difference screens for low-frequency contribution. A separate experimental peak test looks for narrow structure in at least 80% of complete frames. Neither establishes legal tonality, an equipment source, or field accuracy. Constant gain cancels in the difference; microphone response, filtering, processing, and clipping do not.</p><a href="#/sources">Sources and full method</a></details>
     </div>

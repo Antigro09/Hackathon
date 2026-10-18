@@ -58,6 +58,8 @@ describe('inactive broad-family panel disclosure', () => {
     try {
       const html = renderToStaticMarkup(createElement(SoundHintsPanelV3, { result: result(), input: input() }));
       expect(html).toContain('Limited / experimental');
+      expect(html).toContain('Data-center sound comparison: not validated.');
+      expect(html).toContain('Use the separate Recording check');
       expect(html).toContain('About 51 MB is downloaded when you start the local model');
       expect(html).toContain('No download starts until you choose Explore');
       expect(html).not.toContain('caching across reloads');

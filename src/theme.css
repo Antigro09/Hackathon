@@ -788,6 +788,13 @@ html body .tw-map-popup a{font-size:13px}
   html body .map-reading-list{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
+/* Recording check (Details) */
+html body .recording-check{margin:12px 0 0;padding:12px 0 0;border:0;border-top:1px solid var(--sep);border-radius:0;background:none;color:var(--ink);font-size:15px}
+html body .recording-check h3{font-size:15px;font-weight:600}
+html body .recording-check-status{border:0;background:var(--fill);border-radius:var(--r-control);color:var(--ink)}
+html body #main-content .recording-check p,html body #main-content .recording-check li,html body #main-content .recording-check dd{font-size:15px;color:var(--ink-2)}
+html body #main-content .recording-check dt,html body #main-content .recording-check-boundary{font-size:13px;color:var(--muted)}
+
 /* ===== Classic theme (the earlier forest-green palette). Opt in with ?theme=classic; ?theme=mono switches back. ===== */
 html[data-theme="classic"]{
   --bg:#f7f8f3; --surface:#fff; --ink:#20372c; --ink-2:#34493e; --muted:#5c6b60; --tertiary:#8a978d;
