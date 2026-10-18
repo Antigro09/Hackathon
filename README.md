@@ -2,6 +2,8 @@
 
 TonalWatch helps a resident document a recurring hum: capture or load a short audio sample, inspect its frequency content, add observation notes, and export a source-linked observation packet.
 
+**Live app:** [tonalwatch.vercel.app](https://tonalwatch.vercel.app). Open **Observation → File → Choose File → Analyze file** to import a recording. PCM WAV is the supported baseline: at least five seconds, up to 10 MiB. Audio is analyzed locally and is never sent to a server.
+
 The app reports **uncalibrated weighted digital levels**, a captured-spectrum C−A difference, and a separate experimental sustained-peak indicator. It also offers an optional, local AI sound comparison that always remains uncertain. These features do not identify equipment, establish legal compliance, or replace a qualified acoustic measurement. A weak or inconclusive result still supports a descriptive observation.
 
 ## Run locally
@@ -66,6 +68,8 @@ Non-finite, unsupported-rate, incomplete, near-zero, clipped, and no-band-power 
 The current integrated suite passed **129 tests** covering the engine, capture/meter, report spectrum, and AI policy/lifecycle; the original baseline passed 74 tests before these additions. See [validation notes](docs/VALIDATION.md) for completed runs, browser evidence, and outstanding physical-device checks. Chrome checks include actual local model inference, a five-page PDF with the spectrum, and AudioWorklet capture with a virtual input. Software and synthetic-input checks do not validate a physical measurement chain or AI source accuracy.
 
 View the pages: [Home](docs/screenshots/home.png) · [Observation](docs/screenshots/observation.png) · [Report](docs/screenshots/report.png) · [Sources & method](docs/screenshots/sources.png).
+
+The public HTTPS deployment was checked in Chrome with native WAV decoding, AudioWorklet capture using a virtual input, optional local model inference, and report download. See [deployment verification](docs/DEPLOYMENT.md) and the [File input screenshot](docs/screenshots/file-input.png).
 
 ## Planning history and attribution
 

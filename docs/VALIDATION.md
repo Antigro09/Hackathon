@@ -25,7 +25,7 @@ The lockfile also pins the browser inference dependency `onnxruntime-web` to **1
 
 - **Baseline before optional features:** `npm test` passed 74 tests across four files; `npm run build` passed.
 - **Live meter focused run:** 23 tests passed across `tests/capture.test.ts` and `tests/meter.test.ts`; production build passed.
-- **Current integrated `npm test`: passed, 129 tests across seven files**, latest release check approximately 5.17 seconds. A separate run during concurrent development exceeded the deterministic-fixture equality test's original 5-second timeout; this full-array check now has a 30-second limit for slower laptops. The subsequent complete suite passed. No fixture values or feature assertions were weakened.
+- **Current integrated `npm test`: passed, 129 tests across seven files**, latest release check approximately 5.88 seconds after shared method-version metadata was added. A separate run during concurrent development exceeded the deterministic-fixture equality test's original 5-second timeout; this full-array check now has a 30-second limit for slower laptops. The subsequent complete suite passed. No fixture values or feature assertions were weakened.
 - **`npm run build`: passed after meter, printed-spectrum, and AI integration.** This runs TypeScript checking and the Vite production build.
 - **`npm ls --depth=0`: passed.** Direct dependencies were installed at the pinned versions above.
 
