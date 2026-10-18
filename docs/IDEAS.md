@@ -64,3 +64,28 @@ Your seven-hour MVP
 Technical core: Graph connectivity and constrained search. With a small candidate set, you can evaluate combinations directly.
 Keep the scope credible: Report connectivity under your stated assumptions. A prototype cannot establish actual population recovery.
 Why I like it: It has a clear environmental purpose, a satisfying visual transformation, and relatively few dependencies that could derail your build.
+
+GridWeave — make an electric school-bus fleet fit its available power
+The idea: A school wants to run electric buses, but charging every bus immediately would exceed the depot’s electrical capacity. Your app figures out whether the buses can all be ready on time using the connection the school already has.
+Managed charging is a real research and deployment problem; studies of school-bus electrification examine how charging schedules affect depot demand. National Laboratory of the Rockies
+How it works
+For each bus, enter:
+- When it arrives.
+- When it must depart.
+- How much energy it needs.
+- Its maximum charging rate.
+Then specify the depot’s total power limit. The system schedules charging so vehicles meet their departure requirements while respecting that limit.
+If it cannot meet every requirement, it identifies the shortfall.
+The demo that could win
+Start with a prepared scenario where every bus begins charging upon arrival. The power-demand graph crosses the depot’s limit and turns red.
+Click “Optimize.” Charging shifts across the available time windows. The graph stays below the limit, and every bus meets its departure requirement.
+Then let a judge move one departure earlier. The system recalculates—or clearly shows why the new request is infeasible.
+Your seven-hour MVP
+- Five buses.
+- One day of scheduling.
+- An adjustable depot power cap.
+- A charging timeline and power-demand chart.
+- A comparison with immediate charging.
+Technical core: Linear or constraint optimization. OR-Tools provides existing optimization tools for scheduling and related resource-allocation problems. developers.google.com
+Optional extra: Add a supplied solar-generation curve after the main scheduling flow works.
+Why I like it: It answers a concrete sustainability question with a result you can verify. Showing an infeasible case correctly would also make the technical work more convincing.
