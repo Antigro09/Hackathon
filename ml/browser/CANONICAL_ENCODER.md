@@ -8,10 +8,10 @@ The standard WASM binary is 14,264,838 bytes, plus its 24,381-byte loader and 73
 
 ## Prepare and extract
 
-Install the exact versions already in the app's lockfile. A separate Colab dependency directory may be used; `--dependencies` names the directory containing `node_modules`. `--ignore-scripts` avoids running dependency installation hooks; the runner imports no native ONNX binary.
+Install the exact versions already in the app's lockfile. A separate Colab dependency directory may be used; `--dependencies` names the directory containing `node_modules`. `--ignore-scripts` avoids running dependency installation hooks; the runner imports no native ONNX binary. Include optional packages because TypeScript 7 distributes its platform-specific compiler that way; omitting them prevents compilation on a fresh Linux installation.
 
 ```sh
-npm install --prefix /content/canonical-deps --ignore-scripts --omit=optional @huggingface/transformers@4.3.1 onnxruntime-web@1.31.0-dev.20260914-8d85527a0 typescript@7.0.2
+npm install --prefix /content/canonical-deps --ignore-scripts --include=optional @huggingface/transformers@4.3.1 onnxruntime-web@1.31.0-dev.20260914-8d85527a0 typescript@7.0.2
 python -m ml.browser.prepareCanonical --manifest data/manifest.json --output /content/staged-pcm
 node ml/browser/extractCanonicalNode.mjs --manifest /content/staged-pcm/manifest.json --output /content/canonical-run --cache /content/model-cache --dependencies /content/canonical-deps --repeats 1
 ```
