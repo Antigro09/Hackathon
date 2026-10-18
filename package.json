@@ -12,7 +12,7 @@
   "dependencies": {
     "@huggingface/transformers": "4.3.1",
     "fft.js": "4.0.4",
-    "leaflet": "1.9.4",
+    "leaflet": "^1.9.4",
     "react": "19.3.1",
     "react-dom": "19.3.1"
   },
