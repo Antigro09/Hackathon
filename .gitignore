@@ -4,6 +4,8 @@ dist/
 output/
 .playwright-cli/
 *.tsbuildinfo
+__pycache__/
+*.py[cod]
 *.local
 .vercel
 .env*
