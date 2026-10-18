@@ -10,6 +10,8 @@ Last reviewed: **October 18, 2026**. These are informational references, not an 
 - A short, uncalibrated sample does not reproduce either county's formal measurement procedure, identify equipment, establish a violation, or guarantee agency acceptance or a visit.
 - Negative or inconclusive indicators do not invalidate a resident's description. Devices and short captures can miss recurring sounds.
 - A synthetic fixture validates software behavior, not field accuracy. Every synthetic result and report must retain its prominent demonstration label.
+- The live preview meter measures digital RMS/peak only. Its clipping indicator describes the digital recording limit, not acoustic danger or sound pressure.
+- Optional AI compares eight fixed sound descriptions locally. Relative rankings are not source probabilities; all outputs remain uncertain because source-type accuracy has not been independently validated. AI suggestions must not alter numerical screening, reference text, or exported reports.
 
 ## Official county sources checked during this build
 
@@ -43,6 +45,25 @@ These links are retained for follow-up and attribution. They were **not independ
 - [Vite](https://vite.dev/guide/), [FFT.js](https://github.com/indutny/fft.js) and [Vitest](https://vitest.dev/guide/): implementation dependencies; see the lockfile for actual installed versions.
 - [NoiseCapture](https://noise-planet.org/noisecapture.html): existing environmental-noise alternative; no “first/only” product claim.
 
+## Optional AI model, runtime, and attribution
+
+The app uses [Xenova/clap-htsat-unfused](https://huggingface.co/Xenova/clap-htsat-unfused), a browser-compatible conversion of [LAION CLAP HTSAT unfused](https://huggingface.co/laion/clap-htsat-unfused), for local zero-shot sound-description comparison. Preserve the distinction between the [upstream CLAP project](https://github.com/LAION-AI/CLAP), the model, and its conversion: the upstream LAION model declares **Apache-2.0**; the Xenova conversion card does not separately declare a license. This attribution is not a claim that the model can reliably distinguish actual light fixtures from outdoor equipment.
+
+| Component | Pinned implementation |
+| --- | --- |
+| Model | `Xenova/clap-htsat-unfused`, revision `c28f2883575e590e04d3146ff0713c2448d691ba` |
+| Quantized weights | `onnx/model_quantized.onnx`, `q8`, 161,024,085 bytes; configuration/tokenizer and runtime downloads are additional |
+| Browser library | [`@huggingface/transformers` 4.3.1](https://github.com/huggingface/transformers.js), Apache-2.0 |
+| Browser runtime | [`onnxruntime-web` 1.31.0-dev.20260914-8d85527a0](https://github.com/microsoft/onnxruntime), MIT; single-threaded WASM in a dedicated worker |
+| Input | Separate five-second mono copy resampled from its actual rate to 48 kHz; DSP input and results remain unchanged |
+| Processor | Ten-second model window; installed 4.3.1 processor zero-pads the five-second input despite `repeatpad` configuration. Actual feature band approximately 50 Hz–14 kHz |
+| Alternatives | Fixed descriptions for light-fixture buzz, transformer hum, outdoor ventilation/cooling, household fan/AC, traffic, wind, speech, and quiet background |
+| Output | At most two relative rankings; always uncertain; excluded from the deterministic report |
+
+Model metadata and download configuration are recorded in `src/ai/model.ts` and `src/ai/environment.ts`; installed versions and transitive dependencies are preserved by `package-lock.json`. The current processor behavior is checked against the installed library rather than inferred from its configuration label. Padding does not create extra observation time, and the model band does not replace the DSP integration band.
+
+The upstream model and package sources above are attribution and implementation references. They do not establish TonalWatch accuracy. No independent contrast set of eight or more actual recordings has been evaluated for this application; the synthetic/virtual-input smoke run is browser integration only. See [VALIDATION.md](VALIDATION.md) for observed model timing, output and network behavior.
+
 ## Official event links
 
 Retained from the supplied planning materials; schedule, track, eligibility and rubric details must be confirmed against the organizer's current instructions. These event pages were not independently reverified in this source task.
@@ -63,4 +84,6 @@ News anecdotes and the supplied tinnitus quotation are excluded from report/pitc
 
 ## Privacy and report handling
 
-The report builder accepts in-memory analysis and manual context. It does not use raw HTML, include raw audio, collect GPS, retain a persistent device identifier, or submit a complaint. Only useful track settings are allowed into reports; `deviceId` and `groupId` are excluded. Review exported location and personal notes before sharing. Client timestamps are device-clock statements, not authenticated evidence or chain of custody.
+The report builder accepts in-memory analysis and manual context. It does not use raw HTML, include raw audio or AI suggestions, collect GPS, retain a persistent device identifier, or submit a complaint. Only useful track settings are allowed into reports; `deviceId` and `groupId` are excluded. The printed chart and downloaded spectral bins come from an immutable snapshot of the selected analysis. Review exported location and personal notes before sharing. Client timestamps are device-clock statements, not authenticated evidence or chain of custody.
+
+The standard input/analysis/report flow uses local assets and computation. The optional Explore action downloads model/runtime files from external providers; normal network metadata is visible to those providers. Inference runs locally on PCM, with no recording or observation-note upload. Browser caches may retain downloaded model files, while recordings and notes remain in the session's memory. Cache persistence does not guarantee offline model availability. Cancel/reset or replacing the input ends the optional worker and invalidates pending responses; it does not remove browser-managed model caches.

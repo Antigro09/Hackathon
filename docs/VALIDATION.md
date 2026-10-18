@@ -11,6 +11,7 @@ Execution environment: Windows, PowerShell, Node.js **24.18.0**, npm **11.16.0**
 | `react` | 19.3.1 |
 | `react-dom` | 19.3.1 |
 | `fft.js` | 4.0.4 |
+| `@huggingface/transformers` | 4.3.1 |
 | `@types/react` | 19.3.0 |
 | `@types/react-dom` | 19.3.0 |
 | `@vitejs/plugin-react` | 6.1.2 |
@@ -18,19 +19,24 @@ Execution environment: Windows, PowerShell, Node.js **24.18.0**, npm **11.16.0**
 | `vite` | 8.3.4 |
 | `vitest` | 5.0.5 |
 
+The lockfile also pins the browser inference dependency `onnxruntime-web` to **1.31.0-dev.20260914-8d85527a0**. The optional model is `Xenova/clap-htsat-unfused` at immutable revision **`c28f2883575e590e04d3146ff0713c2448d691ba`**, `q8`, WASM, one thread. Its `onnx/model_quantized.onnx` file is **161,024,085 bytes**; working memory is greater than download size and was not benchmarked.
+
 ## Automated checks completed
 
-- **`npm test`: passed, 74 tests across four files.**
-- **`npm run build`: passed.** This runs TypeScript checking and the Vite production build.
+- **Baseline before optional features:** `npm test` passed 74 tests across four files; `npm run build` passed.
+- **Live meter focused run:** 23 tests passed across `tests/capture.test.ts` and `tests/meter.test.ts`; production build passed.
+- **Current integrated `npm test`: passed, 129 tests across seven files**, latest release check approximately 5.17 seconds. A separate run during concurrent development exceeded the deterministic-fixture equality test's original 5-second timeout; this full-array check now has a 30-second limit for slower laptops. The subsequent complete suite passed. No fixture values or feature assertions were weakened.
+- **`npm run build`: passed after meter and printed-spectrum integration.** This runs TypeScript checking and the Vite production build.
 - **`npm ls --depth=0`: passed.** Direct dependencies were installed at the pinned versions above.
 
 | Test files | Checked behavior | Scope |
 | --- | --- | --- |
 | `tests/weighting.test.ts`, `tests/engine.test.ts` | 50 tests: 1 kHz normalization; rounded A/C response checks; analytic and spectral goldens; DC/Nyquist handling; Parseval normalization; digital RMS-1 level; signed C−A; constant-gain invariance; 44.1/48 kHz bin frequencies and frame counts; reproducible seeded fixtures; peak persistence and counterexamples; quality gates; provenance and identifier filtering | Real numerical computation on generated PCM; no acoustic playback or microphone |
-| `tests/capture.test.ts` | 15 tests: exact warm-up/crop counts at both rates; irregular chunks; gap/duplicate rejection; safe settings; variable render block sizes and silent output; render-gap detection; capture cleanup; late permission after cancellation; interruption and denied permission; processing warnings; first-channel import; short/oversized-file rejection; decoder cleanup | Mocked browser/media APIs and the actual worklet processor source; no claim of hardware validation |
-| `tests/report.test.ts` | 9 tests: synthetic labels; source metadata and distinct timestamps; unknown file recording time; null/quality states; escaping notes; identifier exclusion; reference-profile separation/access status; deterministic snapshots; disabled-peak interpretation; Eastern time formatting | Report model, rendered HTML, and text consistency |
+| `tests/capture.test.ts`, `tests/meter.test.ts` | 23 tests: exact warm-up/crop counts at both rates; irregular chunks; gap/duplicate rejection; safe settings; variable render block sizes and silent output; capture cleanup and permission/error branches; first-channel import and rejection paths; analytic sine RMS; retained clipping between throttled meter updates; ≤10 Hz update frequency; warm-up/recording readings; immediate cancellation; accessible silence/inactive states | Mocked browser/media APIs, synthetic PCM and the actual worklet processor source; no claim of hardware validation |
+| `tests/report.test.ts`, `tests/reportSpectrum.test.ts` | 25 tests: synthetic labels; source/timestamp metadata; null/quality states; safe notes; reference separation; deterministic snapshots; immutable spectrum data; actual-engine graph/text consistency; logarithmic frequency geometry; highest-bin reduction without frequency shifts; finite coordinates and quality-state explanations | Report model, rendered HTML, SVG geometry and numerical text consistency |
+| `tests/soundHints.test.ts` | 31 tests: eight fixed alternatives; relative-score policy and abstention; quality gates; true-rate local resampling without mutating DSP input; lazy model loading; local PCM worker inference; retry/disposal; immutable model URL configuration; actual pinned processor padding behavior | Policy, mocked inference lifecycle, local resampling wiring, and the actual Transformers.js 4.3.1 processor; not a field accuracy benchmark |
 
-The integrated run is the completion record; focused numerical runs were also performed during implementation. These checks establish the specified software behavior, not environmental measurement accuracy, legal applicability, or field classification performance.
+The current integrated run, earlier baseline and focused feature runs establish the software checks stated above. These checks do not establish environmental measurement accuracy, legal applicability, or field classification performance.
 
 ## Observed numerical fixture results
 
@@ -68,10 +74,26 @@ Production build served at `http://127.0.0.1:4173` in **Chrome 155 on Windows**.
 | Safe notes and report consistency | Literal script markup remained escaped text; no script executed. Editing notes invalidated the cached report, including browser Back/Forward navigation. |
 | Keyboard skip link | Focus moved to `main-content`; `#/measure` route and observation remained intact. |
 | Microphone integration with a virtual input | Chrome fake-media device was fed the generated 63 Hz WAV. Native getUserMedia → AudioWorklet → worker produced exactly 5.00 seconds at 48 kHz and 25.3 dB. Tracks were `ended` and AudioContexts `closed` after success, cancellation, and navigation away during capture. This is browser integration QA, **not a physical microphone test**. |
-| Print/save-PDF rendering | Browser PDF export produced four Letter pages. Every page was rendered and visually inspected: synthetic label in each top margin, page numbers 1–4, no clipping/URL overflow/overlap, and short headings kept with their content. Native printer dialog selection was not automated. |
+| Print/save-PDF rendering | Baseline export produced four Letter pages. After adding the captured spectrum, browser PDF export produced five pages; every page was rendered and visually inspected, including the actual graph and synthetic header on every page. No clipping, URL overflow or overlap was observed. Native printer dialog selection was not automated. |
 | Responsive geometry | Four routes checked at widths 320, 375, 390, 600, 760, 761, 800, 900, 1024, 1280, 1440 and 1920 CSS pixels. No document-width overflow observed. Full-page screenshots captured for all routes. |
 | Normal-window scrolling at 100% zoom | Windows display scaling 150%; actual browser viewport 1280×665 and outer window 1280×752. Right edge fit and each page footer reached the bottom of the visible viewport. |
-| Network / console | Production assets and worker loaded from localhost only. No external service requests, audio uploads, console errors or warnings observed in the completed demo/report flow. This does not claim an installable offline app or a disconnected local server. |
+| Network / console, standard workflow | Production assets and analysis worker loaded from localhost only. No external requests, audio uploads, console errors or warnings were observed in the standard demo/report flow. The optional AI path has separate download checks below. This does not claim an installable offline app or a disconnected local server. |
+
+### Optional AI and input-meter feature checks
+
+The live meter reads real indexed AudioWorklet chunks during warm-up and capture, with no more than ten wall-clock updates per second. A known 0.1-peak sine produced **−23.0103 dB relative to RMS 1** in tests. A clipping transient between emitted updates was retained; cancellation and completed capture prevented further callbacks. This is digital signal/capture verification, not acoustic validation.
+
+An actual Chrome run loaded CLAP and performed local inference on a synthetic hum via virtual input. The first observed load took approximately **11.8 seconds**, inference approximately **1.2 seconds**, and warm inference approximately **0.4 seconds**. The top relative rankings were transformer hum **0.412** and light-fixture buzz **0.389**; the app retained an **uncertain** result. These are timing and integration observations from one laptop/session, not performance guarantees or source-classification accuracy results.
+
+Network observation found **no external GET before Explore**. Requests observed during the AI run were model/runtime **GET downloads with no request body**; no audio upload was observed. Model and runtime caches can persist in the browser. Model loading and inference use a dedicated worker, while standard indicators and reports remain deterministic and do not include AI suggestions. Cancel/reset and input replacement terminate the optional worker and ignore stale session messages.
+
+After enforcing immutable download paths, a fresh browser run loaded the model in **11.2 seconds**, inferred in **1.0 second**, and repeated in **0.5 seconds**. Every observed model resolve URL used the pinned revision; no `/resolve/main/` model request remained. Rankings stayed uncertain and matched the earlier integration run.
+
+Recovery checks passed: cancel left the core result and report review available; silence disabled Explore while preserving descriptive export; replacing an input removed old hints and ended its model worker. In a separate clean browser context with Hugging Face blocked, model loading showed the unavailable state, and the standard report still rendered with its spectrum and no AI suggestions.
+
+The five-second AI input is a separately resampled copy at 48 kHz. With Transformers.js 4.3.1, the actual processor adds five seconds of zeros for this exact input despite its `repeatpad` configuration; an automated check exercises the installed processor to establish that behavior. The model feature band is approximately 50 Hz–14 kHz and differs from the DSP integration band. No padding is treated as an extra observation. Download paths are pinned to the same immutable revision even for library discovery helpers that omit the pipeline revision option.
+
+No independent eight-or-more-real-recording contrast set has been evaluated. All rankings therefore remain uncertain even if a provisional score/separation gate passes. The optional feature is a sound-description comparison, not source attribution, an acoustic measurement, or legal evidence.
 
 **Preview-window issue resolved:** an earlier headed automation window emulated 1440×1000 CSS pixels inside a smaller visible window. It caused the screenshot-reported right/bottom cutoff even though document layout had no overflow. The two automated windows were closed and replaced with a normal window configured with `viewport: null`, allowing the actual client area to determine layout. Screenshot emulation should be used only in isolated QA sessions, not the user’s interactive preview.
 
@@ -85,6 +107,7 @@ Page screenshots are in [`docs/screenshots/`](screenshots/). Temporary WAVs, bro
 - Reference-instrument comparison across relevant frequencies, levels, devices, and environments.
 - A documented microphone/interface response, acoustic calibration chain, level linearity, before/after checks, and uncertainty budget.
 - Environmental contamination, intermittent events, and peak-heuristic failure cases beyond the fixed software fixtures.
+- Independent real-recording evaluation of the optional sound hints, including light fixtures, transformers, ventilation, household equipment, and nuisance alternatives, with held-out examples and recorded abstentions/errors.
 - Any resident pilot, reviewer-usefulness evaluation, or agency acceptance.
 
 No hardware calibration or field accuracy is established by this build. A five-second uncalibrated browser sample does not implement a county measurement procedure. A negative screen does not rule out a recurring sound, and neither indicator identifies a physical source.
@@ -93,4 +116,4 @@ No hardware calibration or field accuracy is established by this build. A five-s
 
 The React/TypeScript app, PCM estimator, fixtures, worker, capture path, and report implementation were created for the current corrected-plan implementation. Existing `mic_spike.html` and `range_finder.html` remain research artifacts and are not part of the current runtime. Their historical “validated” or “calibration” descriptions are not adopted as results for this app. Event eligibility and any organizer reuse ruling require a separate team record.
 
-OpenAI Codex assisted development and software verification. Core calculations and report wording are deterministic. No generative model, external audio classifier, automatic upload, or automated complaint submission is included.
+OpenAI Codex assisted development and software verification. Core calculations and report wording are deterministic. The optional local CLAP comparison uses downloaded model/runtime files and no remote inference endpoint. No generative legal text, audio upload, or automated complaint submission is included. Upstream model and library attribution is recorded in [RESOURCES.md](RESOURCES.md).

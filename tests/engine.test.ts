@@ -109,7 +109,7 @@ describe('shared PCM engine reference fixtures', () => {
       expect(Math.abs(mean)).toBeLessThan(1e-8);
       expect(rms).toBeCloseTo(0.05, 7);
     }
-  });
+  }, 30_000); // Full-array equality over all fixtures also runs on slower demo laptops.
 });
 
 describe('experimental sustained-peak indicator', () => {

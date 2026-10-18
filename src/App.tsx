@@ -12,6 +12,8 @@ import { ObservationForm } from './components/ObservationForm';
 import { ResultPanel } from './components/ResultPanel';
 import { InputMeter } from './components/InputMeter';
 import type { InputMeterReading } from './audio/meter';
+import { SoundHintsPanel } from './components/SoundHintsPanel';
+import type { SoundHintsInput } from './components/SoundHintsPanel';
 import type { AnalysisResponse, AnalysisResult, InputMeta, ObservationContext } from './types';
 
 type Route = '/' | '/measure' | '/report' | '/sources';
@@ -53,6 +55,7 @@ export default function App() {
   const activeId = useRef(0);
   const controller = useRef<AbortController | null>(null);
   const worker = useRef<Worker | null>(null);
+  const retainedAudio = useRef<SoundHintsInput | null>(null);
   const phaseRef = useRef(phase);
   phaseRef.current = phase;
   const busy = !['idle', 'ready'].includes(phase);
@@ -63,22 +66,25 @@ export default function App() {
       if (next !== '/measure' && !['idle', 'ready'].includes(phaseRef.current)) {
         ++activeId.current;
         controller.current?.abort(); worker.current?.terminate(); worker.current = null;
+        retainedAudio.current = null;
         setPhase('idle'); setResult(null); setReport(null); setError(''); setMeterReading(null);
       }
       setRoute(next);
       window.scrollTo({ top: 0 });
     };
     window.addEventListener('hashchange', changed);
-    return () => { window.removeEventListener('hashchange', changed); ++activeId.current; controller.current?.abort(); worker.current?.terminate(); };
+    return () => { window.removeEventListener('hashchange', changed); ++activeId.current; controller.current?.abort(); worker.current?.terminate(); retainedAudio.current = null; };
   }, []);
 
   const invalidate = () => {
     ++activeId.current; controller.current?.abort(); controller.current = null;
     worker.current?.terminate(); worker.current = null;
+    retainedAudio.current = null;
     setResult(null); setReport(null); setPhase('idle'); setProgress(0); setError(''); setMeterReading(null);
   };
   const analyze = (pcm: Float32Array, fs: number, meta: InputMeta, sessionId: number) => {
     if (sessionId !== activeId.current) return;
+    retainedAudio.current = { pcm: pcm.slice(), fs };
     setPhase('analyzing');
     try {
       const nextWorker = new Worker(new URL('./analysis/analysis.worker.ts', import.meta.url), { type: 'module' });
@@ -144,7 +150,7 @@ export default function App() {
         {busy ? <div className="capture-progress" role="status"><strong>{phase === 'permission-pending' ? 'Waiting for microphone permission…' : phase === 'warming-up' ? 'Warming up the microphone…' : phase === 'recording' ? `Recording ${(Math.max(0, progress) * 5).toFixed(1)} / 5.0 s` : phase === 'decoding' ? 'Decoding local audio…' : 'Analyzing the captured PCM…'}</strong>{phase === 'recording' ? <progress value={progress} max={1} aria-label="Recorded sample progress"/> : <span className="working-line"/>}<button className="button secondary" onClick={invalidate}>Cancel</button></div> : null}
         {error ? <div className="error-box" role="alert"><strong>Input needs attention</strong><p>{error}</p><span>Retry, choose a demo, or load a local file.</span></div> : null}
       </section><div className="local-note"><Icon name="shield" size={22}/><div><strong>Your audio stays here.</strong><p>Processed in this browser. No recording is uploaded or attached to your report.</p></div></div></aside><ResultPanel result={result} analyzing={phase === 'analyzing'}/></div>
-      <ObservationForm context={context} onChange={value => { setContext(value); setReport(null); }}/><div className="review-bar"><div><p className="eyebrow">03 / Bring it together</p><strong>A clear observation starts a better conversation.</strong><p>Review your notes, results, and references before sharing.</p></div><button className="button primary" onClick={review} disabled={!result || busy}>Review observation <Icon name="arrow"/></button></div><div className="sr-only" aria-live="polite">{phase === 'ready' ? 'Analysis complete. Results and report review are available.' : ''}</div>
+      {result ? <SoundHintsPanel key={result.id} result={result} input={retainedAudio.current}/> : null}<ObservationForm context={context} onChange={value => { setContext(value); setReport(null); }}/><div className="review-bar"><div><p className="eyebrow">03 / Bring it together</p><strong>A clear observation starts a better conversation.</strong><p>Review your notes, results, and references before sharing.</p></div><button className="button primary" onClick={review} disabled={!result || busy}>Review observation <Icon name="arrow"/></button></div><div className="sr-only" aria-live="polite">{phase === 'ready' ? 'Analysis complete. Results and report review are available.' : ''}</div>
     </main> : null}
     {route === '/sources' ? <SourcesPage/> : null}
     {route === '/report' ? <main id="main-content" className="page-shell report-page">{report && result ? <><div className="page-heading report-toolbar"><div><p className="eyebrow">03 / Review & export</p><h1>Your observation packet</h1><p>Review the preview. Your notes may contain personal information.</p></div><div className="report-actions"><button className="button secondary" onClick={downloadText}><Icon name="download" size={18}/> Download text</button><button className="button primary" onClick={() => window.print()}><Icon name="print" size={18}/> Print / save PDF</button></div></div><a className="back-link" href="#/measure">← Edit observation</a><ReportView report={report}/></> : <div className="panel empty-report"><Icon name="file" size={42}/><h1>Create an observation first</h1><p>A report needs an input and its analysis. A synthetic demo works, too.</p><a className="button primary" href="#/measure">Start an observation <Icon name="arrow"/></a></div>}</main> : null}
