@@ -1,0 +1,46 @@
+{
+  "baseline-results.json": {
+    "bytes": 11922,
+    "sha256": "72dea019fd83fef5cb0de1e56a94a02e142dde9d2de7d819a268c68dc3a3fed4"
+  },
+  "browser-console.txt": {
+    "bytes": 58,
+    "sha256": "5e022534a5fe0feeb06a8fc815ff2ad8e4598aae62e789579db7dbcbfb58bc2a"
+  },
+  "browser-evidence-raw.txt": {
+    "bytes": 10026,
+    "sha256": "7e9dfb5206e62404de67085a9d65a88e71ced359fbe1eab2e8c4400ce2aaf609"
+  },
+  "browser-evidence.json": {
+    "bytes": 9755,
+    "sha256": "6ccf8d9bfd35edb4c6528eb50a96837e36f4354e733203ea8573e90d924c5539"
+  },
+  "browser-requests.txt": {
+    "bytes": 2997,
+    "sha256": "a78537196c06157a9547bdf88db150b52edb91445700fa43d3a154831bbc9e21"
+  },
+  "contract.json": {
+    "bytes": 5042,
+    "sha256": "adb0e8a6e3359cb24a2f2d578bf9e8634d3364eea1eefa8b72b3f202d7fcaf02"
+  },
+  "requests.ndjson": {
+    "bytes": 3559,
+    "sha256": "9b9f0f1a8de5e7fd28543a55fec07b89c36edd1467829fd1f68a3fd4ac3b2be4"
+  },
+  "source/legacyBaselinePageV3.mjs": {
+    "bytes": 6194,
+    "sha256": "2aa310d4f9ba914247a3dfeafa32dca2773cd8f1400ee098347907da02c4156f"
+  },
+  "source/legacyBaselineRoutesV3.js": {
+    "bytes": 1464,
+    "sha256": "dc50382fa5a4b3a255f530f14e71610e01d5c2bf53a9ce6c25fd449cdb652b9a"
+  },
+  "source/legacyBaselineServerV3.mjs": {
+    "bytes": 17062,
+    "sha256": "e5d2fc9c7e5664e74a18fe2e3ed491bd004756c29cdacc4d44c8b658557c7ddd"
+  },
+  "source/legacyBaselineV3.mjs": {
+    "bytes": 9818,
+    "sha256": "818d9fe2b8b552d43bb33431e44c04a95d05509bc4aa3fe9f9465370e2e16c22"
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "browser": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "platform": "Win32",
+    "hardwareConcurrency": 16,
+    "language": "en-US"
+  },
+  "state": {
+    "phase": "complete",
+    "completed": 2,
+    "errors": [],
+    "network": [
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/config.json",
+        "method": "GET",
+        "sha256": "39c6d90fe29cf2cce650dd5c92c38a1e35b130d9ce0bb98585222ad687ad979b",
+        "bytes": 699,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/tokenizer_config.json",
+        "method": "GET",
+        "sha256": "2c964a338683aec3695ea37687271e75b40905233f5d2a5bbb9be8cb40c4d0a0",
+        "bytes": 1392,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json",
+        "method": "GET",
+        "sha256": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+        "bytes": 541,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/onnx/model_quantized.onnx",
+        "method": "GET",
+        "sha256": "3f559313ec268518193101007fc0569ee4b2cfac03e369091c50adb4795f5c5d",
+        "bytes": 161024085,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/tokenizer.json",
+        "method": "GET",
+        "sha256": "dc239041d98de27ffc3975473a1a23e3db4c937b23c138c38bbc66588bd247e5",
+        "bytes": 2108774,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json",
+        "method": "GET",
+        "sha256": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+        "bytes": 541,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/tokenizer.json",
+        "method": "GET",
+        "sha256": "dc239041d98de27ffc3975473a1a23e3db4c937b23c138c38bbc66588bd247e5",
+        "bytes": 2108774,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/tokenizer_config.json",
+        "method": "GET",
+        "sha256": "2c964a338683aec3695ea37687271e75b40905233f5d2a5bbb9be8cb40c4d0a0",
+        "bytes": 1392,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/onnx/model_quantized.onnx",
+        "method": "GET",
+        "sha256": "3f559313ec268518193101007fc0569ee4b2cfac03e369091c50adb4795f5c5d",
+        "bytes": 161024085,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.31.0-dev.20260914-8d85527a0/dist/ort-wasm-simd-threaded.asyncify.wasm",
+        "method": "GET",
+        "sha256": "49871f5a4409519797e127440868a6d1923339d9185907f301a5b2a1d90af082",
+        "bytes": 26861777,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.31.0-dev.20260914-8d85527a0/dist/ort-wasm-simd-threaded.asyncify.mjs",
+        "method": "GET",
+        "sha256": "0966b6105cd936744498aa60df7a22cbd47af3374dbc64a9ab561c08a71e3611",
+        "bytes": 53057,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      }
+    ],
+    "results": [
+      {
+        "schemaVersion": 1,
+        "row": 0,
+        "clipId": "tw-v3-square-44100",
+        "sourceSha256": "c5fda595540149391f6507afcecd0efc574e067e7396e3315b4a38f4a5e21297",
+        "pcmSha256": "c5fda595540149391f6507afcecd0efc574e067e7396e3315b4a38f4a5e21297",
+        "contractSha256": "547c573a6c74c509aa19f66d076f66c0d14e0f808a85d213baae4520fb00f799",
+        "inputUnchanged": true,
+        "rawResponse": {
+          "type": "result",
+          "sessionId": 1,
+          "result": {
+            "status": "uncertain",
+            "reason": "not-validated",
+            "provisionalGatePassed": true,
+            "rankings": [
+              {
+                "score": 0.8841511607170105,
+                "label": "a buzzing indoor fluorescent light fixture or lamp ballast"
+              },
+              {
+                "score": 0.044379234313964844,
+                "label": "a household fan or air conditioner running"
+              }
+            ],
+            "modelId": "Xenova/clap-htsat-unfused",
+            "modelRevision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+            "preprocessing": {
+              "originalSampleRateHz": 44100,
+              "originalSampleCount": 220500,
+              "observationSeconds": 5,
+              "modelSampleRateHz": 48000,
+              "modelInputSamples": 240000,
+              "processorSeconds": 10,
+              "padding": "zero-pad",
+              "configuredPadding": "repeatpad",
+              "featureBandHz": [
+                50,
+                14000
+              ]
+            },
+            "timing": {
+              "modelLoadMs": 3684.7000000476837,
+              "inferenceMs": 1110.7999999523163,
+              "totalMs": 4799.399999856949,
+              "reusedModel": false
+            }
+          }
+        },
+        "analysis": {
+          "algorithmVersion": "tw-screen-v2",
+          "sampleRateHz": 44100,
+          "sampleCount": 220500,
+          "durationSeconds": 5,
+          "frameCount": 52,
+          "qualityCodes": []
+        },
+        "qualityArtifactSha256": "3c86e972d7ac80ed06a4825970940f42ba38b786271213dd6873216df823c068",
+        "resampledPcmSha256": "045152b94f83ea57834a012e9332ce9444b261692bd7819f50d4a0cc17afd31e",
+        "outcome": "result"
+      },
+      {
+        "schemaVersion": 1,
+        "row": 1,
+        "clipId": "tw-v3-noise-48000",
+        "sourceSha256": "9612fc9bc47aa9d4a2da72b7a22fcce2b66debf98b2433e86e3ddb0f2ef50a81",
+        "pcmSha256": "9612fc9bc47aa9d4a2da72b7a22fcce2b66debf98b2433e86e3ddb0f2ef50a81",
+        "contractSha256": "547c573a6c74c509aa19f66d076f66c0d14e0f808a85d213baae4520fb00f799",
+        "inputUnchanged": true,
+        "rawResponse": {
+          "type": "result",
+          "sessionId": 2,
+          "result": {
+            "status": "uncertain",
+            "reason": "weak-separation",
+            "provisionalGatePassed": false,
+            "rankings": [
+              {
+                "score": 0.42164483666419983,
+                "label": "a household fan or air conditioner running"
+              },
+              {
+                "score": 0.21307778358459473,
+                "label": "a buzzing indoor fluorescent light fixture or lamp ballast"
+              }
+            ],
+            "modelId": "Xenova/clap-htsat-unfused",
+            "modelRevision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+            "preprocessing": {
+              "originalSampleRateHz": 48000,
+              "originalSampleCount": 240000,
+              "observationSeconds": 5,
+              "modelSampleRateHz": 48000,
+              "modelInputSamples": 240000,
+              "processorSeconds": 10,
+              "padding": "zero-pad",
+              "configuredPadding": "repeatpad",
+              "featureBandHz": [
+                50,
+                14000
+              ]
+            },
+            "timing": {
+              "modelLoadMs": 0,
+              "inferenceMs": 439.10000014305115,
+              "totalMs": 443.2999999523163,
+              "reusedModel": true
+            }
+          }
+        },
+        "analysis": {
+          "algorithmVersion": "tw-screen-v2",
+          "sampleRateHz": 48000,
+          "sampleCount": 240000,
+          "durationSeconds": 5,
+          "frameCount": 57,
+          "qualityCodes": []
+        },
+        "qualityArtifactSha256": "3c86e972d7ac80ed06a4825970940f42ba38b786271213dd6873216df823c068",
+        "resampledPcmSha256": "9612fc9bc47aa9d4a2da72b7a22fcce2b66debf98b2433e86e3ddb0f2ef50a81",
+        "outcome": "result"
+      }
+    ],
+    "promotionAllowed": false,
+    "contractSha256": "547c573a6c74c509aa19f66d076f66c0d14e0f808a85d213baae4520fb00f799",
+    "mode": "smoke",
+    "runPhase": "classify",
+    "total": 2,
+    "progress": {
+      "type": "progress",
+      "sessionId": 2,
+      "phase": "inference",
+      "status": "running"
+    }
+  }
+}

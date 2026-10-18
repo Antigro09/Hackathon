@@ -8,3 +8,5 @@ src/ai/model.ts text eol=lf
 src/ai/resample.ts text eol=lf
 # Preserve the exact downloaded bytes covered by recorded experiment checksums.
 ml/runs/** -text
+# These opaque browser modules, configurations and weights have raw-byte pins.
+public/ai/canonical-v3/** -text

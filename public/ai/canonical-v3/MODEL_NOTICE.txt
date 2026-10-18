@@ -1,0 +1,9 @@
+Prepared experimental TonalWatch v3 sound-family classifier. This directory alone does not activate the model or establish accuracy.
+
+Encoder: Xenova/clap-htsat-unfused, revision c28f2883575e590e04d3146ff0713c2448d691ba, audio-only quantized conversion of laion/clap-htsat-unfused. Original upstream model card: https://huggingface.co/laion/clap-htsat-unfused (declares Apache-2.0). Conversion repository: https://huggingface.co/Xenova/clap-htsat-unfused (does not declare a separate license). Weights are unchanged; SHA256 3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f. The Apache-2.0 license text is retained at licenses/transformers-APACHE-2.0.txt.
+
+TonalWatch trained a separate fixed-point six-class linear head on frozen CLAP embeddings. It is experimental, rejects some inputs and does not establish equipment identity, a physical source, location, calibrated probabilities or field accuracy. Head parameter/rule SHA256 6f1119be47ffeea7fcf8b3e1b4212af7d387cdef14667c3c871f46e9c98c8a92. Original strict v3 development rejection criterion failed; comparative release evidence must be reviewed separately.
+
+Public training/development recording credits, original licenses and source links are listed in TRAINING_ATTRIBUTION.json. FSD50K and IVBEE recordings remain subject to their per-source CC0/CC-BY terms. Five-second crop/channel/rate preparation and embedding derivation are described there; no original recordings are included. No MIMII source is in the fitted head data. Model weights and third-party components are not relicensed under the application MIT license.
+
+Runtime notices and modifications: NOTICES.txt and licenses/. Unchanged numerical source files are verified before execution; only module import specifiers are adapted to verified local Blob URLs at runtime. No microphone recording is uploaded for inference.

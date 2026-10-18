@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "packageKind": "tw-canonical-v3-runtime-assets",
+  "researchOnly": true,
+  "activationReady": false,
+  "promotionAllowed": false,
+  "sourceReference": {
+    "referenceSha256": "d2f9fe62fb56105c34776b036c35a8a2ef6cd0b0c639e104853c011fa5b4c636",
+    "contractSha256": "5da0e86b201940146ee04c454282f7b617e910e05e10eec430a5668c5ed2d39b",
+    "stagedManifestSha256": "25448ca576662cf21511b2f691100e6e8d93d4f76c985bc35e6da55430f63e68",
+    "completedRecords": 26
+  },
+  "canonicalEncoder": {
+    "schemaVersion": 1,
+    "implementation": "tw-canonical-clap-wasm-v1",
+    "modelId": "Xenova/clap-htsat-unfused",
+    "revision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+    "modelFile": "onnx/audio_model_quantized.onnx",
+    "modelSha256": "3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f",
+    "transformersVersion": "4.3.1",
+    "ortVersion": "1.31.0-dev.20260914-8d85527a0",
+    "runtimeSha256": {
+      "ort.wasm.bundle.min.mjs": "17b52c1ac62b421dc508b4c28b9a9675251c6e25dd512ef54b83a5e2c4242869",
+      "ort-wasm-simd-threaded.mjs": "c57ca56328877353a575e51bbca6f18450027d6c9bf2307a2cb2c41363b4de9f",
+      "ort-wasm-simd-threaded.wasm": "06ba057753da3847e4c24f02d91ab133455b0817c69a44993a9a53a2146df9e3"
+    },
+    "sampleRateHz": 48000,
+    "inputDurationSeconds": 5,
+    "featureShape": [
+      1,
+      1,
+      1001,
+      64
+    ],
+    "embeddingSize": 512,
+    "normalization": "Float64 sequential squared sum and sqrt, then Float32 coordinate division",
+    "preprocessing": "Transformers.js4.3.1 ClapFeatureExtractor: five seconds input plus five seconds zero padding",
+    "execution": {
+      "provider": "wasm",
+      "numThreads": 1,
+      "proxy": false,
+      "simdFeatureCheck": "fixed",
+      "graphOptimizationLevel": "all",
+      "executionMode": "sequential"
+    }
+  },
+  "pins": {
+    "compilerVersion": "7.0.2",
+    "transformersBrowserBundleSha256": "ad44c6e41ff23fd5b01fa3fe08199a0440a35711dc9f80a31132fcce08fbd432",
+    "redirectedTransformersSha256": "f2da43b6b960ca15ae8678e4899a5df0031125c38e94a03e458bd762751d6367",
+    "preprocessorSha256": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+    "modelConfigSha256": "39c6d90fe29cf2cce650dd5c92c38a1e35b130d9ce0bb98585222ad687ad979b",
+    "resamplerSourceSha256": "a73257786eb279a269e4df0bab86eeb2c1b8d682dcd3c32e8fba1df5b89efb81",
+    "compiledResamplerSha256": "2ab0e2e2a8d3bbc8dc2d3608993c7b27c2df4726a20411e5054414f4223d0477",
+    "modelConfigSourceSha256": "04f764ff1abd63d3342126b3d2bc26aaf752664319483f85885c963fa6b04388",
+    "compiledModelSha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+    "encoderSourceSha256": "6cda0b9db5fee7c1612629d014ead11a93d6e369b101a68af9e32d82c031ebb4",
+    "runnerSourceSha256": "ea25c92f666b14b54c7a8b3a545b5099617f30d497670d1032b6173ecd1d396d",
+    "checkpointValidatorSha256": "0e91bce95cdddebdf5ca95e6d2b6e2fd343b02c901364bf7bfd9b717aa10ad4a",
+    "scorerSourceSha256": "c89ed32798a923eaf19b62fabfda9a8b3ae87b5757fd57458e9ec54aa715b0f7",
+    "compiledScorerSha256": "5b969fa736aad8b336c198d24f20bf59bbe4e788ef7878ea86dd8126c20ed25f",
+    "transformersLicenseSha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "ortLicenseSha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+    "ortNoticesSha256": "143764b952fdb1a7c69ce653bfba74a7744d6a8a573bfb73e235fba356c83de3"
+  },
+  "syntheticSelfTest": {
+    "moduleSha256": "cf4c6a95f4b5108c4c906829385f062a66ccf363a2ece78c49da31b634af4105",
+    "referenceSha256": "6d5414df3b9413283c88f599887d149314c9c8fb189c5324205b452e33a2212d",
+    "caseCount": 2,
+    "softwareOnly": true,
+    "fieldEvidence": false
+  },
+  "sourcePackagerSha256": "984745bb7bce808c51d1c3769032a3b01124bedb8383e21dd9aa8d0523d87e34",
+  "servingRequirements": {
+    "staticBytesOnly": true,
+    "extensionlessJavaScriptAlias": "app/model",
+    "noSpaFallback": true,
+    "modelWeightsIncluded": false,
+    "candidateHeadIncluded": false
+  },
+  "totalAssetBytes": 15929252,
+  "files": {
+    "app/model": {
+      "sha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+      "bytes": 1308,
+      "contentType": "text/javascript",
+      "role": "byte-identical extensionless import alias; JavaScript MIME required"
+    },
+    "app/model.js": {
+      "sha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+      "bytes": 1308,
+      "contentType": "text/javascript",
+      "role": "exact TypeScript 7.0.2 output"
+    },
+    "app/resample.js": {
+      "sha256": "2ab0e2e2a8d3bbc8dc2d3608993c7b27c2df4726a20411e5054414f4223d0477",
+      "bytes": 4233,
+      "contentType": "text/javascript",
+      "role": "exact TypeScript 7.0.2 output; unchanged import"
+    },
+    "canonicalEncoder.mjs": {
+      "sha256": "6cda0b9db5fee7c1612629d014ead11a93d6e369b101a68af9e32d82c031ebb4",
+      "bytes": 4625,
+      "contentType": "text/javascript",
+      "role": "unchanged canonical encoder"
+    },
+    "integerHeadV3.js": {
+      "sha256": "5b969fa736aad8b336c198d24f20bf59bbe4e788ef7878ea86dd8126c20ed25f",
+      "bytes": 6814,
+      "contentType": "text/javascript",
+      "role": "research integer scorer only; no candidate parameters"
+    },
+    "licenses/onnxruntime-LICENSE.txt": {
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "bytes": 1073,
+      "contentType": "text/plain",
+      "role": "upstream ONNX Runtime MIT license"
+    },
+    "licenses/onnxruntime-ThirdPartyNotices.txt": {
+      "sha256": "143764b952fdb1a7c69ce653bfba74a7744d6a8a573bfb73e235fba356c83de3",
+      "bytes": 338088,
+      "contentType": "text/plain",
+      "role": "unfiltered upstream ONNX Runtime notices; not a claim every component is used"
+    },
+    "licenses/transformers-APACHE-2.0.txt": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358,
+      "contentType": "text/plain",
+      "role": "upstream Transformers.js license"
+    },
+    "models/c28f2883575e590e04d3146ff0713c2448d691ba/config.json": {
+      "sha256": "39c6d90fe29cf2cce650dd5c92c38a1e35b130d9ce0bb98585222ad687ad979b",
+      "bytes": 699,
+      "contentType": "application/json",
+      "role": "unchanged upstream configuration; no weights"
+    },
+    "models/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json": {
+      "sha256": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+      "bytes": 541,
+      "contentType": "application/json",
+      "role": "unchanged upstream configuration; no weights"
+    },
+    "NOTICES.txt": {
+      "sha256": "9735c408346051f33908cf58af4b041cfa7316cc02dfdf968e24b87ce095489a",
+      "bytes": 1694,
+      "contentType": "text/plain",
+      "role": "attribution, modification notice and serving requirements"
+    },
+    "ort.wasm.bundle.min.mjs": {
+      "sha256": "17b52c1ac62b421dc508b4c28b9a9675251c6e25dd512ef54b83a5e2c4242869",
+      "bytes": 73123,
+      "contentType": "text/javascript",
+      "role": "unchanged standard ORT Web WASM runtime"
+    },
+    "runtime/ort-wasm-simd-threaded.mjs": {
+      "sha256": "c57ca56328877353a575e51bbca6f18450027d6c9bf2307a2cb2c41363b4de9f",
+      "bytes": 24381,
+      "contentType": "text/javascript",
+      "role": "unchanged standard ORT Web WASM runtime"
+    },
+    "runtime/ort-wasm-simd-threaded.wasm": {
+      "sha256": "06ba057753da3847e4c24f02d91ab133455b0817c69a44993a9a53a2146df9e3",
+      "bytes": 14264838,
+      "contentType": "application/wasm",
+      "role": "unchanged standard ORT Web WASM runtime"
+    },
+    "self-test-v3-reference.json": {
+      "sha256": "6d5414df3b9413283c88f599887d149314c9c8fb189c5324205b452e33a2212d",
+      "bytes": 36622,
+      "contentType": "application/json",
+      "role": "unchanged optional synthetic startup reference; no real observations or classifier"
+    },
+    "selfTestV3.mjs": {
+      "sha256": "cf4c6a95f4b5108c4c906829385f062a66ccf363a2ece78c49da31b634af4105",
+      "bytes": 1775,
+      "contentType": "text/javascript",
+      "role": "unchanged optional two-case synthetic input generator"
+    },
+    "transformers.web.js": {
+      "sha256": "f2da43b6b960ca15ae8678e4899a5df0031125c38e94a03e458bd762751d6367",
+      "bytes": 1156772,
+      "contentType": "text/javascript",
+      "role": "upstream preprocessing bundle; two external import specifiers redirected"
+    }
+  }
+}

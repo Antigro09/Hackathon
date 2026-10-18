@@ -1,0 +1,9 @@
+Research-only canonical runtime assets. No graph, candidate parameters, audio or real-observation embeddings are included. Optional synthetic startup vectors are software checks, not field evidence. Activation and promotion are not authorized by this package.
+
+Transformers.js 4.3.1: Apache-2.0, https://github.com/huggingface/transformers.js . Only the two external imports onnxruntime-web/webgpu and onnxruntime-common were redirected to ./ort.wasm.bundle.min.mjs; all other upstream bytes are retained. Full license: licenses/transformers-APACHE-2.0.txt .
+
+ONNX Runtime Web 1.31.0-dev.20260914-8d85527a0: MIT. Exact standard WASM, loader and JS bundle bytes retained. Full upstream license and unfiltered third-party notices from commit 8d85527a010e294a26b274749f74294b2a32cec5 are included under licenses/. Source: https://github.com/microsoft/onnxruntime/tree/8d85527a010e294a26b274749f74294b2a32cec5 . The upstream notice covers the broader project; inclusion does not imply every listed library is in this WASM binary.
+
+Model config attribution: Xenova/clap-htsat-unfused at c28f2883575e590e04d3146ff0713c2448d691ba, based on laion/clap-htsat-unfused. The upstream LAION card declares Apache-2.0; the pinned Xenova card does not declare a separate license. No model weights or deployment-license determination are supplied here.
+
+Serve every JS module, including extensionless app/model, as text/javascript. Serve WASM as application/wasm. Do not send these files through Vite transforms, dependency optimization, minification or numeric rewrites. No SPA HTML fallback for asset routes. Future app qualification must verify the emitted bytes and actual browser golden parity before use.
