@@ -2,39 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
-<title>TonalWatch field lab — use the verified app workflow</title>
+<title>FIELD LAB — TonalWatch spike campaign (standalone)</title>
 <style>
-:root{color-scheme:light;font-family:Inter,system-ui,sans-serif;color:#243a2e;background:#f6f8f0;line-height:1.7}*{box-sizing:border-box}body{max-width:1020px;margin:0 auto;padding:34px 22px 55px;overflow-wrap:anywhere}h1,h2{line-height:1.25;letter-spacing:-.6px}h1{font-size:clamp(27px,5vw,42px);margin:15px 0 19px}h2{font-size:21px;margin:0 0 14px}p{margin:0 0 16px}a{color:#24553a;text-underline-offset:3px}a:focus-visible,summary:focus-visible,pre:focus-visible{outline:3px solid #607f40;outline-offset:5px}.eyebrow{text-transform:uppercase;font-size:11px;letter-spacing:1.5px;color:#667c55;margin-bottom:7px}.notice{padding:18px 21px;border:1px solid #e3d5ad;border-radius:10px;background:#fbf2dc;color:#715d30}.notice strong{display:block;margin-bottom:6px}.notice p{margin:0;font-size:14px}.intro{max-width:830px;color:#66775b;font-size:16px;margin-top:23px}.actions{display:flex;flex-wrap:wrap;gap:13px;margin:25px 0}.button{display:inline-block;padding:12px 18px;border:1px solid #244c36;border-radius:7px;background:#244c36;color:white;font-size:14px;text-decoration:none;font-weight:600}.button.secondary{background:white;color:#244c36;border-color:#c4d1ba}.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;margin:28px 0}.card{min-width:0;padding:25px;background:white;border:1px solid #dce4d3;border-radius:10px}.card p,.card li{font-size:14px;color:#6b7d60}.card ol,.card ul{padding-left:21px;margin:0}.card li+li{margin-top:14px}.boundary{font-size:14px;font-weight:600;border-top:1px solid #d9e3ce;padding-top:20px;margin-top:25px}.local-note{font-size:13px;color:#6c7e61}.local-note code{white-space:nowrap;background:#edf2e4;padding:2px 5px;border-radius:3px}details{margin-top:30px;padding:20px;background:#edf2e6;border:1px solid #d2dfc4;border-radius:9px}summary{cursor:pointer;font-weight:600;line-height:1.6}details>p{font-size:13px;margin-top:15px;color:#6b7b60}pre{max-width:100%;max-height:420px;overflow:auto;white-space:pre;background:#1e3026;color:#dbe7d1;padding:18px;border-radius:6px;font-size:11px;line-height:1.6;tab-size:2}.fingerprint{font-size:11px;word-break:break-all}footer{font-size:12px;color:#76816c;margin-top:32px;border-top:1px solid #d9e3ce;padding-top:20px}@media(max-width:680px){body{padding:25px 17px 40px}.grid{grid-template-columns:minmax(0,1fr);gap:17px}.card{padding:20px}.actions{flex-direction:column;align-items:stretch}.button{text-align:center}.notice{padding:16px}.local-note code{white-space:normal}}
-</style>
-</head>
-<body>
-<header><p class="eyebrow">TonalWatch · descriptive observation lab</p><h1>Use one capture and analysis workflow.</h1></header>
-<div class="notice" role="note"><strong>The old standalone instrument is retired.</strong><p>Its timing, last-spectrum calculation, quality handling and labels were not validated. It must not be used to collect new readings or substantiate source, tonality, calibration or compliance claims.</p></div>
-<p class="intro">Record or import audio in the main app, review its quality flags and two separate indicators, then save the observation packet with its actual duration and provenance. This page is a lab guide; it does not access the microphone or calculate measurements.</p>
-<div class="actions"><a class="button" href="https://tonalwatch.vercel.app/#/measure">Open TonalWatch Observation</a><a class="button secondary" href="./#/measure">Open app on this server</a><a class="button secondary" href="docs/FIELD_LOG.md">Read the unverified field notes</a></div>
-<p class="local-note">For local development, run <code>npm run dev</code> or build and run <code>npm run preview</code>, then use the localhost URL printed in the terminal. The same-server link works when this guide is served from the app root. Opening this guide directly from disk does not start the app.</p>
-<main>
-<div class="grid">
-<section class="card"><h2>Make a descriptive observation</h2><ol>
-<li>Open <strong>Observation</strong> and choose Microphone, File or an explicitly synthetic demo. Keep the original input kind with the result.</li>
-<li>For a microphone recording, use a duration offered by the app and remain in place. For file import, follow the app’s stated crop policy. Record the <strong>actual analyzed duration</strong> and effective sample rate shown in the result and report.</li>
-<li>Review recording-quality flags before interpreting numbers. Unavailable or inconclusive values remain unavailable; they are not zero.</li>
-<li>Add location, conditions, what you heard and any recurrence as user observations. A suspected source remains an unverified note.</li>
-<li>Review the report and print/save PDF or download its text packet. Keep that packet with any hand-entered log entry so its method, spectrum, quality and provenance remain inspectable.</li>
-</ol></section>
-<section class="card"><h2>Keep the indicators separate</h2><p><strong>Captured-spectrum C−A</strong> describes the difference between two weightings applied to the same digital recording. At or above the prototype’s 15 dB threshold, the wording is <strong>“low-frequency contribution suggested.”</strong></p><p>The <strong>sustained narrowband peak</strong> is a separate experimental check. A larger gap alone does not establish a tone or identify a fan, transformer, light fixture or building.</p><p>A peak near 60 or 120 Hz is a frequency observation. Several acoustic and recording-chain causes can produce it; its presence does not identify mains equipment, and its absence does not validate microphone sensitivity.</p><p>Weighted digital values are <strong>dB re digital RMS 1, uncalibrated input</strong>. They are not sound-pressure levels.</p></section>
-<section class="card"><h2>Describe comparisons honestly</h2><p>A previous-capture comparison, when available, is the observed change in C−A between two analyses in the current browser session. Keep each recording’s input kind, duration, sample rate, time and processing limitations.</p><p>Sound, placement, microphone response and processing can change the difference. It is <strong>not a calibration offset</strong> and does not make devices interchangeable. Constant gain cancels only for otherwise identical, unclipped samples; response shaping does not.</p><p>Repeated captures can describe variability. Longer recordings, distance changes or walking do not establish a legal measurement method, a general attenuation law or a shared source.</p></section>
-<section class="card"><h2>Keep the original notes as evidence of what was written</h2><p>The <a href="docs/FIELD_LOG.md">field log</a> preserves the supplied numbers and wording as <strong>unverified hand-entered notes</strong>. They do not establish which instrument, sample window, processing state or quality checks produced each value.</p><p>The reported 0.46 dB “device offset” remains an unverified original claim. Its derivation is not documented by the displayed pairs. Do not apply it to correct readings or pool devices.</p><p>New entries should reference an exported app packet. Keep old values separate rather than relabeling them as validated measurements.</p></section>
-</div>
-<p class="boundary">Uncalibrated screening only. No source identification or legal-compliance determination.</p>
-<details class="historical-archive"><summary>Retired standalone source — historical text only</summary><p>This is the incoming experiment source, retained for review rather than execution. Its old instrument controls, formulas, CSV output and “signature/device offset” language are unsupported. None of this archived code runs on this page.</p><p class="fingerprint">Canonical UTF-8/LF SHA-256: <code>6e46ed24a419ae9c9d358a3abd7333973c8eda6e51dcedd8f1b7f2d779a68d96</code></p><pre id="historical-source" tabindex="0" aria-label="Retired, unverified instrument source; text only"><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-&lt;meta charset="utf-8"&gt;
-&lt;title&gt;FIELD LAB — TonalWatch spike campaign (standalone)&lt;/title&gt;
-&lt;style&gt;
   body { font-family: system-ui, sans-serif; background: #0f1418; color: #e8e8e8; max-width: 980px; margin: 1.5rem auto; padding: 0 1rem; }
   h1 { font-size: 1.35rem; } h2 { font-size: 1.05rem; margin-top: 1.4rem; color: #9fd4ff; }
   .tier { border: 1px solid #345; border-radius: 10px; padding: .8rem 1rem; margin: .6rem 0; background: #161d24; }
@@ -52,59 +21,59 @@
   .hit { color: #7fe39f; } .warn { color: #ffd479; }
   ol { margin: .3rem 0 .3rem 1.2rem; } li { margin: .15rem 0; }
   textarea { width: 100%; background:#0d1216; color:#e8e8e8; border:1px solid #345; border-radius:6px; min-height: 90px; }
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;h1&gt;FIELD LAB — standalone spike instrument&lt;/h1&gt;
-&lt;p&gt;&lt;small&gt;Uncalibrated consumer mic. Gap = C−A on captured signal; honest verdict = relative. This file is separate from the app — it's the experiment bench.&lt;/small&gt;&lt;/p&gt;
+</style>
+</head>
+<body>
+<h1>FIELD LAB — standalone spike instrument</h1>
+<p><small>Uncalibrated consumer mic. Gap = C−A on captured signal; honest verdict = relative. This file is separate from the app — it's the experiment bench.</small></p>
 
-&lt;h2&gt;Protocol (every capture)&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;b&gt;Stand still.&lt;/b&gt; Walk = finding spots, never measuring them.&lt;/li&gt;
-  &lt;li&gt;Three captures per spot, ~30 s apart (E1 uses the duration selector).&lt;/li&gt;
-  &lt;li&gt;Log spot, in/out, distance, what you hear. Auto-logged below.&lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;Gap ≥ 15 → freeze, take THREE confirmations.&lt;/b&gt;&lt;/li&gt;
-&lt;/ol&gt;
+<h2>Protocol (every capture)</h2>
+<ol>
+  <li><b>Stand still.</b> Walk = finding spots, never measuring them.</li>
+  <li>Three captures per spot, ~30 s apart (E1 uses the duration selector).</li>
+  <li>Log spot, in/out, distance, what you hear. Auto-logged below.</li>
+  <li><b>Gap ≥ 15 → freeze, take THREE confirmations.</b></li>
+</ol>
 
-&lt;h2&gt;The tiers&lt;/h2&gt;
-&lt;div class="tier"&gt;&lt;b&gt;TIER 1 — signature hunt (E5).&lt;/b&gt; Kitchen exhaust / rooftop AHU · gym air system · stairwell AC unit · exterior transformer pads (grey cabinets, HIGH VOLTAGE) · elevator machine room. Hunt: fans + transformers = the 50–250 Hz tonal band, same equipment class as data center cooling.&lt;/div&gt;
-&lt;div class="tier"&gt;&lt;b&gt;TIER 2 — controlled experiments.&lt;/b&gt; &lt;b&gt;E1 duration:&lt;/b&gt; stairwell, 5s vs 15s vs 30s ×3. &lt;b&gt;E2 distance:&lt;/b&gt; one loud source, 2m / 8m / 20m — does gap hold while level drops (mile-away physics)? &lt;b&gt;E3 masking:&lt;/b&gt; quiet corner alone vs same corner + talking person. &lt;b&gt;E4 walk test:&lt;/b&gt; stationary ×3 vs one slow walk past the same spot — compare spread.&lt;/div&gt;
-&lt;div class="tier"&gt;&lt;b&gt;TIER 3 — free exhibits.&lt;/b&gt; 60 Hz mains check (quiet room, nothing playing, find 60/120 Hz peak) · railroad train pass (log it, exclude as extraneous) · buddy check (two devices, same spot — Δgap = device offset).&lt;/div&gt;
+<h2>The tiers</h2>
+<div class="tier"><b>TIER 1 — signature hunt (E5).</b> Kitchen exhaust / rooftop AHU · gym air system · stairwell AC unit · exterior transformer pads (grey cabinets, HIGH VOLTAGE) · elevator machine room. Hunt: fans + transformers = the 50–250 Hz tonal band, same equipment class as data center cooling.</div>
+<div class="tier"><b>TIER 2 — controlled experiments.</b> <b>E1 duration:</b> stairwell, 5s vs 15s vs 30s ×3. <b>E2 distance:</b> one loud source, 2m / 8m / 20m — does gap hold while level drops (mile-away physics)? <b>E3 masking:</b> quiet corner alone vs same corner + talking person. <b>E4 walk test:</b> stationary ×3 vs one slow walk past the same spot — compare spread.</div>
+<div class="tier"><b>TIER 3 — free exhibits.</b> 60 Hz mains check (quiet room, nothing playing, find 60/120 Hz peak) · railroad train pass (log it, exclude as extraneous) · buddy check (two devices, same spot — Δgap = device offset).</div>
 
-&lt;h2&gt;Instrument&lt;/h2&gt;
-&lt;div&gt;
-  &lt;label&gt;Experiment: &lt;select id="exp"&gt;
-    &lt;option&gt;E0 free capture&lt;/option&gt;&lt;option&gt;E1 duration law&lt;/option&gt;&lt;option&gt;E2 distance attenuation&lt;/option&gt;
-    &lt;option&gt;E3 masking&lt;/option&gt;&lt;option&gt;E4 walk-vs-still&lt;/option&gt;&lt;option&gt;E5 signature hunt&lt;/option&gt;&lt;option&gt;T3 mains check&lt;/option&gt;&lt;option&gt;T3 buddy check&lt;/option&gt;&lt;option&gt;T3 train (exclude)&lt;/option&gt;
-  &lt;/select&gt;&lt;/label&gt;
-  &lt;label&gt;Spot name: &lt;input id="spot" size="22" placeholder="stairwell AC @2m"&gt;&lt;/label&gt;
-  &lt;label&gt;In/Out: &lt;select id="io"&gt;&lt;option&gt;in&lt;/option&gt;&lt;option&gt;out&lt;/option&gt;&lt;/select&gt;&lt;/label&gt;
-  &lt;label&gt;Distance: &lt;input id="dist" size="7" placeholder="2m / —"&gt;&lt;/label&gt;
-  &lt;label&gt;Ears say: &lt;input id="ears" size="18" placeholder="AC drone, audible"&gt;&lt;/label&gt;
-  &lt;label&gt;Capture: &lt;select id="dur"&gt;&lt;option value="5"&gt;5 s&lt;/option&gt;&lt;option value="15" selected&gt;15 s&lt;/option&gt;&lt;option value="30"&gt;30 s&lt;/option&gt;&lt;/select&gt;&lt;/label&gt;
-&lt;/div&gt;
-&lt;button id="start"&gt;▶ Start capture&lt;/button&gt; &lt;span id="status" class="status"&gt;&lt;/span&gt;
-&lt;div class="row"&gt;
-  &lt;div class="card"&gt;&lt;small&gt;A relative (dB re RMS1)&lt;/small&gt;&lt;div class="big" id="a"&gt;—&lt;/div&gt;&lt;/div&gt;
-  &lt;div class="card"&gt;&lt;small&gt;C relative&lt;/small&gt;&lt;div class="big" id="c"&gt;—&lt;/div&gt;&lt;/div&gt;
-  &lt;div class="card"&gt;&lt;small&gt;GAP (C−A)&lt;/small&gt;&lt;div class="big" id="g"&gt;—&lt;/div&gt;&lt;small id="peaks"&gt;&lt;/small&gt;&lt;/div&gt;
-  &lt;div class="card"&gt;&lt;small&gt;60 Hz region peak&lt;/small&gt;&lt;div class="big" id="mains"&gt;—&lt;/div&gt;&lt;small&gt;dB above local floor&lt;/small&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;canvas id="spectrum" style="width:100%; height:110px; background:#0b0f13; border-radius:8px;"&gt;&lt;/canvas&gt;
+<h2>Instrument</h2>
+<div>
+  <label>Experiment: <select id="exp">
+    <option>E0 free capture</option><option>E1 duration law</option><option>E2 distance attenuation</option>
+    <option>E3 masking</option><option>E4 walk-vs-still</option><option>E5 signature hunt</option><option>T3 mains check</option><option>T3 buddy check</option><option>T3 train (exclude)</option>
+  </select></label>
+  <label>Spot name: <input id="spot" size="22" placeholder="stairwell AC @2m"></label>
+  <label>In/Out: <select id="io"><option>in</option><option>out</option></select></label>
+  <label>Distance: <input id="dist" size="7" placeholder="2m / —"></label>
+  <label>Ears say: <input id="ears" size="18" placeholder="AC drone, audible"></label>
+  <label>Capture: <select id="dur"><option value="5">5 s</option><option value="15" selected>15 s</option><option value="30">30 s</option></select></label>
+</div>
+<button id="start">▶ Start capture</button> <span id="status" class="status"></span>
+<div class="row">
+  <div class="card"><small>A relative (dB re RMS1)</small><div class="big" id="a">—</div></div>
+  <div class="card"><small>C relative</small><div class="big" id="c">—</div></div>
+  <div class="card"><small>GAP (C−A)</small><div class="big" id="g">—</div><small id="peaks"></small></div>
+  <div class="card"><small>60 Hz region peak</small><div class="big" id="mains">—</div><small>dB above local floor</small></div>
+</div>
+<canvas id="spectrum" style="width:100%; height:110px; background:#0b0f13; border-radius:8px;"></canvas>
 
-&lt;h2&gt;Campaign log &lt;button id="csv"&gt;⬇ Export CSV&lt;/button&gt; &lt;button id="wipe"&gt;Clear log&lt;/button&gt;&lt;/h2&gt;
-&lt;table id="log"&gt;&lt;tr&gt;&lt;th&gt;#&lt;/th&gt;&lt;th&gt;time&lt;/th&gt;&lt;th&gt;exp&lt;/th&gt;&lt;th&gt;spot&lt;/th&gt;&lt;th&gt;io&lt;/th&gt;&lt;th&gt;dist&lt;/th&gt;&lt;th&gt;ears&lt;/th&gt;&lt;th&gt;s&lt;/th&gt;&lt;th&gt;A&lt;/th&gt;&lt;th&gt;C&lt;/th&gt;&lt;th&gt;gap&lt;/th&gt;&lt;th&gt;60Hz pk&lt;/th&gt;&lt;th&gt;verdict&lt;/th&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;p&gt;&lt;small&gt;Verdict: gap ≥15 → &lt;b class="hit"&gt;TONAL SIGNATURE — take 3 confirmations now&lt;/b&gt;; 10–15 → "borderline, confirm"; &amp;lt;10 → "not indicated". Levels are uncalibrated relative values; only the gap compares across devices.&lt;/small&gt;&lt;/p&gt;
+<h2>Campaign log <button id="csv">⬇ Export CSV</button> <button id="wipe">Clear log</button></h2>
+<table id="log"><tr><th>#</th><th>time</th><th>exp</th><th>spot</th><th>io</th><th>dist</th><th>ears</th><th>s</th><th>A</th><th>C</th><th>gap</th><th>60Hz pk</th><th>verdict</th></tr></table>
+<p><small>Verdict: gap ≥15 → <b class="hit">TONAL SIGNATURE — take 3 confirmations now</b>; 10–15 → "borderline, confirm"; &lt;10 → "not indicated". Levels are uncalibrated relative values; only the gap compares across devices.</small></p>
 
-&lt;script&gt;
+<script>
 const A_CON = {f1:20.598997, f2:107.65265, f3:737.86223, f4:12194.217};
 function RA(f){const {f1,f2:f1sq,f3,f4}=A_CON,f2v=f*f;return f4*f4*f2v*f2v/((f2v+f1*f1)*Math.sqrt((f2v+f1sq*f1sq)*(f2v+f3*f3))*(f2v+f4*f4));}
 function RC(f){const {f1,f4}=A_CON,f2v=f*f;return f4*f4*f2v/((f2v+f1*f1)*(f2v+f4*f4));}
-const gA=f=&gt;RA(f)/RA(1000), gC=f=&gt;RC(f)/RC(1000);
+const gA=f=>RA(f)/RA(1000), gC=f=>RC(f)/RC(1000);
 
 let ctx, an, buf, running=false, target=0, got=0, t0=0;
-const $=id=&gt;document.getElementById(id);
-$('start').onclick = async () =&gt; {
+const $=id=>document.getElementById(id);
+$('start').onclick = async () => {
   if (running) return;
   try {
     $('dur').disabled = true; $('start').disabled = true;
@@ -125,21 +94,21 @@ function loop(stream){
   an.getFloatFrequencyData(buf);
   const nyq = ctx.sampleRate/2, n = buf.length, binHz = nyq/n;
   let pa=0, pc=0, p60sig=0, p60ref=0, peakDb=-200, peakF=0;
-  for (let i=1;i&lt;n;i++){
+  for (let i=1;i<n;i++){
     const f=i*binHz;
-    if (f&lt;10||f&gt;20000) continue;
+    if (f<10||f>20000) continue;
     const lin = Math.pow(10,(isFinite(buf[i])?buf[i]:-200)/10);
     pa += lin*gA(f)*gA(f); pc += lin*gC(f)*gC(f);
-    if (f&gt;=57&amp;&amp;f&lt;=180){ if (buf[i]&gt;peakDb){peakDb=buf[i];peakF=f;} }
+    if (f>=57&&f<=180){ if (buf[i]>peakDb){peakDb=buf[i];peakF=f;} }
   }
   // 60Hz prominence: peak vs median floor 150-400Hz
-  let fl=[]; for(let i=1;i&lt;n;i++){const f=i*binHz; if(f&gt;=150&amp;&amp;f&lt;=400&amp;&amp;isFinite(buf[i])) fl.push(buf[i]);}
-  fl.sort((x,y)=&gt;x-y); const med=fl[Math.floor(fl.length/2)];
+  let fl=[]; for(let i=1;i<n;i++){const f=i*binHz; if(f>=150&&f<=400&&isFinite(buf[i])) fl.push(buf[i]);}
+  fl.sort((x,y)=>x-y); const med=fl[Math.floor(fl.length/2)];
   const mainsProm = (peakDb - med);
   draw();
   const el=(performance.now()-t0)/1000;
-  if (el &gt;= target){ running=false; finish(stream, mainsProm, peakF); }
-  else { $('status').textContent=`capturing ${el.toFixed(1)} / ${target}s`; requestAnimationFrame(()=&gt;loop(stream)); }
+  if (el >= target){ running=false; finish(stream, mainsProm, peakF); }
+  else { $('status').textContent=`capturing ${el.toFixed(1)} / ${target}s`; requestAnimationFrame(()=>loop(stream)); }
 }
 
 function draw(){
@@ -147,49 +116,47 @@ function draw(){
   g.fillStyle='#0b0f13'; g.fillRect(0,0,c.width,c.height); g.fillStyle='#7fd47f';
   const n=buf.length, nyq=ctx.sampleRate/2, binHz=nyq/n, w=c.width;
   const step=Math.max(1,Math.floor(n/w));
-  for(let x=0;x&lt;w;x++){
+  for(let x=0;x<w;x++){
     const i=Math.floor(Math.pow(x/w,2)*n*0.7);
-    let pk=-250; for(let k=i;k&lt;i+step&amp;&amp;k&lt;n;k++) if(isFinite(buf[k])) pk=Math.max(pk,buf[k]);
-    if (pk&gt;-240){ const h=Math.max(1,(Math.max(pk,-120)+120)/120*c.height); g.fillRect(x,c.height-h,1,h); }
+    let pk=-250; for(let k=i;k<i+step&&k<n;k++) if(isFinite(buf[k])) pk=Math.max(pk,buf[k]);
+    if (pk>-240){ const h=Math.max(1,(Math.max(pk,-120)+120)/120*c.height); g.fillRect(x,c.height-h,1,h); }
   }
 }
 
 function finish(stream, mainsProm, peakF){
   const binHz=(ctx.sampleRate/2)/buf.length;
   let pa=0,pc=0;
-  for(let i=1;i&lt;buf.length;i++){const f=i*binHz; if(f&lt;10||f&gt;20000)continue;
+  for(let i=1;i<buf.length;i++){const f=i*binHz; if(f<10||f>20000)continue;
     const lin=Math.pow(10,(isFinite(buf[i])?buf[i]:-200)/10); pa+=lin*gA(f)*gA(f); pc+=lin*gC(f)*gC(f);}
   const LA=10*Math.log10(Math.max(pa,1e-30)), LC=10*Math.log10(Math.max(pc,1e-30)), gap=LC-LA;
   $('a').textContent=LA.toFixed(1); $('c').textContent=LC.toFixed(1); $('g').textContent=gap.toFixed(1);
   $('mains').textContent=mainsProm.toFixed(1)+' @'+peakF.toFixed(0)+'Hz';
-  const v=gap&gt;=15?'&lt;b class="hit"&gt;SIGNATURE ≥15 — confirm ×3&lt;/b&gt;':(gap&gt;=10?'&lt;b class="warn"&gt;borderline 10–15&lt;/b&gt;':'not indicated');
+  const v=gap>=15?'<b class="hit">SIGNATURE ≥15 — confirm ×3</b>':(gap>=10?'<b class="warn">borderline 10–15</b>':'not indicated');
   $('peaks').innerHTML=v;
-  stream.getTracks().forEach(t=&gt;t.stop());
-  addRow(LA.toFixed(1),LC.toFixed(1),gap.toFixed(1),mainsProm.toFixed(1),gap&gt;=15?'SIGNATURE':(gap&gt;=10?'borderline':'not-indicated'));
+  stream.getTracks().forEach(t=>t.stop());
+  addRow(LA.toFixed(1),LC.toFixed(1),gap.toFixed(1),mainsProm.toFixed(1),gap>=15?'SIGNATURE':(gap>=10?'borderline':'not-indicated'));
   $('status').textContent='capture complete'; $('dur').disabled=false; $('start').disabled=false;
 }
 
-const LOG=[];
+const LOG = JSON.parse(localStorage.getItem('tw_field_log') || '[]');
+function saveLog(){ localStorage.setItem('tw_field_log', JSON.stringify(LOG)); }
+function clearLog(){ if(confirm('Erase all logged captures?')){ LOG.length=0; saveLog(); location.reload(); } }
+rebuildTable();
 function addRow(a,c,g,m,v){
   const e=$('exp').value, s=$('spot').value||'?', io=$('io').value, d=$('dist').value||'—', ears=$('ears').value||'—';
   const t=new Date().toTimeString().slice(0,5);
-  LOG.push({t,e,s,io,d,ears,dur:$('dur').querySelector('option:checked').textContent,a,c,g,m,v});
-  const tb=$('log');
-  const tr=tb.insertRow(-1);
-  [String(LOG.length),t,e,s,io,d,ears,$('dur').value,a,c,g,m+'Hz',v].forEach(x=&gt;{const td=tr.insertCell(-1);td.textContent=x;});
+  LOG.push({n:String(LOG.length+1),t,e,s,io,d,ears,dur:$('dur').value,a,c,g,m,v}); saveLog();
+  const tr=$('log').insertRow(-1);
+  [String(LOG.length),t,e,s,io,d,ears,$('dur').value,a,c,g,m+'Hz',v].forEach(x=>{const td=tr.insertCell(-1);td.textContent=x;});
   if(v==='SIGNATURE') tr.style.background='#123d1e';
 }
-$('csv').onclick=()=&gt;{
+$('csv').onclick=()=>{
   const head='time,exp,spot,io,dist,ears,dur_s,A_rel,C_rel,gap,mains_prom_db,verdict';
-  const body=LOG.map(r=&gt;[r.t,r.e,r.s,r.io,r.d,r.ears,r.dur,r.a,r.c,r.g,r.m,r.v].join(',')).join('\n');
+  const body=LOG.map(r=>[r.t,r.e,r.s,r.io,r.d,r.ears,r.dur,r.a,r.c,r.g,r.m,r.v].join(',')).join('\n');
   const blob=new Blob([head+'\n'+body],{type:'text/csv'});
   const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='tonalwatch_field_'+Date.now()+'.csv'; a.click();
 };
-$('wipe').onclick=()=&gt;{ if(confirm('Clear log?')){LOG.length=0;$('log').querySelectorAll('tr:not(:first-child)').forEach(r=&gt;r.remove());} };
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre></details>
-</main>
-<footer>Use the main app’s saved observation and current method limitations as the record for new work. Historical notes and source code are not field-accuracy validation.</footer>
+$('wipe').onclick=()=>{ if(confirm('Clear log?')){LOG.length=0;$('log').querySelectorAll('tr:not(:first-child)').forEach(r=>r.remove());} };
+</script>
 </body>
 </html>
