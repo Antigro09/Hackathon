@@ -1,0 +1,135 @@
+{
+  "created_utc": "2026-10-18T20:09:43.023964+00:00",
+  "purpose": "Independent-provider outdoor cooling-confound candidate for later target-check diagnostics. Not a data-center positive and not a validated natural-audio negative.",
+  "classifier_status": "No CLAP or TonalWatch source-classifier call performed by this agent. No fitting or threshold selection.",
+  "primary_source": {
+    "provider": "Noisecare A/S",
+    "page": "https://noisecare.eu/prj/ventilation-system-hotel/",
+    "title": "Noise reduction for hotel ventilation system in Esbjerg",
+    "media_url": "https://noisecare.eu/wp-content/uploads/2025/08/noisecare_esbjerg_noisecare.mp4",
+    "published_jsonld": "2025-08-25T08:45:27+00:00",
+    "source_claim_paraphrase": "The installer describes an enclosure around outdoor ventilation at an Esbjerg hotel, intended to reduce industrial-fan noise for guests and neighbors. It does not identify the hotel by name or address.",
+    "original_public_player": "WordPress video element with controls, direct source and direct MP4 fallback anchor.",
+    "retrieval": "Ordinary unauthenticated public GET returned HTTP200; no cookies, login, paid access or bypass."
+  },
+  "recording_context": {
+    "claimed_facility_type": "Hotel outdoor ventilation; not a data center according to the provider page.",
+    "city": "Esbjerg, Denmark (provider statement).",
+    "hotel_name": "Not supplied.",
+    "location_precision": "No address, coordinates or independent site identity verification.",
+    "recording_date": "Unknown; page published in August2025 does not establish capture date.",
+    "roof_or_ground": "Sparse frames show an outdoor fan bank next to masonry walls, a car and stacks of paving materials in a service yard. Elevated camera viewpoint does not establish a rooftop.",
+    "device_settings": "Not supplied.",
+    "operating_state": "Not verified; no before/after, source-on/off or logged operating-state record.",
+    "audio_provenance": "No source page statement establishes original environmental soundtrack, editing, music, gain, normalization or replacement audio. Commercial promotional context."
+  },
+  "visual_review": {
+    "sample_seconds": [
+      1,
+      5,
+      7,
+      10,
+      13
+    ],
+    "observed": "Exposed fan units inside a partial acoustic enclosure; exterior yard and construction materials; persistent provider logo and hotel-ventilation text overlay; views of equipment change.",
+    "limits": "Sparse frames do not establish continuous recording, fan operation, microphone location, soundtrack authenticity or isolated source contribution."
+  },
+  "pre_query_candidate": {
+    "start_seconds": 0,
+    "end_seconds": 5,
+    "duration_seconds": 5,
+    "selection_rule": "First five seconds, fixed before any source-classifier query. Do not choose alternate crops from model scores.",
+    "status": "Candidate only; full-file ASR/VAD screen found no speech. Soundtrack listening/source review still required before diagnostic negative admission.",
+    "intended_role": "Cooling-equipment confound from an independent provider, if eligible. Do not label it as true data-center sound or calibrated real-world negative truth."
+  },
+  "speech_annotation": {
+    "file": "output/outdoor-source-audit/annotations/noisecare-hotel-original.json",
+    "vad_intervals": [],
+    "asr_segments": 0,
+    "decoded_duration_seconds": 14.2506875,
+    "meaning": "No detected speech by the pinned annotation model. This is not manual listening or proof of no music or natural sound."
+  },
+  "rights_access": {
+    "terms_page": "https://noisecare.eu/terms-and-conditions/",
+    "observed_terms": "Displayed terms primarily concern business-to-business sale and delivery. No affirmative raw-media redistribution or model-release license was found on inspected project/terms pages.",
+    "handling": "Keep original and derivatives in ignored output. Record permission status as unknown; do not infer a license from public playback."
+  },
+  "files": [
+    {
+      "path": "output/outdoor-source-audit/noisecare-hotel-original.mp4",
+      "bytes": 135350158,
+      "sha256": "9c881e33c88e1ea51e53714e90c10ab61978b0822d37fe6063c015f945a52c80"
+    },
+    {
+      "path": "output/outdoor-source-audit/noisecare-hotel-original-audio.m4a",
+      "bytes": 568163,
+      "sha256": "4de7413662a47d6920715a967969b438c83d77cf237a1fc36225c7cc09a9b733"
+    },
+    {
+      "path": "output/outdoor-source-audit/noisecare-hotel-first5s.wav",
+      "bytes": 960078,
+      "sha256": "cc9745531d3ec29e7aa01234854b89eb75e471f90336ad77dcd8e4d9f6757493"
+    },
+    {
+      "path": "output/outdoor-source-audit/noisecare-hotel-probe.json",
+      "bytes": 424,
+      "sha256": "c781599e3c3f23f057974df9ffd83ecae4580c4e4c92eb6a1dc056b2c7d48ce9"
+    },
+    {
+      "path": "output/outdoor-source-audit/noisecare-download.json",
+      "bytes": 1099,
+      "sha256": "cf1b7c6b8c4d31602666a01f3c426462b5fd9cb5ceca3d8f2b69aaa42dafcc83"
+    },
+    {
+      "path": "output/outdoor-source-audit/noisecare-hotel-page.html",
+      "bytes": 74725,
+      "sha256": "739cbe6061a6623728f84988181e2b79e497c5ec3a8d5242850027f3f57c2d40"
+    },
+    {
+      "path": "output/outdoor-source-audit/noisecare-terms.html",
+      "bytes": 88043,
+      "sha256": "e6329eb6814dde445b3418ba8a1b7827852b3c7eed7c2c8dae4daa6bb8891668"
+    },
+    {
+      "path": "output/outdoor-source-audit/annotations/noisecare-hotel-original.json",
+      "bytes": 3761,
+      "sha256": "856945ed61c65e397a960b411b20ea10d21b5f6c51daaa819d767202f0af4e9d"
+    }
+  ],
+  "derivation": {
+    "commands": [
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "output\\outdoor-source-audit\\noisecare-hotel-original.mp4",
+        "-vn",
+        "-c:a",
+        "copy",
+        "-y",
+        "output\\outdoor-source-audit\\noisecare-hotel-original-audio.m4a"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "output\\outdoor-source-audit\\noisecare-hotel-original.mp4",
+        "-t",
+        "5",
+        "-vn",
+        "-c:a",
+        "pcm_s16le",
+        "-ar",
+        "48000",
+        "-ac",
+        "2",
+        "-y",
+        "output\\outdoor-source-audit\\noisecare-hotel-first5s.wav"
+      ]
+    ],
+    "processing": "Audio-only M4A is stream-copy of original AAC. First5 WAV is a 5s stereo48kHz signed16-bit PCM decode with no normalization, filtering or concatenation.",
+    "ffmpeg": "ffmpeg version 8.1.2-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers"
+  }
+}

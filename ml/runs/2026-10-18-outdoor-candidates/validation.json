@@ -1,0 +1,52 @@
+{
+  "validated_utc": "2026-10-18T20:11:51.740283+00:00",
+  "scope": "Actual SHA-256 and byte comparisons on local source and archive files; no source classifier inference or fitting. Raw inputs and full annotations were checked in ignored output but not copied into this archive.",
+  "checks": [
+    {
+      "file": "hillsboro-context.json",
+      "bytes": 3800,
+      "source_sha256": "f506989bc33dd518611feb1fee10441c3f647135d34ead6b360d682ebdb61f1c",
+      "archive_sha256": "f506989bc33dd518611feb1fee10441c3f647135d34ead6b360d682ebdb61f1c",
+      "source_archive_exact_bytes_equal": true,
+      "json_parse": "passed"
+    },
+    {
+      "file": "annotation-summary-hillsboro.json",
+      "bytes": 4449,
+      "source_sha256": "57d04d931b63301a4a3b203a7703840e7b323c5a2cf04f36b7680450918c853e",
+      "archive_sha256": "57d04d931b63301a4a3b203a7703840e7b323c5a2cf04f36b7680450918c853e",
+      "source_archive_exact_bytes_equal": true,
+      "json_parse": "passed"
+    },
+    {
+      "file": "noisecare-hotel-context.json",
+      "bytes": 6650,
+      "source_sha256": "e6ec6e537576a864cf174450061c5b890866b456558be70cb1cc39fe707023aa",
+      "archive_sha256": "e6ec6e537576a864cf174450061c5b890866b456558be70cb1cc39fe707023aa",
+      "source_archive_exact_bytes_equal": true,
+      "json_parse": "passed"
+    },
+    {
+      "file": "annotation-summary-noisecare.json",
+      "bytes": 4503,
+      "source_sha256": "ff9bf7702d0a6d8c1de67c950ce66868616efb667d23861e3aa4578e1c79dfa7",
+      "archive_sha256": "ff9bf7702d0a6d8c1de67c950ce66868616efb667d23861e3aa4578e1c79dfa7",
+      "source_archive_exact_bytes_equal": true,
+      "json_parse": "passed"
+    },
+    {
+      "summary": "annotation-summary-hillsboro.json",
+      "archived_context_hash_matches_summary": true,
+      "ignored_original_hash_matches_summary": true,
+      "ignored_raw_annotation_hash_matches_summary": true,
+      "annotation_script_hash_matches_summary": true
+    },
+    {
+      "summary": "annotation-summary-noisecare.json",
+      "archived_context_hash_matches_summary": true,
+      "ignored_original_hash_matches_summary": true,
+      "ignored_raw_annotation_hash_matches_summary": true,
+      "annotation_script_hash_matches_summary": true
+    }
+  ]
+}

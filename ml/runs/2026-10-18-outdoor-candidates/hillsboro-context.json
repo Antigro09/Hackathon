@@ -1,0 +1,55 @@
+{
+  "reviewed_utc": "2026-10-18T20:05:34.224103+00:00",
+  "candidate_id": "hillsboro-flexential3-original",
+  "provider_group": "Hillsboro Herald / Dirk Knudsen",
+  "facility_group": "Flexential Portland Hillsboro3, Oregon",
+  "source_page": "https://hillsboroherald.com/flexentials-new-hillsboro-6-data-center-marks-a-shift-from-jobs-to-joules/",
+  "media_url": "https://hillsboroherald.com/wp-content/uploads/2025/09/20250829_180607.mp4",
+  "original_file": "C:\\Users\\antho\\Documents\\Hackathon\\output\\outdoor-source-audit\\hillsboro-flexential3-original.mp4",
+  "original_bytes": 32128183,
+  "original_sha256": "6e347076a4acaec6f66f7dc3baddd25131d8af826d2b6d0eec549df9f50ae36f",
+  "published_date": "2025-09-08",
+  "recording_date_evidence": "Filename suggests2025-08-29 18:06:07; article says lastweek and five days beforestory, which is not fully consistent. Do not treat exact timestamp as verified.",
+  "publisher_context": "Publisher says its own video was shot on NEConstableDrive at Flexential Hillsboro3 and asks readers to listen to sound coming frombuilding. This is first-party collection context, not controlled source-on/off proof.",
+  "operator_corroboration": "https://www.flexential.com/data-centers/or/portland/hillsboro3-data-center",
+  "operator_address_record": "https://www.flexential.com/system/files/file/2024-03/Flexential%20Corp%20-%202023%20Type%202%20SOC%203%20-%20Report.pdf",
+  "operator_address": "5419NEStarrBoulevard, HillsboroOR97124; historiccarrierbrochure uses4091NEConstableStreet. Do not infer exact microphoneposition/distance.",
+  "technical": {
+    "format": "MP4",
+    "video_codec": "VP9",
+    "audio_codec": "AAC",
+    "audio_sample_rate_hz": 44100,
+    "audio_channels": 2,
+    "container_duration_seconds": 51.966259,
+    "asr_decoded_duration_seconds": 51.96625,
+    "recording_device": "Unknown",
+    "gain_processing": "Unknown",
+    "weather": "Unknown"
+  },
+  "visual_review": {
+    "sampled_timestamps_seconds": [
+      1,
+      5,
+      10,
+      20,
+      40
+    ],
+    "observation": "Sampled frames show outdoor camera movement along facility perimeter: white/grey building, fence, louver screens and blue numbered plant modules. No on-screen narrator or montage observed in these samples. Exact hardware type is not identified.",
+    "limits": "Sparse frame review does not establish continuous unedited audio/video. Camera or recorder movement can introduce noise. Publisher mentions passing car; traffic, wind and other source mixtures remain possible."
+  },
+  "candidate_interval": {
+    "start_seconds": 0,
+    "end_seconds": 5,
+    "selection_rule": "First five seconds, prior to TonalWatch model queries; not chosen by classifier output.",
+    "speech_screen": "No SileroVAD speech and no tiny.en ASR segments across entirefile.",
+    "manual_audio_audition": "Not performed; no-speech screen does not prove absence of music or physical source."
+  },
+  "source_contribution": "Publisher-documented exterior data-center context. No independently measured contribution, matched facility-off control, calibrated fidelity, operatingstate proof or pure-equipment recording.",
+  "rights": {
+    "terms_url": "https://hillsboroherald.com/hillsboro-herald-terms-of-service/",
+    "reported_terms_last_updated": "2022-11-06",
+    "summary": "Original content remains Company/licensor property under copyright. No affirmative raw redistribution or model-release license found. Public ordinaryGET was available without login.",
+    "handling": "Keep original audio/video and downloaded images out of public redistribution. Internal source research only; release permissions are unresolved."
+  },
+  "model_queries": "No CLAP/TonalWatch predictions, training or head fitting performed."
+}

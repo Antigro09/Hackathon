@@ -1,0 +1,116 @@
+{
+  "created_utc": "2026-10-18T20:09:43.023964+00:00",
+  "purpose": "Separate new Noisecare candidate annotation preserves all earlier cohort summaries unchanged.",
+  "method": {
+    "script": "output/outdoor-source-audit/annotate_sources.py",
+    "script_sha256": "829248d2a59c51034bac9ba649a8d8a2fa1ca3462217a72c5485f525fe72be65",
+    "environment": "output/audio-annotation-venv",
+    "python": "3.12.14",
+    "packages": {
+      "faster-whisper": "1.2.1",
+      "ctranslate2": "4.8.3",
+      "huggingface-hub": "2.2.0",
+      "onnxruntime": "1.31.0",
+      "av": "16.1.0",
+      "numpy": "2.5.4"
+    },
+    "model": "Systran/faster-whisper-tiny.en",
+    "model_revision": "0d3d19a32d3338f10357c0889762bd8d64bbdeba",
+    "device": "cpu",
+    "compute_type": "int8",
+    "cpu_threads": 4,
+    "vad": {
+      "threshold": 0.5,
+      "min_speech_duration_ms": 250,
+      "min_silence_duration_ms": 500,
+      "speech_pad_ms": 100
+    },
+    "asr": {
+      "language": "en",
+      "beam_size": 5,
+      "condition_on_previous_text": false,
+      "word_timestamps": true,
+      "vad_filter": true,
+      "vad_min_silence_duration_ms": 500
+    },
+    "full_pip_freeze": [
+      "anyio==4.15.1",
+      "av==16.1.0",
+      "click==8.5.0",
+      "colorama==0.4.6",
+      "ctranslate2==4.8.3",
+      "faster-whisper==1.2.1",
+      "filelock==4.2.2",
+      "flatbuffers==25.12.19",
+      "fsspec==2026.9.0",
+      "h11==0.16.0",
+      "hf-xet==1.7.0",
+      "httpcore2==2.14.0",
+      "httpx2==2.14.0",
+      "huggingface_hub==2.2.0",
+      "idna==3.20",
+      "numpy==2.5.4",
+      "onnxruntime==1.31.0",
+      "packaging==26.3",
+      "protobuf==7.36.2",
+      "PyYAML==6.0.3",
+      "tokenizers==0.23.3",
+      "tqdm==4.70.1",
+      "truststore==0.10.5",
+      "typing_extensions==4.16.0"
+    ],
+    "downloaded_model_files": [
+      {
+        "path": "annotation-model-tiny-en/config.json",
+        "bytes": 2317,
+        "sha256": "14b1b421a90349bc551b881461426b561a874049cb9e4c4864f2ca384f6a7cc5"
+      },
+      {
+        "path": "annotation-model-tiny-en/model.bin",
+        "bytes": 75537502,
+        "sha256": "1a5afae06a4db91c975c9a9d78be5cc110ee4ea022ad57d55492e4550e936b2a"
+      },
+      {
+        "path": "annotation-model-tiny-en/tokenizer.json",
+        "bytes": 2128466,
+        "sha256": "929c5252409436dce1b38a75d1abbcb5e132d170d8e324e4e04ed915fa2d22df"
+      },
+      {
+        "path": "annotation-model-tiny-en/vocabulary.txt",
+        "bytes": 422309,
+        "sha256": "ff77588746d3a2595d32ab5b69ffd7b95ce2441ac57533cb66fc3eb575a115cf"
+      }
+    ]
+  },
+  "reproduce": [
+    "Create isolated Python3.12 venv at output/audio-annotation-venv.",
+    "Install the exact package versions in packages; PyAV16.1.0 is required for faster-whisper1.2.1 compatibility.",
+    "Restore original audio files at recorded paths and verify input_sha256.",
+    "Run output/audio-annotation-venv/Scripts/python.exe output/outdoor-source-audit/annotate_sources.py FILE1 FILE2 ...",
+    "Script downloads only the pinned public annotation model into output/outdoor-source-audit/annotation-model-tiny-en and writes per-input JSON under annotations/. It does not call CLAP or fit any model."
+  ],
+  "input": {
+    "id": "noisecare-hotel-original",
+    "annotation_file": "output/outdoor-source-audit/annotations/noisecare-hotel-original.json",
+    "annotation_sha256": "856945ed61c65e397a960b411b20ea10d21b5f6c51daaa819d767202f0af4e9d",
+    "input_sha256": "9c881e33c88e1ea51e53714e90c10ab61978b0822d37fe6063c015f945a52c80",
+    "input_bytes": 135350158,
+    "decoded_duration_seconds": 14.2506875,
+    "vad_speech_intervals": [],
+    "asr_segment_count": 0,
+    "candidate_vad_gaps_5_seconds": [
+      {
+        "start": 0.0,
+        "end": 14.2506875,
+        "duration": 14.2506875
+      }
+    ]
+  },
+  "source_context_file": "output/outdoor-source-audit/noisecare-hotel-context.json",
+  "source_context_sha256": "e6ec6e537576a864cf174450061c5b890866b456558be70cb1cc39fe707023aa",
+  "limitations": [
+    "ASR/VAD is source annotation only; it cannot establish absence of music, original field soundtrack or source identity.",
+    "Sparse visual frames and provider copy support exterior hotel cooling context but no named hotel identity or isolated operating-equipment truth.",
+    "First 0-5s interval is a pre-query candidate only; no source-classifier query performed by this agent."
+  ]
+}

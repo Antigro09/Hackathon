@@ -108,3 +108,24 @@ windows. The existing production head abstained on all four. This is evidence
 of limited coverage on these newly inspected development candidates, not a
 field accuracy estimate. No new data-center head was fitted or promoted.
 [Complete diagnostic results and reproducibility record](../ml/runs/2026-10-18-outdoor-development/README.md).
+
+### Later prospective candidates: Hillsboro and hotel cooling
+
+Two later sources remain outside the eight-record ledger and the executed
+four-window diagnostic: a [Hillsboro Herald exterior recording](https://hillsboroherald.com/flexentials-new-hillsboro-6-data-center-marks-a-shift-from-jobs-to-joules/)
+at the publisher-identified Flexential Hillsboro 3 site, and a
+[Noisecare hotel ventilation case](https://noisecare.eu/prj/ventilation-system-hotel/)
+in Esbjerg. The first offers named-site context from a new publisher; the second
+offers a possible non-datacenter cooling confound from another provider. Neither
+establishes isolated equipment contribution or faithful capture.
+
+Both have a first 0–5 s interval fixed before any TonalWatch/CLAP source-classifier
+query. Full-file ASR/VAD detected no speech, but manual soundtrack review, music
+or replacement-audio checks, recording/processing metadata and operating-state
+evidence remain incomplete. The hotel is unnamed; the Hillsboro exact capture
+date is uncertain. These are **candidates, not verified training or test labels**.
+The [separate prospective archive](../ml/runs/2026-10-18-outdoor-candidates/README.md)
+preserves compact provenance and annotation summaries as exact byte copies, with
+validated hashes and the qualification steps still needed. Raw media stays in
+ignored local storage. No source-classifier prediction or new model promotion
+is supported by this addition.
