@@ -1,0 +1,103 @@
+.community-case-report-page{max-width:1120px;min-width:0}
+.case-report-toolbar{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin:0 0 22px}
+.case-report-toolbar h1{font-size:30px;margin:2px 0 8px;letter-spacing:-1px}
+.case-report-toolbar p{max-width:620px;color:var(--muted);font-size:13px}
+.case-report-controls{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;min-width:0}
+.case-report-controls .button{white-space:normal;text-align:center}
+.case-report-back{display:inline-block;margin-bottom:22px;font-size:13px;text-underline-offset:4px}
+.community-case-report{background:#fff;border:1px solid var(--line);border-radius:14px;padding:32px;min-width:0;overflow-wrap:anywhere}
+.community-case-report h1{font-size:34px;letter-spacing:-1px;margin:5px 0 12px;max-width:850px}
+.community-case-report h2{font-size:21px;margin:0 0 14px}
+.community-case-report h3{font-size:16px;margin:0 0 10px}
+.case-report-header{border-bottom:1px solid var(--line);padding-bottom:23px;margin-bottom:25px}
+.case-report-origin,.case-report-example{border:1px solid #cfd9c6;background:#f0f5e9;padding:12px 15px;border-radius:7px;font-size:11px;line-height:1.65;margin-bottom:20px}
+.case-report-origin strong,.case-report-example strong{display:block;letter-spacing:.8px;font-size:10px}
+.case-report-example{border:2px solid #986120;background:#fff6e7;color:#59370e}
+.case-report-example strong{font-size:12px;letter-spacing:.4px}
+.case-report-subtitle{font-size:15px;color:var(--muted);margin:0 0 15px}
+.case-report-context{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:13px 26px;margin:0}
+.case-report-context>div{min-width:0}
+.case-report-context dt{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:#5e705b;font-weight:700}
+.case-report-context dd{margin:3px 0 0;font-size:12px;line-height:1.7}
+.case-report-context .case-report-wide{grid-column:1/-1}
+.case-report-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 16px}
+.case-report-stats>div{border:1px solid var(--line);border-radius:8px;padding:16px;background:#f8faf4;min-width:0}
+.case-report-stats dt{font-size:11px;line-height:1.5;color:#5d7059}
+.case-report-stats dd{font-size:28px;line-height:1.2;font-weight:650;margin:9px 0 0;color:var(--green)}
+.case-report-section{padding-bottom:24px;margin-top:25px;border-bottom:1px solid var(--line);min-width:0}
+.case-report-section:last-child{border-bottom:0;padding-bottom:0}
+.case-report-section p,.case-report-section li{font-size:12px;line-height:1.8;color:#455747}
+.case-report-section p:last-child{margin-bottom:0}
+.case-report-request{border-left:4px solid #668b48;padding-left:17px;margin-top:20px}
+.case-report-request p{font-size:13px}
+.case-report-boundary{border:1px solid #d7ddce;background:#f7f9f2;border-radius:7px;padding:14px 16px}
+.case-report-boundary strong{color:#2e4a33}
+.case-report-quality-list{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.case-report-quality-list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:15px;border-top:1px solid #e5eadf;padding-top:8px}
+.case-report-quality-list strong{font-variant-numeric:tabular-nums}
+.case-report-table{border-collapse:collapse;table-layout:fixed;width:100%;font-size:11px}
+.case-report-table caption{text-align:left;font-size:12px;line-height:1.7;margin:0 0 13px;color:#5c6e56}
+.case-report-table th,.case-report-table td{text-align:left;vertical-align:top;padding:14px 11px;border-bottom:1px solid var(--line);overflow-wrap:anywhere;min-width:0}
+.case-report-table th{font-size:10px;text-transform:uppercase;letter-spacing:.6px;background:#eff4e8;color:#3c5638;font-weight:700}
+.case-report-table th:first-child{width:19%}
+.case-report-table th:nth-child(2){width:43%}
+.case-report-table th:last-child{width:38%}
+.case-report-table td p{font-size:11px;line-height:1.7;margin:4px 0 0;color:#52614d}
+.case-report-table td strong{display:block;font-size:12px;line-height:1.5;font-weight:650}
+.case-report-table time{font-variant-numeric:tabular-nums;line-height:1.7}
+.case-report-table .case-report-id{font-size:9px;color:#64715f}
+.case-report-table .case-report-digital{font-weight:650;color:#294832}
+.case-report-empty{border:1px dashed #cad6bf;border-radius:7px;padding:20px;background:#f8faf4}
+.case-report-links{display:grid;gap:12px;padding-left:20px;margin:15px 0}
+.case-report-links a{text-underline-offset:3px;font-weight:650}
+.case-report-link-url{display:block;font-size:10px;color:#66755f;margin-top:3px;overflow-wrap:anywhere}
+.case-report-footer{margin-top:22px;font-size:10px;line-height:1.7;color:#66745f}
+.case-report-print-note{display:none}
+@media(max-width:760px){
+ .case-report-toolbar{flex-direction:column;gap:12px}.case-report-controls{justify-content:flex-start;width:100%}.case-report-controls .button{flex:1;min-width:0;font-size:11px;padding:11px 13px}
+ .community-case-report{padding:22px 18px}.community-case-report h1{font-size:28px}.community-case-report h2{font-size:19px}
+ .case-report-context{grid-template-columns:1fr;gap:12px}.case-report-context .case-report-wide{grid-column:auto}
+ .case-report-stats{grid-template-columns:1fr}.case-report-stats>div{display:flex;justify-content:space-between;align-items:center;gap:16px}.case-report-stats dd{margin:0;font-size:25px}
+ .case-report-table,.case-report-table tbody,.case-report-table tr,.case-report-table td{display:block;width:100%}
+ .case-report-table thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+ .case-report-table tr{border:1px solid var(--line);border-radius:8px;margin-bottom:15px;padding:7px 13px;background:#fff}
+ .case-report-table td{padding:10px 0;border-bottom:1px solid #e7ecdf}.case-report-table td:last-child{border:0}
+ .case-report-table td::before{content:attr(data-label);display:block;margin-bottom:5px;font-size:9px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:#6a7b5f}
+}
+@page community-case-example{
+ @top-center{content:'FICTIONAL EXAMPLE — NOT FIELD DATA';font-family:Arial,Helvetica,sans-serif;font-size:8pt;color:#222}
+ @bottom-right{content:counter(page);font-family:Arial,Helvetica,sans-serif;font-size:8pt;color:#444}
+}
+@media print{
+ .community-case-report-page{margin:0!important;padding:0!important;max-width:none!important}
+ .case-report-toolbar,.case-report-back{display:none!important}
+ .community-case-report{border:0;border-radius:0;padding:0;background:#fff!important;color:#000!important;box-shadow:none;overflow:visible}
+ .community-case-report.case-report-is-example{page:community-case-example}
+ .community-case-report h1{font-size:20pt;letter-spacing:-.3pt;color:#000;margin:5pt 0 10pt}
+ .community-case-report h2{font-size:12pt;color:#000;margin:0 0 8pt;break-after:avoid-page;page-break-after:avoid}
+ .community-case-report h3{font-size:10pt;color:#000;break-after:avoid-page}
+ .case-report-header{margin:0 0 13pt;padding:0 0 12pt;break-inside:avoid-page;border-color:#888}
+ .case-report-origin,.case-report-example{background:#fff!important;color:#000!important;border:1pt solid #555;border-radius:0;margin-bottom:12pt;padding:7pt;font-size:8pt;break-inside:avoid-page}
+ .case-report-example{border:2pt solid #000}.case-report-example strong{font-size:10pt}
+ .case-report-subtitle{font-size:10pt;color:#222}
+ .case-report-context{grid-template-columns:1fr 1fr;gap:7pt 13pt}.case-report-context .case-report-wide{grid-column:1/-1}
+ .case-report-context dt{font-size:7pt;color:#333}.case-report-context dd{font-size:8pt;line-height:1.5}
+ .case-report-section{margin-top:14pt;padding-bottom:12pt;border-color:#ccc;break-inside:auto}
+ .case-report-section p,.case-report-section li{font-size:8.5pt;line-height:1.5;color:#111;orphans:3;widows:3}
+ .case-report-request{border-left:2pt solid #555;padding-left:9pt;break-inside:avoid-page}
+ .case-report-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7pt;margin-bottom:10pt;break-inside:avoid-page}
+ .case-report-stats>div{display:block;border:1pt solid #bbb;border-radius:0;background:#fff!important;padding:8pt}.case-report-stats dt{font-size:7.5pt;color:#111}.case-report-stats dd{font-size:18pt;color:#000;margin:6pt 0 0}
+ .case-report-boundary{background:#fff!important;border:1pt solid #bbb;border-radius:0;padding:8pt;break-inside:avoid-page}
+ .case-report-quality-list{display:block;margin-top:8pt}.case-report-quality-list li{display:grid;grid-template-columns:1fr auto;margin-top:5pt;padding-top:5pt;break-inside:avoid-page}
+ .case-report-table{display:table;table-layout:fixed;width:100%;font-size:7.5pt}
+ .case-report-table caption{display:table-caption;font-size:8pt;line-height:1.5;margin-bottom:8pt}
+ .case-report-table thead{display:table-header-group;position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto;white-space:normal}
+ .case-report-table tbody{display:table-row-group}.case-report-table tr{display:table-row;width:auto;border:0;border-radius:0;margin:0;padding:0;break-inside:avoid-page;page-break-inside:avoid}
+ .case-report-table th,.case-report-table td{display:table-cell;width:auto;padding:6pt 5pt;border-bottom:1pt solid #ccc;line-height:1.45}
+ .case-report-table th{font-size:7pt;background:#eee!important;color:#111;letter-spacing:.2pt}.case-report-table th:first-child{width:19%}.case-report-table th:nth-child(2){width:43%}.case-report-table th:last-child{width:38%}
+ .case-report-table td::before{display:none;content:none}.case-report-table td:last-child{border-bottom:1pt solid #ccc}
+ .case-report-table td p{font-size:7.5pt;line-height:1.45;margin-top:3pt;color:#111}.case-report-table td strong{font-size:8pt;line-height:1.4}.case-report-table .case-report-id{font-size:6.5pt;color:#333}
+ .case-report-empty{border:1pt dashed #aaa;border-radius:0;background:#fff!important;padding:10pt}
+ .case-report-links{gap:7pt;padding-left:14pt}.case-report-links li{break-inside:avoid-page}.case-report-link-url{font-size:7pt;color:#222}
+ .case-report-footer{font-size:7pt;line-height:1.5;color:#222;break-inside:avoid-page}.case-report-print-note{display:block}
+}

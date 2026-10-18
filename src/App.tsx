@@ -21,13 +21,14 @@ import { CASE_UUID, caseHref } from './community/casesTypes';
 
 const ObservationMap = lazy(() => import('./components/ObservationMap'));
 const NeighborhoodCases = lazy(() => import('./components/NeighborhoodCases'));
+const CommunityCaseReportPage = lazy(() => import('./components/CommunityCaseReportPage'));
 
 type Route = '/' | '/measure' | '/report' | '/sources' | '/learn' | '/map' | '/cases' | `/cases/${string}`;
 type Phase = 'idle' | 'permission-pending' | 'warming-up' | 'recording' | 'analyzing' | 'ready';
 const emptyContext: ObservationContext = { jurisdiction: 'unknown-other', environment: 'unknown', locationDescription: '', recurrenceNotes: '', conditionsNotes: '', suspectedSourceNotes: '' };
 const readRoute = (): Route => {
   const hash = window.location.hash.slice(1);
-  if (hash === '/cases' || hash.startsWith('/cases/') && CASE_UUID.test(hash.slice(7))) return hash as Route;
+  if (hash === '/cases' || hash.startsWith('/cases/') && CASE_UUID.test(hash.slice(7).replace(/\/report$/, ''))) return hash as Route;
   return hash === '/measure' || hash === '/report' || hash === '/sources' || hash === '/learn' || hash === '/map' ? hash : '/';
 };
 
@@ -163,7 +164,8 @@ export default function App() {
       {result ? <SoundHintsPanel key={result.id} result={result} input={retainedAudio.current}/> : null}<div className="review-bar"><div><p className="eyebrow">03 / Bring it together</p><strong>A clear observation starts a better conversation.</strong><p>Review your notes, results, and references before sharing.</p></div><div className="review-actions">{activeCaseId && result && !busy ? <a className="button primary" href={caseHref(activeCaseId)}>Review case contribution <Icon name="arrow" size={17}/></a> : null}<button type="button" className="button secondary" disabled={!result || busy} onClick={() => { if (result && !busy) window.location.hash = '/map'; }}>Log on community map <Icon name="arrow" size={17}/></button><button className="button primary" onClick={review} disabled={!result || busy}>Review observation <Icon name="arrow"/></button></div></div><div className="sr-only" aria-live="polite">{phase === 'ready' ? 'Analysis complete. Results and report review are available.' : ''}</div>
     </main> : null}
     {route === '/learn' ? <LearnPage result={result} disabled={busy} onPlaybackChange={updateTonePlayback}/> : null}
-    {route === '/cases' || route.startsWith('/cases/') ? <Suspense fallback={<main id="main-content" className="page-shell"><p role="status">Loading neighborhood cases…</p></main>}><NeighborhoodCases caseId={route === '/cases' ? null : route.slice(7)} currentResult={result} onContribute={id => { invalidate(); setActiveCaseId(id); window.location.hash = '/measure'; }}/></Suspense> : null}
+    {route === '/cases' || route.startsWith('/cases/') && !route.endsWith('/report') ? <Suspense fallback={<main id="main-content" className="page-shell"><p role="status">Loading neighborhood cases…</p></main>}><NeighborhoodCases includeReport caseId={route === '/cases' ? null : route.slice(7)} currentResult={result} onContribute={id => { invalidate(); setActiveCaseId(id); window.location.hash = '/measure'; }}/></Suspense> : null}
+    {route.startsWith('/cases/') && route.endsWith('/report') ? <Suspense fallback={<main id="main-content" className="page-shell"><p role="status">Loading community report…</p></main>}><CommunityCaseReportPage key={route} caseId={route.slice(7, -7)}/></Suspense> : null}
     {route === '/map' ? <Suspense fallback={<main id="main-content" className="page-shell"><p role="status">Loading community map…</p></main>}><ObservationMap currentResult={result}/></Suspense> : null}
     {route === '/sources' ? <SourcesPage/> : null}
     {route === '/report' ? <main id="main-content" className="page-shell report-page">{report && result ? <><div className="page-heading report-toolbar"><div><p className="eyebrow">03 / Review & export</p><h1>Your observation packet</h1><p>Download a concise text summary, or print / save PDF to include the graph. Review your notes before sharing.</p></div><div className="report-actions"><button className="button secondary" onClick={downloadText}><Icon name="download" size={18}/> Download text summary</button><button className="button primary" onClick={() => window.print()}><Icon name="print" size={18}/> Print / save PDF</button></div></div><a className="back-link" href="#/measure">← Edit observation</a><ReportView report={report}/></> : <div className="panel empty-report"><Icon name="file" size={42}/><h1>Create an observation first</h1><p>Record a live microphone sample to create your analysis and report.</p><a className="button primary" href="#/measure">Start an observation <Icon name="arrow"/></a></div>}</main> : null}
