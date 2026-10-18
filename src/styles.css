@@ -9,3 +9,9 @@
 
 /* Keep both next steps reachable beside a completed microphone observation. */
 .review-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:10px;max-width:100%}.review-actions>.button{white-space:normal;text-align:center}@media(max-width:740px){.review-actions{width:100%;display:grid;grid-template-columns:1fr}.review-actions>.button{width:100%}}
+
+
+/* Verdict chip (team-lead UI review, slide 4) */
+.verdict-chip.verdict-bad { background:#5b2d12; color:#ffe4c9; border:1px solid #d99a26; }
+.verdict-chip.verdict-ok { background:#123d1e; color:#c9f0c9; border:1px solid #3bcf74; }
+.verdict-chip.verdict-warn { background:#4a3a10; color:#ffe9b0; border:1px solid #cfa50f; }
