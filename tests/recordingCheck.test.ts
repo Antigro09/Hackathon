@@ -1,7 +1,10 @@
 import { describe, expect, it } from 'vitest';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { analyzePcm } from '../src/analysis/engine';
 import { assessRecordingCheck } from '../src/analysis/recordingCheck';
 import { soundHintsBlockedReason } from '../src/ai/policy';
+import { RecordingCheck } from '../src/components/RecordingCheck';
 import type { AnalysisResult, InputMeta, QualityCode } from '../src/types';
 
 const microphoneMeta: InputMeta = {
@@ -15,6 +18,17 @@ function tone(fs = 48000, duration = 5): Float32Array {
 function result(): AnalysisResult { return analyzePcm(tone(), 48000, microphoneMeta); }
 
 describe('recording usability checks', () => {
+  it('provides a stable focus target while preserving its generated accessible heading', () => {
+    const html = renderToStaticMarkup(createElement(RecordingCheck, { result: result() }));
+    expect(html).toContain('id="recording-check"');
+    expect(html).toContain('tabindex="-1"');
+    const headingId = html.match(/<h3 id="([^"]+)">Recording check<\/h3>/)?.[1];
+    expect(headingId).toBeTruthy();
+    expect(html).toContain(`aria-labelledby="${headingId}"`);
+    expect(headingId).not.toBe('recording-check');
+    expect(renderToStaticMarkup(createElement(RecordingCheck, { result: null }))).toBe('');
+  });
+
   it.each([44100, 48000].flatMap(fs => [5, 15, 30].map(duration => [fs, duration])))('checks the actual full %i Hz, %i second window', (fs, duration) => {
     const analyzed = analyzePcm(tone(fs, duration), fs, microphoneMeta);
     const check = assessRecordingCheck(analyzed);

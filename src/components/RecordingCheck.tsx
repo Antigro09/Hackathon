@@ -11,7 +11,7 @@ export function RecordingCheck({ result }: { result: AnalysisResult | null }) {
   const titleId = useId();
   if (!result) return null;
   const check = assessRecordingCheck(result);
-  return <section className={`recording-check recording-check-${check.status}`} aria-labelledby={titleId}>
+  return <section id="recording-check" className={`recording-check recording-check-${check.status}`} tabIndex={-1} aria-labelledby={titleId}>
     <div className="recording-check-heading"><h3 id={titleId}>Recording check</h3><span className="recording-check-status">{check.label}</span></div>
     <p>{check.summary}</p>
     <dl className="recording-check-facts">
