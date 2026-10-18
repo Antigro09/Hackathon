@@ -21,8 +21,9 @@ import zipfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGES = ("numpy", "scipy", "scikit-learn", "transformers", "onnxruntime", "soundfile")
+PACKAGES = ("numpy", "scipy", "scikit-learn", "joblib", "transformers", "onnxruntime", "soundfile")
 ENCODER_PACKAGES = ("numpy", "scipy", "transformers", "onnxruntime", "soundfile")
+FIT_PACKAGES = ("numpy", "scipy", "scikit-learn", "joblib")
 SOURCE_FILES = ("ml/features.py", "ml/data.py", "ml/data_v2.py", "ml/mimii.py", "ml/experiment.py", "ml/experiment_v2.py", "ml/run_v2.py", "ml/V2_PROTOCOL.md", "ml/requirements.txt")
 
 
@@ -64,6 +65,13 @@ def encoder_contract() -> dict:
             "processor_padding": "append240000zeros to five-second clip; float32[1,1,1001,64]",
             "embedding": "audio_model_quantized.onnx audio_embeds, L2-normalized float32[512]",
             "packages": {name: importlib.metadata.version(name) for name in ENCODER_PACKAGES}}
+
+
+def fit_runtime_contract() -> dict:
+    """Freeze the actual training/serialization backend before any test scoring."""
+    return {"python": platform.python_version(),
+            "python_implementation": platform.python_implementation(),
+            "packages": {name: importlib.metadata.version(name) for name in FIT_PACKAGES}}
 
 
 def data_phase(args) -> Path:
@@ -279,41 +287,59 @@ def fit_phase(args, manifest_path: Path) -> dict:
     frozen_input = {**key, "seed": args.seed, "previous_manifest_sha256": sha_file(args.previous_run / "manifest.json"),
                     "data_preparation_source_commit": data_commit,
                     "sources_sha256": {name: sha_file(ROOT / name) for name in SOURCE_FILES},
+                    "fit_runtime": fit_runtime_contract(),
                     "embedding_cache_sha256": sha_file(cache_path)}
     freeze_path = args.output / "fit_input_contract.json"
-    if freeze_path.exists() and read_json(freeze_path) != frozen_input:
-        raise ValueError("Fit inputs/protocol changed; do not retune against an inspected test set")
-    write_json(freeze_path, frozen_input)
     results = args.output / "results"
     evaluation_path = results / "evaluation_v2.json"
+    if evaluation_path.exists() and not freeze_path.exists():
+        raise ValueError("Saved evaluation has no frozen fit input contract; do not adopt an unverified completed fit")
+    if freeze_path.exists() and read_json(freeze_path) != frozen_input:
+        raise ValueError("Fit inputs/protocol changed; do not retune against an inspected test set")
+    if not freeze_path.exists():
+        write_json(freeze_path, frozen_input)
+    environment_path = args.output / "run_environment.json"
+    pip_freeze_path = args.output / "pip-freeze.txt"
+    fit_artifact_paths = (evaluation_path, results / "classifier_v2.joblib")
     if evaluation_path.exists():
-        if not (results / "classifier_v2.joblib").exists():
-            raise ValueError("Incomplete saved fit: classifier artifact missing")
+        if not all(path.exists() for path in (*fit_artifact_paths, environment_path, pip_freeze_path)):
+            raise ValueError("Incomplete saved fit: original classifier/completion environment/pip freeze missing; no test reevaluation")
+        environment = read_json(environment_path)
+        expected_artifacts = {str(path.relative_to(args.output)).replace("\\", "/"): sha_file(path)
+                              for path in fit_artifact_paths}
+        if (environment.get("fit_input_contract_sha256") != sha_file(freeze_path)
+                or environment.get("fit_runtime") != frozen_input["fit_runtime"]
+                or environment.get("fit_artifacts_sha256") != expected_artifacts
+                or environment.get("pip_freeze_sha256") != sha_file(pip_freeze_path)):
+            raise ValueError("Saved fit completion metadata/artifact checksum mismatch; no test reevaluation")
         evaluation = read_json(evaluation_path)
-        print("Reusing the identical completed fit; no new test evaluation.", flush=True)
+        print("Reusing the identical completed fit and its original completion environment; no new test evaluation.", flush=True)
     else:
         evaluation = run_experiment_v2(X, [r["label"] for r in records], [r["split"] for r in records],
                     [r["uploader_group"] for r in records], results, random_seed=args.seed,
                     clip_ids=[r["clip_id"] for r in records], sha256=[r["sha256"] for r in records],
                     previously_evaluated_groups=sorted({r["uploader_group"] for r in previous["records"]}))
-    environment = {"source_commit": source_commit(), "data_preparation_source_commit": data_commit,
-                   "python": platform.python_version(),
-                   "platform": platform.platform(), "completed_at_utc": datetime.now(timezone.utc).isoformat(),
-                   "manifest_sha256": key["manifest_sha256"], "encoder_contract": contract,
-                   "fit_input_contract_sha256": sha_file(freeze_path),
-                   "packages": {name: importlib.metadata.version(name) for name in PACKAGES},
-                   "previous_run": str(args.previous_run), "baseline": "not evaluated; v1 and v2 cohorts differ",
-                   "grouping": "FSD50K uploader; MIMII physical machine/model ID (shared collection conditions remain)",
-                   "promotionAllowed": False, "browserPortable": False,
-                   "note": "Classifiers/group gates are experimental; MIMII BY-SA licensing and browser/field validation remain unresolved."}
-    write_json(args.output / "run_environment.json", environment)
-    (args.output / "pip-freeze.txt").write_text(subprocess.check_output([sys.executable, "-m", "pip", "freeze"], text=True), encoding="utf-8")
+        pip_freeze_path.write_text(subprocess.check_output([sys.executable, "-m", "pip", "freeze"], text=True), encoding="utf-8")
+        environment = {"source_commit": source_commit(), "data_preparation_source_commit": data_commit,
+                       "python": platform.python_version(), "fit_runtime": frozen_input["fit_runtime"],
+                       "platform": platform.platform(), "completed_at_utc": datetime.now(timezone.utc).isoformat(),
+                       "manifest_sha256": key["manifest_sha256"], "encoder_contract": contract,
+                       "fit_input_contract_sha256": sha_file(freeze_path),
+                       "fit_artifacts_sha256": {str(path.relative_to(args.output)).replace("\\", "/"): sha_file(path)
+                                               for path in fit_artifact_paths},
+                       "pip_freeze_sha256": sha_file(pip_freeze_path),
+                       "packages": {name: importlib.metadata.version(name) for name in PACKAGES},
+                       "previous_run": str(args.previous_run), "baseline": "not evaluated; v1 and v2 cohorts differ",
+                       "grouping": "FSD50K uploader; MIMII physical machine/model ID (shared collection conditions remain)",
+                       "promotionAllowed": False, "browserPortable": False,
+                       "note": "Classifiers/group gates are experimental; MIMII BY-SA licensing and browser/field validation remain unresolved."}
+        write_json(environment_path, environment)
     sources = [manifest_path, args.output / "mimii/manifest.json", args.output / "data_configuration.json",
                args.output / "data_provenance.json",
                args.output / "embedding_environment.json", freeze_path, args.output / "run_environment.json",
                args.output / "pip-freeze.txt", evaluation_path, results / "classifier_v2.joblib"]
     sources += [ROOT / name for name in SOURCE_FILES]
-    index = {str(path.relative_to(args.output)) if path.is_relative_to(args.output) else "source/" + str(path.relative_to(ROOT)).replace("\\", "/"):
+    index = {(str(path.relative_to(args.output)) if path.is_relative_to(args.output) else "source/" + str(path.relative_to(ROOT))).replace("\\", "/"):
              {"sha256": sha_file(path), "bytes": path.stat().st_size} for path in sources if path.exists()}
     write_json(args.output / "artifact_index.json", index)
     archive_path = args.output / "tonalwatch-v2-results.zip"
