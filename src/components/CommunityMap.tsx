@@ -27,7 +27,7 @@ export interface ObservationMapProps {
 }
 type Status = 'idle' | 'loading' | 'ready' | 'error';
 interface Layers { county: boolean; osm: boolean; observations: boolean; news: boolean }
-type TileStatus = 'grid' | 'loading' | 'ready' | 'failed';
+type TileStatus = 'loading' | 'ready' | 'failed';
 const INITIAL = { latitude: 39.0438, longitude: -77.4874 };
 const coordinateText = (p: CommunityCoordinates) => `${p.latitude.toFixed(3)}, ${p.longitude.toFixed(3)}`;
 const point = (p: CommunityCoordinates): L.LatLngTuple => [p.latitude, p.longitude];
@@ -67,7 +67,8 @@ export default function CommunityMap({ currentResult }: ObservationMapProps) {
   const [facilities, setFacilities] = useState<DatacenterSearchResult | null>(null), [facilityStatus, setFacilityStatus] = useState<Status>('idle'), [facilityError, setFacilityError] = useState('');
   const [facilityVisible, setFacilityVisible] = useState(20);
   const [feed, setFeed] = useState<CommunityFeed | null>(null), [feedStatus, setFeedStatus] = useState<Status>('idle'), [feedError, setFeedError] = useState('');
-  const [tilesEnabled, setTilesEnabled] = useState(false), [tileStatus, setTileStatus] = useState<TileStatus>('grid');
+  const [tilesEnabled, setTilesEnabled] = useState(true), [tileStatus, setTileStatus] = useState<TileStatus>('loading');
+  const [tileAttempt, setTileAttempt] = useState(0);
   const [latitude, setLatitude] = useState(''), [longitude, setLongitude] = useState(''), [label, setLabel] = useState(''), [note, setNote] = useState('');
   const [facilityKey, setFacilityKey] = useState(''), [consentId, setConsentId] = useState<string | null>(null), [picking, setPicking] = useState(false);
   const [publishStatus, setPublishStatus] = useState<Status>('idle'), [publishError, setPublishError] = useState(''), [feedback, setFeedback] = useState('');
@@ -125,8 +126,10 @@ export default function CommunityMap({ currentResult }: ObservationMapProps) {
     };
     instance.on('click', choose);
     const observer = new ResizeObserver(() => { instance.invalidateSize({ pan: false, animate: false }); host.current?.style.setProperty('--map-popup-max', `${Math.max(110, instance.getSize().x - 64)}px`); }); observer.observe(host.current);
-    const offline = () => { setTilesEnabled(false); setTileStatus('failed'); }; window.addEventListener('offline', offline);
-    return () => { observer.disconnect(); window.removeEventListener('offline', offline); instance.off('click', choose); markers.current.clear(); newsMarkers.current.clear(); instance.remove(); map.current = null; layer.current = null; facilityLayer.current = null; countyLayer.current = null; newsLayer.current = null; };
+    const offline = () => { setTilesEnabled(false); setTileStatus('failed'); };
+    const online = () => { setTileStatus('loading'); setTilesEnabled(true); setTileAttempt(attempt => attempt + 1); };
+    window.addEventListener('offline', offline); window.addEventListener('online', online);
+    return () => { observer.disconnect(); window.removeEventListener('offline', offline); window.removeEventListener('online', online); instance.off('click', choose); markers.current.clear(); newsMarkers.current.clear(); instance.remove(); map.current = null; layer.current = null; facilityLayer.current = null; countyLayer.current = null; newsLayer.current = null; };
   }, []);
   useEffect(() => {
     const group = layer.current, facilityGroup = facilityLayer.current; if (!group || !facilityGroup) return; group.clearLayers(); facilityGroup.clearLayers(); markers.current.clear();
@@ -139,11 +142,15 @@ export default function CommunityMap({ currentResult }: ObservationMapProps) {
   }, [facilities, feed, draftLat, draftLon]);
   useEffect(() => {
     const instance = map.current; if (!instance || !tilesEnabled) return;
+    if (!navigator.onLine) { setTilesEnabled(false); setTileStatus('failed'); return; }
+    setTileStatus('loading');
     const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>', minZoom: 2, maxZoom: 18, keepBuffer: 0, updateWhenIdle: true });
-    const ready = () => setTileStatus('ready'), failed = () => { setTilesEnabled(false); setTileStatus('failed'); };
+    let active = true;
+    const ready = () => { if (active && navigator.onLine) setTileStatus('ready'); };
+    const failed = () => { if (active) { active = false; setTilesEnabled(false); setTileStatus('failed'); } };
     tiles.on('tileload', ready); tiles.on('tileerror', failed); tiles.addTo(instance);
-    return () => { tiles.off('tileload', ready); tiles.off('tileerror', failed); instance.removeLayer(tiles); };
-  }, [tilesEnabled]);
+    return () => { active = false; tiles.off('tileload', ready); tiles.off('tileerror', failed); instance.removeLayer(tiles); };
+  }, [tilesEnabled, tileAttempt]);
 
   useEffect(() => {
     const instance = map.current; if (!instance) return;
@@ -201,7 +208,7 @@ export default function CommunityMap({ currentResult }: ObservationMapProps) {
     const controller = new AbortController(); deleteRequest.current = controller; setDeleting(entry.observation.id); setPublishError('');
     try { await deleteCommunityObservation(entry.observation.id, entry.deleteToken, controller.signal); if (!controller.signal.aborted) { saveSession({ ...tabSession, removal: owned.filter(item => item.observation.id !== entry.observation.id) }); setFeedback('Your public observation was removed.'); void latestFeedLoader.current(); } } catch (error) { if (!controller.signal.aborted) setPublishError(errorText(error)); } finally { if (!controller.signal.aborted) setDeleting(null); }
   };
-  const tileMessage = tileStatus === 'ready' ? 'Optional OpenStreetMap street tiles are loaded.' : tileStatus === 'loading' ? 'Loading optional street tiles…' : tileStatus === 'failed' ? 'Street tiles unavailable. Pins and lists remain on the neutral grid.' : 'Street tiles are off. Showing the neutral coordinate grid.';
+  const tileMessage = tileStatus === 'ready' ? 'OpenStreetMap street map loaded.' : tileStatus === 'loading' ? 'Loading street map…' : 'Street map unavailable. Pins and lists remain visible; reconnecting will retry automatically.';
 
   return <main id="main-content" className="page-shell observation-map" aria-labelledby="community-map-title">
     <header className="page-heading"><div><p className="eyebrow">Community context for data-center noise</p><h1 id="community-map-title">Community noise map</h1><p>Find mapped data-center sites and public observations. Proximity does not establish the source of a sound.</p></div><a className="button secondary" href="#/measure">Record an observation</a></header>
@@ -226,7 +233,7 @@ export default function CommunityMap({ currentResult }: ObservationMapProps) {
       </fieldset>
       <div className="map-legend"><span><i className="sw sw-dc" />Loudoun County GIS building</span><span><i className="legend-shape facility" />OSM data-center tag</span><span><i className="legend-shape public" />Public unverified observation</span><span><i className="legend-shape draft" />Unpublished location</span><span><i className="legend-dot amber" />C−A ≥ 15 dB</span><span><i className="legend-dot unavailable" />Numeric screen unavailable</span></div><p className="map-boundary">Observation color describes only the prototype low-frequency screen. The peak check is independent. Proximity, tags and notes do not prove causation, acoustic levels or legal compliance.</p>
       <p className="map-source-line">Data center buildings: <a href={LOUDOUN_DATA_CENTER_SOURCE.url} target="_blank" rel="noreferrer">{LOUDOUN_DATA_CENTER_SOURCE.label}</a>, retrieved {LOUDOUN_DATA_CENTER_SOURCE.retrieved}. Shown from a copy bundled with this site; no request is made. A building location, not a noise measurement.</p>
-      <div className="map-basemap-actions"><button className="button secondary" type="button" onClick={() => { if (tilesEnabled) { setTilesEnabled(false); setTileStatus('grid'); } else if (!navigator.onLine) setTileStatus('failed'); else { setTilesEnabled(true); setTileStatus('loading'); } }}>{tilesEnabled ? 'Use neutral grid' : tileStatus === 'failed' ? 'Retry street map' : 'Load street map'}</button><p>Optional street tiles contact OpenStreetMap with your IP and viewed area. <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">Map attribution</a></p></div>
+      <div className="map-basemap-actions">{tileStatus === 'failed' ? <button className="button secondary" type="button" onClick={() => { if (navigator.onLine) { setTileStatus('loading'); setTilesEnabled(true); } }}>Retry street map</button> : null}<p>The street map loads automatically from OpenStreetMap, which receives your IP address and viewed area. <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">Map attribution</a></p></div>
     </section>
 
     <aside className="map-local-panel panel" aria-labelledby="map-publish-title"><p className="eyebrow">Share deliberately</p><h2 id="map-publish-title">Publish your observation</h2><p>Share a live microphone result with the community. Audio stays on your device; the fields reviewed here will be public.</p>

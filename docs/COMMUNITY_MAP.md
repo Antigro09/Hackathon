@@ -44,6 +44,18 @@ analysis exits can retain zero frames for near-zero, non-finite or unsupported
 input; normal frame counts must match the complete recorded window. The API
 does not manufacture frames or measurements for a blocked recording.
 
+## Street map loading
+
+Opening the community map automatically loads OpenStreetMap street tiles; no
+Load street map button or grid toggle is shown. OpenStreetMap receives the IP
+address and viewed area, as disclosed beside the map. City/ZIP and facility
+searches still require their own explicit actions.
+
+If tiles fail or the browser goes offline, pins and lists remain available.
+Reconnecting automatically creates a fresh street layer. A Retry street map
+control is available only after failure. Retired/failed layers ignore late load
+events, and connectivity listeners and layers are cleaned up on navigation.
+
 ## Server configuration
 
 Provision a Redis integration in the Vercel project and configure **server-only**

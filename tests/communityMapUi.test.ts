@@ -19,7 +19,7 @@ describe('public map rendering boundaries', () => {
     expect(html).toContain('Search places');
     expect(html).toContain('Find data centers');
     expect(html).toContain('Neither search starts automatically');
-    expect(html).toContain('Load street map');
+    expect(html).toContain('The street map loads automatically from OpenStreetMap');
     expect(html).toContain('filters it locally');
     expect(html).not.toContain('Private.coffee');
     expect(html).toContain('Open-Meteo');
