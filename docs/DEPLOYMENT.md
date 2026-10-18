@@ -2,7 +2,31 @@
 
 Verified October 18, 2026, in Chrome 155 on Windows.
 
-## Current automatic street-map release
+## Current recording-check release
+
+Public [tonalwatch.vercel.app](https://tonalwatch.vercel.app) is READY from main
+commit `a8e02a56c748255d5969979c3e6505c2126f952a`, deployment
+`dpl_6586YGUpesjjGfxJqfzLhkpE8fwR`. The immutable URL is
+`https://tonalwatch-7pl8fg4gl-antigro09s-projects.vercel.app`. The exact Git archive
+was deployed to the existing production project. All 529 tests in 28 files,
+strict TypeScript and Vite build passed; the production build completed.
+
+Completed observations now show a deterministic Recording check alongside the
+unchanged optional broad-family classifier. Digital capture/window/processing
+checks have actionable advice and never certify acoustic fidelity or a facility
+source. AI shows its unvalidated data-center scope before Explore and adds
+family-specific comparison advice after an accepted hint. Sources links the
+bounded reference-audio audit; no new classifier was trained or promoted.
+
+Fresh local and public Chrome checks passed an actual 15-second virtual-mic
+capture, live meter, 720,000-sample/174-frame card, unchanged report/print spectrum
+and six Observation/Sources viewport cases at scale 1. There were no page or
+console errors. Model downloads/inference and public writes were not requested.
+Six current public frontend files matched the local build byte for byte; the
+real community feed returned HTTP 200. Native user Chrome visibly showed the
+released Sources explanation. [Raw evidence](qa/2026-10-18-recording-check.json).
+
+## Previous automatic street-map release
 
 Public [tonalwatch.vercel.app](https://tonalwatch.vercel.app) is READY from main
 commit `cb79bd23919575bd607aafd6269652b4143dbc7b`, deployment
