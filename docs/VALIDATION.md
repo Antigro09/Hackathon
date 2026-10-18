@@ -2,7 +2,15 @@
 
 Build date: **October 18, 2026 (America/New_York)**. This record distinguishes software checks from browser integration and physical measurement validation. Algorithm: **`tw-screen-v1`**.
 
-**Current status:** the combined checkout passed **294 tests across 14 files** (259 application +35 standalone-lab checks) and TypeScript/Vite build. Home navigation, Learn exhibits, map,5/15/30-second observations, and comparison passed public HTTPS verification. See [deployment evidence](DEPLOYMENT.md). Historical129/264-test runs remain separately labeled.
+**Current status:** the combined checkout passed **334 tests across 16 files** (299 application + 35 standalone-lab checks) and TypeScript/Vite build. The latest changes expose recording durations and explain negative dB; the AI copy uses deterministic, independently checked resampling. Home navigation, Learn exhibits, map, 5/15/30-second observations, and comparison passed the prior expanded public HTTPS verification. See [deployment evidence](DEPLOYMENT.md). Historical 129/264/294-test runs remain separately labeled.
+
+## Capture-control and resampling follow-up
+
+The initial Observation mode was Demo, which hid the existing recording-duration selector and displayed a fixed five-second sample. Demo now discloses that distinction and provides a direct action selecting a 15-second microphone observation. Microphone/File expose 5/15/30-second buttons with pressed states and capture-time disabling. The method text distinguishes more time frames from unchanged FFT frequency spacing. Negative A/C digital levels relative to RMS 1 are explained separately from the signed C−A difference; −20 dB corresponds to one-tenth of the reference RMS amplitude, not negative pressure or calibrated dB SPL.
+
+Local Chrome integration exercised the new shortcut and a real AudioWorklet with virtual microphone input: a 15-second result/report retained 720,000 samples and 174 complete frames at 48 kHz. The virtual input clipped and correctly produced an inconclusive quality state. A separate 15-second 4 kHz WAV import produced A −22.0 dB, C −23.8 dB and C−A −1.8 dB, with the explanations visible and the AI panel retaining its first-five-second boundary. Selecting 30 seconds rejected that shorter file. At 1366, 1024 and 390 px, duration controls fit without document-width overflow. These are software/browser checks, not physical-device validation.
+
+The AI resampler matches independent SciPy references for 20 signals/rates at 448 positions per case. A separate six-signal browser diagnostic found bit-exact complete PCM after conversion and measured remaining native/WASM embedding drift; see [AI experiment evidence](AI_EXPERIMENT_RESULTS.md#browser-resampling-correction). No trained classifier or thresholds were promoted.
 
 ## Environment and pinned dependencies
 
@@ -44,7 +52,7 @@ This table records the earlier release, not a new total after the approved exten
 
 ## Expanded-workflow checks
 
-**First expanded integration:** `npm test` passed264 tests across 13 files before the team restored the separate lab. Its five retirement tests were replaced; the current combined result is294 tests across 14 files, including259 application and 35 standalone checks. The exact deployed application archive passed259 application tests and build. Focused counts below overlap and are not additional tests.
+**First expanded integration:** `npm test` passed 264 tests across 13 files before the team restored the separate lab. Its five retirement tests were replaced; that follow-up passed 294 tests across 14 files, including 259 application and 35 standalone checks. The earlier expanded deployed application archive passed 259 application tests and build. The newer total is recorded above. Focused counts below overlap and are not additional tests.
 
 The following focused runs were observed during implementation. Their test files overlap; **do not add these counts together** or treat them as a full-suite count.
 
