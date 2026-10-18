@@ -34,7 +34,7 @@ def plot_results(result: dict, output_dir: str | Path):
     axes[1].set_xlim(0, 1)
     axes[1].set_xlabel("F1 score (before unknown-sound rejection)")
     axes[1].set_title("Per-class performance on the same held-out clips")
-    axes[1].legend(loc="lower right", frameon=False)
+    axes[1].legend(loc="upper center", bbox_to_anchor=(0.5, -0.17), frameon=False, fontsize=9)
     axes[1].grid(axis="x", alpha=0.15)
     axes[1].set_axisbelow(True)
     for axis in axes:

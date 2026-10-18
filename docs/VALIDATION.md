@@ -2,9 +2,11 @@
 
 Build date: **October 18, 2026 (America/New_York)**. This record distinguishes software checks from browser integration and physical measurement validation. Algorithm: **`tw-screen-v1`**.
 
+**Expanded-workflow status:** Home navigation, Learn listening/actual-PSD exhibits, the synthetic/manual map, 5/15/30-second capture, and Buddy-check comparison passed the combined **264-test suite across 13 files** and production build. Local browser checks are recorded below. Deployment verification for this expanded version is pending; historical 129-test evidence remains separately labeled.
+
 ## Environment and pinned dependencies
 
-Execution environment: Windows, PowerShell, Node.js **24.18.0**, npm **11.16.0**. `npm ls --depth=0` confirmed the following installed direct versions, matching `package.json` and the lockfile:
+Execution environment: Windows, PowerShell, Node.js **24.18.0**, npm **11.16.0**. Direct dependency pins in `package.json` and the lockfile are recorded below. The earlier release's `npm ls --depth=0` check preceded the Leaflet additions; the expanded checkout subsequently passed TypeScript and Vite production build with Leaflet included.
 
 | Dependency | Version |
 | --- | --- |
@@ -12,6 +14,8 @@ Execution environment: Windows, PowerShell, Node.js **24.18.0**, npm **11.16.0**
 | `react-dom` | 19.3.1 |
 | `fft.js` | 4.0.4 |
 | `@huggingface/transformers` | 4.3.1 |
+| `leaflet` | 1.9.4 |
+| `@types/leaflet` | 1.9.22 |
 | `@types/react` | 19.3.0 |
 | `@types/react-dom` | 19.3.0 |
 | `@vitejs/plugin-react` | 6.1.2 |
@@ -21,11 +25,11 @@ Execution environment: Windows, PowerShell, Node.js **24.18.0**, npm **11.16.0**
 
 The lockfile also pins the browser inference dependency `onnxruntime-web` to **1.31.0-dev.20260914-8d85527a0**. The optional model is `Xenova/clap-htsat-unfused` at immutable revision **`c28f2883575e590e04d3146ff0713c2448d691ba`**, `q8`, WASM, one thread. Its `onnx/model_quantized.onnx` file is **161,024,085 bytes**; working memory is greater than download size and was not benchmarked.
 
-## Automated checks completed
+## Previous-release automated checks
 
 - **Baseline before optional features:** `npm test` passed 74 tests across four files; `npm run build` passed.
 - **Live meter focused run:** 23 tests passed across `tests/capture.test.ts` and `tests/meter.test.ts`; production build passed.
-- **Current integrated `npm test`: passed, 129 tests across seven files**, latest release check approximately 5.88 seconds after shared method-version metadata was added. A separate run during concurrent development exceeded the deterministic-fixture equality test's original 5-second timeout; this full-array check now has a 30-second limit for slower laptops. The subsequent complete suite passed. No fixture values or feature assertions were weakened.
+- **Historical integrated `npm test`: passed, 129 tests across seven files**, release check approximately 5.88 seconds after shared method-version metadata was added. A separate run during concurrent development exceeded the deterministic-fixture equality test's original 5-second timeout; this full-array check now has a 30-second limit for slower laptops. The subsequent complete suite passed. No fixture values or feature assertions were weakened.
 - **`npm run build`: passed after meter, printed-spectrum, and AI integration.** This runs TypeScript checking and the Vite production build.
 - **`npm ls --depth=0`: passed.** Direct dependencies were installed at the pinned versions above.
 
@@ -36,7 +40,39 @@ The lockfile also pins the browser inference dependency `onnxruntime-web` to **1
 | `tests/report.test.ts`, `tests/reportSpectrum.test.ts` | 25 tests: synthetic labels; source/timestamp metadata; null/quality states; safe notes; reference separation; deterministic snapshots; immutable spectrum data; actual-engine graph/text consistency; logarithmic frequency geometry; highest-bin reduction without frequency shifts; finite coordinates and quality-state explanations | Report model, rendered HTML, SVG geometry and numerical text consistency |
 | `tests/soundHints.test.ts` | 31 tests: eight fixed alternatives; relative-score policy and abstention; quality gates; true-rate local resampling without mutating DSP input; lazy model loading; local PCM worker inference; retry/disposal; immutable model URL configuration; actual pinned processor padding behavior | Policy, mocked inference lifecycle, local resampling wiring, and the actual Transformers.js 4.3.1 processor; not a field accuracy benchmark |
 
-The current integrated run, earlier baseline and focused feature runs establish the software checks stated above. These checks do not establish environmental measurement accuracy, legal applicability, or field classification performance.
+This table records the earlier release, not a new total after the approved extensions. These checks do not establish environmental measurement accuracy, legal applicability, or field classification performance.
+
+## Expanded-workflow checks
+
+**Combined release checks:** `npm test` passed **264 tests across 13 files**; `npm run build` passed TypeScript checking and the Vite production build. The following focused counts describe earlier implementation runs and are not additional tests beyond that combined total.
+
+The following focused runs were observed during implementation. Their test files overlap; **do not add these counts together** or treat them as a full-suite count.
+
+| Focused run | Observed result and scope |
+| --- | --- |
+| `tests/capture.test.ts`, `tests/meter.test.ts`, `tests/longCapture.test.ts` | 58 passed. Exact 5/15/30-second collection/cropping at 44.1/48 kHz; unchanged half-second microphone warm-up; progress beyond five seconds; cancellation/resource release; invalid-duration and selected-duration short-file errors; first-channel imports; full-duration Hann frame counts and weighted levels; all complete frames remain in the persistence denominator. Mocked capture plus real numerical DSP, not physical-device evidence. |
+| `tests/report.test.ts`, `tests/reportSpectrum.test.ts` | 30 passed. Actual-engine 15/30-second microphone/import reports retain full duration, sample count, frame count, PSD arrays and provenance. Optional five-second AI metadata is excluded. Synthetic/uncalibrated markers and source-access limitations remain. |
+| `tests/soundHintInput.test.ts`, `tests/soundHints.test.ts` | 52 passed. Independent first-five-second prefix at the actual 44.1/48 kHz rate, input preservation, invalid/short rejection, separate long-observation disclosure, and the existing worker/padding/quality policy. No accuracy claim. |
+| TypeScript | `npx tsc --noEmit --incremental false` passed after the duration/report/AI-window changes; the subsequent combined `npm run build` also passed. |
+
+The expanded source adds:
+
+- Home navigation and Learn's five explicit-play tones, lifecycle cleanup, capture/playback interlock, and a 20–200 Hz plot of the active result's actual PSD. Dashed 60/120 Hz lines are references, not detections or proof of a power-grid source. Zooming adds no FFT resolution.
+- Fourteen synthetic map examples with invented devices/times and approximate illustrative positions; per-pin/card provenance; separate low-frequency/peak descriptions; manual, confirmed recording coordinates or an unplaced session entry. The default neutral grid/list uses no external tile service. Explicit online OpenStreetMap opt-in exposes the IP/viewed area to its provider; unavailable tiles leave the grid/list usable. This does not promise an uncached hosted app can boot offline.
+- Default-five-second, selectable 15/30-second microphone/file observations. Full PCM feeds DSP and report/spectrum metadata. Only a separate first-five-second copy feeds the pinned AI worker; its five seconds of zero padding add no observed time. Longer duration does not establish compliance with a county procedure.
+- Buddy-check's descriptive current-minus-previous gap, retaining provenance and synthetic warnings. Missing/inconclusive gaps do not become zero; the feature does not calibrate devices, connect phones, or pool/correct map readings.
+
+Local Chrome integration observations for the expanded build:
+
+| Check | Observed result |
+| --- | --- |
+| Real AudioWorklet duration selection with a virtual input | 5/15/30 seconds at 48 kHz produced the expected exact sample counts and **57/174/350 complete frames**. The 30-second report retained the full DSP duration rather than the AI prefix. This is browser integration, not a physical microphone test. |
+| Native longer-file import | 15/30-second imports at 48 kHz succeeded. A five-second file selected for a 30-second observation was rejected. |
+| Buddy-check comparison | Harmonic-hum 20.4 dB → near-zero-gap fixture displayed a signed **−20.4 dB** difference. The same audio analyzed for 15 versus 30 seconds displayed **0.0 dB**. Clipped current/previous results disabled the comparison; session clear reset it. These are generated/virtual-input observations, not cross-device calibration. |
+| Learn layout and print | Twenty viewport cases passed. Two- and three-page learning PDF outputs passed visual QA. Reference lines remain distinct from the actual PSD/candidate; no additional frequency resolution or source identity is claimed. |
+| Map behavior | Online/offline, manual placement, and reset checks passed. Resize verification retained **14 synthetic icons and 14 provenance badges**. The neutral grid/list remains the fallback when tiles are unavailable. |
+
+The exact expanded deployment still requires verification before these local results are treated as hosted-release evidence. Current screenshots cover all six pages. All six pages passed 30 route/width cases at 320, 390, 760, 1280, and 1920 CSS pixels without document-width overflow, with accessible footers. Physical microphone, independent field, and AI promotion checks remain outside this software integration result.
 
 ## Observed numerical fixture results
 
@@ -61,9 +97,9 @@ The six supplied 48 kHz spectral-reference goldens passed their specified tolera
 
 The 0.1-peak 1 kHz sine produced approximately **−23.0103 dB relative to digital RMS 1** for both weighted levels. No acoustic sensitivity offset was added. The test at the clipping boundary confirmed 239 full-scale samples in 240,000 warn without meeting the invalid fraction, while 240 meet the **0.1%** clipping gate.
 
-## Browser integration checks
+## Previous-release browser integration checks
 
-Production build served at `http://127.0.0.1:4173` in **Chrome 155 on Windows**. Playwright CLI exercised the actual browser, native audio decoder, AudioWorklet and analysis worker. All checks below passed unless explicitly limited.
+The previous production build was served at `http://127.0.0.1:4173` in **Chrome 155 on Windows**. Playwright CLI exercised the actual browser, native audio decoder, AudioWorklet and analysis worker. Checks below passed for that release unless explicitly limited; they do not establish verification of the new Learn/Map/comparison or longer-capture integration.
 
 | Browser check | Observed result |
 | --- | --- |
@@ -110,10 +146,18 @@ Page screenshots are in [`docs/screenshots/`](screenshots/). Temporary WAVs, bro
 - Independent real-recording evaluation of the optional sound hints, including light fixtures, transformers, ventilation, household equipment, and nuisance alternatives, with held-out examples and recorded abstentions/errors.
 - Any resident pilot, reviewer-usefulness evaluation, or agency acceptance.
 
-No hardware calibration or field accuracy is established by this build. A five-second uncalibrated browser sample does not implement a county measurement procedure. A negative screen does not rule out a recurring sound, and neither indicator identifies a physical source.
+No hardware calibration or field accuracy is established by this build. A 5/15/30-second uncalibrated browser sample does not implement a county measurement procedure. A negative screen does not rule out a recurring sound, and neither indicator identifies a physical source.
+
+## Separate Colab classifier experiment
+
+The **725-clip public-data run completed**, producing a classifier artifact and held-out evaluation. It fitted a small classifier on frozen CLAP embeddings; it was not full encoder fine-tuning and has not replaced the deployed eight-description comparison. The recorded splits contain 291 training, 78 validation, 196 known-test, 80 unknown-validation, and 80 unknown-test clips. The dataset and experiment preserve license/source records, uploader/content split checks, and first-five-second preprocessing. Training-only group cross-validation selected regularization; validation/unknown-validation data selected rejection thresholds; held-out test data did not select either.
+
+Held-out metrics and their sample limits are documented in [AI_EXPERIMENT_RESULTS.md](AI_EXPERIMENT_RESULTS.md). The exported artifact retains `promotionAllowed: false`: browser/native parity and independent recordings resembling actual use remain required before deployment. Public data may overlap encoder pretraining, and broad sound tags do not establish exact equipment or a facility. The separate-branch q8 embedding baseline also differs from the live combined graph; [ML methods](../ml/README.md) describe that distinction. Completion of this public-data experiment does not establish field reliability or authorize replacing the live model.
 
 ## Provenance and historical artifacts
 
 The React/TypeScript app, PCM estimator, fixtures, worker, capture path, and report implementation were created for the current corrected-plan implementation. Existing `mic_spike.html` and `range_finder.html` remain research artifacts and are not part of the current runtime. Their historical “validated” or “calibration” descriptions are not adopted as results for this app. Event eligibility and any organizer reuse ruling require a separate team record.
+
+The restored standalone [`field_lab.html`](../field_lab.html) serves the E1–E5 field-research campaign, including its own logging and CSV export. Its measurement implementation and resource/quality handling are under review; the main React app's 264-test result does not validate this separate instrument. Lab fixes, deterministic checks, and actual field observations require their own recorded evidence before drawing experimental conclusions. [FIELD_LOG.md](FIELD_LOG.md) preserves the original hand-entered notes with explicit missing-provenance, duration, source, and unsupported-device-offset limitations. Those notes are not validated field data and do not establish which instrument/version produced them.
 
 OpenAI Codex assisted development and software verification. Core calculations and report wording are deterministic. The optional local CLAP comparison uses downloaded model/runtime files and no remote inference endpoint. No generative legal text, audio upload, or automated complaint submission is included. Upstream model and library attribution is recorded in [RESOURCES.md](RESOURCES.md).

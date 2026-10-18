@@ -1,5 +1,5 @@
 # CPU experiment: no GPU runtime, paid jobs, or full CLAP fine-tuning.
-# Python 3.10-3.12; the Colab notebook records pip freeze as run provenance.
+# Python 3.10-3.13; the completed Colab run records exact versions and pip freeze.
 numpy==2.2.6
 scipy==1.15.3
 scikit-learn==1.7.2

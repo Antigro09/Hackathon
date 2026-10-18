@@ -1,0 +1,22 @@
+{
+  "source_commit": "d3ae48cd0fbf9f743cc442cbfd08d178a3e48bda",
+  "python": "3.13.16",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "manifest_sha256": "1c5f7a8ba2f5d38c661073deeadc5253a5e4c70ce8d2143a975a69a392731549",
+  "feature_configuration": {
+    "manifest": "1c5f7a8ba2f5d38c661073deeadc5253a5e4c70ce8d2143a975a69a392731549",
+    "model_revision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+    "weights": "3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f",
+    "preprocessor": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+    "extractor_source": "43c1c42a38ea4eb84497f956e8d6cbc7f76a3f1774e2ccd6b44d2e37e0ef11d9"
+  },
+  "packages": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "scikit-learn": "1.7.2",
+    "transformers": "4.57.1",
+    "onnxruntime": "1.23.2",
+    "soundfile": "0.13.1"
+  },
+  "note": "Frozen encoder benchmark; not independently validated physical source identification."
+}

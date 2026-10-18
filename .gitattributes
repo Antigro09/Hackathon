@@ -1,0 +1,2 @@
+# Preserve the exact bytes covered by recorded experiment checksums.
+ml/runs/** -text
