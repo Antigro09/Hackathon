@@ -12,23 +12,26 @@ export interface TargetSoundAssessment {
   summary: string;
   unclearWindows: number;
   mixedFamilies: boolean;
+  competingFamilies: ('speech' | 'wind' | 'traffic')[];
+  speechScreenDetected: boolean;
 }
 
 const families = new Set<SoundFamilyV3>(['buzz', 'mechanical_fan', 'speech', 'traffic', 'wind']);
 
 /** Interpret accepted broad families as equipment-target guidance, never source proof. */
-export function assessTargetSound(windows: readonly TargetSoundWindow[]): TargetSoundAssessment {
+export function assessTargetSound(windows: readonly TargetSoundWindow[], speechScreenDetected = false): TargetSoundAssessment {
   if (![1, 3, 6].includes(windows.length) || windows.some((window, index) =>
     window.startSeconds !== index * 5 || window.endSeconds !== (index + 1) * 5 ||
-    (window.family !== null && !families.has(window.family)))) {
+    (window.family !== null && !families.has(window.family))) || typeof speechScreenDetected !== 'boolean') {
     throw new Error('Target guidance requires a complete ordered 5, 15 or 30 second scan.');
   }
   const accepted = new Set(windows.flatMap(window => window.family === null ? [] : [window.family]));
+  const competingFamilies = (['speech', 'wind', 'traffic'] as const).filter(family => accepted.has(family) || (family === 'speech' && speechScreenDetected));
   const common = { unclearWindows: windows.filter(window => window.family === null).length,
-    mixedFamilies: accepted.size > 1 };
-  if (accepted.has('speech')) return {
+    mixedFamilies: accepted.size > 1, competingFamilies, speechScreenDetected };
+  if (speechScreenDetected || accepted.has('speech')) return {
     ...common, status: 'retake', label: 'Possible talking — retake for equipment noise',
-    summary: 'At least one five-second window resembled speech. This capture may include conversation rather than the equipment sound you want. Retake without talking near the microphone.',
+    summary: `${speechScreenDetected ? 'The separate speech screen flagged possible voices.' : 'At least one five-second window resembled speech.'} This capture may include conversation rather than the equipment sound you want. Retake without talking near the microphone; also review any other competing sounds shown below.`,
   };
   if (accepted.has('wind') || accepted.has('traffic')) return {
     ...common, status: 'interference', label: 'Possible interference — review or retake',

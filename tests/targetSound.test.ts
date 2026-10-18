@@ -14,6 +14,20 @@ describe('equipment-noise target guidance from accepted broad families', () => {
     expect(scan).toEqual(before);
   });
 
+  it('lets the separate speech screen override all-fan resemblance while preserving other interference', () => {
+    const fan = assessTargetSound(windows('mechanical_fan', 'mechanical_fan', 'mechanical_fan'), true);
+    expect(fan).toMatchObject({ status: 'retake', speechScreenDetected: true, competingFamilies: ['speech'] });
+    expect(fan.summary).toContain('separate speech screen');
+    expect(assessTargetSound(windows('speech', 'traffic', 'wind'), true).competingFamilies).toEqual(['speech', 'wind', 'traffic']);
+  });
+
+  it('never upgrades unexplained or mixed audio when the separate speech screen flags nothing', () => {
+    expect(assessTargetSound(windows('mechanical_fan', null, 'mechanical_fan'), false).status).toBe('unclear');
+    expect(assessTargetSound(windows('mechanical_fan', 'buzz', 'mechanical_fan'), false).status).toBe('unclear');
+    expect(assessTargetSound(windows(null, null, null), false).status).toBe('unclear');
+    expect(assessTargetSound(windows('traffic'), false).status).toBe('interference');
+  });
+
   it.each(['wind', 'traffic'] as const)('reports %s interference even when another window resembles cooling', family => {
     expect(assessTargetSound(windows('mechanical_fan', family, null))).toMatchObject({
       status: 'interference', unclearWindows: 1, mixedFamilies: true,

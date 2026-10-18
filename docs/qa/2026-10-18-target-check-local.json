@@ -1,0 +1,710 @@
+{
+  "scope": "Mounted local app: native Chromium virtual microphone; software fixture, not field accuracy",
+  "fixture": "30s synthetic120Hz plus narrated public control inserted at20s; browser warm-up shifts recorded interval by about0.5s",
+  "unitTests": 600,
+  "unitTestFiles": 31,
+  "productionBuild": "passed",
+  "combinedApp": {
+    "captureSeconds": 30,
+    "liveMeter": "-42.8 dB relative to RMS 1",
+    "speech": [
+      {
+        "url": "http://127.0.0.1:4175/assets/speechVad.worker-DJVJomw2.js",
+        "type": "scan",
+        "requestId": "speech1",
+        "sampleRateHz": 48000,
+        "sampleCount": 1440000
+      }
+    ],
+    "windows": [
+      {
+        "url": "/ai/canonical-v3/productionWorkerV3.mjs",
+        "type": "extract",
+        "requestId": "r1w1",
+        "sampleRateHz": 48000,
+        "sampleCount": 240000
+      },
+      {
+        "url": "/ai/canonical-v3/productionWorkerV3.mjs",
+        "type": "extract",
+        "requestId": "r1w2",
+        "sampleRateHz": 48000,
+        "sampleCount": 240000
+      },
+      {
+        "url": "/ai/canonical-v3/productionWorkerV3.mjs",
+        "type": "extract",
+        "requestId": "r1w3",
+        "sampleRateHz": 48000,
+        "sampleCount": 240000
+      },
+      {
+        "url": "/ai/canonical-v3/productionWorkerV3.mjs",
+        "type": "extract",
+        "requestId": "r1w4",
+        "sampleRateHz": 48000,
+        "sampleCount": 240000
+      },
+      {
+        "url": "/ai/canonical-v3/productionWorkerV3.mjs",
+        "type": "extract",
+        "requestId": "r1w5",
+        "sampleRateHz": 48000,
+        "sampleCount": 240000
+      },
+      {
+        "url": "/ai/canonical-v3/productionWorkerV3.mjs",
+        "type": "extract",
+        "requestId": "r1w6",
+        "sampleRateHz": 48000,
+        "sampleCount": 240000
+      }
+    ],
+    "rendered": "EQUIPMENT-NOISE TARGET CHECK\n\nPossible talking \u2014 retake for equipment noise\n\nThe separate speech screen flagged possible voices. This capture may include conversation rather than the equipment sound you want. Retake without talking near the microphone; also review any other competing sounds shown below.\n\nSuggested competing sounds: Speech-like sound. These flags do not rule out other interference.\n\n5 of 6 windows remained unclear. An accepted family in another window does not explain these intervals.\n\nSpeech screen: possible voices flagged\n\nApproximate possible-speech intervals: 19.6\u201321.8 s.\n\nThe full 30.00 seconds were screened. No speech flagged does not mean speech-free audio or a suitable equipment recording; music, animals, handling and other competing sounds can remain.\n\n0\u20135 seconds\n\nNo sound family suggested\n\n5\u201310 seconds\n\nNo sound family suggested\n\n10\u201315 seconds\n\nNo sound family suggested\n\n15\u201320 seconds\n\nSpeech-like sound\n\n20\u201325 seconds\n\nNo sound family suggested\n\n25\u201330 seconds\n\nNo sound family suggested\n\nEvery recorded second was included in these broad five-second windows. Music, animals, alarms, microphone handling and other competing sounds may go unrecognized, as can short or overlapping events. Review the capture and retake if these obscure the equipment sound. No result confirms an accurate recording or a data-center source.",
+    "workers": [
+      "http://127.0.0.1:4175/assets/speechVad.worker-DJVJomw2.js",
+      "http://127.0.0.1:4175/ai/canonical-v3/productionWorkerV3.mjs"
+    ],
+    "closed": [
+      "http://127.0.0.1:4175/assets/speechVad.worker-DJVJomw2.js",
+      "http://127.0.0.1:4175/ai/canonical-v3/productionWorkerV3.mjs"
+    ],
+    "maximumAiWorkers": 1,
+    "requests": [
+      {
+        "url": "http://127.0.0.1:4175/assets/analysis.worker-BwKrUFVx.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/speechVad.worker-DJVJomw2.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/ort.wasm.bundle.min.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/runtime/ort-wasm-simd-threaded.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/runtime/ort-wasm-simd-threaded.wasm",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/speech-vad/silero_vad_16k_op15.onnx",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "blob:http://127.0.0.1:4175/4906d418-20d2-4f05-83fc-dec30b5dd8aa",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "blob:http://127.0.0.1:4175/cbbf03d8-bb42-49cb-81ab-75d562546526",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/tonalwatch-head-v3.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/integerHeadV3.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "blob:http://127.0.0.1:4175/7d4b59af-a813-48cc-8b19-bad0710cbdfe",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/productionWorkerV3.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/asset-manifest.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/canonicalEncoder.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/transformers.web.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/ort.wasm.bundle.min.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/runtime/ort-wasm-simd-threaded.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/runtime/ort-wasm-simd-threaded.wasm",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/app/resample.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/app/model.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/app/model",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/config.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/selfTestV3.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/self-test-v3-reference.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/audio_model_quantized.onnx",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "blob:http://127.0.0.1:4175/ac533ab5-95df-4244-8fde-b3ff9d36ae1d",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "blob:http://127.0.0.1:4175/dc5c69dc-0333-4288-a490-d297a0aacc3b",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "blob:http://127.0.0.1:4175/1afd347e-b870-4dbc-a02e-52b4ac80ddc5",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "blob:http://127.0.0.1:4175/ec4a3673-3686-4f3a-90aa-f71f2e6ccba7",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "blob:http://127.0.0.1:4175/c29c9635-5187-47a6-832e-b20d9ad79d21",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "blob:http://127.0.0.1:4175/089faa16-5bc9-4208-92b2-26061a0f380f",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "blob:http://127.0.0.1:4175/38478cfb-b9aa-4a63-b071-30a74cbef368",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/img/hero_noise_contour.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/ObservationMap-CavvbtlZ.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/assets/ObservationMap-C6XNpDn4.css",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/api/community?lat=39.0438&lon=-77.4874&radiusKm=10&limit=100",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/582/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/583/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/582/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/583/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/582/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/583/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/img/hero_noise_contour.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/api/community?lat=39.0438&lon=-77.4874&radiusKm=10&limit=100",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/582/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/583/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/582/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/583/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/582/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/583/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/img/hero_noise_contour.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/api/community?lat=39.0438&lon=-77.4874&radiusKm=10&limit=100",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/582/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/583/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/582/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/583/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/582/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/583/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/581/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/584/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/581/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/584/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/581/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tile.openstreetmap.org/11/584/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      }
+    ],
+    "errors": []
+  },
+  "layoutAndReport": {
+    "checks": [
+      {
+        "route": "/",
+        "width": 320,
+        "documentWidth": 320,
+        "scale": 1,
+        "footer": {
+          "top": 781.28125,
+          "bottom": 899.65625,
+          "height": 900
+        }
+      },
+      {
+        "route": "/measure",
+        "width": 320,
+        "documentWidth": 320,
+        "scale": 1,
+        "footer": {
+          "top": 781.75,
+          "bottom": 900.125,
+          "height": 900
+        }
+      },
+      {
+        "route": "/learn",
+        "width": 320,
+        "documentWidth": 320,
+        "scale": 1,
+        "footer": {
+          "top": 781.515625,
+          "bottom": 899.890625,
+          "height": 900
+        }
+      },
+      {
+        "route": "/map",
+        "width": 320,
+        "documentWidth": 320,
+        "scale": 1,
+        "footer": {
+          "top": 781.359375,
+          "bottom": 899.734375,
+          "height": 900
+        }
+      },
+      {
+        "route": "/sources",
+        "width": 320,
+        "documentWidth": 320,
+        "scale": 1,
+        "footer": {
+          "top": 782.109375,
+          "bottom": 900.484375,
+          "height": 900
+        }
+      },
+      {
+        "route": "/report",
+        "width": 320,
+        "documentWidth": 320,
+        "scale": 1,
+        "footer": {
+          "top": 781.21875,
+          "bottom": 899.59375,
+          "height": 900
+        }
+      },
+      {
+        "route": "/",
+        "width": 390,
+        "documentWidth": 390,
+        "scale": 1,
+        "footer": {
+          "top": 810.578125,
+          "bottom": 900.015625,
+          "height": 900
+        }
+      },
+      {
+        "route": "/measure",
+        "width": 390,
+        "documentWidth": 390,
+        "scale": 1,
+        "footer": {
+          "top": 810.75,
+          "bottom": 900.1875,
+          "height": 900
+        }
+      },
+      {
+        "route": "/learn",
+        "width": 390,
+        "documentWidth": 390,
+        "scale": 1,
+        "footer": {
+          "top": 810.75,
+          "bottom": 900.1875,
+          "height": 900
+        }
+      },
+      {
+        "route": "/map",
+        "width": 390,
+        "documentWidth": 390,
+        "scale": 1,
+        "footer": {
+          "top": 810.578125,
+          "bottom": 900.015625,
+          "height": 900
+        }
+      },
+      {
+        "route": "/sources",
+        "width": 390,
+        "documentWidth": 390,
+        "scale": 1,
+        "footer": {
+          "top": 810.78125,
+          "bottom": 900.21875,
+          "height": 900
+        }
+      },
+      {
+        "route": "/report",
+        "width": 390,
+        "documentWidth": 390,
+        "scale": 1,
+        "footer": {
+          "top": 811,
+          "bottom": 900.4375,
+          "height": 900
+        }
+      },
+      {
+        "route": "/",
+        "width": 1280,
+        "documentWidth": 1280,
+        "scale": 1,
+        "footer": {
+          "top": 812.75,
+          "bottom": 899.546875,
+          "height": 900
+        }
+      },
+      {
+        "route": "/measure",
+        "width": 1280,
+        "documentWidth": 1280,
+        "scale": 1,
+        "footer": {
+          "top": 813.1875,
+          "bottom": 899.984375,
+          "height": 900
+        }
+      },
+      {
+        "route": "/learn",
+        "width": 1280,
+        "documentWidth": 1280,
+        "scale": 1,
+        "footer": {
+          "top": 813.171875,
+          "bottom": 899.96875,
+          "height": 900
+        }
+      },
+      {
+        "route": "/map",
+        "width": 1280,
+        "documentWidth": 1280,
+        "scale": 1,
+        "footer": {
+          "top": 813.40625,
+          "bottom": 900.203125,
+          "height": 900
+        }
+      },
+      {
+        "route": "/sources",
+        "width": 1280,
+        "documentWidth": 1280,
+        "scale": 1,
+        "footer": {
+          "top": 813.375,
+          "bottom": 900.171875,
+          "height": 900
+        }
+      },
+      {
+        "route": "/report",
+        "width": 1280,
+        "documentWidth": 1280,
+        "scale": 1,
+        "footer": {
+          "top": 813.078125,
+          "bottom": 899.875,
+          "height": 900
+        }
+      }
+    ],
+    "reportFullDuration": true,
+    "aiExcluded": true,
+    "printedSpectrumUnchanged": true,
+    "nativeTextDownload": "output/playwright/target-vad-summary.txt",
+    "errors": []
+  },
+  "textSummary": {
+    "bytes": 5914,
+    "lines": 94,
+    "aiExcluded": true,
+    "rawSpectrumBinsExcluded": true
+  }
+}

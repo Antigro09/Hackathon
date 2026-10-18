@@ -5,6 +5,8 @@ import { SOUND_FAMILY_DISPLAY_V3, SOUND_HINT_MODEL_V3 } from '../ai/modelV3';
 import { loadSoundHintHeadV3 } from '../ai/headV3';
 import { assessRecordingCheck } from '../analysis/recordingCheck';
 import { assessTargetSound, type TargetSoundAssessment, type TargetSoundWindow } from '../ai/targetSound';
+import { scanSpeechInterference, type SpeechVadOptions, type SpeechVadProgress, type SpeechVadResult } from '../ai/speechVad';
+import { SPEECH_VAD_MODEL, SPEECH_VAD_RUNTIME } from '../ai/speechVadModel';
 import { Icon } from './Icon';
 import '../recording-check.css';
 
@@ -14,6 +16,9 @@ type Phase = 'idle' | 'loading' | 'self-test' | 'analyzing' | 'ready' | 'cancele
 export interface SoundHintsViewV3 {
   phase: Phase; family: Family | null; error: string;
   windowIndex: number; windowCount: number; windows: TargetSoundWindow[]; target: TargetSoundAssessment | null;
+  scanStage: 'speech' | 'families' | null;
+  speechProgress: SpeechVadProgress | null;
+  speech: Pick<SpeechVadResult, 'speechDetected' | 'intervals' | 'captureDurationSeconds'> | null;
 }
 type Head = { predict(embedding: Float32Array): { accepted: boolean; label: string } };
 type DiagnosticWorker = Pick<Worker, 'onmessage' | 'onerror' | 'postMessage' | 'terminate'>;
@@ -21,13 +26,37 @@ interface SessionDependencies {
   onChange(value: SoundHintsViewV3): void;
   createWorker?(): DiagnosticWorker;
   loadHead?(signal: AbortSignal): Promise<Head>;
+  scanSpeech?(pcm: Float32Array, fs: number, options: SpeechVadOptions): Promise<SpeechVadResult>;
 }
 
-const idleView = (): SoundHintsViewV3 => ({ phase: 'idle', family: null, error: '', windowIndex: 0, windowCount: 0, windows: [], target: null });
-const unavailable = 'The optional local sound model could not complete its checks. Your standard indicators and report remain available. Clear the hints or try again in a current browser with enough free memory.';
+const idleView = (): SoundHintsViewV3 => ({ phase: 'idle', family: null, error: '', windowIndex: 0, windowCount: 0, windows: [], target: null,
+  scanStage: null, speechProgress: null, speech: null });
+const unavailable = 'The optional local sound checks could not finish. Your standard indicators and report remain available. Clear the hints or try again in a current browser with enough free memory.';
 const object = (value: unknown): value is Record<string, unknown> => value !== null && typeof value === 'object' && !Array.isArray(value);
 const copyView = (view: SoundHintsViewV3): SoundHintsViewV3 => ({ ...view,
-  windows: view.windows.map(window => ({ ...window })), target: view.target ? { ...view.target } : null });
+  windows: view.windows.map(window => ({ ...window })), target: view.target ? { ...view.target, competingFamilies: [...view.target.competingFamilies] } : null,
+  speechProgress: view.speechProgress ? { ...view.speechProgress } : null,
+  speech: view.speech ? { ...view.speech, intervals: view.speech.intervals.map(interval => ({ ...interval })) } : null });
+const downloadMegabytes = Math.ceil(SOUND_HINT_MODEL_V3.downloadMegabytes +
+  (SPEECH_VAD_MODEL.bytes + Object.values(SPEECH_VAD_RUNTIME).reduce((total, file) => total + file.bytes, 0)) / 1_000_000);
+
+// The production scanner verifies this too. Keep the injected-session boundary
+// fail closed so a partial, stale or malformed speech result cannot approve audio.
+function validSpeechResult(value: unknown, duration: number): value is SpeechVadResult {
+  if (!object(value) || value.captureDurationSeconds !== duration || value.frameCount !== Math.ceil(duration * 16_000 / 512)
+    || value.coverage !== 'full-recording' || value.sampleRateHz !== 16_000 || value.modelId !== SPEECH_VAD_MODEL.id
+    || value.modelRevision !== SPEECH_VAD_MODEL.revision || value.modelSha256 !== SPEECH_VAD_MODEL.sha256
+    || value.policyVersion !== SPEECH_VAD_MODEL.policyVersion || value.selfTestPassed !== true
+    || !Array.isArray(value.intervals) || value.intervals.length > 128 || value.speechDetected !== (value.intervals.length > 0)) return false;
+  let end = 0;
+  for (const interval of value.intervals) {
+    if (!object(interval) || typeof interval.startSeconds !== 'number' || typeof interval.endSeconds !== 'number'
+      || !Number.isFinite(interval.startSeconds) || !Number.isFinite(interval.endSeconds)
+      || interval.startSeconds < end || interval.endSeconds <= interval.startSeconds || interval.endSeconds > duration) return false;
+    end = interval.endSeconds;
+  }
+  return true;
+}
 
 function blockedReason(result: AnalysisResult, input: SoundHintsInputV3 | null): string | null {
   return soundHintsBlockedReason(result.qualityCodes)
@@ -71,12 +100,32 @@ export function createSoundHintsSessionV3(dependencies: SessionDependencies) {
     const current = () => !disposed && epoch === sessionId && !controller.signal.aborted;
     const fail = () => { if (current()) { release(); emit({ ...idleView(), phase: 'error', error: unavailable }); } };
     const windowCount = result.durationSeconds / SOUND_HINT_MODEL_V3.observationSeconds;
-    emit({ ...idleView(), phase: 'loading', windowIndex: 1, windowCount });
+    emit({ ...idleView(), phase: 'loading', scanStage: 'speech', windowCount });
     try {
       // Freeze a separate full native-rate copy before loading. Never transfer
       // or mutate the retained DSP buffer, even while later windows are pending.
       let scanPcm: Float32Array | null = input.pcm.slice();
-      if (scanPcm.some(sample => !Number.isFinite(sample))) throw new Error('Invalid retained audio.');
+      if (scanPcm.some(sample => !Number.isFinite(sample) || Math.abs(sample) > 1)) throw new Error('Invalid retained audio.');
+      let speechPending = true;
+      const speechResult = await (dependencies.scanSpeech ?? scanSpeechInterference)(scanPcm, input.fs, {
+        signal: controller.signal,
+        onProgress: progress => {
+          if (!current() || !speechPending) return;
+          const totalFrames = Math.ceil(result.durationSeconds * 16_000 / 512);
+          if (!object(progress) || !['loading', 'self-test', 'analyzing'].includes(progress.phase)
+            || !Number.isSafeInteger(progress.completedFrames) || progress.completedFrames < 0
+            || progress.completedFrames > totalFrames || progress.totalFrames !== totalFrames) throw new Error('Invalid speech progress.');
+          emit({ ...idleView(), phase: progress.phase, scanStage: 'speech', windowCount, speechProgress: progress });
+        },
+      });
+      speechPending = false;
+      if (!current()) return;
+      if (!validSpeechResult(speechResult, result.durationSeconds)) throw new Error('Invalid speech screening result.');
+      const speech = { speechDetected: speechResult.speechDetected, captureDurationSeconds: speechResult.captureDurationSeconds,
+        intervals: speechResult.intervals.map(interval => ({ ...interval })) };
+      // The speech scanner releases its worker before resolving. Only then load
+      // the family head and its one shared worker; both stages keep audio local.
+      emit({ ...idleView(), phase: 'loading', scanStage: 'families', windowIndex: 1, windowCount });
       const loadedHead = await (dependencies.loadHead ?? loadSoundHintHeadV3)(controller.signal);
       if (!current()) return;
       head = loadedHead;
@@ -90,7 +139,7 @@ export function createSoundHintsSessionV3(dependencies: SessionDependencies) {
         const samples = input.fs * SOUND_HINT_MODEL_V3.observationSeconds;
         const pcm = scanPcm.slice(index * samples, (index + 1) * samples);
         pendingId = `r${sessionId}w${index + 1}`;
-        emit({ ...idleView(), phase: index === 0 ? 'loading' : 'analyzing', windowIndex: index + 1, windowCount });
+        emit({ ...idleView(), phase: index === 0 ? 'loading' : 'analyzing', scanStage: 'families', windowIndex: index + 1, windowCount });
         if (!current() || worker !== next) return;
         next.postMessage({ type: 'extract', requestId: pendingId, pcm, sampleRateHz: input.fs }, [pcm.buffer]);
       };
@@ -100,7 +149,7 @@ export function createSoundHintsSessionV3(dependencies: SessionDependencies) {
         if (!object(message) || pendingId === null || message.requestId !== pendingId) return;
         if (message.type === 'status') {
           if (completed.length === 0 && (message.phase === 'loading' || message.phase === 'self-test')) {
-            emit({ ...idleView(), phase: message.phase, windowIndex: 1, windowCount });
+            emit({ ...idleView(), phase: message.phase, scanStage: 'families', windowIndex: 1, windowCount });
           }
         } else if (message.type === 'embedding') {
           pendingId = null;
@@ -125,7 +174,8 @@ export function createSoundHintsSessionV3(dependencies: SessionDependencies) {
             else {
               scanPcm = null;
               emit({ phase: 'ready', family: completed.every(window => window.family === family) ? family : null,
-                error: '', windowIndex: windowCount, windowCount, windows: completed, target: assessTargetSound(completed) });
+                error: '', windowIndex: windowCount, windowCount, windows: completed, target: assessTargetSound(completed, speech.speechDetected),
+                scanStage: null, speechProgress: null, speech });
             }
           } catch { fail(); }
         } else if (message.type === 'cancelled') {
@@ -159,6 +209,9 @@ export function SoundHintsPanelV3({ result, input }: {
     ?? recordingCheck.issues[0]?.message ?? recordingCheck.summary;
   const view = state.resultId === result.id && state.pcm === (input?.pcm ?? null) && state.fs === (input?.fs ?? null) ? state : idleView();
   const busy = view.phase === 'loading' || view.phase === 'self-test' || view.phase === 'analyzing';
+  const progressLabel = view.scanStage === 'speech'
+    ? view.phase === 'loading' ? 'Loading the local speech screen…' : view.phase === 'self-test' ? 'Checking the speech screen on this device…' : 'Screening the full capture for possible voices…'
+    : view.phase === 'self-test' ? 'Checking the sound model on this device…' : view.phase === 'analyzing' ? `Analyzing window ${view.windowIndex} of ${view.windowCount}…` : 'Loading and verifying the optional sound-family model…';
 
   useEffect(() => {
     const owner = { resultId: result.id, pcm: input?.pcm ?? null, fs: input?.fs ?? null };
@@ -170,13 +223,15 @@ export function SoundHintsPanelV3({ result, input }: {
 
   return <section className="panel sound-hints-panel" aria-labelledby={titleId}>
     <div className="section-heading"><div><p className="eyebrow">Optional / local AI</p><h2 id={titleId}>Sound families &amp; equipment-noise target check</h2></div><span className="experimental-tag">Limited / experimental</span></div>
-    <p className="sound-hints-intro">Check whether this capture resembles the equipment noise you want, or contains competing sounds. The model can flag speech-like, traffic-like or wind-like sound. Unfamiliar and mixed audio stays unclear.</p>
+    <p className="sound-hints-intro">Check whether this capture resembles the equipment noise you want, or contains competing sounds. A separate speech screen checks for possible voices, followed by broad sound-family hints for speech, traffic, wind and other sounds. Unfamiliar and mixed audio stays unclear.</p>
     <div className="sound-hints-consent"><Icon name="info" size={21}/><div><strong>Data-center sound comparison: not validated.</strong><p>These broad sound families occur in many settings. A hint cannot confirm a data-center source or faithful microphone capture. Use the separate Recording check to review digital capture problems.</p></div></div>
-    <p className="sound-hints-message">AI scan: the full {result.durationSeconds.toFixed(2)}-second capture, in non-overlapping five-second windows. The standard indicators and report use the full {result.durationSeconds.toFixed(2)} seconds. Short sounds, overlapping voices and events spanning window boundaries can be missed.</p>
-    <div className="sound-hints-consent"><Icon name="shield" size={21}/><div><strong>Runs locally after you choose Explore.</strong><p>About {SOUND_HINT_MODEL_V3.downloadMegabytes} MB is downloaded when you start the local model. Loading can take a few minutes and needs available memory. Audio stays on this device. No download starts until you choose Explore.</p></div></div>
+    <p className="sound-hints-message">AI scan: the full {result.durationSeconds.toFixed(2)}-second capture. The speech screen checks short frames, then sound-family hints inspect non-overlapping five-second windows. The standard indicators and report use the full {result.durationSeconds.toFixed(2)} seconds. Short sounds, overlapping voices and events spanning window boundaries can be missed.</p>
+    <div className="sound-hints-consent"><Icon name="shield" size={21}/><div><strong>Runs locally after you choose Explore.</strong><p>About {downloadMegabytes} MB may be downloaded for both local checks. They run one after another. Loading can take a few minutes and needs available memory. Audio stays on this device. No download starts until you choose Explore.</p></div></div>
     {blocked ? <p className="sound-hints-blocked">{blocked}</p> : null}
     <div className="sound-hints-controls">
-      {busy ? <div className="sound-hints-progress" role="status"><strong>{view.phase === 'self-test' ? 'Checking the sound model on this device…' : view.phase === 'analyzing' ? `Analyzing window ${view.windowIndex} of ${view.windowCount}…` : 'Loading and verifying the optional local model…'}</strong><span className="working-line"/><span>Full capture scan: window {view.windowIndex} of {view.windowCount}. No target verdict is shown until every window finishes.</span><span>You can review and export your standard observation while this runs.</span><button type="button" className="button secondary" onClick={() => session.current?.cancel()}>Cancel sound hints</button></div>
+      {busy ? <div className="sound-hints-progress" role="status"><strong>{progressLabel}</strong><span className="working-line"/>
+        <span>{view.scanStage === 'speech' ? `Speech screen: ${view.speechProgress ? `${view.speechProgress.completedFrames} of ${view.speechProgress.totalFrames} frames checked.` : 'Preparing the full recorded window.'}` : `Sound families: window ${view.windowIndex} of ${view.windowCount}.`} No target verdict is shown until both checks finish.</span>
+        <span>You can review and export your standard observation while this runs.</span><button type="button" className="button secondary" onClick={() => session.current?.cancel()}>Cancel sound hints</button></div>
         : <div className="sound-hints-actions">{view.phase !== 'ready' ? <button type="button" className="button secondary" disabled={Boolean(blocked)} onClick={() => { void session.current?.run(result, input); }}>Explore sound families (experimental)<Icon name="arrow" size={17}/></button> : null}{view.phase === 'ready' ? <button type="button" className="text-button" onClick={() => session.current?.cancel('idle')}>Clear hints &amp; unload model</button> : null}</div>}
       <div className={`recording-check-compact recording-check-${recordingCheck.status}`}>
         <p className="eyebrow">Recording usability</p>
@@ -193,15 +248,20 @@ export function SoundHintsPanelV3({ result, input }: {
     {view.phase === 'canceled' ? <p className="sound-hints-message" role="status">Sound exploration canceled. Your standard result and report are unchanged.</p> : null}
     {view.phase === 'error' ? <div className="error-box" role="alert"><strong>Sound hints unavailable</strong><p>{view.error}</p></div> : null}
     {view.phase === 'ready' && !blocked && view.target ? <div className="sound-hints-results" aria-live="polite">
-      <div className="sound-hints-verdict"><p className="eyebrow">Equipment-noise target check</p><strong>{view.target.label}</strong><p>{view.target.summary}</p>
+      <div className={`sound-hints-verdict target-check-verdict target-check-${view.target.status}`}><p className="eyebrow">Equipment-noise target check</p><strong>{view.target.label}</strong><p>{view.target.summary}</p>
+        {view.target.competingFamilies.length ? <p>Suggested competing sounds: {view.target.competingFamilies.map(family => SOUND_FAMILY_DISPLAY_V3[family]).join('; ')}. These flags do not rule out other interference.</p> : null}
         {view.target.unclearWindows ? <p>{view.target.unclearWindows} of {view.windowCount} windows remained unclear. An accepted family in another window does not explain these intervals.</p> : null}
         {view.target.mixedFamilies ? <p>Different windows suggested different sound families. Review the timeline and compare another capture.</p> : null}
       </div>
+      {view.speech ? <div className="sound-hints-verdict"><strong>Speech screen: {view.speech.speechDetected ? 'possible voices flagged' : 'no speech flagged'}</strong>
+        {view.speech.intervals.length ? <p>Approximate possible-speech intervals: {view.speech.intervals.map(interval => `${interval.startSeconds.toFixed(1)}–${interval.endSeconds.toFixed(1)} s`).join('; ')}.</p> : null}
+        <p>The full {view.speech.captureDurationSeconds.toFixed(2)} seconds were screened. {view.speech.speechDetected ? 'These are possible voices, with approximate times. Other competing sounds may also be present.' : 'No speech flagged does not mean speech-free audio or a suitable equipment recording; music, animals, handling and other competing sounds can remain.'}</p>
+      </div> : null}
       <ol aria-label="Five-second sound-family timeline">{view.windows.map(window => <li key={window.startSeconds}><div><strong>{window.startSeconds}–{window.endSeconds} seconds</strong></div><p>{window.family ? SOUND_FAMILY_DISPLAY_V3[window.family] : 'No sound family suggested'}</p></li>)}</ol>
       <p className="sound-hints-message">Every recorded second was included in these broad five-second windows. Music, animals, alarms, microphone handling and other competing sounds may go unrecognized, as can short or overlapping events. Review the capture and retake if these obscure the equipment sound. No result confirms an accurate recording or a data-center source.</p>
     </div> : null}
     <p className="screening-note">Hints do not change the indicators and are excluded from exported reports. They cannot identify a facility, device, location or physical source.</p>
-    <details className="method-details"><summary>Model, preprocessing &amp; limitations</summary><p><a href={`${SOUND_HINT_MODEL_V3.modelUrl}/tree/${SOUND_HINT_MODEL_V3.revision}`} target="_blank" rel="noreferrer">{SOUND_HINT_MODEL_V3.id}</a>. A verified audio-only model runs in one local WASM worker; the unchanged fixed head can accept a broad family or abstain for each window. These hints are experimental, not probabilities or measured source identity.</p><p>Separate five-second copies scan the complete supported capture sequentially at its actual sample rate until the verified worker resamples each copy to 48 kHz. The pinned processor adds five seconds of zeros per window, which adds no recorded time. The full observation remains intact for the standard analysis and report.</p><p>Speech-like hints suggest retaking for an equipment-noise target; wind or traffic hints suggest interference. This rule interprets broad sound families, not voice activity or foreground isolation. The original model comparison tested individual five-second examples; scanning more windows does not establish continuous speech-detection accuracy.</p><p>The buzz family includes insect recordings and does not validate electrical hum or equipment identification. Public-recording labels and software startup checks do not establish accuracy on this microphone or environment. Quiet, mixed, unfamiliar and weak sounds may remain unclassified.</p><p><a href="#/sources">Read the model comparison and its limits</a>. <a href="/ai/canonical-v3/TRAINING_ATTRIBUTION.json" target="_blank" rel="noreferrer">Training-data credits</a> and <a href="/ai/canonical-v3/MODEL_NOTICE.txt" target="_blank" rel="noreferrer">model notices</a>. Upstream model information: <a href={SOUND_HINT_MODEL_V3.upstreamLicenseUrl} target="_blank" rel="noreferrer">CLAP documentation</a>.</p></details>
+    <details className="method-details"><summary>Models, preprocessing &amp; limitations</summary><p><a href={`https://github.com/snakers4/silero-vad/tree/${SPEECH_VAD_MODEL.revision}`} target="_blank" rel="noreferrer">Silero VAD speech screen</a> runs first in a separate local worker, resampling a copy to 16 kHz and checking short frames across the full capture. It marks approximate possible-speech intervals and can miss or mistake sounds. Its worker is released before the sound-family model starts. This is not speaker identification or a universal interference detector.</p><p><a href={`${SOUND_HINT_MODEL_V3.modelUrl}/tree/${SOUND_HINT_MODEL_V3.revision}`} target="_blank" rel="noreferrer">{SOUND_HINT_MODEL_V3.id}</a> then runs in one local WASM worker; the unchanged fixed head can accept a broad family or abstain for each window. These hints are experimental, not probabilities or measured source identity.</p><p>Separate five-second copies scan the complete supported capture sequentially at its actual sample rate until the verified worker resamples each copy to 48 kHz. The pinned processor adds five seconds of zeros per window, which adds no recorded time. The full observation remains intact for the standard analysis and report.</p><p>Possible voices from either check suggest retaking for an equipment-noise target; wind or traffic hints suggest interference. Other competing or unrecognized sounds can make a capture unrepresentative. Neither check isolates foreground sound or confirms that all interference is absent. The original CLAP model comparison tested individual five-second examples; it does not validate the combined target-relevance rule.</p><p>The buzz family includes insect recordings and does not validate electrical hum or equipment identification. Public-recording labels and software startup checks do not establish accuracy on this microphone or environment. Quiet, mixed, unfamiliar and weak sounds may remain unclassified.</p><p><a href="#/sources">Read the model comparison and its limits</a>. <a href="/ai/canonical-v3/TRAINING_ATTRIBUTION.json" target="_blank" rel="noreferrer">Training-data credits</a> and <a href="/ai/canonical-v3/MODEL_NOTICE.txt" target="_blank" rel="noreferrer">model notices</a>. Upstream model information: <a href={SOUND_HINT_MODEL_V3.upstreamLicenseUrl} target="_blank" rel="noreferrer">CLAP documentation</a>.</p></details>
   </section>;
 }
 

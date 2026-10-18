@@ -1,0 +1,518 @@
+{
+  "schemaVersion": 1,
+  "qualifiedAtUtc": "2026-10-18T20:17:18.560Z",
+  "purpose": "Speech interference implementation feasibility and software regression, not data-center source accuracy validation",
+  "model": {
+    "repository": "snakers4/silero-vad",
+    "revision": "1e261b036686cd0017d500ee96acd1c4ba572a9d",
+    "path": "src/silero_vad/data/silero_vad_16k_op15.onnx",
+    "bytes": 1289603,
+    "sha256": "7ed98ddbad84ccac4cd0aeb3099049280713df825c610a8ed34543318f1b2c49",
+    "license": "MIT"
+  },
+  "protocolSha256": "e81634c7d659f22f953484ef7271cb1e7b2c8cd2761b27b5d99890edbe53f3a9",
+  "policyAdjustedAfterQueries": false,
+  "trainingPerformed": false,
+  "clapQueries": 0,
+  "old416HoldoutQueries": 0,
+  "preprocessing": {
+    "segmentationCases": 2000,
+    "resampling": [
+      {
+        "id": "resample-44100-impulse",
+        "maxError": 0,
+        "rms": 0.001027861537337453,
+        "sha256": "4fe642c07c53994218408ad86474a2d3b8f9178ca2c41388aa59ef0c745ddaef"
+      },
+      {
+        "id": "resample-44100-random",
+        "maxError": 0,
+        "rms": 0.1703372645894924,
+        "sha256": "d6eac795eddb8d5b60846f301656aa507e90503f44d1412ec4626f7db58a72e4"
+      },
+      {
+        "id": "resample-44100-high-frequency",
+        "maxError": 0,
+        "rms": 0.0001171276010253249,
+        "sha256": "b14ee876f6973da2e11e5fb1149bff90715b2b74b5019d75d99905ad204574f8"
+      },
+      {
+        "id": "resample-48000-impulse",
+        "maxError": 0,
+        "rms": 0.0009824663929618811,
+        "sha256": "199c159fc3222151b1d59715bd4db04fcb4f4d67d0b728b1016e533213282571"
+      },
+      {
+        "id": "resample-48000-random",
+        "maxError": 0,
+        "rms": 0.1640502949200302,
+        "sha256": "f8c21a2d93a2147c5f3c0bf2be91468f5d45749b172ae4006cebefb17b70ab36"
+      },
+      {
+        "id": "resample-48000-high-frequency",
+        "maxError": 0,
+        "rms": 0.0001435623722501772,
+        "sha256": "eeda68fe082f2cc8fcb2aafa1e8a00609ce9da35281915394cb3424fce7d0b81"
+      }
+    ],
+    "referencePackages": {
+      "numpy": "2.2.6",
+      "scipy": "1.15.3"
+    },
+    "upstreamUtilsSha256": "7e0f9b3334ee4feb79abcf2251be12458329077bce28c8540878ed9d35e5aa6b"
+  },
+  "feasibility": {
+    "records": [
+      {
+        "id": "invc-outside-inside-full",
+        "durationSeconds": 11.546125,
+        "intervals": [],
+        "cpuMaximumError": 1.4901161193847656e-7,
+        "repeatExact": true,
+        "inputUnchanged": true,
+        "resampleMs": 39.39999985694885,
+        "inferenceMs": 297.60000014305115
+      },
+      {
+        "id": "invc-outside-inside-first5",
+        "durationSeconds": 5,
+        "intervals": [],
+        "cpuMaximumError": 1.4901161193847656e-7,
+        "repeatExact": true,
+        "inputUnchanged": true,
+        "resampleMs": 15.900000095367432,
+        "inferenceMs": 76.60000014305115
+      },
+      {
+        "id": "invc-before-after-full",
+        "durationSeconds": 17.8939375,
+        "intervals": [],
+        "cpuMaximumError": 1.7881393432617188e-7,
+        "repeatExact": true,
+        "inputUnchanged": true,
+        "resampleMs": 54.10000014305115,
+        "inferenceMs": 304.40000009536743
+      },
+      {
+        "id": "invc-before-after-first5",
+        "durationSeconds": 5,
+        "intervals": [],
+        "cpuMaximumError": 1.7881393432617188e-7,
+        "repeatExact": true,
+        "inputUnchanged": true,
+        "resampleMs": 15.699999809265137,
+        "inferenceMs": 53.5
+      },
+      {
+        "id": "invc-150m-full",
+        "durationSeconds": 8.8166875,
+        "intervals": [],
+        "cpuMaximumError": 1.4901161193847656e-7,
+        "repeatExact": true,
+        "inputUnchanged": true,
+        "resampleMs": 23,
+        "inferenceMs": 106.59999990463257
+      },
+      {
+        "id": "invc-150m-first5",
+        "durationSeconds": 5,
+        "intervals": [],
+        "cpuMaximumError": 1.1920928955078125e-7,
+        "repeatExact": true,
+        "inputUnchanged": true,
+        "resampleMs": 13.900000095367432,
+        "inferenceMs": 51.59999990463257
+      },
+      {
+        "id": "invc-university-compressor-full",
+        "durationSeconds": 12.5126875,
+        "intervals": [],
+        "cpuMaximumError": 2.384185791015625e-7,
+        "repeatExact": true,
+        "inputUnchanged": true,
+        "resampleMs": 34.39999985694885,
+        "inferenceMs": 170.5
+      },
+      {
+        "id": "invc-university-compressor-first5",
+        "durationSeconds": 5,
+        "intervals": [],
+        "cpuMaximumError": 2.384185791015625e-7,
+        "repeatExact": true,
+        "inputUnchanged": true,
+        "resampleMs": 17.199999809265137,
+        "inferenceMs": 45.5
+      },
+      {
+        "id": "invc-sports-dry-cooler-full",
+        "durationSeconds": 13.1986875,
+        "intervals": [
+          {
+            "start": 0.066,
+            "end": 2.174
+          },
+          {
+            "start": 6.562,
+            "end": 8.67
+          }
+        ],
+        "cpuMaximumError": 0.0000020265579223632812,
+        "repeatExact": true,
+        "inputUnchanged": true,
+        "resampleMs": 31.299999952316284,
+        "inferenceMs": 178.29999995231628
+      },
+      {
+        "id": "invc-sports-dry-cooler-first5",
+        "durationSeconds": 5,
+        "intervals": [
+          {
+            "start": 0.066,
+            "end": 2.174
+          }
+        ],
+        "cpuMaximumError": 5.960464477539062e-7,
+        "repeatExact": true,
+        "inputUnchanged": true,
+        "resampleMs": 12.899999856948853,
+        "inferenceMs": 53.299999952316284
+      },
+      {
+        "id": "synthetic-late-speech-30s",
+        "durationSeconds": 30,
+        "intervals": [
+          {
+            "start": 20.066,
+            "end": 22.174
+          }
+        ],
+        "cpuMaximumError": 7.450580596923828e-7,
+        "repeatExact": true,
+        "inputUnchanged": true,
+        "resampleMs": 83.80000019073486,
+        "inferenceMs": 493.80000019073486
+      },
+      {
+        "id": "synthetic-silence-30s",
+        "durationSeconds": 30,
+        "intervals": [],
+        "cpuMaximumError": 1.4901161193847656e-7,
+        "repeatExact": true,
+        "inputUnchanged": true,
+        "resampleMs": 78.09999990463257,
+        "inferenceMs": 505.39999985694885
+      }
+    ],
+    "ortWebVersion": "1.31.0-dev.20260914-8d85527a0",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "rawEvidenceSha256": "389c60aea3c41f03eb14748f2aad95fd477f72814c36f18f1bbdbd2d2065dc6d"
+  },
+  "productionWorker": {
+    "asset": "speechVad.worker-DJVJomw2.js",
+    "assetSha256": "fee2c1914433e324dbda2714d0fa33c668d46068a2e7d3d715e11040d77ba79a",
+    "checks": [
+      "Nine actual compiled worker captures completed with startup self-tests",
+      "Narrated five-second control is flagged by the actual compiled worker",
+      "Thirty-second native44100 capture finds speech after20seconds",
+      "Fifteen-second capture finds speech after10seconds within approximate frame alignment",
+      "Native48000 capture detects the late speech control",
+      "Actual compiled worker covers157/469/938frames for5/15/30seconds",
+      "Native input remains intact in every actual transfer",
+      "Candidate and software negative controls have no speech flagged, without a source-accuracy claim",
+      "Loading the page never downloads speech model or runtime",
+      "Successful scan terminates its worker before its promise resolves",
+      "Same-size model byte corruption fails closed and terminates the worker",
+      "Existing runtime byte corruption fails closed before execution",
+      "Cancellation during real model startup terminates and rejects withAbortError",
+      "A fresh scan succeeds after corruption/cancellation with no overlapping worker or leaked instance",
+      "All analysis network traffic is same-originGET; no PCM upload",
+      "No browser execution errors"
+    ],
+    "records": [
+      {
+        "id": "invc-outside-inside-first5",
+        "speechDetected": false,
+        "intervals": [],
+        "captureDurationSeconds": 5,
+        "frameCount": 157,
+        "coverage": "full-recording",
+        "sampleRateHz": 16000,
+        "modelId": "snakers4/silero-vad",
+        "modelRevision": "1e261b036686cd0017d500ee96acd1c4ba572a9d",
+        "modelSha256": "7ed98ddbad84ccac4cd0aeb3099049280713df825c610a8ed34543318f1b2c49",
+        "policyVersion": "tw-speech-interference-v1",
+        "selfTestPassed": true,
+        "wallMs": 899.2000000476837,
+        "inputUnchanged": true,
+        "phases": [
+          "loading",
+          "self-test",
+          "analyzing"
+        ]
+      },
+      {
+        "id": "invc-before-after-first5",
+        "speechDetected": false,
+        "intervals": [],
+        "captureDurationSeconds": 5,
+        "frameCount": 157,
+        "coverage": "full-recording",
+        "sampleRateHz": 16000,
+        "modelId": "snakers4/silero-vad",
+        "modelRevision": "1e261b036686cd0017d500ee96acd1c4ba572a9d",
+        "modelSha256": "7ed98ddbad84ccac4cd0aeb3099049280713df825c610a8ed34543318f1b2c49",
+        "policyVersion": "tw-speech-interference-v1",
+        "selfTestPassed": true,
+        "wallMs": 856.1999998092651,
+        "inputUnchanged": true,
+        "phases": [
+          "loading",
+          "self-test",
+          "analyzing"
+        ]
+      },
+      {
+        "id": "invc-150m-first5",
+        "speechDetected": false,
+        "intervals": [],
+        "captureDurationSeconds": 5,
+        "frameCount": 157,
+        "coverage": "full-recording",
+        "sampleRateHz": 16000,
+        "modelId": "snakers4/silero-vad",
+        "modelRevision": "1e261b036686cd0017d500ee96acd1c4ba572a9d",
+        "modelSha256": "7ed98ddbad84ccac4cd0aeb3099049280713df825c610a8ed34543318f1b2c49",
+        "policyVersion": "tw-speech-interference-v1",
+        "selfTestPassed": true,
+        "wallMs": 797.6000001430511,
+        "inputUnchanged": true,
+        "phases": [
+          "loading",
+          "self-test",
+          "analyzing"
+        ]
+      },
+      {
+        "id": "invc-university-compressor-first5",
+        "speechDetected": false,
+        "intervals": [],
+        "captureDurationSeconds": 5,
+        "frameCount": 157,
+        "coverage": "full-recording",
+        "sampleRateHz": 16000,
+        "modelId": "snakers4/silero-vad",
+        "modelRevision": "1e261b036686cd0017d500ee96acd1c4ba572a9d",
+        "modelSha256": "7ed98ddbad84ccac4cd0aeb3099049280713df825c610a8ed34543318f1b2c49",
+        "policyVersion": "tw-speech-interference-v1",
+        "selfTestPassed": true,
+        "wallMs": 825.0999999046326,
+        "inputUnchanged": true,
+        "phases": [
+          "loading",
+          "self-test",
+          "analyzing"
+        ]
+      },
+      {
+        "id": "invc-sports-dry-cooler-first5",
+        "speechDetected": true,
+        "intervals": [
+          {
+            "startSeconds": 0.066,
+            "endSeconds": 2.174
+          }
+        ],
+        "captureDurationSeconds": 5,
+        "frameCount": 157,
+        "coverage": "full-recording",
+        "sampleRateHz": 16000,
+        "modelId": "snakers4/silero-vad",
+        "modelRevision": "1e261b036686cd0017d500ee96acd1c4ba572a9d",
+        "modelSha256": "7ed98ddbad84ccac4cd0aeb3099049280713df825c610a8ed34543318f1b2c49",
+        "policyVersion": "tw-speech-interference-v1",
+        "selfTestPassed": true,
+        "wallMs": 772.8000001907349,
+        "inputUnchanged": true,
+        "phases": [
+          "loading",
+          "self-test",
+          "analyzing"
+        ]
+      },
+      {
+        "id": "synthetic-late-speech-30s",
+        "speechDetected": true,
+        "intervals": [
+          {
+            "startSeconds": 20.066,
+            "endSeconds": 22.174
+          }
+        ],
+        "captureDurationSeconds": 30,
+        "frameCount": 938,
+        "coverage": "full-recording",
+        "sampleRateHz": 16000,
+        "modelId": "snakers4/silero-vad",
+        "modelRevision": "1e261b036686cd0017d500ee96acd1c4ba572a9d",
+        "modelSha256": "7ed98ddbad84ccac4cd0aeb3099049280713df825c610a8ed34543318f1b2c49",
+        "policyVersion": "tw-speech-interference-v1",
+        "selfTestPassed": true,
+        "wallMs": 1543.9000000953674,
+        "inputUnchanged": true,
+        "phases": [
+          "loading",
+          "self-test",
+          "analyzing"
+        ]
+      },
+      {
+        "id": "synthetic-silence-30s",
+        "speechDetected": false,
+        "intervals": [],
+        "captureDurationSeconds": 30,
+        "frameCount": 938,
+        "coverage": "full-recording",
+        "sampleRateHz": 16000,
+        "modelId": "snakers4/silero-vad",
+        "modelRevision": "1e261b036686cd0017d500ee96acd1c4ba572a9d",
+        "modelSha256": "7ed98ddbad84ccac4cd0aeb3099049280713df825c610a8ed34543318f1b2c49",
+        "policyVersion": "tw-speech-interference-v1",
+        "selfTestPassed": true,
+        "wallMs": 1415.2000000476837,
+        "inputUnchanged": true,
+        "phases": [
+          "loading",
+          "self-test",
+          "analyzing"
+        ]
+      },
+      {
+        "id": "synthetic-late-speech-15s",
+        "speechDetected": true,
+        "intervals": [
+          {
+            "startSeconds": 10.082,
+            "endSeconds": 12.254
+          }
+        ],
+        "captureDurationSeconds": 15,
+        "frameCount": 469,
+        "coverage": "full-recording",
+        "sampleRateHz": 16000,
+        "modelId": "snakers4/silero-vad",
+        "modelRevision": "1e261b036686cd0017d500ee96acd1c4ba572a9d",
+        "modelSha256": "7ed98ddbad84ccac4cd0aeb3099049280713df825c610a8ed34543318f1b2c49",
+        "policyVersion": "tw-speech-interference-v1",
+        "selfTestPassed": true,
+        "wallMs": 958.5999999046326,
+        "inputUnchanged": true,
+        "phases": [
+          "loading",
+          "self-test",
+          "analyzing"
+        ]
+      },
+      {
+        "id": "synthetic-late-speech-30s-48000",
+        "speechDetected": true,
+        "intervals": [
+          {
+            "startSeconds": 20.066,
+            "endSeconds": 22.174
+          }
+        ],
+        "captureDurationSeconds": 30,
+        "frameCount": 938,
+        "coverage": "full-recording",
+        "sampleRateHz": 16000,
+        "modelId": "snakers4/silero-vad",
+        "modelRevision": "1e261b036686cd0017d500ee96acd1c4ba572a9d",
+        "modelSha256": "7ed98ddbad84ccac4cd0aeb3099049280713df825c610a8ed34543318f1b2c49",
+        "policyVersion": "tw-speech-interference-v1",
+        "selfTestPassed": true,
+        "wallMs": 1160.3000001907349,
+        "inputUnchanged": true,
+        "phases": [
+          "loading",
+          "self-test",
+          "analyzing"
+        ]
+      }
+    ],
+    "workerLifecycle": {
+      "success": {
+        "created": 1,
+        "terminated": 1,
+        "active": 0,
+        "maxActive": 1
+      },
+      "modelCorruption": {
+        "code": "asset-mismatch",
+        "proof": {
+          "created": 2,
+          "terminated": 2,
+          "active": 0,
+          "maxActive": 1
+        }
+      },
+      "runtimeCorruption": {
+        "code": "asset-mismatch",
+        "proof": {
+          "created": 3,
+          "terminated": 3,
+          "active": 0,
+          "maxActive": 1
+        }
+      },
+      "cancel": {
+        "name": "AbortError",
+        "phase": "self-test",
+        "proof": {
+          "created": 4,
+          "terminated": 4,
+          "active": 0,
+          "maxActive": 1
+        }
+      },
+      "recovered": {
+        "created": 5,
+        "terminated": 5,
+        "active": 0,
+        "maxActive": 1
+      }
+    },
+    "browserExecutionErrors": [],
+    "network": "All observed analysis requests same-originGET; no PCM upload",
+    "rawEvidenceSha256": "b7423c33a16572f1107f836636c02884ac1dfde663caee70518208a402ec3e0e"
+  },
+  "focusedUnitTests": {
+    "command": "npx vitest run tests/speechVad.test.ts",
+    "passed": 28,
+    "typescript": "npx tsc --noEmit --pretty false passed"
+  },
+  "sourceHashes": {
+    "ml/browser/speech-vad/protocol.json": "e81634c7d659f22f953484ef7271cb1e7b2c8cd2761b27b5d99890edbe53f3a9",
+    "public/ai/speech-vad/silero_vad_16k_op15.onnx": "7ed98ddbad84ccac4cd0aeb3099049280713df825c610a8ed34543318f1b2c49",
+    "public/ai/speech-vad/LICENSE": "2e63e9a38b6e8fc0c7bc37ce174caca1862870856c6daf5697cfb785e925520b",
+    "public/ai/speech-vad/provenance.json": "15790d3bccd730a7d0eb14f2a6963deb5282a2affc92946d1fd2f1b9667cdb6b",
+    "src/ai/speechVad.ts": "326c2d50f3d68dde10e799ffff8acf0b8a3004ade7e1a282a03d9a631d2dd825",
+    "src/ai/speechVad.worker.ts": "84f964d1def3226d24af753f051eb87e92e2247e5cb023b6baad2f6defd66550",
+    "src/ai/speechVadInference.ts": "894559c79194fdf1d47f0a256102e40d0577a1312803f82d52d73480c9a3e11e",
+    "src/ai/speechVadIntervals.ts": "f7083125b8b9d994f3a4b46809a89177aa94a76adb759fb0946d7dab63aa3d13",
+    "src/ai/speechVadModel.ts": "4285420acf08eda54de84c413446016cf366dfd4e19731ca9d4419fdd90211de",
+    "src/ai/speechVadResample.ts": "6e46a4fd5c8ba1e6dbac3d4622874e557c5a8da179ab70a0491ee9d40541b866",
+    "src/ai/speechVadTypes.ts": "20abd09c8a491583159919c943c232528af1c7e827021cda57de5417058b8ff9",
+    "tests/speechVad.test.ts": "ffd294527fbdf3ca51aea3f12661b5089774ab556af72b7fc7ce1b86c32bcbcc"
+  },
+  "limits": [
+    "The three INVC candidates and university comparator share one provider cluster; no facility/session-disjoint field accuracy estimate.",
+    "Current control agreement is development evidence, not proof that quiet/masked/brief speech cannot be missed.",
+    "Empty speech intervals do not verify correct equipment capture, a data-center source or microphone fidelity.",
+    "15/30s late-speech fixtures are edited software coverage cases, not natural data-center training data."
+  ],
+  "harnessCorrections": [
+    "Initial huge Float32 unit assertions exceededVitest5s timeout; replaced deep array comparisons with complete bufferSHA256 comparisons, preserving full-byte input/transfer checks.",
+    "Initial15s late-voice assertion assumed exact10.066s; real onset10.082s differs with32ms frame alignment. Test now asserts prospectively intended vicinity after10s. No model or thresholds changed.",
+    "Initial isolated research harness build used a wrong relative source path and ffmpeg default output-buffer cap; corrected harness only, then cleanbuild/qualification passed."
+  ]
+}

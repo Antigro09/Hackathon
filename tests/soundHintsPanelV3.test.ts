@@ -3,6 +3,8 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
 import { createSoundHintsSessionV3, SoundHintsPanelV3, type SoundHintsViewV3 } from '../src/components/SoundHintsPanelV3';
 import { SOUND_HINT_MODEL_V3 } from '../src/ai/modelV3';
+import { SPEECH_VAD_MODEL } from '../src/ai/speechVadModel';
+import type { SpeechVadOptions, SpeechVadResult } from '../src/ai/speechVad';
 import type { AnalysisResult, QualityCode } from '../src/types';
 
 function result(fs = 44100, qualityCodes: QualityCode[] = [], duration = 5): AnalysisResult {
@@ -19,6 +21,13 @@ function deferred<T>() {
   let resolve!: (value: T) => void;
   const promise = new Promise<T>(value => { resolve = value; });
   return { promise, resolve };
+}
+
+function speechResult(duration = 5, intervals: SpeechVadResult['intervals'] = []): SpeechVadResult {
+  return { speechDetected: intervals.length > 0, intervals, captureDurationSeconds: duration,
+    frameCount: Math.ceil(duration * 16_000 / 512), coverage: 'full-recording', sampleRateHz: 16_000,
+    modelId: SPEECH_VAD_MODEL.id, modelRevision: SPEECH_VAD_MODEL.revision, modelSha256: SPEECH_VAD_MODEL.sha256,
+    policyVersion: SPEECH_VAD_MODEL.policyVersion, selfTestPassed: true };
 }
 
 class FakeWorker {
@@ -38,10 +47,11 @@ class FakeWorker {
 function harness(prediction = { accepted: true, label: 'traffic' }) {
   const states: SoundHintsViewV3[] = [], workers: FakeWorker[] = [], signals: AbortSignal[] = [];
   const head = { predict: vi.fn(() => ({ ...prediction, integerScores: [901, 1, 2, 3, 4, 5], guardedMargin: 456 })) };
+  const scanSpeech = vi.fn(async (pcm: Float32Array, fs: number, _options: SpeechVadOptions) => speechResult(pcm.length / fs));
   const loadHead = vi.fn(async (signal: AbortSignal) => { signals.push(signal); return head; });
   const createWorker = vi.fn(() => { const worker = new FakeWorker(); workers.push(worker); return worker as unknown as Worker; });
-  const session = createSoundHintsSessionV3({ onChange: value => states.push(value), loadHead, createWorker });
-  return { states, workers, signals, head, loadHead, createWorker, session };
+  const session = createSoundHintsSessionV3({ onChange: value => states.push(value), loadHead, createWorker, scanSpeech });
+  return { states, workers, signals, head, loadHead, createWorker, scanSpeech, session };
 }
 
 function embedding(worker: FakeWorker, overrides: Record<string, unknown> = {}) {
@@ -69,10 +79,11 @@ describe('inactive broad-family panel disclosure', () => {
       expect(html).toContain('aria-controls="recording-check"');
       expect(html).toContain('Review recording check');
       expect(html).toContain('Digital capture checks, separate from AI sound hints');
-      expect(html).toContain('About 51 MB is downloaded when you start the local model');
+      expect(html).toContain('About 67 MB may be downloaded for both local checks');
       expect(html).toContain('No download starts until you choose Explore');
       expect(html).not.toContain('caching across reloads');
       expect(html).toContain('AI scan: the full 15.00-second capture');
+      expect(html).toContain('separate speech screen checks for possible voices');
       expect(html).toContain('non-overlapping five-second windows');
       expect(html).toContain('Short sounds, overlapping voices and events spanning window boundaries can be missed');
       expect(html).toContain('equipment-noise target check');
@@ -115,6 +126,7 @@ describe('local v3 session ownership and abstention', () => {
   it.each([44100, 48000].flatMap(fs => [5, 15, 30].map(duration => [fs, duration])))('scans every native-rate window with one worker/head (%i Hz, %i seconds)', async (fs, duration) => {
     const h = harness(), audio = input(fs, duration), before = audio.pcm.slice();
     expect(h.loadHead).not.toHaveBeenCalled(); expect(h.createWorker).not.toHaveBeenCalled();
+    expect(h.scanSpeech).not.toHaveBeenCalled();
     await h.session.run(result(fs, [], duration), audio);
     const worker = h.workers[0];
     for (let index = 0; index < duration / 5; index++) {
@@ -133,6 +145,10 @@ describe('local v3 session ownership and abstention', () => {
     expect(h.session.getState().windows).toHaveLength(duration / 5);
     expect(h.head.predict).toHaveBeenCalledTimes(duration / 5);
     expect(h.loadHead).toHaveBeenCalledOnce();
+    expect(h.scanSpeech).toHaveBeenCalledOnce();
+    expect(h.scanSpeech.mock.calls[0][0].length).toBe(fs * duration);
+    expect(h.scanSpeech.mock.calls[0][1]).toBe(fs);
+    expect(h.scanSpeech.mock.calls[0][2].signal).toBe(h.signals[0]);
     expect(Buffer.from(audio.pcm.buffer).equals(Buffer.from(before.buffer))).toBe(true);
     expect(audio.pcm.byteLength).toBe(fs * duration * 4);
     expect(h.createWorker).toHaveBeenCalledOnce();
@@ -142,6 +158,7 @@ describe('local v3 session ownership and abstention', () => {
   it.each<QualityCode>(['near-zero', 'clipped', 'near-full-scale', 'incomplete', 'unsupported-rate', 'non-finite', 'no-band-power'])('full-observation %s flags block head and worker requests', async code => {
     const h = harness(); await h.session.run(result(44100, [code]), input());
     expect(h.loadHead).not.toHaveBeenCalled(); expect(h.createWorker).not.toHaveBeenCalled();
+    expect(h.scanSpeech).not.toHaveBeenCalled();
     expect(h.session.getState()).toMatchObject({ phase: 'error', family: null });
   });
 
@@ -149,22 +166,111 @@ describe('local v3 session ownership and abstention', () => {
     for (const audio of [{ fs: 44100, pcm: new Float32Array(44100) }, { fs: 48000, pcm: new Float32Array(240000) }]) {
       const h = harness(); await h.session.run(result(), audio);
       expect(h.loadHead).not.toHaveBeenCalled(); expect(h.createWorker).not.toHaveBeenCalled();
+      expect(h.scanSpeech).not.toHaveBeenCalled();
     }
   });
 
   it('validates the entire retained duration, rate, count and finite samples before downloading', async () => {
     const badTail = input(44100, 15); badTail.pcm[badTail.pcm.length - 1] = Number.NaN;
+    const outOfRange = input(); outOfRange.pcm[outOfRange.pcm.length - 1] = 1.01;
     for (const [observation, audio] of [
       [result(44100, [], 15), input(44100, 5)],
       [result(44100, [], 5), input(44100, 15)],
       [{ ...result(), sampleCount: 220499 }, input()],
       [result(44100, [], 10), input(44100, 10)],
       [result(44100, [], 15), badTail],
+      [result(), outOfRange],
     ] as const) {
       const h = harness(); await h.session.run(observation, audio);
       expect(h.loadHead).not.toHaveBeenCalled(); expect(h.createWorker).not.toHaveBeenCalled();
+      expect(h.scanSpeech).not.toHaveBeenCalled();
       expect(h.session.getState()).toMatchObject({ phase: 'error', target: null, windows: [] });
     }
+  });
+
+  it('finishes the full native speech screen before loading the family head and hides partial speech evidence', async () => {
+    const h = harness({ accepted: true, label: 'mechanical_fan' }), gate = deferred<SpeechVadResult>();
+    let options!: SpeechVadOptions;
+    h.scanSpeech.mockImplementation((_pcm, _fs, value) => { options = value; return gate.promise; });
+    const pending = h.session.run(result(48000, [], 15), input(48000, 15));
+    expect(h.scanSpeech).toHaveBeenCalledOnce();
+    expect(h.loadHead).not.toHaveBeenCalled(); expect(h.createWorker).not.toHaveBeenCalled();
+    options.onProgress?.({ phase: 'analyzing', completedFrames: 200, totalFrames: 469 });
+    expect(h.session.getState()).toMatchObject({ phase: 'analyzing', scanStage: 'speech',
+      speechProgress: { completedFrames: 200, totalFrames: 469 }, speech: null, target: null, windows: [] });
+    gate.resolve(speechResult(15, [{ startSeconds: 12.1, endSeconds: 12.45 }]));
+    await pending;
+    expect(h.loadHead).toHaveBeenCalledOnce(); expect(h.createWorker).toHaveBeenCalledOnce();
+    expect(h.signals[0]).toBe(options.signal);
+    options.onProgress?.({ phase: 'self-test', completedFrames: 0, totalFrames: 469 });
+    expect(h.session.getState().scanStage).toBe('families');
+    const worker = h.workers[0];
+    worker.emit(embedding(worker)); worker.emit(embedding(worker));
+    expect(h.session.getState()).toMatchObject({ speech: null, target: null, windows: [] });
+    worker.emit(embedding(worker));
+    expect(h.session.getState()).toMatchObject({ phase: 'ready', family: 'mechanical_fan', scanStage: null,
+      target: { status: 'retake', competingFamilies: ['speech'] },
+      speech: { speechDetected: true, captureDurationSeconds: 15, intervals: [{ startSeconds: 12.1, endSeconds: 12.45 }] } });
+    const outside = h.session.getState(); outside.speech!.intervals[0].startSeconds = -999;
+    outside.target!.competingFamilies.length = 0;
+    expect(h.session.getState().speech!.intervals[0].startSeconds).toBe(12.1);
+    expect(h.session.getState().target!.competingFamilies).toEqual(['speech']);
+  });
+
+  it('cancels/replaces a pending speech screen without starting CLAP or accepting late progress/results', async () => {
+    const h = harness(), gate = deferred<SpeechVadResult>(); let old!: SpeechVadOptions;
+    h.scanSpeech.mockImplementationOnce((_pcm, _fs, options) => { old = options; return gate.promise; });
+    const pending = h.session.run(result(), input());
+    h.session.cancel();
+    expect(old.signal?.aborted).toBe(true);
+    expect(h.loadHead).not.toHaveBeenCalled(); expect(h.createWorker).not.toHaveBeenCalled();
+    await h.session.run({ ...result(), id: 'replacement' }, input());
+    h.workers[0].emit(embedding(h.workers[0]));
+    const replacement = h.session.getState();
+    old.onProgress?.({ phase: 'analyzing', completedFrames: 100, totalFrames: 157 });
+    gate.resolve(speechResult(5, [{ startSeconds: .5, endSeconds: 1 }]));
+    await pending;
+    expect(h.session.getState()).toEqual(replacement);
+    expect(h.loadHead).toHaveBeenCalledOnce(); expect(h.createWorker).toHaveBeenCalledOnce();
+  });
+
+  it.each([
+    { captureDurationSeconds: 15 }, { frameCount: 156 }, { coverage: 'first-window' }, { sampleRateHz: 48000 },
+    { modelId: 'other' }, { modelRevision: 'other' }, { modelSha256: 'other' }, { policyVersion: 'other' },
+    { selfTestPassed: false }, { speechDetected: true },
+    { speechDetected: true, intervals: [{ startSeconds: -.1, endSeconds: 1 }] },
+    { speechDetected: true, intervals: [{ startSeconds: 4, endSeconds: 6 }] },
+    { speechDetected: true, intervals: [{ startSeconds: 2, endSeconds: 3 }, { startSeconds: 1, endSeconds: 2 }] },
+  ])('fails closed before CLAP on malformed or incompatible speech results: %j', async change => {
+    const h = harness(); h.scanSpeech.mockResolvedValue({ ...speechResult(), ...change } as unknown as SpeechVadResult);
+    await h.session.run(result(), input());
+    expect(h.loadHead).not.toHaveBeenCalled(); expect(h.createWorker).not.toHaveBeenCalled();
+    expect(h.session.getState()).toMatchObject({ phase: 'error', target: null, windows: [], speech: null });
+  });
+
+  it('fails closed on speech-worker failure or invalid progress without publishing a negative speech screen', async () => {
+    for (const failure of ['rejection', 'progress']) {
+      const h = harness();
+      h.scanSpeech.mockImplementation(async (_pcm, _fs, options) => {
+        if (failure === 'rejection') throw new Error('private speech failure');
+        options.onProgress?.({ phase: 'analyzing', completedFrames: 200, totalFrames: 157 });
+        return speechResult();
+      });
+      await h.session.run(result(), input());
+      expect(h.loadHead).not.toHaveBeenCalled(); expect(h.createWorker).not.toHaveBeenCalled();
+      expect(h.session.getState()).toMatchObject({ phase: 'error', speech: null, target: null });
+      expect(h.session.getState().error).not.toContain('private speech failure');
+    }
+  });
+
+  it('an empty speech screen never upgrades mixed or unexplained family intervals', async () => {
+    const h = harness({ accepted: true, label: 'mechanical_fan' });
+    h.head.predict.mockReturnValueOnce({ accepted: true, label: 'mechanical_fan', integerScores: [], guardedMargin: 1 })
+      .mockReturnValueOnce({ accepted: false, label: 'mechanical_fan', integerScores: [], guardedMargin: 1 })
+      .mockReturnValueOnce({ accepted: true, label: 'mechanical_fan', integerScores: [], guardedMargin: 1 });
+    await h.session.run(result(44100, [], 15), input(44100, 15));
+    const worker = h.workers[0]; worker.emit(embedding(worker)); worker.emit(embedding(worker)); worker.emit(embedding(worker));
+    expect(h.session.getState()).toMatchObject({ speech: { speechDetected: false }, target: { status: 'unclear', unclearWindows: 1 } });
   });
 
   it('recognizes a later speech-like family only after every window finishes', async () => {
@@ -225,6 +331,7 @@ describe('local v3 session ownership and abstention', () => {
 
   it.each(['bad-provenance', 'worker-error', 'scorer-error'])('discards the whole verdict after partial scan failure: %s', async failure => {
     const h = harness({ accepted: true, label: 'speech' });
+    h.scanSpeech.mockResolvedValue(speechResult(15, [{ startSeconds: 1, endSeconds: 2 }]));
     await h.session.run(result(44100, [], 15), input(44100, 15));
     const worker = h.workers[0]; worker.emit(embedding(worker));
     if (failure === 'bad-provenance') {
@@ -232,7 +339,7 @@ describe('local v3 session ownership and abstention', () => {
       worker.emit({ ...next, provenance: { ...next.provenance, sampleCount: 1 } });
     } else if (failure === 'worker-error') worker.emit({ type: 'error', requestId: worker.received!.requestId });
     else { h.head.predict.mockImplementation(() => { throw new Error('private failure'); }); worker.emit(embedding(worker)); }
-    expect(h.session.getState()).toMatchObject({ phase: 'error', family: null, windows: [], target: null });
+    expect(h.session.getState()).toMatchObject({ phase: 'error', family: null, windows: [], target: null, speech: null });
     expect(h.session.getState().error).not.toContain('private failure');
     expect(worker.requests).toHaveLength(2); expect(worker.terminate).toHaveBeenCalledOnce();
   });
@@ -285,8 +392,9 @@ describe('local v3 session ownership and abstention', () => {
     const gate = deferred<{ predict: () => { accepted: boolean; label: string } }>();
     const createWorker = vi.fn(), states: SoundHintsViewV3[] = []; let signal!: AbortSignal;
     const session = createSoundHintsSessionV3({ onChange: value => states.push(value), createWorker,
+      scanSpeech: async (pcm, fs) => speechResult(pcm.length / fs),
       loadHead: value => { signal = value; return gate.promise; } });
-    const pending = session.run(result(), input()); session.cancel();
+    const pending = session.run(result(), input()); await Promise.resolve(); session.cancel();
     gate.resolve({ predict: () => ({ accepted: true, label: 'traffic' }) }); await pending;
     expect(signal.aborted).toBe(true); expect(createWorker).not.toHaveBeenCalled();
     expect(session.getState()).toMatchObject({ phase: 'canceled', family: null, error: '', windows: [], target: null });

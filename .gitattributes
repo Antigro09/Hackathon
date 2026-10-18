@@ -10,5 +10,6 @@ src/ai/resample.ts text eol=lf
 ml/runs/** -text
 # These opaque browser modules, configurations and weights have raw-byte pins.
 public/ai/canonical-v3/** -text
+public/ai/speech-vad/** -text
 # Preserve the unmodified ODbL directory snapshot and its recorded checksum.
 public/data/datacenters-osm-2026-10-18.json -text

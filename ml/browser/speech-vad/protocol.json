@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "createdBeforeInference": "2026-10-18",
+  "purpose": "Prospective feasibility diagnostic of speech contamination screening, not data-center source identification, quality calibration or final field evaluation",
+  "model": {
+    "repository": "snakers4/silero-vad",
+    "revision": "1e261b036686cd0017d500ee96acd1c4ba572a9d",
+    "path": "src/silero_vad/data/silero_vad_16k_op15.onnx",
+    "bytes": 1289603,
+    "sha256": "7ed98ddbad84ccac4cd0aeb3099049280713df825c610a8ed34543318f1b2c49",
+    "license": "MIT",
+    "inference": "Existing pinned ORT-Web 1.31.0-dev.20260914-8d85527a0, WASM, one thread, sequential, fixed SIMD"
+  },
+  "fixedPolicy": {
+    "sampleRateHz": 16000,
+    "windowSamples": 512,
+    "contextSamples": 64,
+    "stateShape": [2, 1, 128],
+    "threshold": 0.5,
+    "negativeThreshold": 0.35,
+    "minimumSpeechMs": 250,
+    "minimumSilenceMs": 100,
+    "speechPaddingMs": 30,
+    "maximumCaptureSeconds": 30,
+    "maximumSpeechDuration": "infinity as upstream; bounded by capture length",
+    "tail": "Pad only final inference frame to512 with zeros; timestamps clamp to real recording length",
+    "processing": "No gain normalization, no denoising, state and context reset before each recording",
+    "decision": "At least one qualifying speech interval -> Possible speech interference; no interval -> No speech flagged, never verified speech absence"
+  },
+  "resampling": "New standalone 16kHz polyphase Kaiser(beta5) FIR, halfLength10*max(up,down), zero extension, Float32 multiply/sum, no gain adjustment; compare independent SciPy1.15.3 resample_poly before browser model queries",
+  "developmentInputs": [
+    {"id": "invc-outside-inside", "scope": "full recording plus first5", "priorAnnotation": "No speech detected by separate annotation pipeline; edited outside/inside comparison, not independent truth"},
+    {"id": "invc-before-after", "scope": "full recording plus first5", "priorAnnotation": "No speech detected by separate annotation pipeline; edited before/after comparison"},
+    {"id": "invc-150m", "scope": "full recording plus first5", "priorAnnotation": "No speech detected by separate annotation pipeline"},
+    {"id": "invc-university-compressor", "scope": "full recording plus first5", "priorAnnotation": "Non-data-center cooling comparator, no speech detected by separate annotation pipeline"},
+    {"id": "invc-sports-dry-cooler", "scope": "full recording plus first5", "priorAnnotation": "Narrated control, two speech intervals previously found"},
+    {"id": "synthetic-late-speech-30s", "scope": "30s waveform with narrated control excerpt at20s", "priorAnnotation": "Software coverage fixture, not natural field data"},
+    {"id": "synthetic-silence-30s", "scope": "30s zeros", "priorAnnotation": "Software negative fixture"}
+  ],
+  "repetition": "Each browser recording is rerun once to verify reset/repeatability; fixed model/policy never adjusted based on results",
+  "reporting": "Retain raw per-frame scores, exact parameters, source/PCM/model/runtime hashes and raw intervals in ignored research output. Publish compact aggregate metadata only; raw recordings remain out of public assets. No CLAP calls, no old416 holdout calls, no training.",
+  "limits": ["A voice detector can miss distant, masked or very short speech and can flag machinery incorrectly.", "No speech flagged does not prove correct equipment capture or a data-center source.", "All INVC clips are one provider cluster and do not establish site-disjoint field accuracy."]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Local possible-speech interference screen, separate from broad-family CLAP hints and data-center source identification",
+  "model": {
+    "repository": "snakers4/silero-vad",
+    "revision": "1e261b036686cd0017d500ee96acd1c4ba572a9d",
+    "source": "https://raw.githubusercontent.com/snakers4/silero-vad/1e261b036686cd0017d500ee96acd1c4ba572a9d/src/silero_vad/data/silero_vad_16k_op15.onnx",
+    "filename": "silero_vad_16k_op15.onnx",
+    "bytes": 1289603,
+    "sha256": "7ed98ddbad84ccac4cd0aeb3099049280713df825c610a8ed34543318f1b2c49",
+    "license": "MIT; included LICENSE",
+    "trainingPerformedByTonalWatch": false
+  },
+  "runtime": {
+    "version": "1.31.0-dev.20260914-8d85527a0",
+    "source": "../canonical-v3/",
+    "execution": "WASM, one thread, sequential, fixed SIMD",
+    "verifiedBeforeExecution": true,
+    "sessionReleasedBeforeResult": true
+  },
+  "policy": {
+    "version": "tw-speech-interference-v1",
+    "modelRateHz": 16000,
+    "frameSamples": 512,
+    "contextSamples": 64,
+    "threshold": 0.5,
+    "negativeThreshold": 0.35,
+    "minimumSpeechMs": 250,
+    "minimumSilenceMs": 100,
+    "paddingMs": 30,
+    "source": "Pinned upstream defaults; fixed before development sample predictions",
+    "captureDurationsSeconds": [5, 15, 30],
+    "nativeRatesHz": [44100, 48000]
+  },
+  "preprocessing": "Mono Float32, deterministic SciPy1.15.3-equivalent polyphase Kaiser(beta5) FIR to16k, no normalization or denoising, final inference frame zero padding only, context/state reset per recording",
+  "startupSelfTest": "32 frames of deterministic zero input against a fixed numeric reference with1e-5 maximum absolute error; software test only, not field validation",
+  "limits": [
+    "Model output can miss quiet, distant, masked or brief speech and can flag non-speech incorrectly.",
+    "An empty interval list means no speech flagged, not verified absence of speech.",
+    "Speech screening does not verify a data-center source, correct target capture or microphone fidelity.",
+    "Current INVC development checks are one provider cluster with unknown independent facility/session identity."
+  ]
+}
