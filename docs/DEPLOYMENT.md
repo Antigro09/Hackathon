@@ -2,7 +2,47 @@
 
 Verified October 18, 2026, in Chrome 155 on Windows.
 
-## Current recording-check release
+## Current full-capture target-check release
+
+Public [tonalwatch.vercel.app](https://tonalwatch.vercel.app) is READY from main
+commit `4be77e0f87884bbcfec196e53b78b94edacedfd0`, deployment
+`dpl_GL8KDBJ9brwuU1S54VUc9oYDWBCp`. Immutable URL:
+`https://tonalwatch-9atdd651u-antigro09s-projects.vercel.app`. The exact committed
+Git archive was deployed to the existing production project. All 600 tests in
+31 files passed, followed by 100 focused AI tests after a presentation-only
+adjustment. Strict TypeScript and local/production Vite builds passed; the
+Vercel dependency audit reported zero vulnerabilities.
+
+The local AI now screens the whole capture for possible speech, then scans
+consecutive five-second windows through the unchanged broad-family classifier.
+An equipment-noise target card highlights possible interference or unclear
+coverage. Speech, wind and traffic are supported flags; unfamiliar, mixed and
+other competing sounds can be missed. No result certifies acoustic accuracy
+or a data-center source. The new Silero screen is an upstream pinned model,
+not a newly trained data-center recognizer. [Implementation scope](AI_TARGET_CHECK.md).
+
+Public HTTPS verification passed an actual 30-second virtual-microphone capture,
+one full 1,440,000-sample speech request, six unique 240,000-sample family
+requests, verified startup checks, and maximum one AI worker. Possible voices
+were flagged at approximately 19.6–21.8 seconds and the target advised a retake.
+There were zero pre-consent model downloads, audio uploads, page errors,
+console errors or warnings. This is a generated/narrated software fixture,
+not field performance evidence. All six routes passed 320/390/1280 px checks
+at scale 1 with reachable footers. The concise native text export and actual
+printed spectrum retained the complete recording and excluded AI results.
+
+Ten current public artifacts, including the speech model, its compiled worker,
+license and provenance, matched the local production build byte for byte.
+The real bounded community feed returned HTTP 200; no public writes were made.
+An error-level runtime-log query for this deployment returned zero records in
+the five-minute post-deployment window, with no excluded intervals. Longer
+history was outside the Hobby plan's available retention; no drain or ongoing
+monitor was configured by this verification.
+Native user Chrome visibly showed the released Sources explanation, and current
+page previews are in [screenshots](screenshots/).
+[Public release evidence](qa/2026-10-18-target-check-public.json).
+
+## Previous recording-check release
 
 Public [tonalwatch.vercel.app](https://tonalwatch.vercel.app) is READY from main
 commit `a8e02a56c748255d5969979c3e6505c2126f952a`, deployment
