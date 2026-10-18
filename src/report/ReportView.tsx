@@ -14,7 +14,7 @@ export function ReportView({ report }: { report: ReportModel }) {
         <p>Uncalibrated screening only. No source identification or legal-compliance determination.</p>
       </header>
       {report.sections.map(section => (
-        <section className="report-section" key={section.title}>
+        <section className={`report-section ${section.rows.length <= 5 && section.paragraphs.join('').length + section.rows.map(item => item.value).join('').length < 1800 ? 'compact-section' : ''}`} key={section.title}>
           <h2>{section.title}</h2>
           {section.rows.length > 0 && (
             <dl className="report-fields">

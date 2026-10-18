@@ -1,4 +1,8 @@
 @page{size:auto;margin:17mm 15mm 18mm}
+@page synthetic{
+  @top-center{content:'SYNTHETIC DEMONSTRATION · NOT A FIELD OBSERVATION';font-family:Arial,Helvetica,sans-serif;font-size:7pt;color:#333;vertical-align:middle}
+  @bottom-right{content:counter(page);font-family:Arial,Helvetica,sans-serif;font-size:7pt;color:#555}
+}
 @media print{
   :root,body{background:white!important;color:#000!important;font-family:Arial,Helvetica,sans-serif;font-size:10pt}
   .site-header,.site-footer,.skip-link,.report-toolbar,.back-link,.origin-strip,.report-actions,.page-heading{display:none!important}
@@ -11,7 +15,8 @@
   .report-header h1{font-size:19pt;letter-spacing:-.3pt;color:#000}
   .report-header p{font-size:9pt;color:#222}
   .report-section{margin-top:15pt;padding-bottom:8pt;border-color:#ccc;break-inside:auto}
-  .report-section h2,.report-references h2{font-size:12pt;color:black;break-after:avoid;margin-bottom:8pt}
+  .report-section h2,.report-references h2{font-size:12pt;color:black;break-after:avoid-page;page-break-after:avoid;margin-bottom:8pt}
+  .report-section.compact-section{break-inside:avoid-page;page-break-inside:avoid}
   .report-fields>div{display:grid;grid-template-columns:150pt 1fr;gap:12pt;break-inside:avoid;padding:5pt 0;font-size:8pt;border-color:#ddd}
   .report-fields dt,.report-fields dd{color:#111;line-height:1.6}
   .report-section p{font-size:8.5pt;line-height:1.6;color:#111;orphans:3;widows:3}
@@ -20,6 +25,6 @@
   .reference-entry p,.reference-entry .source-status{font-size:8pt;color:#222}
   .report-source-url{font-size:7.5pt;overflow-wrap:anywhere;color:#111}
   a{color:#111;text-decoration:underline}
-  body:has(.synthetic-badge)::after{content:'SYNTHETIC DEMONSTRATION · NOT A FIELD OBSERVATION';position:fixed;bottom:-11mm;left:0;right:0;text-align:center;font-size:7pt;color:#333;border-top:1px solid #888;padding-top:3mm;background:white}
+  .report-page:has(.synthetic-badge){page:synthetic}
   .report-page .empty-report{border:0}
 }

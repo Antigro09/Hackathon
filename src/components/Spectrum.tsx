@@ -28,7 +28,7 @@ export function Spectrum({ result }: { result: AnalysisResult | null }) {
       <defs><linearGradient id="spectrum-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#aacd85" stopOpacity=".55"/><stop offset="100%" stopColor="#aacd85" stopOpacity=".02"/></linearGradient></defs>
       {[0, 1, 2, 3, 4, 5].map(i => <g key={i}><line x1={left} y1={top + i * height / 5} x2={left + width} y2={top + i * height / 5} stroke="#ffffff18"/><text x={left - 12} y={top + i * height / 5 + 4} textAnchor="end">{high - i * 20}</text></g>)}
       {[20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000].filter(hz => hz <= maxHz).map(hz => <g key={hz}><line x1={x(hz)} x2={x(hz)} y1={top} y2={top + height} stroke="#ffffff0d"/><text x={x(hz)} y={top + height + 24} textAnchor="middle">{hz >= 1000 ? `${hz / 1000}k` : hz}</text></g>)}
-      {data ? <><path d={data.area} fill="url(#spectrum-fill)"/><path d={data.line} fill="none" stroke="#c5e39a" strokeWidth="1.6"/></> : <text className="plot-empty" x="485" y="133" textAnchor="middle">Your captured spectrum will appear here</text>}
+      {data ? <><path d={data.area} fill="url(#spectrum-fill)"/><path d={data.line} fill="none" stroke="#c5e39a" strokeWidth="1.6"/></> : <text className="plot-empty" x="485" y="133" textAnchor="middle">{result ? 'No usable spectrum available for this input' : 'Your captured spectrum will appear here'}</text>}
       <text x="485" y="284" textAnchor="middle">Frequency · Hz (log scale)</text>
     </svg>
     <p className="chart-caption">Digital PSD · dB re 1²/Hz <span>{result ? `${(result.sampleRateHz / result.fftSize).toFixed(3)} Hz bin spacing · ${result.frameCount} complete frames` : '20 Hz–20 kHz analysis band'}</span></p>
