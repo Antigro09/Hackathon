@@ -1,0 +1,49 @@
+{
+  "BSD35k-CS": {
+    "audio_archive": {
+      "bytes": 35091942026,
+      "full_archive_md5_verified": false,
+      "inventory_sha256": "d106b6d51b32205642ac401701a8df2e38dd4cefc01d1c34d1e46d7ae46a242d",
+      "published_md5": "d47968c99ad4e93a081f380b2d273acd",
+      "url": "https://zenodo.org/records/19187100/files/audio.zip?download=1"
+    },
+    "declared_audio_count": 33829,
+    "declared_format": "44100 Hz mono PCM16, publisher already crops to <=30 seconds",
+    "metadata": {
+      "bytes": 4374871,
+      "checksums_verified": true,
+      "csv_sha256": "2128c89e39d2024ac015bb7053e07099ec287d89122ea0c084e8a3460ab6d363",
+      "md5": "9876254ce2ed845691a9a76efe13fe5a",
+      "sha256": "b595129c00e65f098bee06aaf442ed454cb30430fadd28461bcdd6628b235a51",
+      "url": "https://zenodo.org/records/19187100/files/metadata.zip?download=1"
+    },
+    "omitted_large_metadata": "Full33,829-row CSV and full ZIP inventory omitted; pinned CSV and canonical inventory hashes retained in every selected record/plan and ml/bsd.py. Metadata ZIP whole MD5+SHA verified; audio whole-archive MD5 explicitly unverified.",
+    "record": "https://zenodo.org/records/19187100"
+  },
+  "FSD50K": {
+    "archives": {
+      "FSD50K.ground_truth.zip": {
+        "md5": "ca27382c195e37d2269c4c866dd73485",
+        "sha256": "db2396260a7b1fb06feb6ccac71685794fc89917d71c3a8d64a1de85c2cc0ebf"
+      },
+      "FSD50K.metadata.zip": {
+        "md5": "b9ea0c829a411c1d42adb9da539ed237",
+        "sha256": "9a738e032546f9a2c6e3d04566928d04a65fb79b422cc9d78bb781723537bd19"
+      }
+    },
+    "mirror_repo": "Fhrozen/FSD50k",
+    "mirror_revision": "ccf1acaff12f3f4a4c10052dddafbb6d22152c9b",
+    "record": "https://zenodo.org/records/4060432",
+    "role": "Fresh official evaluation Speech-only singleton-target labels; derived final audit, not training. Per-audio CC0/BY only."
+  },
+  "ToBee": {
+    "annotated_recording_names": 78,
+    "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+    "audio_available": 56,
+    "audio_catalog_sha256": "806330750db9d4c488ccea2cadfbeb604856e24189c1f7b6225891d7049094ba",
+    "entire_collection_final_only": true,
+    "full_original_md5_verified_for_all_27": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "record": "https://zenodo.org/records/1321278"
+  }
+}

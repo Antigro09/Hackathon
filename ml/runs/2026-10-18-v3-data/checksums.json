@@ -1,0 +1,166 @@
+{
+  "files": [
+    {
+      "bytes": 6892,
+      "path": "archive-path-map.json",
+      "sha256": "c294018ddb414198ece326f2e19e5630de8658f3e6b79377cf1fd9c3a9a9519f"
+    },
+    {
+      "bytes": 3232,
+      "path": "ATTRIBUTION.md",
+      "sha256": "b014a7712d5f27b63410cf41b02bad4f2a40337400de8a71c0e5a85adf1d01b8"
+    },
+    {
+      "bytes": 1400636,
+      "path": "final-data.json",
+      "sha256": "197e24e42c36de1368f9cd25424c98a4f8935af7c60429c4521d8d80feaa9520"
+    },
+    {
+      "bytes": 146747,
+      "path": "final-reservations.json",
+      "sha256": "08f9e9bcd5eecdcf7fe3273ffd8d8e75397ce3291938fd0d32fe6b8e10ea5b7b"
+    },
+    {
+      "bytes": 1237675,
+      "path": "manifests/bsd-final-audit.json",
+      "sha256": "95bd60db117c4a10189cd753bd3cf8a5fd2bec01dc33b324b47539ce640536db"
+    },
+    {
+      "bytes": 95106,
+      "path": "manifests/fsd-speech.json",
+      "sha256": "36d1b3cc944d5e50073f236a5b18b986cb1d08710ef6c52ef155f175c8b578f3"
+    },
+    {
+      "bytes": 79393,
+      "path": "manifests/tobee.json",
+      "sha256": "70c00546c62c8bec7be5d37a1b26fbde177ac7c11cb0ecdef51a10c05ea32f71"
+    },
+    {
+      "bytes": 1296,
+      "path": "preflight-audit.json",
+      "sha256": "e6c3751d06f57ec07274dee8de0c315b5a1b7deee807c5addc92b988fce0d1c8"
+    },
+    {
+      "bytes": 416,
+      "path": "preparation-environment.json",
+      "sha256": "8aae481910e863e31b98ba856633d1717cd50cfd854730219b1721acc3922da1"
+    },
+    {
+      "bytes": 12822,
+      "path": "quality-source-ledger.json",
+      "sha256": "5cd970fe418f9c35d1f6e16cf4279d3205bd3f1ec161097f97a1749b83d243e6"
+    },
+    {
+      "bytes": 8927,
+      "path": "README.md",
+      "sha256": "44d9274bc7bf1de493af96a44d472f979e1867b430d1ee6339f8760f6907cea5"
+    },
+    {
+      "bytes": 45,
+      "path": "requirements-source.txt",
+      "sha256": "227f702e4d55cd4a6e7efb870a17b9cc74898de17379b2e69bb6515784308acb"
+    },
+    {
+      "bytes": 792764,
+      "path": "selections/bsd-final-audit.json",
+      "sha256": "b765b0e4d110dbdee7daeab1426e54526b9a7c6e1e1992b562311aab84aa3efc"
+    },
+    {
+      "bytes": 995529,
+      "path": "selections/bsd-final.json",
+      "sha256": "ac0e9ee6f8aa88706053a5eeb2f4337e202763879ab4ddb26dddbb1bac8522b1"
+    },
+    {
+      "bytes": 796471,
+      "path": "selections/bsd-reviewed.json",
+      "sha256": "daf8e32a2c9709d30fb253fa90079bef76d7393c06208c3e772002e8d278a23a"
+    },
+    {
+      "bytes": 997233,
+      "path": "selections/bsd.json",
+      "sha256": "83479497fd04f9f12d43670f8fe51729ff0bcfc2557303ba0f5d3588e165253d"
+    },
+    {
+      "bytes": 75954,
+      "path": "selections/fsd-speech.json",
+      "sha256": "d5d8b4220402216e0f1f8527064766d26785449035e563ee85649f6b51545f4d"
+    },
+    {
+      "bytes": 35921,
+      "path": "selections/fsd.json",
+      "sha256": "8aab878ab69c67845d0a7f6878db7f3e630455698e0098fa15bda94507299af7"
+    },
+    {
+      "bytes": 44724,
+      "path": "selections/tobee.json",
+      "sha256": "e8c9d75d79d85f804dc49169e3c0604bfce51a2fd922e845b77ec62a2d468ee6"
+    },
+    {
+      "bytes": 6305,
+      "path": "source/assemble-preflight.py",
+      "sha256": "ed10ff9b162570cf19d21dccf8b1f853ccef0277925736afa7113f9db7ef576e"
+    },
+    {
+      "bytes": 24545,
+      "path": "source/ml/bsd.py",
+      "sha256": "75ede79fe736ed57ade0f4bf10d483b0895c521b871394dda5479cf373dbda56"
+    },
+    {
+      "bytes": 20960,
+      "path": "source/ml/data.py",
+      "sha256": "87afaa2a54f59d53d26af57a0441c7ac11144070cf4527fa85001ce153a50605"
+    },
+    {
+      "bytes": 20046,
+      "path": "source/ml/mimii.py",
+      "sha256": "3a4513d3c88d034da01eafbe134718caf3885cb07977c6a508e9e2a3407bbe52"
+    },
+    {
+      "bytes": 12649,
+      "path": "source/ml/test_bsd.py",
+      "sha256": "48bfe3605c7fdef508734d0cde8c53f053c036f5bedbb0a529d4c13a9a6fdba6"
+    },
+    {
+      "bytes": 7858,
+      "path": "source/ml/test_tobee.py",
+      "sha256": "48cd0123941ddbfc269ea3998477634b79649be5efe5b545837d0371bddb2eb7"
+    },
+    {
+      "bytes": 15619,
+      "path": "source/ml/tobee.py",
+      "sha256": "b09cade1fbd88b74992dc24c490b4adaed11dbdd886735a22a981eb3f8348db0"
+    },
+    {
+      "bytes": 2279,
+      "path": "source/preflight-fsd-speech.py",
+      "sha256": "2e3682c947ee5137b6fb10a8734d7f2280ff840b541a83ad2fa76c04dde379d1"
+    },
+    {
+      "bytes": 50311,
+      "path": "source-metadata/beeAnnotations.mlf",
+      "sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2"
+    },
+    {
+      "bytes": 14367,
+      "path": "source-metadata/tobee-catalog.json",
+      "sha256": "806330750db9d4c488ccea2cadfbeb604856e24189c1f7b6225891d7049094ba"
+    },
+    {
+      "bytes": 2347,
+      "path": "source-pins.json",
+      "sha256": "d5b10dc7ae158f437d1e6f3266d95030e09ef0abd8a5f9572258d649d639bcc6"
+    },
+    {
+      "bytes": 1241717,
+      "path": "superseded/bsd-v3-manifest.json",
+      "sha256": "7171dba5d1634ea643b8ce0d054a9a1ecdc2591a2f9b568602e444b4da2ea062"
+    },
+    {
+      "bytes": 19979,
+      "path": "superseded/fsd-initial-quality-preflight.json",
+      "sha256": "ee2846087098ea2bda340dd4aa04b7790e1b7f36796e3f31246b7ce8208fb1c4"
+    }
+  ],
+  "formatVersion": 1,
+  "scope": "Exact source-only archive payloads; this checksum index excludes itself. No raw audio, embeddings, model artifacts or predictions."
+}

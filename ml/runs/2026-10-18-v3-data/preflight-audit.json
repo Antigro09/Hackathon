@@ -1,0 +1,43 @@
+{
+  "combined_manifest_sha256": "197e24e42c36de1368f9cd25424c98a4f8935af7c60429c4521d8d80feaa9520",
+  "counts": {
+    "buzz": 36,
+    "mechanical_fan": 35,
+    "speech": 52,
+    "traffic": 52,
+    "unknown": 194,
+    "wind": 47
+  },
+  "final_records": 416,
+  "groups_per_label": {
+    "buzz": 13,
+    "mechanical_fan": 20,
+    "speech": 51,
+    "traffic": 32,
+    "unknown": 194,
+    "wind": 32
+  },
+  "old_records": 1951,
+  "reservation_counts": {
+    "clip_ids": 648,
+    "groups": 442,
+    "original_sha256": 648,
+    "pcm_sha256": 552,
+    "prepared_sha256": 552
+  },
+  "reservation_sha256": "08f9e9bcd5eecdcf7fe3273ffd8d8e75397ce3291938fd0d32fe6b8e10ea5b7b",
+  "source_manifests": [
+    {
+      "path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\bsd-final-audit\\manifest.json",
+      "sha256": "95bd60db117c4a10189cd753bd3cf8a5fd2bec01dc33b324b47539ce640536db"
+    },
+    {
+      "path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\tobee\\manifest.json",
+      "sha256": "70c00546c62c8bec7be5d37a1b26fbde177ac7c11cb0ecdef51a10c05ea32f71"
+    },
+    {
+      "path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\fsd-speech\\manifest.json",
+      "sha256": "36d1b3cc944d5e50073f236a5b18b986cb1d08710ef6c52ef155f175c8b578f3"
+    }
+  ]
+}
