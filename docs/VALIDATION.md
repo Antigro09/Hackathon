@@ -2,7 +2,7 @@
 
 Build date: **October 18, 2026 (America/New_York)**. This record distinguishes software checks from browser integration and physical measurement validation. Algorithm: **`tw-screen-v1`**.
 
-**Current status:** the combined checkout passed **334 tests across 16 files** (299 application + 35 standalone-lab checks) and TypeScript/Vite build. The latest changes expose recording durations and explain negative dB; the AI copy uses deterministic, independently checked resampling. Home navigation, Learn exhibits, map, 5/15/30-second observations, and comparison passed the prior expanded public HTTPS verification. See [deployment evidence](DEPLOYMENT.md). Historical 129/264/294-test runs remain separately labeled.
+**Current application/lab status:** **339 tests across 16 files** (304 application + 35 standalone-lab checks), with TypeScript/Vite build passed. The latest changes expose recording durations, explain negative dB and remove raw spectrum-bin dumps from text exports; the AI copy uses deterministic, independently checked resampling. Home navigation, Learn exhibits, map, 5/15/30-second observations, and comparison passed the prior expanded public HTTPS verification. See [deployment evidence](DEPLOYMENT.md). Historical 129/264/294/334-test runs remain separately labeled.
 
 ## Capture-control and resampling follow-up
 
@@ -11,6 +11,12 @@ The initial Observation mode was Demo, which hid the existing recording-duration
 Local Chrome integration exercised the new shortcut and a real AudioWorklet with virtual microphone input: a 15-second result/report retained 720,000 samples and 174 complete frames at 48 kHz. The virtual input clipped and correctly produced an inconclusive quality state. A separate 15-second 4 kHz WAV import produced A −22.0 dB, C −23.8 dB and C−A −1.8 dB, with the explanations visible and the AI panel retaining its first-five-second boundary. Selecting 30 seconds rejected that shorter file. At 1366, 1024 and 390 px, duration controls fit without document-width overflow. These are software/browser checks, not physical-device validation.
 
 The AI resampler matches independent SciPy references for 20 signals/rates at 448 positions per case. A separate six-signal browser diagnostic found bit-exact complete PCM after conversion and measured remaining native/WASM embedding drift; see [AI experiment evidence](AI_EXPERIMENT_RESULTS.md#browser-resampling-correction). No trained classifier or thresholds were promoted.
+
+## Concise text export
+
+The text report retains recording context, important results, quality notes, references and a short spectrum summary. It no longer serializes individual frequency/power bins. Full immutable arrays, the actual SVG path and the printed graph remain unchanged. The report offers “Download text summary” and explains that Print / save PDF includes the visual graph.
+
+The focused report suite passed 35 checks, including actual 15-second, 8,192-point FFT results at 44.1/48 kHz with over 3,000 bins. A native browser download was 7,623 bytes and 109 lines, with no bin rows; notes, references and 174-frame metadata remained. The SVG path was identical before and after download, and the graph was visible in the generated PDF. Report controls fit 320/390 px without horizontal overflow. Actual report length varies with user notes and references.
 
 ## Environment and pinned dependencies
 

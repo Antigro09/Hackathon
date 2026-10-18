@@ -7,7 +7,7 @@ import type { AnalysisResult, ObservationContext } from '../src/types';
 import { buildReport } from '../src/report/buildReport';
 import { ReportView } from '../src/report/ReportView';
 import { ReportSpectrum } from '../src/report/ReportSpectrum';
-import { buildReportSpectrum, plotReportSpectrum, reportFrequencyX, REPORT_PLOT, REPORT_SPECTRUM_UNITS } from '../src/report/spectrum';
+import { buildReportSpectrum, plotReportSpectrum, reportFrequencyX, reportSpectrumText, REPORT_PLOT, REPORT_SPECTRUM_UNITS } from '../src/report/spectrum';
 
 const context: ObservationContext = { jurisdiction: 'unknown-other', locationDescription: '', environment: 'unknown', recurrenceNotes: '', conditionsNotes: '', suspectedSourceNotes: '' };
 const base: AnalysisResult = {
@@ -21,7 +21,7 @@ const base: AnalysisResult = {
 };
 
 describe('report spectrum snapshot and rendering', () => {
-  it('preserves a real engine spectrum and its metadata in HTML and the text fallback', () => {
+  it('preserves the real engine graph and summarizes its metadata in text', () => {
     const input = analyzePcm(generateFixture('sine-63', 48000), 48000, syntheticMeta('sine-63'));
     const report = buildReport(input, context);
     const html = renderToStaticMarkup(createElement(ReportView, { report }));
@@ -42,7 +42,40 @@ describe('report spectrum snapshot and rendering', () => {
     expect(html).toContain('log scale');
     expect(html).toContain('stroke="#111"');
     expect(html).not.toContain('linearGradient');
-    expect(report.text).toContain(`${input.spectrum.hz[20]}, ${input.spectrum.powerDb[20]}`);
+    expect(report.text).not.toContain(`${input.spectrum.hz[20]}, ${input.spectrum.powerDb[20]}`);
+    expect(report.text).toContain('Print / save PDF');
+    expect(report.text).toContain('Spectrum quality: available');
+    expect(report.text).not.toContain('Spectrum bins (');
+  });
+
+  it.each([44100, 48000])('keeps a 15-second full-FFT report concise at %i Hz without changing any graph data', fs => {
+    const pcm = Float32Array.from({ length: 15 * fs }, (_, index) => 0.1 * Math.sin(2 * Math.PI * 63 * index / fs));
+    const input = analyzePcm(pcm, fs, {
+      inputKind: 'microphone', fixtureId: null, channelPolicy: 'mono-capture', deviceSettings: null,
+      recordedAtUtc: '2026-10-18T15:00:00.000Z', inputLabel: 'Microphone screening sample',
+    });
+    const report = buildReport(input, { ...context, jurisdiction: 'loudoun',
+      locationDescription: 'Manually entered test spot', recurrenceNotes: 'Repeated hum after sunset' });
+    const plotBeforeText = plotReportSpectrum(report.spectrum)!;
+    const graphBeforeText = renderToStaticMarkup(createElement(ReportSpectrum, { spectrum: report.spectrum }));
+    const summary = reportSpectrumText(report.spectrum);
+    expect(input.fftSize).toBe(8192);
+    expect(input.spectrum.hz.length).toBeGreaterThan(3000);
+    expect(input.frameCount).toBe(fs === 48000 ? 174 : 160);
+    expect(report.text.split('\n').length).toBeLessThan(160);
+    expect(new TextEncoder().encode(report.text).byteLength).toBeLessThan(16000);
+    expect(summary).toHaveLength(10);
+    expect(report.text).not.toMatch(/^\d+(?:\.\d+)?,\s*-?\d+(?:\.\d+)?(?:e[+-]?\d+)?$/m);
+    expect(report.text).not.toContain('Spectrum bins (');
+    for (const text of ['15.000 seconds', 'Manually entered test spot', 'Repeated hum after sunset',
+      'MICROPHONE INPUT', 'Sustained-peak screen', 'Recording quality', 'Dated official reference links', 'https://']) {
+      expect(report.text).toContain(text);
+    }
+    expect(report.spectrum.hz).toEqual(input.spectrum.hz);
+    expect(report.spectrum.powerDb).toEqual(input.spectrum.powerDb);
+    expect(plotReportSpectrum(report.spectrum)).toEqual(plotBeforeText);
+    expect(renderToStaticMarkup(createElement(ReportSpectrum, { spectrum: report.spectrum }))).toBe(graphBeforeText);
+    expect(graphBeforeText).toContain(plotBeforeText.line);
   });
 
   it('freezes all spectrum arrays and peak values against later result mutations', () => {
@@ -79,6 +112,9 @@ describe('report spectrum snapshot and rendering', () => {
     const html = renderToStaticMarkup(createElement(ReportSpectrum, { spectrum: report.spectrum }));
     expect(report.spectrum.peakHz).toBeNull();
     expect(html).not.toContain('Peak candidate ≈');
+    expect(report.text).not.toContain('Approximate peak candidate:');
+    expect(report.text).toContain(`Spectrum quality: ${report.spectrum.status}`);
+    expect(report.text).not.toContain('Spectrum bins (');
     if (fixture === 'clipped') {
       expect(report.spectrum.status).toBe('limited');
       expect(html).toContain('overload distortion');
@@ -98,6 +134,9 @@ describe('report spectrum snapshot and rendering', () => {
     { spectrum: { hz: [1000, 20], powerDb: [-40, -50] } },
     { analyzedBandHz: [0, 20000] as [number, number] },
     { analyzedBandHz: [20, 20] as [number, number] },
+    { analyzedBandHz: [20, Infinity] as [number, number] },
+    { analyzedBandHz: [NaN, 20000] as [number, number] },
+    { frameCount: NaN },
     { qualityCodes: ['non-finite'] as AnalysisResult['qualityCodes'] },
   ])('shows an explanatory state for unavailable or invalid data %#', change => {
     const spectrum = buildReportSpectrum({ ...base, ...change }, 'MICROPHONE INPUT — uncalibrated browser capture');
@@ -107,6 +146,11 @@ describe('report spectrum snapshot and rendering', () => {
     expect(html).toContain('No usable spectrum');
     expect(html).not.toContain('<path');
     expect(html).not.toContain('Peak candidate ≈');
+    const text = reportSpectrumText(spectrum).join('\n');
+    expect(text).toContain('Spectrum quality: unavailable');
+    expect(text).not.toMatch(/NaN|Infinity/);
+    expect(text).not.toContain('Approximate peak candidate:');
+    expect(text.split('\n')).toHaveLength(10);
   });
 });
 
