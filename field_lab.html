@@ -2,164 +2,782 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>FIELD LAB — TonalWatch spike campaign (standalone)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23223f2e'/%3E%3Cpath d='M4 16h6l3-8 6 16 3-8h6' fill='none' stroke='%23cce5ae' stroke-width='2'/%3E%3C/svg%3E">
+<title>FIELD LAB — TonalWatch standalone campaign instrument</title>
 <style>
-  body { font-family: system-ui, sans-serif; background: #0f1418; color: #e8e8e8; max-width: 980px; margin: 1.5rem auto; padding: 0 1rem; }
-  h1 { font-size: 1.35rem; } h2 { font-size: 1.05rem; margin-top: 1.4rem; color: #9fd4ff; }
-  .tier { border: 1px solid #345; border-radius: 10px; padding: .8rem 1rem; margin: .6rem 0; background: #161d24; }
-  .tier b { color: #ffd479; }
-  small { color: #9ab; }
-  button { font-size: .95rem; padding: .45rem .9rem; margin: .2rem .4rem .2rem 0; border-radius: 6px; border: 1px solid #456; background: #223040; color: #cde; cursor: pointer; }
-  button.on { background: #2a5; color: #031; }
-  .row { display: flex; gap: 1rem; flex-wrap: wrap; margin: .6rem 0; }
-  .card { background: #1a2027; border-radius: 10px; padding: .7rem 1rem; flex: 1; min-width: 150px; }
-  .big { font-size: 1.9rem; font-weight: 700; }
-  input, select { background: #0d1216; color: #e8e8e8; border: 1px solid #345; border-radius: 6px; padding: .4rem .6rem; margin: .2rem 0; }
-  table { width: 100%; border-collapse: collapse; font-size: .85rem; margin-top: .5rem; }
-  td, th { border: 1px solid #2a3440; padding: .3rem .5rem; text-align: left; }
-  .status { font-weight: 700; }
-  .hit { color: #7fe39f; } .warn { color: #ffd479; }
-  ol { margin: .3rem 0 .3rem 1.2rem; } li { margin: .15rem 0; }
-  textarea { width: 100%; background:#0d1216; color:#e8e8e8; border:1px solid #345; border-radius:6px; min-height: 90px; }
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#0f1418;color:#e8e8e8;line-height:1.6}*{box-sizing:border-box}body{max-width:1180px;margin:1.5rem auto;padding:0 1rem 3rem;overflow-wrap:anywhere}h1{font-size:1.5rem;line-height:1.3}h2{font-size:1.1rem;margin-top:1.6rem;color:#9fd4ff}p{margin:.7rem 0}a{color:#a9d7ff}.tier,.notice{border:1px solid #345;border-radius:10px;padding:.8rem 1rem;margin:.7rem 0;background:#161d24}.tier b{color:#ffd479}.notice{border-color:#6c623b;background:#292719;color:#eadbb3}small{color:#aabcc8;font-size:.8rem}button{font:inherit;font-size:.9rem;padding:.5rem .85rem;margin:.2rem .4rem .2rem 0;border-radius:6px;border:1px solid #456;background:#223040;color:#d4e9ff;cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,.table-scroll:focus-visible{outline:3px solid #a3c978;outline-offset:3px}button#stop{border-color:#b38b42}.row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:.8rem 0}.card{background:#1a2027;border-radius:10px;padding:.8rem 1rem;min-width:0}.big{font-size:1.9rem;font-weight:700;font-variant-numeric:tabular-nums}.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem 1rem}label{display:block;font-size:.85rem;min-width:0}input,select,textarea{display:block;width:100%;font:inherit;background:#0d1216;color:#e8e8e8;border:1px solid #345;border-radius:6px;padding:.5rem .6rem;margin-top:.3rem;min-width:0}textarea{min-height:70px;resize:vertical}.full-width{grid-column:1/-1}.status{font-weight:600;font-size:.9rem;margin:.7rem 0;min-height:1.5em}progress{display:block;width:100%;max-width:500px;accent-color:#a2ca80;margin:10px 0}canvas{display:block;width:100%;height:auto;aspect-ratio:960/220;background:#0b0f13;border-radius:8px}.table-scroll{max-width:100%;overflow:auto;border:1px solid #2a3440;border-radius:7px}table{min-width:1800px;width:100%;border-collapse:collapse;font-size:.76rem}td,th{border:1px solid #2a3440;padding:.4rem .55rem;text-align:left;vertical-align:top;max-width:260px;overflow-wrap:anywhere;white-space:pre-wrap}th{background:#1d2934;color:#cfdeeb}tr.low-frequency{background:#342f1a}tr.legacy{background:#252a2c;color:#aab4ba}.method-note,.caption{font-size:.8rem;color:#b2c1ce;line-height:1.8}.quality{padding:.8rem 1rem;background:#2b2a1b;border:1px solid #5c5638;border-radius:7px;min-height:40px;color:#eadbb3}.line-candidates{font-size:.9rem;line-height:1.8;margin:.8rem 0}details{margin:1rem 0;padding:.8rem 1rem;border:1px solid #345;border-radius:8px}summary{cursor:pointer;font-size:.85rem}ol{padding-left:1.3rem}li+li{margin-top:.5rem}.buddy-panel{margin:1rem 0;padding:1rem;border:1px solid #345;border-radius:9px;background:#161d24}.buddy-panel p{font-size:.8rem}#buddy-result{font-size:.9rem;color:#dce6cc}footer{border-top:1px solid #345;padding-top:1rem;font-size:.8rem;color:#aabcc8;margin-top:1.5rem}@media(max-width:700px){.fields{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.row{gap:.6rem}.card{padding:.7rem}.big{font-size:1.6rem}}@media(max-width:430px){body{padding:0 .8rem 2rem}.fields{grid-template-columns:minmax(0,1fr)}.row{grid-template-columns:minmax(0,1fr)}h1{font-size:1.3rem}button{max-width:100%;white-space:normal;text-align:left}.full-width{grid-column:auto}}
 </style>
 </head>
 <body>
-<h1>FIELD LAB — standalone spike instrument</h1>
-<p><small>Uncalibrated consumer mic. Gap = C−A on captured signal; honest verdict = relative. This file is separate from the app — it's the experiment bench.</small></p>
-
-<h2>Protocol (every capture)</h2>
-<ol>
-  <li><b>Stand still.</b> Walk = finding spots, never measuring them.</li>
-  <li>Three captures per spot, ~30 s apart (E1 uses the duration selector).</li>
-  <li>Log spot, in/out, distance, what you hear. Auto-logged below.</li>
-  <li><b>Gap ≥ 15 → freeze, take THREE confirmations.</b></li>
-</ol>
-
-<h2>The tiers</h2>
-<div class="tier"><b>TIER 1 — signature hunt (E5).</b> Kitchen exhaust / rooftop AHU · gym air system · stairwell AC unit · exterior transformer pads (grey cabinets, HIGH VOLTAGE) · elevator machine room. Hunt: fans + transformers = the 50–250 Hz tonal band, same equipment class as data center cooling.</div>
-<div class="tier"><b>TIER 2 — controlled experiments.</b> <b>E1 duration:</b> stairwell, 5s vs 15s vs 30s ×3. <b>E2 distance:</b> one loud source, 2m / 8m / 20m — does gap hold while level drops (mile-away physics)? <b>E3 masking:</b> quiet corner alone vs same corner + talking person. <b>E4 walk test:</b> stationary ×3 vs one slow walk past the same spot — compare spread.</div>
-<div class="tier"><b>TIER 3 — free exhibits.</b> 60 Hz mains check (quiet room, nothing playing, find 60/120 Hz peak) · railroad train pass (log it, exclude as extraneous) · buddy check (two devices, same spot — Δgap = device offset).</div>
-
+<h1>FIELD LAB — standalone campaign instrument</h1>
+<p class="method-note">Self-contained microphone capture, PCM analysis, campaign log and CSV. No imports, build step, backend, upload or source classifier. <a href="https://tonalwatch.vercel.app/#/measure">Open the separate TonalWatch app</a>.</p>
+<div class="notice"><strong>Uncalibrated screening only. No source identification or legal-compliance determination.</strong><p>Weighted levels are dB re digital RMS 1. C−A describes the captured spectrum. The low-frequency screen and sustained narrowband peak check are independent; neither establishes a source or legal tonality. Old stored rows remain visibly legacy/unverified.</p></div>
+<h2>Campaign protocol & experiments</h2>
+<ol><li>Record stationary when comparing stationary observations. Label walking captures separately. Enter what you heard and the conditions as user notes.</li><li>Repeat captures to describe variability, retaining all observations and any exclusion reasons. A larger C−A gap alone does not establish a tone or require a source conclusion.</li><li>Export the CSV before closing if browser storage is unavailable. The last captured PCM can also be downloaded as a float WAV for independent reanalysis.</li></ol>
+<div class="tier"><b>E1 — duration comparison.</b> Compare actual 5/15/30-second recordings, with all complete spectral windows included. Longer browser recordings do not establish compliance with a professional measurement procedure.</div>
+<div class="tier"><b>E2 — distance · E3 — masking · E4 — walking versus stationary.</b> Enter estimated distance, surrounding sounds and movement in the notes. Changes in source activity, placement, microphone response and processing can change results; these experiments do not establish a general attenuation law.</div>
+<div class="tier"><b>E5 — recurring hum / spectrum observation.</b> Describe the audible sound and capture its spectrum. Equipment names remain user hypotheses; a peak or a large gap does not identify a fan, transformer, building or transmitted sound.</div>
+<div class="tier"><b>T3 — 60/120 Hz neighborhoods, buddy comparison and passing events.</b> Report only actual persistent local peak bins with their resolution. Buddy comparisons describe differences and are not calibration offsets. Tag passing events explicitly rather than silently deleting data.</div>
 <h2>Instrument</h2>
-<div>
-  <label>Experiment: <select id="exp">
-    <option>E0 free capture</option><option>E1 duration law</option><option>E2 distance attenuation</option>
-    <option>E3 masking</option><option>E4 walk-vs-still</option><option>E5 signature hunt</option><option>T3 mains check</option><option>T3 buddy check</option><option>T3 train (exclude)</option>
-  </select></label>
-  <label>Spot name: <input id="spot" size="22" placeholder="stairwell AC @2m"></label>
-  <label>In/Out: <select id="io"><option>in</option><option>out</option></select></label>
-  <label>Distance: <input id="dist" size="7" placeholder="2m / —"></label>
-  <label>Ears say: <input id="ears" size="18" placeholder="AC drone, audible"></label>
-  <label>Capture: <select id="dur"><option value="5">5 s</option><option value="15" selected>15 s</option><option value="30">30 s</option></select></label>
+<div id="capture-fields" class="fields">
+<label for="exp">Experiment<select id="exp"><option>E0 free capture</option><option>E1 duration comparison</option><option>E2 distance observation</option><option>E3 masking</option><option>E4 walk-vs-still</option><option>E5 recurring hum / spectrum</option><option>T3 60/120 Hz neighborhoods</option><option>T3 buddy check</option><option>T3 passing event</option></select></label>
+<label for="spot">Spot / conditions (user note)<input id="spot" maxlength="250" placeholder="Describe the recording location"></label>
+<label for="io">Environment (user note)<select id="io"><option value="in">Indoors</option><option value="out">Outdoors</option><option value="unknown">Unknown</option></select></label>
+<label for="dist">Estimated distance (user note)<input id="dist" maxlength="120" placeholder="Distance or unknown"></label>
+<label for="device-note">Device note (manual, unverified)<input id="device-note" maxlength="120" placeholder="For example: device A"></label>
+<label for="dur">Analyzed recording duration<select id="dur"><option value="5">5 s</option><option value="15" selected>15 s</option><option value="30">30 s</option></select><small>Additional 0.5 s warm-up is excluded.</small></label>
+<label for="ears" class="full-width">What you hear / movement / recurrence (user note)<textarea id="ears" maxlength="2000" placeholder="Describe observations; keep suspected sources unverified"></textarea></label>
 </div>
-<button id="start">▶ Start capture</button> <span id="status" class="status"></span>
-<div class="row">
-  <div class="card"><small>A relative (dB re RMS1)</small><div class="big" id="a">—</div></div>
-  <div class="card"><small>C relative</small><div class="big" id="c">—</div></div>
-  <div class="card"><small>GAP (C−A)</small><div class="big" id="g">—</div><small id="peaks"></small></div>
-  <div class="card"><small>60 Hz region peak</small><div class="big" id="mains">—</div><small>dB above local floor</small></div>
-</div>
-<canvas id="spectrum" style="width:100%; height:110px; background:#0b0f13; border-radius:8px;"></canvas>
+<p><button id="start" type="button">▶ Start capture</button><button id="stop" type="button" disabled>Stop / cancel capture</button></p>
+<p id="status" class="status" role="status">Ready · no microphone access until Start.</p><progress id="progress" value="0" max="1" aria-label="Actual sample collection progress"></progress>
+<div class="row"><div class="card"><small>A-weighted digital level<br>dB re digital RMS 1 · uncalibrated</small><div class="big" id="a">—</div></div><div class="card"><small>C-weighted digital level<br>dB re digital RMS 1 · uncalibrated</small><div class="big" id="c">—</div></div><div class="card"><small>Captured-spectrum C−A<br>dB · uncalibrated input</small><div class="big" id="g">—</div></div></div>
+<p id="peaks" class="status">Awaiting a completed capture</p>
+<p id="mains" class="line-candidates">Awaiting captured PCM · 60/120 Hz neighborhoods are frequency observations, not mains/equipment identification.</p>
+<p id="quality" class="quality" role="status"></p>
+<canvas id="spectrum" width="960" height="220" role="img" aria-label="Full-recording averaged digital power spectral density; numerical metadata follows"></canvas>
+<p class="caption">Log-frequency spectrum: 20 Hz–20 kHz. Density units: dB re (digital RMS 1)²/Hz. The display range is relative to the largest plotted density; A/C levels integrate actual linear power. Finite FFT resolution and microphone response limit interpretation.</p>
+<p id="capture-meta" class="method-note"></p>
+<div class="buddy-panel"><button id="buddy" type="button" disabled>Compare with previous logged capture</button><p>Uses the immediately previous campaign entry only, with explicit provenance. It does not connect phones. For two devices, retain each device’s exported rows and context; differences do not make their responses interchangeable.</p><p id="buddy-result" role="status"></p></div>
+<h2>Campaign log</h2><p><button id="csv" type="button">⬇ Export CSV</button><button id="wav" type="button" disabled>Download last PCM WAV</button><button id="raw-log" type="button" hidden>Backup stored raw log</button><button id="wipe" type="button">Clear log</button></p>
+<p id="storage-note" class="method-note" role="status"></p><p id="log-count" class="method-note"></p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Campaign observations table; scroll horizontally for all columns"><table id="log"><thead><tr><th>#</th><th>Capture-start receipt UTC</th><th>Experiment</th><th>Spot / conditions</th><th>In/Out</th><th>Distance note</th><th>What I hear</th><th>Device note</th><th>Actual duration s</th><th>Effective Hz</th><th>A digital dB</th><th>C digital dB</th><th>C−A dB</th><th>60/120 Hz candidates</th><th>Independent screening observations</th><th>Provenance / quality</th></tr></thead><tbody id="log-body"></tbody></table></div>
+<details><summary>Method, clock and storage limits</summary><p class="method-note">Version tw-field-lab-v2 uses sample-counted first-channel microphone PCM after 0.5 s warm-up. It applies a periodic Hann window (8,192 samples, 4,096-sample hop), removes each frame’s mean, averages linear one-sided power density across all complete frames, and integrates A/C responses normalized at 1 kHz over 20 Hz–20 kHz. Silence, clipping, non-finite samples, incomplete capture and unsupported rates make numeric indicators unavailable. Browser processing flags remain attached. This is not hardware or acoustic field validation.</p><p class="method-note">The UTC capture timestamp is the browser-clock receipt of the first post-warm-up sample notification; clock accuracy is not established. Sample count, effective rate and analyzed duration are stored separately. Old log records are retained unchanged inside a legacy wrapper and exported in the legacy_original_json column; old numeric values and labels are not revalidated. Invalid stored JSON is not overwritten until the user explicitly clears it.</p><p class="method-note">Recording a peak near 60/120 Hz does not identify a source; not finding one does not rule out a sound or establish microphone sensitivity. C−A changes with spectrum and device processing, not only source changes. Constant gain cancels only for otherwise identical unclipped samples; microphone response shaping does not.</p></details>
+<footer>Audio and campaign entries remain on this device. CSV/WAV downloads require a deliberate click. Keep synthetic demonstrations, externally reported data and real recordings distinct. Uncalibrated screening only; no source identification or legal-compliance determination.</footer>
+<script id="field-lab-dsp">
+/* BEGIN TONALWATCH STANDALONE DSP — no imports, remote code, or build step.
+ * Full-recording PCM, periodic Hann 8192, hop 4096; digital RMS-1 units.
+ * The separate field-lab version is not hardware calibration or a legal method.
+ */
+var TW_FIELD_FFT_SIZE = 8192;
+var TW_FIELD_HOP_SIZE = 4096;
+var twFieldTransformCache = null;
+var twFieldWeightCache = new Map();
 
-<h2>Campaign log <button id="csv">⬇ Export CSV</button> <button id="wipe">Clear log</button></h2>
-<table id="log"><tr><th>#</th><th>time</th><th>exp</th><th>spot</th><th>io</th><th>dist</th><th>ears</th><th>s</th><th>A</th><th>C</th><th>gap</th><th>60Hz pk</th><th>verdict</th></tr></table>
-<p><small>Verdict: gap ≥15 → <b class="hit">TONAL SIGNATURE — take 3 confirmations now</b>; 10–15 → "borderline, confirm"; &lt;10 → "not indicated". Levels are uncalibrated relative values; only the gap compares across devices.</small></p>
+function twFieldTransformPlan() {
+  if (twFieldTransformCache) return twFieldTransformCache;
+  var n = TW_FIELD_FFT_SIZE;
+  var reverse = new Uint16Array(n);
+  var window = new Float64Array(n);
+  var cosine = new Float64Array(n / 2);
+  var sine = new Float64Array(n / 2);
+  var windowPower = 0;
+  for (var i = 0; i < n; i++) {
+    var bits = i;
+    var reversed = 0;
+    for (var b = 0; b < 13; b++) { reversed = (reversed << 1) | (bits & 1); bits >>>= 1; }
+    reverse[i] = reversed;
+    window[i] = 0.5 - 0.5 * Math.cos(2 * Math.PI * i / n);
+    windowPower += window[i] * window[i];
+    if (i < n / 2) {
+      cosine[i] = Math.cos(-2 * Math.PI * i / n);
+      sine[i] = Math.sin(-2 * Math.PI * i / n);
+    }
+  }
+  twFieldTransformCache = { reverse: reverse, window: window, cosine: cosine, sine: sine, windowPower: windowPower };
+  return twFieldTransformCache;
+}
 
-<script>
-const A_CON = {f1:20.598997, f2:107.65265, f3:737.86223, f4:12194.217};
-function RA(f){const {f1,f2:f1sq,f3,f4}=A_CON,f2v=f*f;return f4*f4*f2v*f2v/((f2v+f1*f1)*Math.sqrt((f2v+f1sq*f1sq)*(f2v+f3*f3))*(f2v+f4*f4));}
-function RC(f){const {f1,f4}=A_CON,f2v=f*f;return f4*f4*f2v/((f2v+f1*f1)*(f2v+f4*f4));}
-const gA=f=>RA(f)/RA(1000), gC=f=>RC(f)/RC(1000);
+function twFieldOneSidedPsd(pcm, offset, fs) {
+  var n = TW_FIELD_FFT_SIZE;
+  var plan = twFieldTransformPlan();
+  var real = new Float64Array(n);
+  var imaginary = new Float64Array(n);
+  var mean = 0;
+  for (var i = 0; i < n; i++) mean += pcm[offset + i];
+  mean /= n;
+  for (var j = 0; j < n; j++) real[plan.reverse[j]] = (pcm[offset + j] - mean) * plan.window[j];
+  // Iterative radix-2 Cooley–Tukey transform; the input is bit-reversed above.
+  for (var width = 2; width <= n; width *= 2) {
+    var half = width / 2;
+    var step = n / width;
+    for (var start = 0; start < n; start += width) {
+      for (var k = 0; k < half; k++) {
+        var upper = start + k;
+        var lower = upper + half;
+        var twiddle = k * step;
+        var transformedReal = plan.cosine[twiddle] * real[lower] - plan.sine[twiddle] * imaginary[lower];
+        var transformedImaginary = plan.cosine[twiddle] * imaginary[lower] + plan.sine[twiddle] * real[lower];
+        real[lower] = real[upper] - transformedReal;
+        imaginary[lower] = imaginary[upper] - transformedImaginary;
+        real[upper] += transformedReal;
+        imaginary[upper] += transformedImaginary;
+      }
+    }
+  }
+  var psd = new Float64Array(n / 2 + 1);
+  for (var bin = 0; bin < psd.length; bin++) {
+    var factor = bin === 0 || bin === n / 2 ? 1 : 2;
+    psd[bin] = factor * (real[bin] * real[bin] + imaginary[bin] * imaginary[bin]) / (fs * plan.windowPower);
+  }
+  return psd;
+}
 
-let ctx, an, buf, running=false, target=0, got=0, t0=0;
-const $=id=>document.getElementById(id);
-$('start').onclick = async () => {
-  if (running) return;
+function twFieldRawA(hz) {
+  var f2 = hz * hz;
+  return (Math.pow(12194.217, 2) * f2 * f2) /
+    ((f2 + Math.pow(20.598997, 2)) * Math.sqrt((f2 + Math.pow(107.65265, 2)) * (f2 + Math.pow(737.86223, 2))) * (f2 + Math.pow(12194.217, 2)));
+}
+
+function twFieldRawC(hz) {
+  var f2 = hz * hz;
+  return (Math.pow(12194.217, 2) * f2) / ((f2 + Math.pow(20.598997, 2)) * (f2 + Math.pow(12194.217, 2)));
+}
+
+function twFieldWeights(fs) {
+  if (twFieldWeightCache.has(fs)) return twFieldWeightCache.get(fs);
+  var a = new Float64Array(TW_FIELD_FFT_SIZE / 2 + 1);
+  var c = new Float64Array(TW_FIELD_FFT_SIZE / 2 + 1);
+  var aReference = twFieldRawA(1000);
+  var cReference = twFieldRawC(1000);
+  for (var k = 1; k < a.length; k++) {
+    var hz = k * fs / TW_FIELD_FFT_SIZE;
+    a[k] = Math.pow(twFieldRawA(hz) / aReference, 2);
+    c[k] = Math.pow(twFieldRawC(hz) / cReference, 2);
+  }
+  var weights = { aSquared: a, cSquared: c };
+  twFieldWeightCache.set(fs, weights);
+  return weights;
+}
+
+function twFieldMedian(values) {
+  if (!values.length) return 0;
+  var sorted = values.slice().sort(function(a, b) { return a - b; });
+  var middle = Math.floor(sorted.length / 2);
+  return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2;
+}
+
+function twFieldFramePeaks(psd, df, bandEnd) {
+  var peaks = [];
+  var low = Math.ceil(20 / df);
+  var high = Math.min(psd.length - 1, Math.floor(bandEnd / df));
+  for (var k = Math.ceil(40 / df); k <= Math.min(Math.floor(2000 / df), high - 1); k++) {
+    if (!(psd[k] > 0 && psd[k] >= psd[k - 1] && psd[k] > psd[k + 1])) continue;
+    var core = 0;
+    var neighborhood = 0;
+    var background = [];
+    for (var b = Math.max(low, k - 6); b <= Math.min(high, k + 6); b++) {
+      neighborhood += psd[b];
+      if (Math.abs(b - k) <= 1) core += psd[b];
+      if (Math.abs(b - k) >= 3) background.push(psd[b]);
+    }
+    if (background.length < 4 || neighborhood <= 0) continue;
+    var prominenceDb = 10 * Math.log10((core / 3) / Math.max(twFieldMedian(background), 1e-20));
+    if (prominenceDb >= 12 && core / neighborhood >= 0.60) peaks.push({ bin: k, prominenceDb: prominenceDb });
+  }
+  return peaks;
+}
+
+function twFieldSustainedPeak(frames, df, referenceHz) {
+  if (frames.length < 20) return null;
+  var best = null;
+  for (var center = Math.ceil(40 / df); center <= Math.floor(2000 / df); center++) {
+    var actualBins = [];
+    var prominences = [];
+    for (var f = 0; f < frames.length; f++) {
+      var candidate = null;
+      for (var p = 0; p < frames[f].length; p++) {
+        var peak = frames[f][p];
+        if (Math.abs(peak.bin - center) > 1) continue;
+        // A reference-window result must still be an actual qualifying peak.
+        if (referenceHz !== undefined && Math.abs(peak.bin * df - referenceHz) > df) continue;
+        if (!candidate || peak.prominenceDb > candidate.prominenceDb) candidate = peak;
+      }
+      if (candidate) { actualBins.push(candidate.bin); prominences.push(candidate.prominenceDb); }
+    }
+    if (!best || actualBins.length > best.actualBins.length ||
+      (actualBins.length === best.actualBins.length && twFieldMedian(prominences) > twFieldMedian(best.prominences))) {
+      best = { actualBins: actualBins, prominences: prominences };
+    }
+  }
+  if (!best || best.actualBins.length / frames.length < 0.8) return null;
+  var representativeBin = twFieldMedian(best.actualBins);
+  if (referenceHz !== undefined) {
+    // A line-window marker uses a bin that was actually observed (the most
+    // frequent one), rather than inventing a half-bin from an even median.
+    var counts = new Map();
+    best.actualBins.forEach(function(bin) { counts.set(bin, (counts.get(bin) || 0) + 1); });
+    representativeBin = Array.from(counts.keys()).sort(function(a, b) {
+      return counts.get(b) - counts.get(a) || Math.abs(a * df - referenceHz) - Math.abs(b * df - referenceHz) || a - b;
+    })[0];
+  }
+  return {
+    centerHz: representativeBin * df,
+    prominenceDb: twFieldMedian(best.prominences),
+    persistentFrameFraction: best.actualBins.length / frames.length
+  };
+}
+
+function analyzeStandalonePcm(pcm, fs, expectedDuration) {
+  if (expectedDuration === undefined) expectedDuration = 5;
+  var usablePcm = ArrayBuffer.isView(pcm) && typeof pcm.subarray === 'function' && Number.isSafeInteger(pcm.length);
+  var count = usablePcm ? pcm.length : 0;
+  var duration = Number.isFinite(fs) && fs > 0 ? count / fs : 0;
+  var bandEnd = Number.isFinite(fs) && fs > 0 ? Math.min(20000, fs / 2) : 0;
+  var codes = [];
+  function flag(code) { if (codes.indexOf(code) === -1) codes.push(code); }
+  var result = {
+    algorithmVersion: 'tw-field-lab-v2', sampleRateHz: fs, sampleCount: count,
+    durationSeconds: duration, expectedDurationSeconds: expectedDuration,
+    fftSize: TW_FIELD_FFT_SIZE, hopSize: TW_FIELD_HOP_SIZE,
+    binSpacingHz: fs === 44100 || fs === 48000 ? fs / TW_FIELD_FFT_SIZE : null,
+    analyzedBandHz: [20, bandEnd], frameCount: 0,
+    aDigitalDb: null, cDigitalDb: null, cMinusADb: null,
+    lowFrequencyScreen: 'inconclusive', peakScreen: 'inconclusive', peakCandidate: null,
+    qualityCodes: codes, digitalRms: null, digitalPeak: null, clippedSampleCount: 0,
+    spectrum: { hz: [], powerDb: [] }, lineFrequencyCandidates: []
+  };
+  if (fs !== 44100 && fs !== 48000) flag('unsupported-rate');
+  if ([5, 15, 30].indexOf(expectedDuration) === -1 || duration < expectedDuration || count < TW_FIELD_FFT_SIZE) flag('incomplete');
+  if (!usablePcm) { flag('non-finite'); return result; }
+  for (var i = 0; i < count; i++) {
+    if (!Number.isFinite(pcm[i])) { flag('non-finite'); return result; }
+  }
+  var squareSum = 0;
+  var peakAbsolute = 0;
+  var clippedCount = 0;
+  for (var n = 0; n < count; n++) {
+    squareSum += pcm[n] * pcm[n];
+    var absolute = Math.abs(pcm[n]);
+    peakAbsolute = Math.max(peakAbsolute, absolute);
+    if (absolute >= 0.999) clippedCount++;
+  }
+  result.digitalRms = count ? Math.sqrt(squareSum / count) : 0;
+  result.digitalPeak = peakAbsolute;
+  result.clippedSampleCount = clippedCount;
+  if (!count || result.digitalRms < 1e-5) flag('near-zero');
+  if (peakAbsolute >= 0.98 || clippedCount > 0) flag('near-full-scale');
+  if (count > 0 && clippedCount / count >= 0.001) flag('clipped');
+  if (codes.indexOf('unsupported-rate') !== -1 || codes.indexOf('near-zero') !== -1) return result;
+  var df = fs / TW_FIELD_FFT_SIZE;
+  var averagePsd = new Float64Array(TW_FIELD_FFT_SIZE / 2 + 1);
+  var candidateFrames = [];
+  for (var offset = 0; offset + TW_FIELD_FFT_SIZE <= count; offset += TW_FIELD_HOP_SIZE) {
+    var psd = twFieldOneSidedPsd(pcm, offset, fs);
+    for (var k = 0; k < psd.length; k++) averagePsd[k] += psd[k];
+    candidateFrames.push(twFieldFramePeaks(psd, df, bandEnd));
+  }
+  result.frameCount = candidateFrames.length;
+  if (!result.frameCount) return result;
+  for (var bin = 0; bin < averagePsd.length; bin++) averagePsd[bin] /= result.frameCount;
+  var weights = twFieldWeights(fs);
+  var aPower = 0;
+  var cPower = 0;
+  for (var index = Math.ceil(20 / df); index <= Math.floor(bandEnd / df); index++) {
+    aPower += averagePsd[index] * weights.aSquared[index] * df;
+    cPower += averagePsd[index] * weights.cSquared[index] * df;
+    result.spectrum.hz.push(index * df);
+    result.spectrum.powerDb.push(10 * Math.log10(Math.max(averagePsd[index], 1e-30)));
+  }
+  if (!(aPower > 0 && cPower > 0 && Number.isFinite(aPower) && Number.isFinite(cPower))) { flag('no-band-power'); return result; }
+  if (codes.some(function(code) { return ['non-finite', 'incomplete', 'unsupported-rate', 'near-zero', 'clipped'].indexOf(code) !== -1; })) return result;
+  result.aDigitalDb = 10 * Math.log10(aPower);
+  result.cDigitalDb = 10 * Math.log10(cPower);
+  result.cMinusADb = 10 * Math.log10(cPower / aPower);
+  result.lowFrequencyScreen = result.cMinusADb >= 15 ? 'suggested' : 'not-indicated';
+  result.peakCandidate = twFieldSustainedPeak(candidateFrames, df);
+  result.peakScreen = result.frameCount < 20 ? 'inconclusive' : result.peakCandidate ? 'suggested' : 'not-indicated';
+  [60, 120].forEach(function(referenceHz) {
+    var candidate = twFieldSustainedPeak(candidateFrames, df, referenceHz);
+    if (candidate) result.lineFrequencyCandidates.push({
+      referenceHz: referenceHz, centerHz: candidate.centerHz,
+      binIndex: Math.round(candidate.centerHz / df), binSpacingHz: df,
+      prominenceDb: candidate.prominenceDb, persistentFrameFraction: candidate.persistentFrameFraction
+    });
+  });
+  return result;
+}
+/* END TONALWATCH STANDALONE DSP */
+</script>
+<script id="field-lab-core">
+// Pure helpers are kept inline in the final standalone HTML; no imports or build.
+const FIELD_LAB_VERSION = 'tw-field-lab-v2';
+const FIELD_LAB_LOG_KEY = 'tw_field_log';
+const FIELD_LAB_WORKLET_SOURCE = `
+class FieldLabCollector extends AudioWorkletProcessor {
+  constructor(options) {
+    super();
+    const settings = options.processorOptions;
+    if (!Number.isInteger(settings.targetFrames) || settings.targetFrames < 1 || settings.targetFrames > sampleRate * 30
+      || !Number.isInteger(settings.warmupFrames) || settings.warmupFrames < 0) throw new Error('Invalid capture length');
+    this.target = settings.targetFrames;
+    this.warmup = settings.warmupFrames;
+    this.pcm = new Float32Array(this.target);
+    this.count = 0;
+    this.sinceProgress = 0;
+    this.expectedFrame = null;
+    this.started = false;
+    this.done = false;
+    this.port.onmessage = event => { if (event.data && event.data.type === 'stop') this.done = true; };
+  }
+  process(inputs, outputs) {
+    for (const output of outputs) for (const channel of output) channel.fill(0);
+    if (this.done) return false;
+    const input = inputs[0] && inputs[0][0];
+    if (!input || !input.length || (this.expectedFrame !== null && currentFrame !== this.expectedFrame)) {
+      this.port.postMessage({ type: 'error', message: 'Missing or interrupted microphone samples' });
+      this.done = true;
+      return false;
+    }
+    this.expectedFrame = currentFrame + input.length;
+    const skip = Math.min(this.warmup, input.length);
+    this.warmup -= skip;
+    if (skip === input.length) return true;
+    if (!this.started) { this.started = true; this.port.postMessage({ type: 'started' }); }
+    const length = Math.min(input.length - skip, this.target - this.count);
+    this.pcm.set(input.subarray(skip, skip + length), this.count);
+    this.count += length;
+    this.sinceProgress += length;
+    if (this.count === this.target) {
+      this.done = true;
+      this.port.postMessage({ type: 'complete', sampleCount: this.count, pcm: this.pcm }, [this.pcm.buffer]);
+      return false;
+    }
+    if (this.sinceProgress >= sampleRate / 10) {
+      this.port.postMessage({ type: 'progress', sampleCount: this.count, targetSamples: this.target });
+      this.sinceProgress = 0;
+    }
+    return true;
+  }
+}
+registerProcessor('tw-field-collector-v2', FieldLabCollector);
+`;
+
+function fieldLabValidCurrentEntry(entry) {
+  const finiteOrNull = value => value === null || typeof value === 'number' && Number.isFinite(value);
+  const validPeak = peak => peak === null || peak && ['centerHz', 'prominenceDb', 'persistentFrameFraction'].every(key => typeof peak[key] === 'number' && Number.isFinite(peak[key]));
+  return entry && typeof entry === 'object' && entry.schemaVersion === 2 && entry.algorithmVersion === FIELD_LAB_VERSION
+    && entry.provenance === 'microphone-uncalibrated' && typeof entry.id === 'string'
+    && ['durationSeconds', 'sampleRateHz', 'sampleCount', 'frameCount', 'fftSize', 'hopSize', 'binSpacingHz'].every(key => typeof entry[key] === 'number' && Number.isFinite(entry[key]))
+    && ['aDigitalDb', 'cDigitalDb', 'cMinusADb'].every(key => finiteOrNull(entry[key]))
+    && ['suggested', 'not-indicated', 'inconclusive'].includes(entry.lowFrequencyScreen)
+    && ['suggested', 'not-indicated', 'inconclusive', 'not-evaluated'].includes(entry.peakScreen)
+    && validPeak(entry.peakCandidate) && Array.isArray(entry.lineFrequencyCandidates)
+    && entry.lineFrequencyCandidates.every(candidate => candidate && validPeak(candidate)
+      && [60, 120].includes(candidate.referenceHz) && Number.isInteger(candidate.binIndex)
+      && typeof candidate.binSpacingHz === 'number' && Number.isFinite(candidate.binSpacingHz) && candidate.binSpacingHz > 0)
+    && Array.isArray(entry.qualityCodes) && entry.qualityCodes.every(code => typeof code === 'string');
+}
+
+function fieldLabDecodeLog(raw) {
+  if (raw === null || raw === '') return { entries: [], invalid: false };
   try {
-    $('dur').disabled = true; $('start').disabled = true;
-    const stream = await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}});
-    ctx = new (window.AudioContext||window.webkitAudioContext)();
-    await ctx.resume();
-    an = ctx.createAnalyser(); an.fftSize = 8192; an.smoothingTimeConstant = 0.55;
-    ctx.createMediaStreamSource(stream).connect(an);
-    buf = new Float32Array(an.frequencyBinCount);
-    target = +$('dur').value; got = 0; t0 = performance.now(); running = true;
-    $('status').textContent = `capturing 0 / ${target}s`;
-    loop(stream);
-  } catch(e) { $('status').textContent = 'mic error: ' + e.message; $('start').disabled=false; }
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return { entries: [], invalid: true };
+    return {
+      invalid: false,
+      entries: parsed.map((entry, index) => entry && (fieldLabValidCurrentEntry(entry)
+          || (entry.schemaVersion === 1 && entry.provenance === 'legacy-unverified' && Object.hasOwn(entry, 'original')))
+        ? entry
+        : { schemaVersion: 1, provenance: 'legacy-unverified', index: index + 1, original: entry }),
+    };
+  } catch { return { entries: [], invalid: true }; }
+}
+
+function fieldLabCsvCell(value) {
+  let text = value === null || value === undefined ? '' : String(value);
+  // CSV quoting protects separators/newlines; prefix text that spreadsheets may
+  // execute as a formula. Genuine numeric negatives remain numeric.
+  if (typeof value !== 'number' && /^[\s]*[=+\-@]/.test(text)) text = "'" + text;
+  return '"' + text.replace(/"/g, '""') + '"';
+}
+
+function fieldLabCsv(entries) {
+  const columns = ['provenance', 'algorithm_version', 'capture_id', 'recording_start_receipt_utc', 'analysis_created_utc',
+    'experiment', 'spot_user_note', 'in_out_user_note', 'distance_user_note', 'heard_user_note', 'device_user_note',
+    'requested_duration_s', 'actual_duration_s', 'sample_rate_hz', 'sample_count', 'frame_count', 'fft_size', 'hop_size',
+    'bin_spacing_hz', 'channel_policy', 'a_digital_db_re_rms1', 'c_digital_db_re_rms1', 'c_minus_a_db',
+    'low_frequency_screen', 'separate_peak_screen', 'peak_frequency_hz', 'peak_prominence_db', 'peak_persistent_frame_fraction',
+    'line_frequency_candidates_json', 'quality_codes', 'browser_processing_settings_json', 'legacy_original_json'];
+  const rows = entries.map(entry => {
+    if (entry.schemaVersion !== 2) return ['legacy-unverified', ...Array(columns.length - 2).fill(''), JSON.stringify(entry.original)];
+    return [entry.provenance, entry.algorithmVersion, entry.id, entry.recordedAtUtc, entry.analysisCreatedUtc,
+      entry.experiment, entry.spot, entry.inOut, entry.distance, entry.heard, entry.deviceNote,
+      entry.requestedDurationSeconds, entry.durationSeconds, entry.sampleRateHz, entry.sampleCount, entry.frameCount,
+      entry.fftSize, entry.hopSize, entry.binSpacingHz, entry.channelPolicy, entry.aDigitalDb, entry.cDigitalDb, entry.cMinusADb,
+      entry.lowFrequencyScreen, entry.peakScreen, entry.peakCandidate && entry.peakCandidate.centerHz,
+      entry.peakCandidate && entry.peakCandidate.prominenceDb, entry.peakCandidate && entry.peakCandidate.persistentFrameFraction,
+      JSON.stringify(entry.lineFrequencyCandidates || []), (entry.qualityCodes || []).join(';'), JSON.stringify(entry.deviceSettings), ''];
+  });
+  return [columns, ...rows].map(row => row.map(fieldLabCsvCell).join(',')).join('\r\n') + '\r\n';
+}
+
+function fieldLabSettings(settings) {
+  const result = {};
+  for (const key of ['sampleRate', 'sampleSize', 'channelCount', 'latency']) {
+    if (typeof settings[key] === 'number' && Number.isFinite(settings[key])) result[key] = settings[key];
+  }
+  for (const key of ['echoCancellation', 'noiseSuppression', 'autoGainControl']) {
+    if (typeof settings[key] === 'boolean') result[key] = settings[key];
+  }
+  return result;
+}
+
+function fieldLabProcessingCodes(settings) {
+  const values = ['echoCancellation', 'noiseSuppression', 'autoGainControl'].map(key => settings[key]);
+  if (values.some(value => value === true)) return ['processing-active'];
+  return values.some(value => typeof value !== 'boolean') ? ['processing-unknown'] : [];
+}
+
+function fieldLabCaptureRecord(result, context) {
+  return {
+    schemaVersion: 2,
+    provenance: 'microphone-uncalibrated',
+    inputKind: 'microphone',
+    id: context.id,
+    algorithmVersion: result.algorithmVersion,
+    recordedAtUtc: context.recordedAtUtc,
+    recordingTimePolicy: 'Browser-clock receipt of the first post-warmup sample notification; clock accuracy not established',
+    analysisCreatedUtc: context.analysisCreatedUtc,
+    requestedDurationSeconds: context.requestedDurationSeconds,
+    experiment: context.experiment,
+    spot: context.spot,
+    inOut: context.inOut,
+    distance: context.distance,
+    heard: context.heard,
+    deviceNote: context.deviceNote,
+    durationSeconds: result.durationSeconds,
+    sampleRateHz: result.sampleRateHz,
+    sampleCount: result.sampleCount,
+    frameCount: result.frameCount,
+    fftSize: result.fftSize,
+    hopSize: result.hopSize,
+    binSpacingHz: result.binSpacingHz,
+    channelPolicy: 'first-channel',
+    aDigitalDb: result.aDigitalDb,
+    cDigitalDb: result.cDigitalDb,
+    cMinusADb: result.cMinusADb,
+    lowFrequencyScreen: result.lowFrequencyScreen,
+    peakScreen: result.peakScreen,
+    peakCandidate: result.peakCandidate ? { ...result.peakCandidate } : null,
+    lineFrequencyCandidates: (result.lineFrequencyCandidates || []).map(candidate => ({ ...candidate })),
+    qualityCodes: [...new Set([...result.qualityCodes, ...fieldLabProcessingCodes(context.deviceSettings)])],
+    deviceSettings: fieldLabSettings(context.deviceSettings),
+    digitalRms: result.digitalRms,
+    digitalPeak: result.digitalPeak,
+  };
+}
+
+function fieldLabWav(pcm, sampleRate) {
+  const buffer = new ArrayBuffer(56 + pcm.length * 4);
+  const view = new DataView(buffer);
+  const text = (offset, value) => { for (let i = 0; i < value.length; i++) view.setUint8(offset + i, value.charCodeAt(i)); };
+  text(0, 'RIFF'); view.setUint32(4, buffer.byteLength - 8, true); text(8, 'WAVE'); text(12, 'fmt ');
+  view.setUint32(16, 16, true); view.setUint16(20, 3, true); view.setUint16(22, 1, true);
+  view.setUint32(24, sampleRate, true); view.setUint32(28, sampleRate * 4, true);
+  view.setUint16(32, 4, true); view.setUint16(34, 32, true); text(36, 'fact'); view.setUint32(40, 4, true);
+  view.setUint32(44, pcm.length, true); text(48, 'data'); view.setUint32(52, pcm.length * 4, true);
+  for (let i = 0; i < pcm.length; i++) view.setFloat32(56 + i * 4, pcm[i], true);
+  return buffer;
+}
+</script>
+<script id="field-lab-runtime">
+const $ = id => document.getElementById(id);
+const FIELD_QUALITY_TEXT = {
+  'near-zero': 'Near-zero input; numerical indicators unavailable.',
+  'clipped': 'Clipped input; numerical indicators unavailable.',
+  'near-full-scale': 'Input approached full scale; inspect for distortion.',
+  'incomplete': 'Incomplete or interrupted sample collection.',
+  'unsupported-rate': 'Effective rate outside the tested 44.1/48 kHz rates.',
+  'non-finite': 'Invalid numerical samples; indicators unavailable.',
+  'no-band-power': 'No usable band power; indicators unavailable.',
+  'processing-active': 'Browser processing is active and may reshape the spectrum.',
+  'processing-unknown': 'Browser/device processing settings are not established.',
 };
+let storageRaw = null;
+let storageBlocked = false;
+try { storageRaw = localStorage.getItem(FIELD_LAB_LOG_KEY); }
+catch { storageBlocked = true; }
+const loadedLog = fieldLabDecodeLog(storageRaw);
+const LOG = loadedLog.entries;
+storageBlocked = storageBlocked || loadedLog.invalid;
+let activeCapture = null;
+let captureNonce = 0;
+let lastCapture = null;
+let currentRecord = null;
 
-function loop(stream){
-  if (!running) return;
-  an.getFloatFrequencyData(buf);
-  const nyq = ctx.sampleRate/2, n = buf.length, binHz = nyq/n;
-  let pa=0, pc=0, p60sig=0, p60ref=0, peakDb=-200, peakF=0;
-  for (let i=1;i<n;i++){
-    const f=i*binHz;
-    if (f<10||f>20000) continue;
-    const lin = Math.pow(10,(isFinite(buf[i])?buf[i]:-200)/10);
-    pa += lin*gA(f)*gA(f); pc += lin*gC(f)*gC(f);
-    if (f>=57&&f<=180){ if (buf[i]>peakDb){peakDb=buf[i];peakF=f;} }
+function storageNotice(text) { $('storage-note').textContent = text; }
+if (loadedLog.invalid) {
+  storageNotice('The stored campaign log could not be parsed. It has not been overwritten. Download its raw backup before clearing it; new captures stay in memory meanwhile.');
+} else if (storageBlocked) storageNotice('Browser storage is unavailable. New captures remain in memory; export before closing this page.');
+else storageNotice('Campaign log is stored in this browser. Audio remains in memory unless you explicitly download its WAV. Clear log removes the stored campaign rows.');
+$('raw-log').hidden = storageRaw === null;
+
+function saveLog() {
+  if (storageBlocked) return false;
+  try { localStorage.setItem(FIELD_LAB_LOG_KEY, JSON.stringify(LOG)); return true; }
+  catch { storageBlocked = true; storageNotice('Browser storage could not save this log. Existing stored data was not erased; export current rows before closing the page.'); return false; }
+}
+
+function displayNumber(value, digits = 1) { return typeof value === 'number' && Number.isFinite(value) ? value.toFixed(digits) : '—'; }
+function lowFrequencyText(record) {
+  return record.lowFrequencyScreen === 'suggested' ? 'Low-frequency contribution suggested'
+    : record.lowFrequencyScreen === 'not-indicated' ? 'Below the prototype’s 15 dB low-frequency threshold' : 'Inconclusive / unavailable';
+}
+function independentPeakText(record) {
+  return record.peakCandidate && record.peakScreen === 'suggested'
+    ? `Separate sustained peak candidate near ${record.peakCandidate.centerHz.toFixed(1)} Hz · ${record.peakCandidate.prominenceDb.toFixed(1)} dB prominence · ${Math.round(record.peakCandidate.persistentFrameFraction * 100)}% of complete frames (not confidence)`
+    : record.peakScreen === 'not-indicated' ? 'Separate sustained-peak check: not indicated in this recording' : 'Separate sustained-peak check: inconclusive';
+}
+function lineCandidateText(record) {
+  if (record.cMinusADb === null) return 'Line-frequency observation unavailable: recording inconclusive';
+  const candidates = record.lineFrequencyCandidates || [];
+  return candidates.length ? candidates.map(candidate => `${candidate.centerHz.toFixed(1)} Hz bin near ${candidate.referenceHz} Hz · ${candidate.prominenceDb.toFixed(1)} dB local prominence · ${Math.round(candidate.persistentFrameFraction * 100)}% frames`).join('; ')
+    : 'No qualifying sustained local peak in the 60/120 Hz neighborhoods';
+}
+
+function rebuildTable() {
+  const body = $('log-body');
+  body.replaceChildren();
+  LOG.forEach((entry, index) => {
+    const row = document.createElement('tr');
+    let values;
+    if (entry.schemaVersion !== 2) {
+      row.className = 'legacy';
+      const old = entry.original && typeof entry.original === 'object' ? entry.original : {};
+      values = [index + 1, old.t || 'Unknown', old.e || '', old.s || '', old.io || '', old.d || '', old.ears || '', 'Unknown', `${old.dur ?? ''} (unverified)`, 'Unknown', old.a ?? '', old.c ?? '', old.g ?? '', old.m ?? '', `LEGACY / UNVERIFIED · original label: ${old.v ?? 'unknown'}`, 'Method, quality and actual duration unknown'];
+    } else {
+      if (entry.lowFrequencyScreen === 'suggested') row.className = 'low-frequency';
+      values = [index + 1, entry.recordedAtUtc || 'Unknown', entry.experiment, entry.spot, entry.inOut, entry.distance, entry.heard,
+        entry.deviceNote, displayNumber(entry.durationSeconds, 3), entry.sampleRateHz,
+        displayNumber(entry.aDigitalDb), displayNumber(entry.cDigitalDb), displayNumber(entry.cMinusADb),
+        lineCandidateText(entry), `${lowFrequencyText(entry)} · ${independentPeakText(entry)}`,
+        `MICROPHONE / UNCALIBRATED · ${entry.algorithmVersion} · ${(entry.qualityCodes || []).join('; ') || 'No software quality flag'}`];
+    }
+    for (const value of values) { const cell = document.createElement('td'); cell.textContent = String(value ?? ''); row.append(cell); }
+    body.append(row);
+  });
+  $('log-count').textContent = `${LOG.length} campaign ${LOG.length === 1 ? 'entry' : 'entries'} · ${LOG.filter(entry => entry.schemaVersion !== 2).length} legacy/unverified`;
+}
+
+function captureControls(busy) {
+  for (const control of $('capture-fields').querySelectorAll('input,select,textarea')) control.disabled = busy;
+  $('start').disabled = busy;
+  $('stop').disabled = !busy;
+}
+function clearCurrentDisplay() {
+  for (const id of ['a', 'c', 'g']) $(id).textContent = '—';
+  $('peaks').textContent = 'Awaiting a completed capture';
+  $('mains').textContent = 'Awaiting captured PCM';
+  $('quality').textContent = '';
+  $('capture-meta').textContent = '';
+  $('buddy-result').textContent = '';
+  $('buddy').disabled = true;
+  $('wav').disabled = true;
+  const canvas = $('spectrum');
+  canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+}
+
+async function releaseCapture(session) {
+  if (session.releasePromise) return session.releasePromise;
+  session.releasePromise = (async () => {
+    clearTimeout(session.watchdog);
+    for (const [track, event, handler] of session.trackHandlers || []) track.removeEventListener(event, handler);
+    if (session.context) session.context.onstatechange = null;
+    if (session.node) {
+      session.node.port.onmessage = null;
+      try { session.node.port.postMessage({ type: 'stop' }); session.node.port.close(); } catch {}
+      try { session.node.disconnect(); } catch {}
+    }
+    try { session.source?.disconnect(); } catch {}
+    for (const track of session.stream?.getTracks() || []) track.stop();
+    if (session.moduleUrl) { URL.revokeObjectURL(session.moduleUrl); session.moduleUrl = null; }
+    if (session.context && session.context.state !== 'closed') { try { await session.context.close(); } catch {} }
+  })();
+  return session.releasePromise;
+}
+
+function stopCapture(message = 'Capture stopped. No numeric reading was logged.') {
+  const session = activeCapture;
+  if (!session) return;
+  activeCapture = null;
+  captureNonce++;
+  session.cancelled = true;
+  void releaseCapture(session);
+  captureControls(false);
+  $('status').textContent = message;
+  $('progress').value = 0;
+  clearCurrentDisplay();
+}
+
+function drawSpectrum(result) {
+  const canvas = $('spectrum');
+  canvas.width = 960; canvas.height = 220;
+  const graph = canvas.getContext('2d');
+  graph.fillStyle = '#0b0f13'; graph.fillRect(0, 0, canvas.width, canvas.height);
+  const spectrum = result.spectrum;
+  if (!spectrum.hz.length) return;
+  const left = 52, right = 18, top = 15, bottom = 40, width = canvas.width - left - right, height = canvas.height - top - bottom;
+  const minimumFrequency = 20, maximumFrequency = 20000;
+  const valid = spectrum.powerDb.filter(Number.isFinite);
+  if (!valid.length) return;
+  const upper = Math.max(...valid) + 6, lower = upper - 85;
+  graph.strokeStyle = '#7fd47f'; graph.lineWidth = 1.4; graph.beginPath();
+  spectrum.hz.forEach((frequency, index) => {
+    const x = left + Math.log(frequency / minimumFrequency) / Math.log(maximumFrequency / minimumFrequency) * width;
+    const y = top + Math.max(0, Math.min(1, (upper - spectrum.powerDb[index]) / (upper - lower))) * height;
+    if (index === 0) graph.moveTo(x, y); else graph.lineTo(x, y);
+  });
+  graph.stroke(); graph.fillStyle = '#a8b9a5'; graph.font = '12px system-ui';
+  for (const frequency of [20, 60, 125, 500, 1000, 8000, 20000]) {
+    const x = left + Math.log(frequency / minimumFrequency) / Math.log(maximumFrequency / minimumFrequency) * width;
+    graph.fillText(frequency >= 1000 ? `${frequency / 1000}k` : String(frequency), x - 10, canvas.height - 18);
   }
-  // 60Hz prominence: peak vs median floor 150-400Hz
-  let fl=[]; for(let i=1;i<n;i++){const f=i*binHz; if(f>=150&&f<=400&&isFinite(buf[i])) fl.push(buf[i]);}
-  fl.sort((x,y)=>x-y); const med=fl[Math.floor(fl.length/2)];
-  const mainsProm = (peakDb - med);
-  draw();
-  const el=(performance.now()-t0)/1000;
-  if (el >= target){ running=false; finish(stream, mainsProm, peakF); }
-  else { $('status').textContent=`capturing ${el.toFixed(1)} / ${target}s`; requestAnimationFrame(()=>loop(stream)); }
+  graph.fillText('Hz · log frequency', left, canvas.height - 3);
+  graph.fillText(`${upper.toFixed(0)} dB`, 2, top + 10); graph.fillText(`${lower.toFixed(0)} dB`, 2, top + height);
 }
 
-function draw(){
-  const c=$('spectrum'), g=c.getContext('2d');
-  g.fillStyle='#0b0f13'; g.fillRect(0,0,c.width,c.height); g.fillStyle='#7fd47f';
-  const n=buf.length, nyq=ctx.sampleRate/2, binHz=nyq/n, w=c.width;
-  const step=Math.max(1,Math.floor(n/w));
-  for(let x=0;x<w;x++){
-    const i=Math.floor(Math.pow(x/w,2)*n*0.7);
-    let pk=-250; for(let k=i;k<i+step&&k<n;k++) if(isFinite(buf[k])) pk=Math.max(pk,buf[k]);
-    if (pk>-240){ const h=Math.max(1,(Math.max(pk,-120)+120)/120*c.height); g.fillRect(x,c.height-h,1,h); }
+function renderResult(record, result) {
+  $('a').textContent = displayNumber(record.aDigitalDb);
+  $('c').textContent = displayNumber(record.cDigitalDb);
+  $('g').textContent = displayNumber(record.cMinusADb);
+  $('peaks').textContent = `${lowFrequencyText(record)}. ${independentPeakText(record)}.`;
+  $('mains').textContent = `${lineCandidateText(record)}. Native bin spacing ${record.binSpacingHz.toFixed(3)} Hz; no source attribution.`;
+  $('quality').textContent = record.qualityCodes.map(code => FIELD_QUALITY_TEXT[code] || code).join(' ') || 'No software quality flag was raised. This does not establish acoustic accuracy.';
+  $('capture-meta').textContent = `MICROPHONE · UNCALIBRATED · ${record.algorithmVersion} · ${record.sampleCount.toLocaleString()} actual samples / ${record.durationSeconds.toFixed(3)} s at ${record.sampleRateHz.toLocaleString()} Hz · ${record.frameCount} complete Hann windows (${record.fftSize} FFT, ${record.hopSize} hop). First channel; 0.5 s warm-up excluded. Linear power averaged over every complete window.`;
+  drawSpectrum(result);
+  $('wav').disabled = false;
+  $('buddy').disabled = LOG.length < 2;
+}
+
+async function finishCapture(session, message) {
+  if (activeCapture !== session || session.cancelled) return;
+  session.phase = 'analyzing';
+  $('stop').disabled = true;
+  $('status').textContent = 'Analyzing all captured PCM windows…';
+  await releaseCapture(session);
+  if (activeCapture !== session || session.cancelled) return;
+  await new Promise(resolve => setTimeout(resolve, 0));
+  if (activeCapture !== session || session.cancelled) return;
+  try {
+    const pcm = message.pcm;
+    if (!(pcm instanceof Float32Array) || pcm.length !== session.targetFrames || message.sampleCount !== session.targetFrames) throw new Error('Incomplete or invalid sample buffer; no reading logged');
+    const result = analyzeStandalonePcm(pcm, session.sampleRate, session.duration);
+    const record = fieldLabCaptureRecord(result, { ...session.notes, id: session.id,
+      recordedAtUtc: session.recordedAtUtc, analysisCreatedUtc: new Date().toISOString(),
+      requestedDurationSeconds: session.duration, deviceSettings: session.settings });
+    lastCapture = { pcm, sampleRate: session.sampleRate, id: session.id };
+    currentRecord = record;
+    LOG.push(record);
+    saveLog(); rebuildTable(); renderResult(record, result);
+    activeCapture = null;
+    $('progress').value = 1;
+    $('status').textContent = record.cMinusADb === null ? 'Capture complete · recording inconclusive; descriptive entry logged.' : 'Capture complete · all windows analyzed; uncalibrated observation logged.';
+  } catch (error) {
+    activeCapture = null;
+    clearCurrentDisplay();
+    $('status').textContent = `Capture analysis failed: ${error.message}`;
+  } finally { captureControls(false); }
+}
+
+async function startCapture() {
+  if (activeCapture) return;
+  if (!window.isSecureContext || !navigator.mediaDevices?.getUserMedia || !window.AudioWorkletNode) {
+    $('status').textContent = 'Microphone capture requires a current browser with AudioWorklet on HTTPS or localhost. No reading logged.';
+    return;
+  }
+  const duration = Number($('dur').value);
+  if (![5, 15, 30].includes(duration)) { $('status').textContent = 'Choose 5, 15 or 30 seconds.'; return; }
+  const token = ++captureNonce;
+  const session = { token, id: crypto.randomUUID?.() || `field-${Date.now()}-${token}`, duration, phase: 'permission', cancelled: false,
+    notes: { experiment: $('exp').value, spot: $('spot').value, inOut: $('io').value, distance: $('dist').value, heard: $('ears').value, deviceNote: $('device-note').value },
+    recordedAtUtc: null, trackHandlers: [] };
+  activeCapture = session;
+  lastCapture = null; currentRecord = null;
+  clearCurrentDisplay(); captureControls(true); $('progress').value = 0;
+  $('status').textContent = 'Waiting for microphone permission…';
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: { channelCount: { ideal: 1 }, echoCancellation: false, noiseSuppression: false, autoGainControl: false } });
+    if (activeCapture !== session || session.cancelled) { stream.getTracks().forEach(track => track.stop()); return; }
+    session.stream = stream;
+    const track = stream.getAudioTracks()[0];
+    if (!track) throw new Error('No audio track was provided');
+    if (track.readyState !== 'live' || track.muted) throw new Error('Microphone track is unavailable or muted');
+    const ended = () => { if (activeCapture === session) stopCapture('Microphone ended before completion. No numeric reading logged.'); };
+    const muted = () => { if (activeCapture === session) stopCapture('Microphone was muted or interrupted. No numeric reading logged.'); };
+    for (const audioTrack of stream.getAudioTracks()) {
+      for (const [event, handler] of [['ended', ended], ['mute', muted]]) {
+        audioTrack.addEventListener(event, handler);
+        session.trackHandlers.push([audioTrack, event, handler]);
+      }
+    }
+    session.settings = fieldLabSettings(track.getSettings());
+    const context = new AudioContext(); session.context = context;
+    await context.resume();
+    if (activeCapture !== session || session.cancelled) { await releaseCapture(session); return; }
+    session.sampleRate = context.sampleRate;
+    if (![44100, 48000].includes(session.sampleRate)) throw new Error(`Effective rate ${session.sampleRate} Hz is outside the tested 44.1/48 kHz rates`);
+    session.targetFrames = Math.round(session.sampleRate * duration);
+    session.moduleUrl = URL.createObjectURL(new Blob([FIELD_LAB_WORKLET_SOURCE], { type: 'text/javascript' }));
+    await context.audioWorklet.addModule(session.moduleUrl);
+    URL.revokeObjectURL(session.moduleUrl); session.moduleUrl = null;
+    if (activeCapture !== session || session.cancelled) { await releaseCapture(session); return; }
+    if (track.readyState !== 'live' || track.muted) throw new Error('Microphone track became unavailable or muted');
+    session.node = new AudioWorkletNode(context, 'tw-field-collector-v2', { numberOfInputs: 1, numberOfOutputs: 1, outputChannelCount: [1], processorOptions: { targetFrames: session.targetFrames, warmupFrames: Math.round(session.sampleRate * 0.5) } });
+    session.node.port.onmessage = event => {
+      if (activeCapture !== session || session.cancelled) return;
+      const message = event.data;
+      if (message.type === 'error') { stopCapture(`${message.message}. No numeric reading logged.`); return; }
+      if (message.type === 'started') { session.recordedAtUtc = new Date().toISOString(); session.phase = 'capturing'; }
+      if (message.type === 'progress') {
+        $('progress').value = message.sampleCount / session.targetFrames;
+        $('status').textContent = `Collected ${(message.sampleCount / session.sampleRate).toFixed(1)} / ${duration} s · ${message.sampleCount.toLocaleString()} actual samples`;
+      }
+      if (message.type === 'complete') void finishCapture(session, message);
+    };
+    context.onstatechange = () => { if (activeCapture === session && ['warming', 'capturing'].includes(session.phase) && context.state !== 'running') stopCapture('Audio processing was interrupted. No numeric reading logged.'); };
+    session.source = context.createMediaStreamSource(stream);
+    session.phase = 'warming';
+    session.source.connect(session.node); session.node.connect(context.destination);
+    session.watchdog = setTimeout(() => { if (activeCapture === session) stopCapture('Capture stalled or samples were interrupted. No numeric reading logged.'); }, (duration + 10.5) * 1000);
+    $('status').textContent = 'Warming up for 0.5 s · samples excluded from analysis';
+  } catch (error) {
+    if (activeCapture !== session || session.cancelled) return;
+    activeCapture = null;
+    await releaseCapture(session);
+    captureControls(false);
+    $('status').textContent = `Microphone error: ${error.message}. No reading logged.`;
   }
 }
 
-function finish(stream, mainsProm, peakF){
-  const binHz=(ctx.sampleRate/2)/buf.length;
-  let pa=0,pc=0;
-  for(let i=1;i<buf.length;i++){const f=i*binHz; if(f<10||f>20000)continue;
-    const lin=Math.pow(10,(isFinite(buf[i])?buf[i]:-200)/10); pa+=lin*gA(f)*gA(f); pc+=lin*gC(f)*gC(f);}
-  const LA=10*Math.log10(Math.max(pa,1e-30)), LC=10*Math.log10(Math.max(pc,1e-30)), gap=LC-LA;
-  $('a').textContent=LA.toFixed(1); $('c').textContent=LC.toFixed(1); $('g').textContent=gap.toFixed(1);
-  $('mains').textContent=mainsProm.toFixed(1)+' @'+peakF.toFixed(0)+'Hz';
-  const v=gap>=15?'<b class="hit">SIGNATURE ≥15 — confirm ×3</b>':(gap>=10?'<b class="warn">borderline 10–15</b>':'not indicated');
-  $('peaks').innerHTML=v;
-  stream.getTracks().forEach(t=>t.stop());
-  addRow(LA.toFixed(1),LC.toFixed(1),gap.toFixed(1),mainsProm.toFixed(1),gap>=15?'SIGNATURE':(gap>=10?'borderline':'not-indicated'));
-  $('status').textContent='capture complete'; $('dur').disabled=false; $('start').disabled=false;
+function downloadBlob(blob, filename) {
+  const anchor = document.createElement('a'); anchor.download = filename; anchor.hidden = true;
+  try {
+    const url = URL.createObjectURL(blob); anchor.href = url;
+    document.body.append(anchor); anchor.click(); anchor.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+    return;
+  } catch (e) { /* file:// strictness - fall through to data URI */ }
+  const fr = new FileReader();
+  fr.onload = () => { anchor.href = fr.result; document.body.append(anchor); anchor.click(); anchor.remove(); };
+  fr.readAsDataURL(blob);
 }
-
-const LOG = JSON.parse(localStorage.getItem('tw_field_log') || '[]');
-function saveLog(){ localStorage.setItem('tw_field_log', JSON.stringify(LOG)); }
-function clearLog(){ if(confirm('Erase all logged captures?')){ LOG.length=0; saveLog(); location.reload(); } }
+$('start').addEventListener('click', startCapture);
+$('stop').addEventListener('click', () => stopCapture());
+$('csv').addEventListener('click', () => downloadBlob(new Blob([fieldLabCsv(LOG)], { type: 'text/csv;charset=utf-8' }), `tonalwatch-field-${Date.now()}.csv`));
+$('raw-log').addEventListener('click', () => {
+  let raw = storageRaw;
+  try { raw = localStorage.getItem(FIELD_LAB_LOG_KEY); } catch {}
+  downloadBlob(new Blob([raw ?? ''], { type: 'text/plain;charset=utf-8' }), `tonalwatch-stored-log-${Date.now()}.json.txt`);
+});
+$('wav').addEventListener('click', () => { if (lastCapture) downloadBlob(new Blob([fieldLabWav(lastCapture.pcm, lastCapture.sampleRate)], { type: 'audio/wav' }), `tonalwatch-${lastCapture.id}.wav`); });
+$('wipe').addEventListener('click', () => {
+  if (!confirm('Erase all campaign rows stored in this browser? Download CSV or a raw backup first if you need them.')) return;
+  LOG.length = 0;
+  try { localStorage.setItem(FIELD_LAB_LOG_KEY, '[]'); storageBlocked = false; storageRaw = '[]'; storageNotice('Stored campaign log cleared. New captures will be saved in this browser.'); }
+  catch { storageNotice('Storage could not be cleared. The visible in-memory rows were cleared; the old stored log may still exist.'); }
+  rebuildTable(); $('buddy').disabled = true; $('buddy-result').textContent = '';
+});
+$('buddy').addEventListener('click', () => {
+  const index = LOG.indexOf(currentRecord), previous = index > 0 ? LOG[index - 1] : null;
+  if (!currentRecord || !previous || previous.schemaVersion !== 2 || !Number.isFinite(currentRecord.cMinusADb) || currentRecord.cMinusADb === null || !Number.isFinite(previous.cMinusADb) || previous.cMinusADb === null) {
+    $('buddy-result').textContent = 'Comparison unavailable: two consecutive version2 captures with usable numeric gaps are required. Legacy/inconclusive values are not zero.'; return;
+  }
+  const delta = currentRecord.cMinusADb - previous.cMinusADb;
+  $('buddy-result').textContent = `Observed Δgap vs previous logged capture: ${delta > 0 ? '+' : ''}${delta.toFixed(1)} dB (current − previous). Device notes: “${currentRecord.deviceNote || 'not supplied'}” / “${previous.deviceNote || 'not supplied'}”. This is not a calibration offset and does not link phones or make devices interchangeable.`;
+});
+document.addEventListener('visibilitychange', () => { if (document.hidden && activeCapture) stopCapture('Page became hidden; capture cancelled. No numeric reading logged.'); });
+window.addEventListener('pagehide', () => stopCapture('Page closed; capture cancelled.'));
 rebuildTable();
-function addRow(a,c,g,m,v){
-  const e=$('exp').value, s=$('spot').value||'?', io=$('io').value, d=$('dist').value||'—', ears=$('ears').value||'—';
-  const t=new Date().toTimeString().slice(0,5);
-  LOG.push({n:String(LOG.length+1),t,e,s,io,d,ears,dur:$('dur').value,a,c,g,m,v}); saveLog();
-  const tr=$('log').insertRow(-1);
-  [String(LOG.length),t,e,s,io,d,ears,$('dur').value,a,c,g,m+'Hz',v].forEach(x=>{const td=tr.insertCell(-1);td.textContent=x;});
-  if(v==='SIGNATURE') tr.style.background='#123d1e';
-}
-$('csv').onclick=()=>{
-  if(!LOG.length) return alert('Log is empty — nothing to export yet.');
-  const head='time,exp,spot,io,dist,ears,dur_s,A_rel,C_rel,gap,mains_Hz,mains_prom_db,verdict';
-  const body=LOG.map(r=>[r.t,r.e,r.s,r.io,r.d,r.ears,r.dur,r.a,r.c,r.g,r.m,r.mp||'',r.v].map(x=>{x=String(x); return x.includes(',')?'"'+x+'"':x;}).join(',')).join('\n');
-  const a=document.createElement('a');
-  a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(head+'\n'+body);
-  a.download='tonalwatch_field_'+new Date().toISOString().replace(/[:T]/g,'-').slice(0,19)+'.csv';
-  document.body.appendChild(a); a.click(); a.remove();
-};
-$('wipe').onclick=()=>{ if(confirm('Clear log?')){LOG.length=0;$('log').querySelectorAll('tr:not(:first-child)').forEach(r=>r.remove());} };
 </script>
 </body>
 </html>
