@@ -16,8 +16,20 @@
 .noise-solutions-compact{margin:0;padding:0;border:0;border-radius:0;background:transparent}
 .noise-solutions-compact h2{font-size:21px}
 .noise-solutions-compact .noise-solutions-cards>li{padding:15px}
+.noise-action-workflow{margin:0 0 24px;min-width:0}.noise-action-workflow>.button{max-width:100%;white-space:normal;line-height:1.6}
+.noise-action-plan{border:1px solid #cbd9be;border-radius:9px;background:#fff;padding:20px;margin-top:16px;min-width:0}
+.noise-action-plan>p,.noise-request>p{font-size:12px;line-height:1.8;color:#5c7054}
+.noise-action-checklist{list-style:none;padding:0;margin:18px 0}.noise-action-checklist>li{padding:14px 0;border-top:1px solid #dce5d1;min-width:0}
+.noise-action-checklist label{display:flex;align-items:flex-start;gap:10px;font-size:13px;font-weight:650;line-height:1.7}
+.noise-action-checklist input[type=checkbox]{width:auto;flex-shrink:0;margin:4px 0 0;accent-color:var(--green)}
+.noise-action-checklist p,.noise-action-checklist a{font-size:12px;line-height:1.8;margin:7px 0 0 25px;color:#5a6d52}
+.noise-action-plan .noise-action-save{font-size:11px;color:#31593b;background:#eef4e8;padding:10px;border-radius:6px}
+.noise-request{border-top:1px solid #dce5d1;margin-top:20px;padding-top:19px;min-width:0}.noise-request label{display:block;font-size:12px;font-weight:600;line-height:1.7;margin:14px 0 6px}
+.noise-request textarea{display:block;width:100%;max-width:100%;min-width:0;box-sizing:border-box;resize:vertical;border:1px solid #cad8bc;border-radius:6px;padding:12px;font:inherit;font-size:12px;line-height:1.7;background:#fafcf7;color:var(--ink)}
+.noise-request-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:13px}.noise-request-actions .button{white-space:normal;max-width:100%;line-height:1.6}
 @media(max-width:760px){.noise-solutions{padding:20px 17px}.noise-solutions-cards{grid-template-columns:1fr;gap:10px}.noise-solutions-cards>li{padding:16px}.noise-solution-number{font-size:21px;margin-bottom:9px}.noise-solutions h2{font-size:21px}.noise-solutions-compact{padding:0}.noise-solutions-residents a{overflow-wrap:anywhere}}
 @media print{
+ .noise-action-workflow{display:none!important}
  .noise-solutions{background:#fff!important;border:0;border-radius:0;padding:0;margin:14pt 0;color:#000;overflow:visible}
  .noise-solutions h2{font-size:12pt;color:#000;break-after:avoid-page;margin-bottom:8pt}
  .noise-solutions-heading>p:last-child{font-size:8.5pt;color:#111;margin-bottom:9pt}
