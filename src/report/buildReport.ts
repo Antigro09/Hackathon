@@ -74,7 +74,8 @@ export function buildReport(
       ? 'IMPORTED FILE — recording context unknown'
       : 'MICROPHONE INPUT — uncalibrated browser capture';
   const referenceProfile = referenceProfiles[context.jurisdiction];
-  const spectrumOrigin = `${provenanceLabel}${result.fixtureId ? ` · Fixture ${result.fixtureId}` : result.inputLabel ? ` · ${result.inputLabel}` : ''}`;
+  const duration = numeric(result.durationSeconds, 3);
+  const spectrumOrigin = `${provenanceLabel} · ${duration} s analyzed${result.fixtureId ? ` · Fixture ${result.fixtureId}` : result.inputLabel ? ` · ${result.inputLabel}` : ''}`;
   const spectrum = buildReportSpectrum(result, spectrumOrigin);
   const settings = safeSettings.flatMap(key => {
     const value = result.deviceSettings?.[key];
@@ -121,7 +122,7 @@ export function buildReport(
       row('Effective sample rate', `${numeric(result.sampleRateHz, 0)} Hz`),
       row('Sample count', numeric(result.sampleCount, 0)),
       row('Channel policy', result.channelPolicy === 'first-channel' ? 'first channel only (decoded sample rate may differ from original encoding)' : isSynthetic ? 'generated mono PCM' : 'mono capture'),
-      row('Input window', result.inputKind === 'imported-file' ? 'First five seconds from file offset 0; decoded locally; browser may resample. Original encoding rate, recording time and processing are not established.' : isSynthetic ? 'Five seconds of generated PCM; no acoustic recording' : 'Five seconds after discarding a 0.5-second microphone warm-up'),
+      row('Input window', result.inputKind === 'imported-file' ? `First ${duration} seconds from file offset 0; decoded locally; browser may resample. Original encoding rate, recording time and processing are not established.` : isSynthetic ? `${duration} seconds of generated PCM; no acoustic recording` : `${duration} seconds after discarding a 0.5-second microphone warm-up`),
       row('FFT / window / hop', `${result.fftSize} samples / periodic Hann / ${result.hopSize} samples`),
       row('Analyzed band', `${numeric(result.analyzedBandHz[0], 1)}–${numeric(result.analyzedBandHz[1], 1)} Hz`),
       row('Complete frame count', numeric(result.frameCount, 0)),

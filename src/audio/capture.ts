@@ -1,11 +1,13 @@
 import type { InputMeta, QualityCode } from '../types';
-import { CaptureCollector, filterDeviceSettings } from './chunks';
+import { assertCaptureDuration, CaptureCollector, filterDeviceSettings } from './chunks';
+import type { CaptureDurationSeconds } from './chunks';
 import { abortable, AudioInputError, cancelledError } from './errors';
 import { InputMeterAccumulator } from './meter';
 import type { InputMeterReading } from './meter';
 
 export interface CapturedInput { pcm: Float32Array; fs: number; meta: InputMeta }
 export interface CaptureOptions {
+  durationSeconds?: CaptureDurationSeconds;
   onProgress: (phase: 'permission-pending' | 'warming-up' | 'recording', fraction: number) => void;
   onMeter?: (reading: InputMeterReading) => void;
   signal: AbortSignal;
@@ -30,8 +32,9 @@ function captureError(error: unknown): Error {
 }
 
 /** Invoke directly from a button gesture so creation/resume retain user activation. */
-export async function startCapture({ onProgress, onMeter, signal }: CaptureOptions): Promise<CapturedInput> {
+export async function startCapture({ onProgress, onMeter, signal, durationSeconds = 5 }: CaptureOptions): Promise<CapturedInput> {
   if (signal.aborted) throw cancelledError();
+  assertCaptureDuration(durationSeconds);
   if (!globalThis.isSecureContext || !navigator.mediaDevices?.getUserMedia) {
     throw new AudioInputError('secure-context-required', 'Microphone capture needs HTTPS or localhost. Open this app there, or choose a local file or demo.');
   }
@@ -95,7 +98,7 @@ export async function startCapture({ onProgress, onMeter, signal }: CaptureOptio
     const processing = ['echoCancellation', 'noiseSuppression', 'autoGainControl'].map(key => settings[key]);
     if (processing.some(value => value === true)) qualityCodes.push('processing-active');
     if (processing.some(value => value !== true && value !== false)) qualityCodes.push('processing-unknown');
-    const collector = new CaptureCollector(context.sampleRate);
+    const collector = new CaptureCollector(context.sampleRate, durationSeconds);
     const meter = onMeter ? new InputMeterAccumulator() : null;
     source = context.createMediaStreamSource(stream);
     recorder = new AudioWorkletNode(context, 'tonalwatch-capture', {
@@ -139,7 +142,9 @@ export async function startCapture({ onProgress, onMeter, signal }: CaptureOptio
       meta: {
         inputKind: 'microphone', fixtureId: null,
         recordedAtUtc: new Date(captureStart + 500).toISOString(),
-        channelPolicy: 'mono-capture', deviceSettings: settings, qualityCodes,
+        channelPolicy: 'mono-capture',
+        deviceSettings: { ...settings, requestedCaptureDurationSeconds: durationSeconds, captureWarmupSeconds: collector.warmupSamples / context.sampleRate },
+        qualityCodes,
         inputLabel: 'Fresh microphone recording',
       },
     };

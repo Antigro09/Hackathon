@@ -5,6 +5,8 @@ import type { AnalysisResult, ObservationContext } from '../src/types';
 import { buildReport, formatReportTime } from '../src/report/buildReport';
 import { ReportView } from '../src/report/ReportView';
 import { interpretResult, referenceProfiles } from '../src/data/references';
+import { ResultPanel } from '../src/components/ResultPanel';
+import { analyzePcm, FFT_SIZE, HOP_SIZE } from '../src/analysis/engine';
 
 const context: ObservationContext = {
   jurisdiction: 'loudoun', locationDescription: '', environment: 'unknown',
@@ -22,6 +24,42 @@ const result: AnalysisResult = {
 };
 
 describe('observation report', () => {
+  it.each([
+    [15, 'microphone'], [30, 'microphone'], [15, 'imported-file'], [30, 'imported-file'],
+  ] as const)('exports the full %i-second %s DSP window and spectrum rather than the optional five-second AI prefix', (durationSeconds, inputKind) => {
+    const fs = 48000;
+    const pcm = Float32Array.from({ length: fs * durationSeconds }, (_, index) => 0.1 * Math.sin(2 * Math.PI * 63 * index / fs));
+    const measured = analyzePcm(pcm, fs, {
+      inputKind, fixtureId: null, recordedAtUtc: inputKind === 'microphone' ? '2026-10-18T15:00:00.000Z' : null,
+      channelPolicy: inputKind === 'imported-file' ? 'first-channel' : 'mono-capture',
+      deviceSettings: { sampleRate: fs, aiObservationSeconds: 5, arbitraryAiLabel: 'EXCLUDE_AI_HINT' },
+      inputLabel: inputKind === 'imported-file' ? 'long recording.wav' : 'Fresh microphone recording',
+    });
+    const report = buildReport(measured, context);
+    const html = renderToStaticMarkup(createElement(ReportView, { report }));
+    const frameCount = 1 + Math.floor((fs * durationSeconds - FFT_SIZE) / HOP_SIZE);
+    expect(report.text).toContain(`Actual analyzed duration: ${durationSeconds}.000 seconds`);
+    expect(report.text).toContain(`Sample count: ${durationSeconds * fs}`);
+    expect(report.text).toContain(`Complete frame count: ${frameCount}`);
+    expect(report.spectrum.frameCount).toBe(frameCount);
+    expect(report.spectrum.hz).toEqual(measured.spectrum.hz);
+    expect(report.spectrum.powerDb).toEqual(measured.spectrum.powerDb);
+    expect(report.spectrum.origin).toContain(`${durationSeconds}.000 s analyzed`);
+    for (const content of [report.text, html]) {
+      expect(content).toContain(`${durationSeconds}.000 seconds`);
+      expect(content).toContain(`${durationSeconds}.000 s analyzed`);
+      expect(content).toContain('does not replicate either county');
+      expect(content).not.toContain('Five seconds after');
+      expect(content).not.toContain('First five seconds');
+      expect(content).not.toContain('EXCLUDE_AI_HINT');
+      expect(content).not.toContain('aiObservationSeconds');
+      expect(content).not.toContain('meets county');
+    }
+    expect(report.text).toContain(inputKind === 'imported-file'
+      ? `Input window: First ${durationSeconds}.000 seconds from file offset 0`
+      : `Input window: ${durationSeconds}.000 seconds after discarding a 0.5-second microphone warm-up`);
+  });
+
   it('keeps synthetic provenance and purpose in both renderings', () => {
     const report = buildReport(result, context, '2026-10-18T15:03:00Z');
     const html = renderToStaticMarkup(createElement(ReportView, { report }));
@@ -118,6 +156,16 @@ describe('observation report', () => {
 });
 
 describe('interpretation and time labels', () => {
+  it('defaults the waiting result panel to five seconds and follows the selected duration before capture', () => {
+    expect(renderToStaticMarkup(createElement(ResultPanel, { result: null, analyzing: false }))).toContain('5-second screening sample');
+    for (const targetDurationSeconds of [15, 30]) {
+      expect(renderToStaticMarkup(createElement(ResultPanel, { result: null, analyzing: false, targetDurationSeconds }))).toContain(`${targetDurationSeconds}-second screening sample`);
+    }
+    const html = renderToStaticMarkup(createElement(ResultPanel, { result, analyzing: false, targetDurationSeconds: 30 }));
+    expect(html).toContain('5.00 s');
+    expect(html).not.toContain('30-second screening sample');
+  });
+
   it('does not present a disabled peak feature as a negative finding', () => {
     const copy = interpretResult({ ...result, lowFrequencyScreen: 'not-indicated', peakScreen: 'not-evaluated', peakCandidate: null });
     expect(copy).toContain('not evaluated');

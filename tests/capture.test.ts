@@ -18,8 +18,9 @@ class MockNode {
 class MockContext extends EventTarget {
   static instances: MockContext[] = [];
   static decodeFailure: Error | null = null;
+  static captureSampleRate = 48000;
   state = 'suspended';
-  sampleRate = 48000;
+  sampleRate = MockContext.captureSampleRate;
   destination = {};
   audioWorklet = { addModule: vi.fn(async () => {}) };
   source = new MockNode();
@@ -55,6 +56,7 @@ beforeEach(() => {
   documentMock = Object.assign(new EventTarget(), { visibilityState: 'visible' });
   MockContext.instances = [];
   MockContext.decodeFailure = null;
+  MockContext.captureSampleRate = 48000;
   MockWorklet.latest = undefined;
   decodedBuffer = { sampleRate: 48000, numberOfChannels: 2, length: 48000 * 7, getChannelData: channel => new Float32Array(48000 * 7).fill(channel === 0 ? 0.25 : -0.25) };
   vi.stubGlobal('isSecureContext', true);
@@ -134,6 +136,58 @@ describe('render-thread recorder', () => {
 });
 
 describe('microphone lifetime', () => {
+  it.each([
+    [44100, 15], [44100, 30], [48000, 15], [48000, 30],
+  ] as const)('records the selected duration at %i Hz for %i seconds rather than stopping at five', async (fs, durationSeconds) => {
+    MockContext.captureSampleRate = fs;
+    const progress = vi.fn();
+    const settled = vi.fn();
+    const pending = startCapture({ durationSeconds, onProgress: progress, signal: new AbortController().signal });
+    void pending.then(settled);
+    await vi.waitFor(() => expect(MockWorklet.latest?.port.onmessage).toBeTypeOf('function'));
+    const worklet = MockWorklet.latest!;
+    const firstSamples = Math.round(5.5 * fs);
+    worklet.port.onmessage!({ data: { type: 'chunk', startSample: 0, samples: new Float32Array(firstSamples).fill(0.1) } });
+    await Promise.resolve();
+    expect(settled).not.toHaveBeenCalled();
+    expect(track.stop).not.toHaveBeenCalled();
+    expect(progress).toHaveBeenLastCalledWith('recording', 5 / durationSeconds);
+    for (let startSample = firstSamples; startSample < fs * (durationSeconds + 0.5); startSample += 2048) {
+      worklet.port.onmessage?.({ data: { type: 'chunk', startSample, samples: new Float32Array(2048).fill(0.2) } });
+    }
+    const result = await pending;
+    expect(result.pcm).toHaveLength(fs * durationSeconds);
+    expect(result.pcm[0]).toBeCloseTo(0.1, 6);
+    expect(result.pcm.at(-1)).toBeCloseTo(0.2, 6);
+    expect(result.meta.deviceSettings).toMatchObject({ requestedCaptureDurationSeconds: durationSeconds, captureWarmupSeconds: 0.5 });
+    expect(progress).toHaveBeenLastCalledWith('recording', 1);
+    expect(progress.mock.calls.every(([, fraction]) => fraction >= 0 && fraction <= 1)).toBe(true);
+    expect(track.stop).toHaveBeenCalledOnce();
+    expect(worklet.port.close).toHaveBeenCalledOnce();
+    expect(MockContext.instances[0].close).toHaveBeenCalledOnce();
+  });
+
+  it.each([15, 30] as const)('releases an unfinished %i-second recording after cancellation beyond the first five seconds', async durationSeconds => {
+    const controller = new AbortController();
+    const pending = startCapture({ durationSeconds, onProgress: () => {}, signal: controller.signal });
+    const outcome = expect(pending).rejects.toMatchObject({ name: 'AbortError' });
+    await vi.waitFor(() => expect(MockWorklet.latest?.port.onmessage).toBeTypeOf('function'));
+    MockWorklet.latest!.port.onmessage!({ data: { type: 'chunk', startSample: 0, samples: new Float32Array(48000 * 6.5).fill(0.1) } });
+    expect(track.stop).not.toHaveBeenCalled();
+    controller.abort();
+    await outcome;
+    expect(track.stop).toHaveBeenCalledOnce();
+    expect(MockWorklet.latest!.port.onmessage).toBeNull();
+    expect(MockWorklet.latest!.port.close).toHaveBeenCalledOnce();
+    expect(MockContext.instances[0].close).toHaveBeenCalledOnce();
+  });
+
+  it('rejects unsupported duration before requesting microphone access', async () => {
+    await expect(startCapture({ durationSeconds: 10 as never, onProgress: () => {}, signal: new AbortController().signal })).rejects.toMatchObject({ code: 'invalid-duration' });
+    expect(getUserMedia).not.toHaveBeenCalled();
+    expect(MockContext.instances).toHaveLength(0);
+  });
+
   it('previews actual warm-up and recording chunks and ignores callbacks after completion', async () => {
     let now = 0;
     vi.spyOn(performance, 'now').mockImplementation(() => now);
@@ -242,6 +296,36 @@ describe('microphone lifetime', () => {
 
 describe('local import', () => {
   const file = (size = 2000) => ({ name: 'resident.wav', size, arrayBuffer: async () => new ArrayBuffer(8) }) as File;
+
+  it.each([
+    [44100, 15], [44100, 30], [48000, 15], [48000, 30],
+  ] as const)('crops the first channel from zero for %i Hz and %i selected seconds', async (fs, durationSeconds) => {
+    const firstChannel = Float32Array.from({ length: fs * 31 }, (_, index) => index / (fs * 100));
+    const getChannelData = vi.fn((channel: number) => channel === 0 ? firstChannel : Float32Array.from(firstChannel, value => -value));
+    decodedBuffer = { sampleRate: fs, numberOfChannels: 2, length: firstChannel.length, getChannelData };
+    const result = await decodeAudioFile(file(), undefined, durationSeconds);
+    expect(result.pcm).toHaveLength(fs * durationSeconds);
+    expect(result.pcm[0]).toBe(firstChannel[0]);
+    expect(result.pcm.at(-1)).toBe(firstChannel[fs * durationSeconds - 1]);
+    expect(getChannelData).toHaveBeenCalledExactlyOnceWith(0);
+    expect(result.pcm.buffer).not.toBe(firstChannel.buffer);
+    expect(result.meta.deviceSettings).toMatchObject({ effectiveSampleRateHz: fs, cropOffsetSeconds: 0, cropDurationSeconds: durationSeconds, decodedDurationSeconds: 31 });
+    expect(MockContext.instances[0].close).toHaveBeenCalledOnce();
+  });
+
+  it.each([15, 30] as const)('explains the selected %i-second minimum without padding a shorter file', async durationSeconds => {
+    decodedBuffer.length = 48000 * (durationSeconds - 1);
+    await expect(decodeAudioFile(file(), undefined, durationSeconds)).rejects.toMatchObject({ code: 'file-too-short', message: expect.stringContaining(`at least ${durationSeconds} seconds`) });
+    expect(MockContext.instances[0].close).toHaveBeenCalledOnce();
+  });
+
+  it('rejects unsupported file duration before reading the file or creating a decoder', async () => {
+    const source = file();
+    const read = vi.spyOn(source, 'arrayBuffer');
+    await expect(decodeAudioFile(source, undefined, 10 as never)).rejects.toMatchObject({ code: 'invalid-duration' });
+    expect(read).not.toHaveBeenCalled();
+    expect(MockContext.instances).toHaveLength(0);
+  });
 
   it('takes first-channel samples from offset zero and retains effective decode provenance', async () => {
     const result = await decodeAudioFile(file());

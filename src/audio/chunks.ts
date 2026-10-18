@@ -1,6 +1,14 @@
 import { AudioInputError } from './errors';
 
 export interface CaptureChunk { startSample: number; samples: Float32Array }
+export const CAPTURE_DURATIONS_SECONDS = [5, 15, 30] as const;
+export type CaptureDurationSeconds = typeof CAPTURE_DURATIONS_SECONDS[number];
+
+export function assertCaptureDuration(durationSeconds: unknown): asserts durationSeconds is CaptureDurationSeconds {
+  if (!CAPTURE_DURATIONS_SECONDS.includes(durationSeconds as CaptureDurationSeconds)) {
+    throw new AudioInputError('invalid-duration', 'Choose a recording duration of 5, 15, or 30 seconds.');
+  }
+}
 
 /** Counts real samples, including the warm-up, and never pads missing audio. */
 export class CaptureCollector {
@@ -9,12 +17,13 @@ export class CaptureCollector {
   private expectedSample = 0;
   private written = 0;
 
-  constructor(readonly sampleRate: number) {
+  constructor(readonly sampleRate: number, readonly durationSeconds: CaptureDurationSeconds = 5) {
+    assertCaptureDuration(durationSeconds);
     if (!Number.isFinite(sampleRate) || sampleRate <= 0) {
       throw new AudioInputError('invalid-rate', 'The microphone returned an invalid sample rate. Try a file or demo.');
     }
     this.warmupSamples = Math.round(0.5 * sampleRate);
-    this.pcm = new Float32Array(Math.round(5 * sampleRate));
+    this.pcm = new Float32Array(Math.round(durationSeconds * sampleRate));
   }
 
   get recordedSamples(): number { return this.written; }

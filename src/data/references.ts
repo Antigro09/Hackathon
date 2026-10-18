@@ -155,5 +155,5 @@ export function interpretResult(result: AnalysisResult): string {
   }
   return largeGap
     ? 'Low-frequency contribution suggested. This does not by itself indicate a tone.'
-    : 'Neither indicator was strong in this short recording. This does not rule out recurring or device-missed noise.';
+    : 'Neither indicator was strong in this analyzed sample. This does not rule out recurring or device-missed noise.';
 }
