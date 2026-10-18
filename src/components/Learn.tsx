@@ -212,7 +212,7 @@ function LowFrequencyExhibit({ result, compact = false }: { result: AnalysisResu
   const exhibit = useMemo(() => {
     if (!result) return null;
     const origin = result.inputKind === 'synthetic' ? 'Synthetic demonstration — not a field observation'
-      : result.inputKind === 'imported-file' ? 'Imported audio file — original recording context is user supplied'
+      : result.inputKind === 'imported-file' ? 'Imported audio file — original recording context unverified'
         : 'Microphone observation — uncalibrated input';
     const spectrum = buildReportSpectrum(result, origin);
     const bins = spectrum.status === 'unavailable' ? [] : spectrum.hz.flatMap((hz, index) => hz >= 20 && hz <= 200
