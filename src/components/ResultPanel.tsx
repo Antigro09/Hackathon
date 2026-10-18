@@ -5,25 +5,23 @@ import { RecordingCheck } from './RecordingCheck';
 
 const screenText = { suggested: 'Suggested', 'not-indicated': 'Not indicated in this sample', inconclusive: 'Inconclusive', 'not-evaluated': 'Not evaluated' };
 const number = (value: number | null) => value === null ? '—' : value.toFixed(1);
+const lowFrequencyVerdicts = {
+  suggested: { cls: 'verdict-chip verdict-bad', text: 'Low-frequency contribution suggested', sub: 'A larger C−A gap. Check the separate sustained-peak result below.' },
+  'not-indicated': { cls: 'verdict-chip verdict-ok', text: 'Low-frequency contribution below threshold', sub: 'This does not rule out a tone, other noise, or sound your microphone missed.' },
+  inconclusive: { cls: 'verdict-chip verdict-warn', text: 'Low-frequency check inconclusive', sub: 'No usable C−A result. Review the recording check before retaking.' },
+};
 
 export function ResultPanel({ result, analyzing, targetDurationSeconds = 5 }: { result: AnalysisResult | null; analyzing: boolean; targetDurationSeconds?: number }) {
+  const verdict = result ? lowFrequencyVerdicts[result.lowFrequencyScreen] : null;
   return <section className="panel results-panel" aria-labelledby="results-title">
     <div className="section-heading"><div><p className="eyebrow">01 / Inspect the signal</p><h2 id="results-title">A closer look at the hum</h2></div><span className={`status-tag ${result ? 'complete' : ''}`}>{analyzing ? 'Analyzing PCM…' : result ? 'Analysis complete' : 'Awaiting input'}</span></div>
     <div className="plot-header"><span>Frequency spectrum</span><span>{result ? `${result.durationSeconds.toFixed(2)} s · ${(result.sampleRateHz / 1000).toFixed(1)} kHz` : `${targetDurationSeconds}-second screening sample`}</span></div>
     <Spectrum result={result}/>
-    {result ? (() => {
-      const lf = result.lowFrequencyScreen;
-      const verdict = lf === 'suggested'
-        ? { cls: 'verdict-chip verdict-bad', text: 'Tonal noise likely', sub: 'Strong low-frequency contribution in this sample' }
-        : lf === 'not-indicated'
-          ? { cls: 'verdict-chip verdict-ok', text: 'No tonal noise detected', sub: 'In THIS sample, under THESE conditions — see quality notes' }
-          : { cls: 'verdict-chip verdict-warn', text: 'Sample unusable', sub: 'Recording quality insufficient — check background noise, wind, or clipping, then retake' };
-      return <div className={verdict.cls} style={{margin:'10px 0 14px',padding:'14px 18px',borderRadius:10,fontSize:'1.25em',fontWeight:700}}>
+    {verdict ? <div className={verdict.cls} style={{margin:'10px 0 14px',padding:'14px 18px',borderRadius:10,fontSize:'1.25em',fontWeight:700}}>
         {verdict.text}<div style={{fontWeight:400,fontSize:'.62em',marginTop:4}}>{verdict.sub}</div>
-      </div>;
-    })() : null}
+      </div> : null}
     <div className="metrics">
-      <div className="metric primary-metric"><p>Captured-spectrum C−A</p><div className="metric-number">{number(result?.cMinusADb ?? null)} <span>dB</span></div><small>Uncalibrated input — negative is normal. This gap is the number that matters</small></div>
+      <div className="metric primary-metric"><p>Captured-spectrum C−A</p><div className="metric-number">{number(result?.cMinusADb ?? null)} <span>dB</span></div><small>Uncalibrated spectrum difference; can be negative</small></div>
       <div className="metric"><p>A relative</p><div className="metric-number secondary-number">{number(result?.aDigitalDb ?? null)} <span>dB</span></div><small>Weighted digital level</small></div>
       <div className="metric"><p>C relative</p><div className="metric-number secondary-number">{number(result?.cDigitalDb ?? null)} <span>dB</span></div><small>Weighted digital level</small></div>
     </div>

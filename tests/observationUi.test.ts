@@ -26,8 +26,8 @@ describe('observation guidance', () => {
   it('offers microphone capture and learning from Home without demo or import instructions', () => {
     vi.stubGlobal('window', { location: { hash: '#/' } });
     const html = renderToStaticMarkup(createElement(App));
-    expect(html).toContain('Start an observation');
-    expect(html).toContain('Understand the signal');
+    expect(html).toMatch(/<a class="button primary" href="#\/measure">/);
+    expect(html).toContain('Inspect the noise');
     expect(html).toContain('Record a live microphone sample for 5, 15, or 30 seconds.');
     expect(html).not.toContain('Try a synthetic demo');
     expect(html).not.toContain('load a local file');
