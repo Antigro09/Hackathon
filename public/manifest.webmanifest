@@ -1,0 +1,13 @@
+{
+  "name": "TonalWatch",
+  "short_name": "TonalWatch",
+  "description": "Check a recurring hum for deep, low sound and turn it into a report with your county's sources.",
+  "start_url": "./#/",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2f2f7",
+  "theme_color": "#ffffff",
+  "icons": [
+    { "src": "./favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

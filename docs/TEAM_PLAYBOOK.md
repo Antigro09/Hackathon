@@ -92,8 +92,8 @@ Stand left to right: **Ricardo, Tate, Vihaan, Anthony.** Anthony stands beside t
 - Point with an open hand, then move aside.
 
 **Set up before presenting:**
-- Open the deployed app over HTTPS on **Observation**. Choose **5 s** under **Observation duration**. The input panel is **Live microphone**.
-- Test microphone permission and one complete capture on this laptop. Then choose **Clear session** so the live demonstration starts without old results or notes.
+- Open the deployed app over HTTPS on the **Check** tab. Open **Mic options** and choose **5 s** under **Length**. The screen shows the big **Check** button (live microphone).
+- Test microphone permission and one complete capture on this laptop. Then choose **Clear** so the live demonstration starts without old results or notes.
 - Keep the tab visible, stop Learn tone playback, and check that microphone capture is available. Test a readable browser zoom that still fits the screen.
 - Leave optional AI exploration for questions; its first use downloads a large model and is not needed for the indicators or report.
 - If handing out a report, use an actual earlier microphone capture with its date and context clearly identified. Do not present it as the current capture.
@@ -102,17 +102,17 @@ Stand left to right: **Ricardo, Tate, Vihaan, Anthony.** Anthony stands beside t
 
 | Step | Do | Say |
 |---|---|---|
-| 1 | Point at **Live microphone** and the selected **5 s** duration. | "We'll record five seconds. **Please pause conversation** so it doesn't just capture our voices." |
-| 2 | Before clicking, explain the meter. Then click **Start 5-second capture** and stay silent through warm-up and recording. | "This meter shows digital activity, **not calibrated loudness.**" *(Then stay silent.)* |
-| 3 | After analysis, point at **Captured-spectrum C−A**, then the two indicator boxes. | "The gap is **[read the displayed value, if available]**. It describes this spectrum. **The low-frequency and peak checks are separate.**" |
-| 4 | Read the actual status and any quality notes. If a peak exists, use the displayed "candidate near" wording. | "The status is **[read it]**. It doesn't identify a source or prove quietness. If inconclusive, we keep that limit." |
-| 5 | Scroll to **What did you notice?** Enter a brief truthful description and recording conditions. Keep **Unknown / other jurisdiction** unless the actual recording location is in a listed county. | "Add what we noticed and the conditions. **Keep jurisdiction unknown unless we know the location.**" |
-| 6 | Click **Review observation**. Show the spectrum, quality/provenance details, and notes. | "Here's the **observation packet**: graph, notes, and limits. We can **Print / save PDF** or **Download text summary**." |
-| 7 | If time allows, open **Sources & method** to show the county references and limitations. | "Sources give county context, not compliance approval. **Ricardo, who's it for?**" |
+| 1 | Point at the big **Check** button and its **Start 5-second capture** line (the selected **5 s** length). | "We'll record five seconds. **Please pause conversation** so it doesn't just capture our voices." |
+| 2 | Before clicking, explain the meter that appears while it listens. Then click the big **Check** button and stay silent through warm-up and recording. | "This meter shows digital activity, **not calibrated loudness.**" *(Then stay silent.)* |
+| 3 | After analysis, point at **The gap** on the result card, then open **Details** (it shows **The gap · C−A** and the two checks). | "The gap is **[read the displayed value, if available]**. It describes this spectrum. **The low-frequency and peak checks are separate.**" |
+| 4 | Read the actual status and any quality notes. If a peak exists, use the displayed "Near … Hz" wording under **Details**. | "The status is **[read it]**. It doesn't identify a source or prove quietness. If inconclusive, we keep that limit." |
+| 5 | Open **What did you notice?** Enter a brief truthful description and recording conditions. In **County for your report**, keep **Unknown / other jurisdiction** unless the actual recording location is in a listed county. | "Add what we noticed and the conditions. **Keep jurisdiction unknown unless we know the location.**" |
+| 6 | Click **Create report**. Show the spectrum, quality/provenance details, and notes. | "Here's the **observation packet**: graph, notes, and limits. We can **Print / save PDF** or **Download text summary**." |
+| 7 | If time allows, open **Method** to show the county references and limitations. | "Sources give county context, not compliance approval. **Ricardo, who's it for?**" |
 
-**If capture fails:** acknowledge the displayed permission, device, or interruption error. Retry once only if time allows. Otherwise show **Sources & method** and explain the workflow. Use an earlier genuine report only with its original context clearly stated. Do not invent a reading or claim the live capture succeeded.
+**If capture fails:** acknowledge the displayed permission, device, or interruption error. Retry once only if time allows. Otherwise show **Method** and explain the workflow. Use an earlier genuine report only with its original context clearly stated. Do not invent a reading or claim the live capture succeeded.
 
-**Optional Map view:** seeded pins are explicitly **synthetic, invented examples**, not measured sites or data-center buildings. A user can manually associate a current result with a location as a session-only preview. Do not describe this as a shared public measurement map. Opening **Load street map** contacts the map provider; it is unnecessary for the short demo.
+**Optional Map view:** seeded pins are explicitly **synthetic, invented examples**, not measured sites or data-center buildings. A user can manually associate a current result with a location as a session-only preview. Do not describe this as a shared public measurement map. Opening the **Map** tab loads street tiles from the map provider; it is unnecessary for the short demo.
 
 **Anthony's delivery:**
 - Tell the judges which label to look at before pointing.

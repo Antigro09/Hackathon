@@ -229,7 +229,7 @@ function LowFrequencyExhibit({ result, compact = false }: { result: AnalysisResu
 
   return <section className={`learn-exhibit${compact ? ' learn-exhibit--compact' : ''}`} aria-labelledby={titleId}>
     <p className="eyebrow">Frequency observation exercise</p><h3 id={titleId}>Look for a peak near 60 Hz</h3>
-    <p>Stop the tone player. In Observation → Microphone, select a 15-second capture, hold the device still, and inspect the spectrum near 60 Hz and 120 Hz. A longer capture does not establish legal compliance.</p>
+    <p>Stop the tone player. On the Check screen, open Mic options, pick 15 seconds, hold the device still, and inspect the spectrum near 60 Hz and 120 Hz. A longer capture does not establish legal compliance.</p>
     <p className="learn-frequency-boundary">A peak near 60 Hz is a frequency observation. Several acoustic or recording-chain sources can produce it; this does not identify the power grid, equipment, a building, or transmission through a wall.</p>
     {result && exhibit ? <div className="learn-current-observation">
       <p className={`learn-exhibit-origin${result.inputKind === 'synthetic' ? ' learn-exhibit-origin--synthetic' : ''}`}><strong>{exhibit.origin}</strong>{result.inputLabel ? <span>{result.inputLabel}</span> : null}</p>

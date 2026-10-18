@@ -7,5 +7,6 @@ import './learn.css';
 import './meter.css';
 import './sound-hints.css';
 import './print.css';
+import './theme.css';
 
 createRoot(document.getElementById('root')!).render(<StrictMode><App /></StrictMode>);

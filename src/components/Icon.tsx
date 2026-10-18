@@ -1,4 +1,4 @@
-export function Icon({ name, size = 20 }: { name: 'home' | 'wave' | 'arrow' | 'mic' | 'file' | 'demo' | 'check' | 'shield' | 'external' | 'download' | 'print'; size?: number }) {
+export function Icon({ name, size = 20 }: { name: 'home' | 'wave' | 'arrow' | 'mic' | 'file' | 'demo' | 'check' | 'shield' | 'external' | 'download' | 'print' | 'map' | 'book' | 'pin' | 'info' | 'moon' | 'heart' | 'activity' | 'gauge' | 'chevron'; size?: number }) {
   const paths = {
     home: 'm3 10 9-7 9 7v11h-7v-7h-4v7H3V10',
     wave: 'M2 12h4l2-7 4 14 4-16 3 12 2-3h2',
@@ -11,6 +11,15 @@ export function Icon({ name, size = 20 }: { name: 'home' | 'wave' | 'arrow' | 'm
     external: 'M14 3h7v7m0-7L10 14m-1-9H3v16h16v-6',
     download: 'M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5',
     print: 'M7 8V2h10v6M6 17H3V8h18v9h-3M7 14h10v8H7z',
+    map: 'M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2m0 0v14m6-12v14',
+    book: 'M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5m0 16a2 2 0 0 1 2-2h13v2',
+    pin: 'M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21m0-9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5',
+    info: 'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20m0-6v-5m0-3h.01',
+    moon: 'M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5',
+    heart: 'M12 20s-7.5-4.5-9.2-9.1C1.6 7.6 3.8 4.5 7 4.5c2 0 3.5 1 5 2.9 1.5-1.9 3-2.9 5-2.9 3.2 0 5.4 3.1 4.2 6.4C19.5 15.5 12 20 12 20',
+    activity: 'M3 12h4l3-7 4 14 3-7h4',
+    gauge: 'M5 18.5a9 9 0 1 1 14 0M12 13.5l4-5',
+    chevron: 'm9 6 6 6-6 6',
   };
   return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={paths[name]} /></svg>;
 }
