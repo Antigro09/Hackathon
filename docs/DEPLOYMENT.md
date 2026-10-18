@@ -2,7 +2,19 @@
 
 Verified October 18, 2026, in Chrome 155 on Windows.
 
-## Current microphone-only release
+## Current V3 local-model release
+
+Public [tonalwatch.vercel.app](https://tonalwatch.vercel.app) is READY from main commit `34888362cfe704837d804bd706e526ba508c78bb`, deployment `dpl_7WQabbkCYJ53y7TrfBUTg98tJew3`. The immutable deployment is `https://tonalwatch-85qk0ul2u-antigro09s-projects.vercel.app`. Its direct comparison and unchanged strict failures are documented in [AI_V3_RESULTS.md](AI_V3_RESULTS.md). The trained classifier replaces the previous eight-description hints; the encoder remains frozen.
+
+The full repository passed 428 tests across 21 files and strict TypeScript/Vite build. A source-only production file-set build produced all 33 output files byte-identical to the full build. Production excludes development tests and ML archives. Vercel uses the supported `ONNXRUNTIME_NODE_INSTALL=skip` setting to avoid downloading an unused native CUDA package; the app's verified browser-WASM runtime is unchanged. The first install attempt failed on that external download, and the second exposed a test-only import of the excluded research tree; both logs are preserved in ignored output. The final production build succeeded.
+
+The public artifact check passed all 31 deployment artifacts, including all 23 model/runtime/head payload byte pins and the extensionless JavaScript MIME type. The comparison-summary JSON has CRLF line endings from Git archive export: its delivered bytes exactly match the release archive, and its parsed values equal the committed LF document. The initial local-raw mismatch and its explanation remain recorded, without changing numerical payloads.
+
+Fresh public Chrome 155 verification used the generated 63 Hz/48 kHz virtual microphone: live meter, a complete 15-second capture with 720,000 samples/174 frames, zero model requests before Explore, visible startup self-test, and an actual unclassified result. At most one encoder worker ran. Clear/unload, retry/cancel, navigation with stale work, ordinary report access, native text export and the printed SVG passed. All six routes fit 320/1280 px at scale 1 with reachable footers and no page/console errors. The downloaded text was 7,718 bytes/117 lines, with no raw bins or AI output. Model/runtime traffic was same-origin GET only, without audio uploads.
+
+[Raw public evidence](qa/2026-10-18-v3-public.json) binds the source, deployment, browser outcomes and public artifact checks. [Local evidence](qa/2026-10-18-v3-browser.json) additionally covers same-size corrupt head/model rejection and all six routes at 320/390/1280 px. These are software checks, not hardware calibration or field reliability.
+
+## Previous microphone-only release (legacy AI)
 
 - Public URL: [tonalwatch.vercel.app](https://tonalwatch.vercel.app).
 - Application source: `322d40e0d9a0146e35c61e1a46b05d7e9fffb662` on main; deployment `dpl_EhmQkBGYPCodTYTEq8qHN2Twgikp`, production **READY**. Published from an exact Git archive to the existing TonalWatch project. Later research/documentation commits do not change these application sources.
