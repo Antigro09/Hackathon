@@ -5,3 +5,5 @@ output/
 .playwright-cli/
 *.tsbuildinfo
 *.local
+.vercel
+.env*
