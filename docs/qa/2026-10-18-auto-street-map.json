@@ -1,0 +1,772 @@
+{
+  "sourceCommit": "80f4ebf31913516bc8051b36dfed4580f9322b37",
+  "local": {
+    "scope": "Actual production frontend on loopback; community GETs mocked only; real OSM images except one intentional aborted-tile phase.",
+    "checks": [
+      "one active street layer during automatic-initial-load",
+      "street tiles requested automatically without a button",
+      "city and facility searches remain explicit",
+      "normal map has no Load street map or grid toggle",
+      "map cleaned up on navigation",
+      "one active street layer during navigation-remount",
+      "offline tile layer cleaned up",
+      "facility list survives offline",
+      "one active street layer during offline-reconnect",
+      "one active street layer during rapid-connectivity-events",
+      "tile failure leaves no falsely loaded street layer",
+      "public list survives tile failure",
+      "one active street layer during manual-failure-retry",
+      "no publication or audio upload during map verification",
+      "no runtime page exceptions"
+    ],
+    "errors": [],
+    "requests": [
+      {
+        "phase": "automatic-initial-load",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/assets/ObservationMap-Dz8CRxwK.js",
+        "method": "GET"
+      },
+      {
+        "phase": "automatic-initial-load",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/assets/ObservationMap-C6XNpDn4.css",
+        "method": "GET"
+      },
+      {
+        "phase": "automatic-initial-load",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET"
+      },
+      {
+        "phase": "automatic-initial-load",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/api/community",
+        "method": "GET"
+      },
+      {
+        "phase": "automatic-initial-load",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/582/782.png",
+        "method": "GET"
+      },
+      {
+        "phase": "automatic-initial-load",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/583/782.png",
+        "method": "GET"
+      },
+      {
+        "phase": "automatic-initial-load",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/582/781.png",
+        "method": "GET"
+      },
+      {
+        "phase": "automatic-initial-load",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/583/781.png",
+        "method": "GET"
+      },
+      {
+        "phase": "automatic-initial-load",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/582/783.png",
+        "method": "GET"
+      },
+      {
+        "phase": "automatic-initial-load",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/583/783.png",
+        "method": "GET"
+      },
+      {
+        "phase": "automatic-initial-load",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/782.png",
+        "method": "GET"
+      },
+      {
+        "phase": "automatic-initial-load",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/584/782.png",
+        "method": "GET"
+      },
+      {
+        "phase": "automatic-initial-load",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/781.png",
+        "method": "GET"
+      },
+      {
+        "phase": "automatic-initial-load",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/584/781.png",
+        "method": "GET"
+      },
+      {
+        "phase": "automatic-initial-load",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/783.png",
+        "method": "GET"
+      },
+      {
+        "phase": "automatic-initial-load",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/584/783.png",
+        "method": "GET"
+      },
+      {
+        "phase": "navigation-remount",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET"
+      },
+      {
+        "phase": "navigation-remount",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/api/community",
+        "method": "GET"
+      },
+      {
+        "phase": "navigation-remount",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET"
+      },
+      {
+        "phase": "navigation-remount",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/583/782.png",
+        "method": "GET"
+      },
+      {
+        "phase": "navigation-remount",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/782.png",
+        "method": "GET"
+      },
+      {
+        "phase": "navigation-remount",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/781.png",
+        "method": "GET"
+      },
+      {
+        "phase": "navigation-remount",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/783.png",
+        "method": "GET"
+      },
+      {
+        "phase": "offline-reconnect",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/583/782.png",
+        "method": "GET"
+      },
+      {
+        "phase": "offline-reconnect",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/782.png",
+        "method": "GET"
+      },
+      {
+        "phase": "offline-reconnect",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/781.png",
+        "method": "GET"
+      },
+      {
+        "phase": "offline-reconnect",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/783.png",
+        "method": "GET"
+      },
+      {
+        "phase": "rapid-connectivity-events",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/583/782.png",
+        "method": "GET"
+      },
+      {
+        "phase": "rapid-connectivity-events",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/782.png",
+        "method": "GET"
+      },
+      {
+        "phase": "rapid-connectivity-events",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/781.png",
+        "method": "GET"
+      },
+      {
+        "phase": "rapid-connectivity-events",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/783.png",
+        "method": "GET"
+      },
+      {
+        "phase": "deliberate-tile-failure",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET"
+      },
+      {
+        "phase": "deliberate-tile-failure",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/api/community",
+        "method": "GET"
+      },
+      {
+        "phase": "deliberate-tile-failure",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/583/782.png",
+        "method": "GET"
+      },
+      {
+        "phase": "deliberate-tile-failure",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/782.png",
+        "method": "GET"
+      },
+      {
+        "phase": "deliberate-tile-failure",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/781.png",
+        "method": "GET"
+      },
+      {
+        "phase": "deliberate-tile-failure",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/783.png",
+        "method": "GET"
+      },
+      {
+        "phase": "deliberate-tile-failure",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET"
+      },
+      {
+        "phase": "manual-failure-retry",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/583/782.png",
+        "method": "GET"
+      },
+      {
+        "phase": "manual-failure-retry",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/782.png",
+        "method": "GET"
+      },
+      {
+        "phase": "manual-failure-retry",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/781.png",
+        "method": "GET"
+      },
+      {
+        "phase": "manual-failure-retry",
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/783.png",
+        "method": "GET"
+      }
+    ]
+  },
+  "public": {
+    "sourceCommit": "80f4ebf31913516bc8051b36dfed4580f9322b37",
+    "kind": "automatic-street-map-public-verification",
+    "url": "https://tonalwatch.vercel.app",
+    "checkedAtUtc": "2026-10-18T19:34:12.214Z",
+    "checks": [
+      "street tiles load on opening without any button",
+      "city/facility/AI lookups do not start automatically",
+      "no street-map setup button in normal flow",
+      "actual deployed community feed remains available",
+      "automatic map fits at 320px and100%zoom",
+      "map footer reachable at 320px",
+      "automatic map fits at 390px and100%zoom",
+      "map footer reachable at 390px",
+      "automatic map fits at 1280px and100%zoom",
+      "map footer reachable at 1280px",
+      "Sources discloses automatic street-map requests",
+      "explicit data-center search still returns92Ashburnrecords",
+      "all observed requests are read-only without audio",
+      "no browser page or console errors"
+    ],
+    "geometry": [
+      {
+        "width": 320,
+        "scroll": 320,
+        "scale": 1,
+        "footer": {
+          "bottom": 899.8125,
+          "viewport": 900
+        }
+      },
+      {
+        "width": 390,
+        "scroll": 390,
+        "scale": 1,
+        "footer": {
+          "bottom": 899.78125,
+          "viewport": 900
+        }
+      },
+      {
+        "width": 1280,
+        "scroll": 1280,
+        "scale": 1,
+        "footer": {
+          "bottom": 900.4375,
+          "viewport": 900
+        }
+      }
+    ],
+    "errors": [],
+    "consoleErrors": [],
+    "requests": [
+      {
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/assets/index-DYHh1Wfp.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/assets/index-GN5uF9hH.css",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/assets/ObservationMap-Dz8CRxwK.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/assets/ObservationMap-C6XNpDn4.css",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/api/community",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/582/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/583/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/582/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/583/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/582/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/583/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/584/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/584/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/584/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/582/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/583/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/582/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/582/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/583/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/584/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/584/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/api/community",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/582/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/583/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/582/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/582/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/583/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/584/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/584/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/582/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/584/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/583/782.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/582/781.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/582/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/583/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/581/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/11/584/783.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://geocoding-api.open-meteo.com",
+        "path": "/v1/search",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/api/community",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/12/1166/1564.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/12/1166/1563.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/12/1165/1564.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/12/1167/1564.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/12/1166/1565.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/12/1165/1563.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/12/1167/1563.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/12/1165/1565.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tile.openstreetmap.org",
+        "path": "/12/1167/1565.png",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/api/community",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "origin": "https://tonalwatch.vercel.app",
+        "path": "/data/datacenters-osm-2026-10-18.json",
+        "method": "GET",
+        "bodyBytes": 0
+      }
+    ]
+  },
+  "configurationRelease": {
+    "sourceCommit": "cb79bd23919575bd607aafd6269652b4143dbc7b",
+    "deployment": "dpl_ANe2uzWAmLw9UnJQWeTELkBkoQ24",
+    "frontendUnchanged": true,
+    "serverScopedTypeScriptCheckPassed": true,
+    "vercelFunctionTranspilationDiagnostics": 0,
+    "publicCheck": {
+      "checkedAtUtc": "2026-10-18T19:38:40.807Z",
+      "matchingFrontendArtifacts": [
+        {
+          "pathname": "/",
+          "bytes": 729,
+          "sha256": "c28c2f2c11ecb3f9c1edd07bb1b817a36984400b4b992a9ae462d92affb2c888"
+        },
+        {
+          "pathname": "/assets/analysis.worker-BwKrUFVx.js",
+          "bytes": 10766,
+          "sha256": "a5918dda07bf28fd7b705d797734185446be9d13ab0feb7f5b5a5025717d443f"
+        },
+        {
+          "pathname": "/assets/index-DYHh1Wfp.js",
+          "bytes": 328839,
+          "sha256": "124e19e3cc759f9f5d8b33615727edb6f6345cb2f3700c96bd1a7baaa005f940"
+        },
+        {
+          "pathname": "/assets/index-GN5uF9hH.css",
+          "bytes": 51169,
+          "sha256": "b853666131ab71b8804f817dfcb27904d1b1b6cea66b66005e99f4cb2b833716"
+        },
+        {
+          "pathname": "/assets/ObservationMap-C6XNpDn4.css",
+          "bytes": 26593,
+          "sha256": "09e3b25e5716c0af06f64de2757cca9f8ee28c9caec800ac290c6d8ede68cc21"
+        },
+        {
+          "pathname": "/assets/ObservationMap-Dz8CRxwK.js",
+          "bytes": 199621,
+          "sha256": "36c9913c764323eca90e1da172c7f38294c99578339261f77a4aa7ae3b3fe0f9"
+        }
+      ],
+      "communityApiStatus": 200,
+      "validFeed": true
+    }
+  },
+  "notes": [
+    "The first local cleanup assertion preceded the asynchronous Home render. The final check awaits the Home heading before inspecting cleanup. The initial log is preserved.",
+    "Four failed tile requests in the local deliberate-abort phase are expected. Public verification has no page or console errors.",
+    "No community publications or model inference were performed for this visual-default change."
+  ]
+}
