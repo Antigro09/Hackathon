@@ -2,7 +2,7 @@
 
 Build date: **October 18, 2026 (America/New_York)**. This record distinguishes software checks from browser integration and physical measurement validation. Algorithm: **`tw-screen-v1`**.
 
-**Current status:** the combined checkout passed **294 tests across14 files** (259 application +35 standalone-lab checks) and TypeScript/Vite build. Home navigation, Learn exhibits, map,5/15/30-second observations, and comparison passed public HTTPS verification. See [deployment evidence](DEPLOYMENT.md). Historical129/264-test runs remain separately labeled.
+**Current status:** the combined checkout passed **294 tests across 14 files** (259 application +35 standalone-lab checks) and TypeScript/Vite build. Home navigation, Learn exhibits, map,5/15/30-second observations, and comparison passed public HTTPS verification. See [deployment evidence](DEPLOYMENT.md). Historical129/264-test runs remain separately labeled.
 
 ## Environment and pinned dependencies
 
@@ -44,7 +44,7 @@ This table records the earlier release, not a new total after the approved exten
 
 ## Expanded-workflow checks
 
-**First expanded integration:** `npm test` passed264 tests across13 files before the team restored the separate lab. Its five retirement tests were replaced; the current combined result is294 tests across14 files, including259 application and35 standalone checks. The exact deployed application archive passed259 application tests and build. Focused counts below overlap and are not additional tests.
+**First expanded integration:** `npm test` passed264 tests across 13 files before the team restored the separate lab. Its five retirement tests were replaced; the current combined result is294 tests across 14 files, including259 application and 35 standalone checks. The exact deployed application archive passed259 application tests and build. Focused counts below overlap and are not additional tests.
 
 The following focused runs were observed during implementation. Their test files overlap; **do not add these counts together** or treat them as a full-suite count.
 
@@ -72,7 +72,7 @@ Local Chrome integration observations for the expanded build:
 | Learn layout and print | Twenty viewport cases passed. Two- and three-page learning PDF outputs passed visual QA. Reference lines remain distinct from the actual PSD/candidate; no additional frequency resolution or source identity is claimed. |
 | Map behavior | Online/offline, manual placement, and reset checks passed. Resize verification retained **14 synthetic icons and 14 provenance badges**. The neutral grid/list remains the fallback when tiles are unavailable. |
 
-The expanded deployment passed the public checks in [DEPLOYMENT.md](DEPLOYMENT.md). Current screenshots cover all six pages. Locally all30 route/width cases at320/390/760/1280/1920px had no document-width overflow and accessible footers; production repeated30 cases at320/375/760/1280/1920px. Physical microphone, independent field, and AI promotion checks remain outside this software result.
+The expanded deployment passed the public checks in [DEPLOYMENT.md](DEPLOYMENT.md). Current screenshots cover all six pages. Locally all 30 route/width cases at 320/390/760/1280/1920 px had no document-width overflow and accessible footers; production repeated30 cases at 320/375/760/1280/1920 px. Physical microphone, independent field, and AI promotion checks remain outside this software result.
 
 ## Observed numerical fixture results
 
@@ -158,7 +158,7 @@ Held-out metrics and their sample limits are documented in [AI_EXPERIMENT_RESULT
 
 The React/TypeScript app, PCM estimator, fixtures, worker, capture path, and report implementation were created for the current corrected-plan implementation. Existing `mic_spike.html` and `range_finder.html` remain research artifacts and are not part of the current runtime. Their historical “validated” or “calibration” descriptions are not adopted as results for this app. Event eligibility and any organizer reuse ruling require a separate team record.
 
-The standalone [`field_lab.html`](../field_lab.html) serves the E1–E5 campaign, with its own persistent logging, CSV, comparison, and optional PCM WAV export. Its35 separate tests cover all10 main-engine fixtures at both rates, full PSD/weighted-level parity, changing-signal averages, quality gates, true-bin60/120 candidates, collection/storage/export behavior, and interruption races. Native virtual-microphone captures at48k yielded240,000/720,000/1,440,000 samples and57/174/350 frames for5/15/30s. Every track ended and context closed. Stop, hidden page, muted/pre-muted input, and late permission canceled without logging a numeric row. Corrupt storage was preserved for recovery; Clear persisted after reload. Browser widths320/390/1280 had no document overflow or page/console errors. The campaign table intentionally scrolls horizontally within its container.
+The standalone [`field_lab.html`](../field_lab.html) serves the E1–E5 campaign, with its own persistent logging, CSV, comparison, and optional PCM WAV export. Its35 separate tests cover all 10 main-engine fixtures at both rates, full PSD/weighted-level parity, changing-signal averages, quality gates, true-bin60/120 candidates, collection/storage/export behavior, and interruption races. Native virtual-microphone captures at 48k yielded240,000/720,000/1,440,000 samples and 57/174/350 frames for 5/15/30 s. Every track ended and context closed. Stop, hidden page, muted/pre-muted input, and late permission canceled without logging a numeric row. Corrupt storage was preserved for recovery; Clear persisted after reload. Browser widths320/390/1280 had no document overflow or page/console errors. The campaign table intentionally scrolls horizontally within its container.
 
 These checks do not establish hardware accuracy or retroactively validate [FIELD_LOG.md](FIELD_LOG.md). Its original notes retain explicit missing-provenance, duration, source, and unsupported-device-offset limitations; the instrument/version that produced them is unknown.
 
