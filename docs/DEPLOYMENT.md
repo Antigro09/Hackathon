@@ -2,7 +2,18 @@
 
 Verified October 18, 2026, in Chrome 155 on Windows.
 
-## Expanded app release
+## Current report and audio-import release
+
+- Public URL: [tonalwatch.vercel.app](https://tonalwatch.vercel.app), checked without authentication.
+- Application source: main commit `0b94eb0e092fbb4a30c94407a62f01a0d91cbaeb`; deployment `dpl_8DJ8cYJBXhj5wGhTsgDoA6zPf92f`, production **READY**. Subsequent research/documentation commits do not change these app sources.
+- Published from an exact Git archive, excluding experiment caches, training modules, field CSVs and local output. Fresh `npm ci` found zero vulnerabilities; TypeScript/Vite build succeeded. The matching checkout passed **365 tests in 18 files** (330 app + 35 standalone-lab checks).
+- Recording controls expose 5/15/30 seconds, with a direct 15-second microphone action from Demo. Digital negative dB and the separate signed C−A difference have visible explanations. These controls were first published at `48010fc` (`dpl_Dfgfi9D3qVhPguPHnR55DZ36oQbT`).
+- Text exports contain a concise spectrum summary without individual bin rows. The actual spectrum remains in the report and print/PDF view. This first passed public download/print checks at `55a0dcb` (`dpl_2G7KJB1Ptbfs3vCVpCG43YfoUAAs`): 7,610 bytes, 109 lines, zero CSV bin rows, with 15-second/720,000-sample/174-frame provenance and references retained.
+- The current release avoids an extra decoding resample for supported WAV rates and preserves safe decoder provenance. A public 15-second 44.1 kHz PCM16 import retained **661,500 samples, 160 frames and 5.383 Hz/bin**. Its report showed requested/effective 44,100 Hz, matched hint, no fallback and exact crop. Native text download was **6,352 bytes / 99 lines**, with no bin rows. The graph remained visible under print media and the toolbar hid correctly.
+- A test observer confirmed the actual AI request used **220,500 samples at 44.1 kHz → 240,000 at 48 kHz**, while DSP/report retained the full 15 seconds. Inference was suppressed for this workflow check; it does not measure candidate accuracy. No model requests, page/console/HTTP errors or failed requests occurred.
+- Source-rate preservation does not establish identical byte-to-float PCM16 conversion across browsers. The trained v2 classifier remains outside the deployed app; [its results](AI_V2_RESULTS.md) retain traffic/unknown-rejection limitations.
+
+## Prior expanded app release
 
 - Public production URL: [tonalwatch.vercel.app](https://tonalwatch.vercel.app), unauthenticated HTTP200.
 - Application source: main commit `e14bffa`; deployment `dpl_CfJbc9bjbwua57MzWRWoWyv1i4g1`, production **READY**. Later research/lab commits do not change these deployed app sources.
