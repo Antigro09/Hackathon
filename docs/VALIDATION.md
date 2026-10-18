@@ -1,8 +1,8 @@
 # TonalWatch validation record
 
-Build date: **October 18, 2026 (America/New_York)**. This record distinguishes software checks from browser integration and physical measurement validation. Algorithm: **`tw-screen-v1`**.
+Build date: **October 18, 2026 (America/New_York)**. This record distinguishes software checks from browser integration and physical measurement validation. Current algorithm: **`tw-screen-v2`**; earlier v1 checks remain historical evidence for unchanged weighting/PSD and their original peak-selection method.
 
-**Current application/lab status:** **365 tests across 18 files** (330 application + 35 standalone-lab checks), with TypeScript/Vite build passed. The latest changes expose recording durations, explain negative dB, remove raw spectrum-bin dumps from text exports and preserve supported WAV decode rates/provenance; the AI copy uses deterministic, independently checked resampling. Home navigation, Learn exhibits, map, 5/15/30-second observations, and comparison passed the prior expanded public HTTPS verification. See [deployment evidence](DEPLOYMENT.md). Historical test runs remain separately labeled.
+**Current application/lab status:** **380 tests across 19 files** (341 application + 39 standalone-lab checks), with TypeScript/Vite build passed. The latest changes expose recording durations, explain negative dB, remove raw spectrum-bin dumps from text exports and preserve supported WAV decode rates/provenance; the AI copy uses deterministic, independently checked resampling. Home navigation, Learn exhibits, map, 5/15/30-second observations, and comparison passed the prior expanded public HTTPS verification. See [deployment evidence](DEPLOYMENT.md). Historical test runs remain separately labeled.
 
 ## Capture-control and resampling follow-up
 
@@ -31,6 +31,16 @@ Public HTTPS verification of `0b94eb0` additionally retained 661,500 samples and
 ## Second classifier experiment
 
 The completed Colab run and an independent hash/leakage/arithmetic audit are recorded in [AI_V2_RESULTS.md](AI_V2_RESULTS.md). The v2 candidate remains research-only, with useful-coverage and unknown-rejection failures. Python tests and isolated JavaScript scorer checks are separate from the app/lab count above. Saved results were not refit or retuned after fresh-test inspection.
+
+## Sustained-peak selection correction
+
+A generated 15-second, 44.1 kHz PCM16 63 Hz tone exposed a v1 ranking defect. Its main candidate near 64.600 Hz had three-bin power 0.004975741 and 47.36 dB local prominence; a quantization artifact near 1954.138 Hz had power 5.9798e−13 and 49.16 dB prominence. Both appeared in all 160 frames. V1 selected the artifact despite its being 99.20 dB weaker because it ranked persistence then prominence.
+
+V2 first requires the existing per-frame 12 dB prominence/60% concentration criteria and track persistence of at least 80% of all frames, with at least 20 frames. It then selects the eligible track with strongest median three-bin linear power, breaking ties by persistence, prominence and frequency. Adjacent candidates within a frame follow the same power priority. Filtering eligibility first prevents a louder brief event from hiding a quieter sustained track. This is an experimental representative-peak rule, not fundamental-frequency estimation or standardized tonality. Weighted A/C results, averaged PSD and quality/eligibility thresholds are unchanged.
+
+The dependency-free standalone lab mirrors this correction as `tw-field-lab-v3`. Its schema and storage key stay unchanged; explicitly recognized structured v2/v3 campaign rows keep their original algorithm, values and observer metadata. Old results are not silently recomputed or relabeled. Earlier unversioned and unknown-method rows retain their raw legacy wrappers.
+
+The [recorded before-fix audit](validation/peak-ranking-before.json) preserves the generated-signal comparison. Regression checks cover quantized tones at both supported rates and 5/15 seconds, stronger ~80%-persistent versus weaker fully persistent tracks, ineligible ~75% tracks, low-gain tones, noise/burst rejection, complete main/lab PSD and A/C parity, and historical structured-record preservation. **380 tests across 19 files and the production build passed** after the correction.
 
 ## Environment and pinned dependencies
 
