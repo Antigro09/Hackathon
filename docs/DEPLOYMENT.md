@@ -2,7 +2,18 @@
 
 Verified October 18, 2026, in Chrome 155 on Windows.
 
-## Current report and audio-import release
+## Current sustained-peak correction release
+
+- Public URL: [tonalwatch.vercel.app](https://tonalwatch.vercel.app).
+- Application source: `c54ab688548a93bfc88720617e5c50d9971c1392` on main; deployment `dpl_4ESRPj5Moqk7xHLKmrgYwu5qFj3S`, production **READY**. Later research/documentation commits do not change these app sources.
+- Exact Git-archive deployment; fresh `npm ci` found zero vulnerabilities and TypeScript/Vite production build succeeded. The matching checkout passed **380 tests across 19 files** (341 app + 39 standalone-lab checks).
+- Method `tw-screen-v2` retains the same PSD, weighted levels and quality/peak eligibility gates, then ranks eligible sustained tracks by median three-bin power. A generated PCM16 artifact 99.20 dB weaker than a 63 Hz tone no longer wins on prominence alone. Sources discloses the new selection rule without claiming a fundamental or source.
+- The repository's separate lab mirrors the selection as `tw-field-lab-v3`; structured v2/v3 records retain their original values and versions. The static Vite app does not publish that standalone instrument.
+- Concise text summaries, visual report/print spectrum, visible duration choices, negative-dB explanations and supported WAV-rate preservation remain included. The trained research classifier remains outside the app; [strict candidate browser parity failed](../ml/runs/2026-10-18-v2-browser-parity/README.md).
+- Public HTTPS verification loaded `index-TOHZiOpm.js` and analyzed the generated 15-second 44.1 kHz PCM16 fixture: **661,500 samples / 160 frames / peak 64.599609375 Hz**, A −49.179906, C −23.835842 and C−A 25.344064 dB. Pre-correction PSD reference bins agreed within 1e−6; the safe decoder provenance and five-second AI prefix boundary remained intact. No model inference/download was requested.
+- Native text download was **6,576 bytes / 99 lines / zero bin rows**. It retained the corrected candidate, version and full recording provenance. The graph remained visible in print media and toolbar controls hid. Report and Sources at **320/390/1280 px** had no horizontal overflow; scrolling to the maximum reached a fully visible footer in every case (less than 0.5 px rounding). No page/console/HTTP/request errors occurred. Observation, Report and Sources screenshots were refreshed from this public release, with generated-QA context explicitly identified.
+
+## Prior report and audio-import release
 
 - Public URL: [tonalwatch.vercel.app](https://tonalwatch.vercel.app), checked without authentication.
 - Application source: main commit `0b94eb0e092fbb4a30c94407a62f01a0d91cbaeb`; deployment `dpl_8DJ8cYJBXhj5wGhTsgDoA6zPf92f`, production **READY**. Subsequent research/documentation commits do not change these app sources.

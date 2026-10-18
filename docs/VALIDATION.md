@@ -42,6 +42,8 @@ The dependency-free standalone lab mirrors this correction as `tw-field-lab-v3`.
 
 The [recorded before-fix audit](validation/peak-ranking-before.json) preserves the generated-signal comparison. Regression checks cover quantized tones at both supported rates and 5/15 seconds, stronger ~80%-persistent versus weaker fully persistent tracks, ineligible ~75% tracks, low-gain tones, noise/burst rejection, complete main/lab PSD and A/C parity, and historical structured-record preservation. **380 tests across 19 files and the production build passed** after the correction.
 
+Public release `c54ab68` then reported the generated 15-second 44.1 kHz PCM16 tone near **64.599609375 Hz**, retaining 661,500 samples/160 frames and the prior A/C values/PSD references. Text download was 6,576 bytes/99 lines with no bin rows; report/print kept the graph. At 320/390/1280 px, Report and Sources fit horizontally and their footers were fully reachable at maximum vertical scroll. No runtime/network errors occurred. These generated-input checks do not validate physical source identification.
+
 ## Environment and pinned dependencies
 
 Execution environment: Windows, PowerShell, Node.js **24.18.0**, npm **11.16.0**. Direct dependency pins in `package.json` and the lockfile are recorded below. The earlier release's `npm ls --depth=0` check preceded the Leaflet additions; the expanded checkout subsequently passed TypeScript and Vite production build with Leaflet included.
