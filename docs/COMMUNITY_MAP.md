@@ -2,8 +2,9 @@
 
 The community map uses a shared Redis database through `/api/community`.
 It is separate from the earlier synthetic example map and in-memory preview.
-The current implementation has passed the focused tests below; **real-provider
-publication and persistence still require qualification after provisioning**.
+The current implementation has passed the focused tests below and **16 isolated
+checks against the provisioned Redis service**. The deployed public HTTP/UI
+workflow still needs its end-to-end qualification.
 An unavailable or unconfigured database returns an explicit error. The product
 does not substitute local storage or invented pins for a shared feed.
 
@@ -139,12 +140,30 @@ independent handler instances, duplicate/concurrent retries, owner deletion,
 removed-publication retries, query filtering/pagination, privacy allowlists,
 all six duration/rate combinations, early zero-frame results, failure isolation,
 limits, bounded requests, malformed successful responses and cancellation input.
-These tests verify the HTTP/storage contract; they do **not** execute Lua on a
-real Redis server. Strict app TypeScript and an explicit strict compilation of
+These unit tests verify the HTTP/storage contract; they do **not** execute Lua on
+a real Redis server. Strict app TypeScript and an explicit strict compilation of
 `api/community.ts` also passed.
 
-Before calling deployment complete, run the same flows on the actual configured
-provider: publish a clearly labeled generated-QA observation, verify it from a
+On October 18, the compiled actual handler and fixed Lua scripts passed **16
+checks on the provisioned Redis service**. A test-only fetch wrapper changed only
+the EVAL command's `KEYS` prefix to a random, isolated `tw:qa:` namespace;
+application scripts, arguments, validation and provider response handling were
+unchanged. No production community keys or public posts were touched.
+Two independent handler instances verified create/shared read, three-decimal
+rounding, identical retry and capability recovery, changed-payload conflict,
+wrong-capability rejection, owner deletion and removed-key retry protection.
+Further checks verified a descriptive zero-frame/blocked record, separate
+near/far records, cursor pagination and bounding-box filtering. All four created
+QA rows were removed through their owner capabilities. An exact-prefix SCAN/DEL
+removed eight remaining QA bookkeeping keys, and a final scan confirmed empty.
+The redacted reports are `output/community-proof/report.json` and
+`output/community-proof/redis-events.redacted.json`; they contain no provider
+hostname, credentials, deletion tokens or publication retry keys. These are
+real-storage software checks with generated metadata, not field observations or
+proof of the deployed Vercel request path.
+
+Before calling deployment complete, run the deployed public workflow: publish a
+clearly labeled generated-QA observation, verify it from a
 second independent browser context, retry the identical key, reject a changed
 payload and wrong deletion capability, remove the test pin with its owner token,
 and confirm it is absent from a fresh public read. Check rounded coordinates,
@@ -152,8 +171,8 @@ blocked numeric values, publication/capture provenance, and absence of secrets,
 audio, bins or private notes. Use the standard deployed app workflow as well as
 direct API checks. Preserve failures and remove all temporary QA pins afterward.
 
-Local Docker qualification was attempted but the Docker Desktop Linux engine
-was not running. No daemon, VM, container or alternate database was started.
+The local Docker engine was unavailable; qualification used the provisioned
+Redis service instead. No daemon, VM, container or alternate database was started.
 
 Implementation references: [Upstash REST API](https://upstash.com/docs/redis/features/restapi)
 and [Vercel request headers](https://vercel.com/docs/headers/request-headers).
