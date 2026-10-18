@@ -126,12 +126,75 @@ describe('render-thread recorder', () => {
     expect(messages.every(message => message.samples?.every(value => value === 0.25))).toBe(true);
   });
 
-  it('detects render gaps rather than treating discontinuous audio as contiguous', () => {
+  it.each(['render gap', 'missing input', 'empty input'] as const)('discards provisional startup samples after %s and commits only fresh contiguous chunks', interruption => {
     const { messages, processor, setFrame } = makeProcessor();
-    processor.process([[new Float32Array(128)]], [[]]);
-    setFrame(256);
-    processor.process([[new Float32Array(128)]], [[]]);
-    expect(messages).toEqual([{ type: 'interrupted' }]);
+    setFrame(5000);
+    const provisionalOutput = new Float32Array(128).fill(1);
+    processor.process([[new Float32Array(128).fill(-0.75)]], [[provisionalOutput]]);
+    expect(provisionalOutput.every(value => value === 0)).toBe(true);
+    expect(messages).toHaveLength(0);
+    if (interruption !== 'render gap') {
+      setFrame(5128);
+      const output = new Float32Array(128).fill(1);
+      processor.process(interruption === 'missing input' ? [] : [[new Float32Array(0)]], [[output]]);
+      expect(output.every(value => value === 0)).toBe(true);
+      expect(messages).toHaveLength(0);
+    }
+    let frame = 9000;
+    let sample = 0;
+    for (const length of [1536, 768, 1792]) {
+      setFrame(frame);
+      const input = Float32Array.from({ length }, (_, index) => 100 + sample + index);
+      const outputs = [[new Float32Array(length).fill(1), new Float32Array(length).fill(1)]];
+      processor.process([[input, new Float32Array(length).fill(-1)]], outputs);
+      expect(outputs.flat().every(channel => channel.every(value => value === 0))).toBe(true);
+      sample += length;
+      frame += length;
+    }
+    expect(messages.map(message => message.type)).toEqual(['chunk', 'chunk']);
+    expect(messages.map(message => message.startSample)).toEqual([0, 2048]);
+    expect(Array.from(messages[0].samples!)).toEqual(Array.from({ length: 2048 }, (_, index) => 100 + index));
+    expect(Array.from(messages[1].samples!)).toEqual(Array.from({ length: 2048 }, (_, index) => 2148 + index));
+  });
+
+  it('can discard repeated uncommitted starts without sending a chunk or filling missing audio', () => {
+    const { messages, processor, setFrame } = makeProcessor();
+    for (let frame = 0; frame < 4096; frame += 512) {
+      setFrame(frame);
+      processor.process([[new Float32Array(128).fill(0.75)]], [[]]);
+    }
+    expect(messages).toHaveLength(0);
+    setFrame(8192);
+    processor.process([[new Float32Array(2048).fill(0.25)]], [[]]);
+    expect(messages).toHaveLength(1);
+    expect(messages[0].startSample).toBe(0);
+    expect(messages[0].samples?.every(value => value === 0.25)).toBe(true);
+  });
+
+  it('detects render gaps after the first committed chunk rather than joining discontinuous audio', () => {
+    const { messages, processor, setFrame } = makeProcessor();
+    processor.process([[new Float32Array(2048)]], [[]]);
+    setFrame(2176);
+    const output = new Float32Array(128).fill(1);
+    processor.process([[new Float32Array(128)]], [[output]]);
+    expect(output.every(value => value === 0)).toBe(true);
+    expect(messages.map(message => message.type)).toEqual(['chunk', 'interrupted']);
+    setFrame(2304);
+    processor.process([[new Float32Array(4096)]], [[]]);
+    expect(messages).toHaveLength(2);
+  });
+
+  it.each(['missing input', 'empty input'] as const)('fails closed on %s immediately after the first committed chunk', interruption => {
+    const { messages, processor, setFrame } = makeProcessor();
+    processor.process([[new Float32Array(2048)]], [[]]);
+    setFrame(2048);
+    const output = new Float32Array(128).fill(1);
+    processor.process(interruption === 'missing input' ? [] : [[new Float32Array(0)]], [[output]]);
+    expect(output.every(value => value === 0)).toBe(true);
+    expect(messages.map(message => message.type)).toEqual(['chunk', 'interrupted']);
+    setFrame(2176);
+    processor.process([[new Float32Array(4096)]], [[]]);
+    expect(messages).toHaveLength(2);
   });
 });
 

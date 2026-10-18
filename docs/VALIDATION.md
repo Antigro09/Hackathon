@@ -2,13 +2,19 @@
 
 Build date: **October 18, 2026 (America/New_York)**. This record distinguishes software checks from browser integration and physical measurement validation. Current algorithm: **`tw-screen-v2`**; earlier v1 checks remain historical evidence for unchanged weighting/PSD and their original peak-selection method.
 
-**Current application/lab status:** **382 tests across 19 files** (343 application + 39 standalone-lab checks), with TypeScript/Vite build passed. Observation now accepts live microphone capture only. The UI keeps all three durations, the input meter, negative-dB explanations, concise text exports and the printed spectrum. The AI copy uses deterministic, independently checked resampling. See [deployment evidence](DEPLOYMENT.md). Historical test runs remain separately labeled.
+**Current application/lab status:** **388 tests across 19 files** (349 application + 39 standalone-lab checks), with TypeScript/Vite build passed. Observation now accepts live microphone capture only. The UI keeps all three durations, the input meter, negative-dB explanations, concise text exports and the printed spectrum. The AI copy uses deterministic, independently checked resampling. See [deployment evidence](DEPLOYMENT.md). Historical test runs remain separately labeled.
 
 ## Microphone-only observation
 
 Removed file-import and synthetic-demo observation controls, their runtime imports and mode state. Observation opens directly to the microphone with 5/15/30-second controls. Home, Learn, Sources, empty results/reports and every capture-error path describe the available microphone workflow. Educational listening tones, illustrative map examples and scientific fixtures remain separate from recording inputs.
 
 Chrome used a generated virtual microphone through the actual AudioWorklet: live meter samples arrived, cancel released every track without analysis, and a subsequent 15-second capture produced 720,000 samples / 174 complete frames at 48 kHz. Its report retained microphone provenance and the complete window. Native text download was 5,828 bytes / 94 lines, with no individual spectrum-bin rows; the graph remained visible under print media and controls hid. Navigating Home during another capture released every track and cleared the partial result. All six pages at 320/390/1280 px had no horizontal overflow, file inputs or stale input instructions, and scrolling reached the footer. These are software checks with generated input, not physical microphone validation.
+
+### Recorder startup follow-up
+
+Public Chrome testing reproduced Cancel → Retry failing before its first audio chunk: the old context had closed, but the new graph briefly lost its provisional input. Before any complete 2,048-sample chunk has been posted, the worklet now discards provisional samples and restarts at index zero. It never fills a gap or joins discontinuous audio. After the first chunk, all missing inputs or render gaps still fail closed; the existing no-data watchdog remains. The complete 0.5-second warm-up and selected capture duration are collected from the new continuous sequence. Device-clock recording times remain estimates, not authenticated sample timestamps.
+
+Six added regression cases verify fresh sample contents/indices, repeated provisional starts, silent outputs and strict post-commit interruption. All 37 capture tests pass. Chrome then completed immediate Cancel → Retry and a 15-second capture through text/print export, retaining 720,000 samples and 174 frames at 48 kHz. No software check establishes physical accuracy.
 
 ## Prior capture-control and resampling follow-up
 

@@ -8,6 +8,7 @@ class TonalWatchCaptureProcessor extends AudioWorkletProcessor {
     this.chunkStart = 0;
     this.originFrame = null;
     this.expectedFrame = null;
+    this.hasPostedChunk = false;
     this.interrupted = false;
   }
 
@@ -18,14 +19,18 @@ class TonalWatchCaptureProcessor extends AudioWorkletProcessor {
     if (this.interrupted) return true;
     const input = inputs[0]?.[0];
     if (!input || input.length === 0) {
-      if (this.originFrame !== null) this.interrupt();
+      if (this.hasPostedChunk) this.interrupt();
+      else this.resetStartup();
       return true;
+    }
+    if (this.expectedFrame !== null && currentFrame !== this.expectedFrame) {
+      if (this.hasPostedChunk) {
+        this.interrupt();
+        return true;
+      }
+      this.resetStartup();
     }
     if (this.originFrame === null) this.originFrame = currentFrame;
-    if (this.expectedFrame !== null && currentFrame !== this.expectedFrame) {
-      this.interrupt();
-      return true;
-    }
     this.expectedFrame = currentFrame + input.length;
     let offset = 0;
     while (offset < input.length) {
@@ -36,11 +41,23 @@ class TonalWatchCaptureProcessor extends AudioWorkletProcessor {
       offset += take;
       if (this.used === this.chunkSize) {
         this.port.postMessage({ type: 'chunk', startSample: this.chunkStart, samples: this.chunk }, [this.chunk.buffer]);
+        this.hasPostedChunk = true;
         this.chunk = new Float32Array(this.chunkSize);
         this.used = 0;
       }
     }
     return true;
+  }
+
+  resetStartup() {
+    // Before the first committed chunk, the media graph can start unevenly.
+    // Discard provisional samples; never join or fill a discontinuity. The
+    // first contiguous chunk starts at zero and the caller's watchdog still
+    // bounds a graph that never supplies a complete chunk.
+    this.used = 0;
+    this.chunkStart = 0;
+    this.originFrame = null;
+    this.expectedFrame = null;
   }
 
   interrupt() {
