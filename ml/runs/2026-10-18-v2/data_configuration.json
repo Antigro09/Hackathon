@@ -1,0 +1,23 @@
+{
+  "seed": 18042,
+  "previous_manifest_sha256": "1c5f7a8ba2f5d38c661073deeadc5253a5e4c70ce8d2143a975a69a392731549",
+  "source_sha256": {
+    "ml/data.py": "87afaa2a54f59d53d26af57a0441c7ac11144070cf4527fa85001ce153a50605",
+    "ml/data_v2.py": "c0fed7121b44a2312e30dae54b7d2494d583008eb9f427591f7028272955576b",
+    "ml/mimii.py": "3a4513d3c88d034da01eafbe134718caf3885cb07977c6a508e9e2a3407bbe52",
+    "ml/buzz.py": "697c3ad1e6a5ff585bdda95f4c776906f066ae4413cf22f7cc0806f1ade798e5"
+  },
+  "fsd_caps": {
+    "train": 500,
+    "val": 80,
+    "test": 40,
+    "unknown_per_split": 160
+  },
+  "mimii_caps": {
+    "train_per_unit": 40,
+    "val": 30,
+    "test": 40,
+    "unknown_per_machine_per_split": 10
+  },
+  "ivbee_policy": "IVBEE1.0: all original files passing unchanged five-second quality rules; entire collection test only"
+}

@@ -91,18 +91,21 @@ export function plotReportSpectrum(spectrum: ReportSpectrumModel) {
 }
 
 export function reportSpectrumText(spectrum: ReportSpectrumModel): string[] {
+  const [lowHz, highHz] = spectrum.bandHz;
+  const band = Number.isFinite(lowHz) && Number.isFinite(highHz) && lowHz > 0 && highHz > lowHz
+    ? `${lowHz}–${highHz} Hz` : 'unavailable';
+  const frames = Number.isInteger(spectrum.frameCount) && spectrum.frameCount >= 0
+    ? String(spectrum.frameCount) : 'unavailable';
   return [
-    'Captured frequency spectrum',
+    'Captured frequency spectrum — summary',
     `Spectrum origin: ${spectrum.origin}`,
     `Spectrum units: ${spectrum.units} (10 log10(digital amplitude² / Hz), relative to 1²/Hz)`,
-    `Spectrum band: ${spectrum.bandHz[0]}–${spectrum.bandHz[1]} Hz; logarithmic frequency axis`,
-    `Spectrum bin spacing: ${spectrum.binSpacingHz?.toFixed(3) ?? 'unavailable'} Hz; ${spectrum.frameCount} complete frames`,
+    `Spectrum band: ${band}`,
+    `Spectrum bin spacing: ${spectrum.binSpacingHz?.toFixed(3) ?? 'unavailable'} Hz; ${frames} complete frames`,
+    `Spectrum quality: ${spectrum.status}`,
     spectrum.peakHz === null ? 'No reliable sustained peak candidate labeled.' : `Approximate peak candidate: ${spectrum.peakHz.toFixed(1)} Hz`,
     spectrum.explanation,
-    ...(spectrum.status === 'unavailable' ? [] : [
-      'Spectrum bins (frequency_hz, digital_psd_db_re_1_squared_per_hz):',
-      ...spectrum.hz.flatMap((hz, i) => hz >= spectrum.bandHz[0] && hz <= spectrum.bandHz[1] ? [`${hz}, ${spectrum.powerDb[i]}`] : []),
-    ]),
+    'The visual spectrum is included in the browser report and Print / save PDF. This text summary omits individual frequency/power bins.',
     '',
   ];
 }

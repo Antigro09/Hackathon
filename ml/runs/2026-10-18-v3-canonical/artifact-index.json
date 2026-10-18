@@ -1,0 +1,70 @@
+{
+  "formatVersion": 1,
+  "purpose": "canonical-web-wasm-qualification-evidence",
+  "promotionAllowed": false,
+  "rawCopiesPreserved": true,
+  "files": {
+    "chrome/contract.json": {
+      "sha256": "15782813b362bf9e1fa97d9a2ba4d7574d8129dd889b3c03ae2453e0091ab025",
+      "bytes": 4159
+    },
+    "chrome-reference.json": {
+      "sha256": "f713e30fb35ed458a3ec80337476bf2e0feccf627e8a2e5d27248563610404f4",
+      "bytes": 548240
+    },
+    "linux/contract.json": {
+      "sha256": "361f7981a4401f407f51941d4e6b44874600050e5ed2d64e32640fb0da914c0b",
+      "bytes": 3331
+    },
+    "linux/embeddings.json": {
+      "sha256": "32f34acd2313ca358425232e6dd22370ac0270b9467f2affcc3ec0565517d498",
+      "bytes": 528228
+    },
+    "linux/golden-comparison.json": {
+      "sha256": "cf35d88ff18bbb06dc6a51edd2d6cfa070247b529f83fec306edba6f22b56b71",
+      "bytes": 4577
+    },
+    "linux/staged-manifest.json": {
+      "sha256": "25448ca576662cf21511b2f691100e6e8d93d4f76c985bc35e6da55430f63e68",
+      "bytes": 67223
+    },
+    "linux/verified-summary.json": {
+      "sha256": "d107b32573d54518e96a586eca8e864047649a448c63bec4f7312916fa474d05",
+      "bytes": 3282
+    },
+    "qualification-staged-manifest.json": {
+      "sha256": "25448ca576662cf21511b2f691100e6e8d93d4f76c985bc35e6da55430f63e68",
+      "bytes": 67223
+    },
+    "README.md": {
+      "sha256": "81239d998dc62e29a17e42a210925fc3330fe51236c4730bf238f8947e24c72e",
+      "bytes": 7783
+    },
+    "recomputed-summary.json": {
+      "sha256": "db7f561e8e8a9bd8853481732ebfc31920b1e48b406af41ccb12dd17510069ca",
+      "bytes": 1711
+    },
+    "verify-qualification.py": {
+      "sha256": "702f44811d131ff8d755350a9a3c6c511a3c7a6de58587e8a4fbcac8c717438f",
+      "bytes": 8707
+    },
+    "windows/contract.json": {
+      "sha256": "6d4f3e68471c6ca6ad1a72c174b8626b52c91118cc37ca9e85c5df7fbf0f2854",
+      "bytes": 3332
+    },
+    "windows/embeddings.json": {
+      "sha256": "d2f9fe62fb56105c34776b036c35a8a2ef6cd0b0c639e104853c011fa5b4c636",
+      "bytes": 528275
+    },
+    "windows/golden-comparison.json": {
+      "sha256": "ad092ec8a4e89082c96c2faa31073bffdcd4643180b955ee4b4bf988375a8994",
+      "bytes": 4577
+    },
+    "windows-feasibility.json": {
+      "sha256": "a4e125c5bc10e0fd0399cbba08a492206240a18862924041b48e69acd50980f8",
+      "bytes": 950
+    }
+  },
+  "totalPayloadBytes": 1781598,
+  "indexExcludesItself": true
+}

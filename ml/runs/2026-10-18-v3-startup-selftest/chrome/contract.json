@@ -1,0 +1,102 @@
+{
+  "contractSha256": "f5107228835d8b0dd752e2ed8b7eeed41d55a3e45daef9597b7fe7f0c6e4c199",
+  "contract": {
+    "schemaVersion": 1,
+    "implementation": "tw-canonical-clap-wasm-v1",
+    "modelId": "Xenova/clap-htsat-unfused",
+    "revision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+    "modelFile": "onnx/audio_model_quantized.onnx",
+    "modelSha256": "3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f",
+    "transformersVersion": "4.3.1",
+    "ortVersion": "1.31.0-dev.20260914-8d85527a0",
+    "runtimeSha256": {
+      "ort.wasm.bundle.min.mjs": "17b52c1ac62b421dc508b4c28b9a9675251c6e25dd512ef54b83a5e2c4242869",
+      "ort-wasm-simd-threaded.mjs": "c57ca56328877353a575e51bbca6f18450027d6c9bf2307a2cb2c41363b4de9f",
+      "ort-wasm-simd-threaded.wasm": "06ba057753da3847e4c24f02d91ab133455b0817c69a44993a9a53a2146df9e3"
+    },
+    "sampleRateHz": 48000,
+    "inputDurationSeconds": 5,
+    "featureShape": [
+      1,
+      1,
+      1001,
+      64
+    ],
+    "embeddingSize": 512,
+    "normalization": "Float64 sequential squared sum and sqrt, then Float32 coordinate division",
+    "preprocessing": "Transformers.js4.3.1 ClapFeatureExtractor: five seconds input plus five seconds zero padding",
+    "execution": {
+      "provider": "wasm",
+      "numThreads": 1,
+      "proxy": false,
+      "simdFeatureCheck": "fixed",
+      "graphOptimizationLevel": "all",
+      "executionMode": "sequential"
+    },
+    "repeatCount": 3,
+    "manifestSha256": "cb05d0819d7839a0adbd5323f1e4618fd61aadc4ae7444963a14be33b6ec01d9",
+    "files": {
+      "/canonicalEncoder.mjs": {
+        "sha256": "6cda0b9db5fee7c1612629d014ead11a93d6e369b101a68af9e32d82c031ebb4",
+        "bytes": 4625
+      },
+      "/canonicalPage.mjs": {
+        "sha256": "1273509167880a81c1ccbb9cc7f437d33eabea9bcb11042f24619126370e72d0",
+        "bytes": 4659
+      },
+      "/transformers.web.js": {
+        "sha256": "bf82eba7b04f5af6265a300057744d310baa3bfb13f5ad8691b237db6733f121",
+        "bytes": 1156770
+      },
+      "/ort.wasm.bundle.min.mjs": {
+        "sha256": "17b52c1ac62b421dc508b4c28b9a9675251c6e25dd512ef54b83a5e2c4242869",
+        "bytes": 73123
+      },
+      "/runtime/ort-wasm-simd-threaded.mjs": {
+        "sha256": "c57ca56328877353a575e51bbca6f18450027d6c9bf2307a2cb2c41363b4de9f",
+        "bytes": 24381
+      },
+      "/runtime/ort-wasm-simd-threaded.wasm": {
+        "sha256": "06ba057753da3847e4c24f02d91ab133455b0817c69a44993a9a53a2146df9e3",
+        "bytes": 14264838
+      },
+      "/models/c28f2883575e590e04d3146ff0713c2448d691ba/config.json": {
+        "sha256": "39c6d90fe29cf2cce650dd5c92c38a1e35b130d9ce0bb98585222ad687ad979b",
+        "bytes": 699
+      },
+      "/models/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json": {
+        "sha256": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+        "bytes": 541
+      },
+      "/audio_model_quantized.onnx": {
+        "sha256": "3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f",
+        "bytes": 34301667
+      },
+      "/app/resample.js": {
+        "sha256": "2ab0e2e2a8d3bbc8dc2d3608993c7b27c2df4726a20411e5054414f4223d0477",
+        "bytes": 4233
+      },
+      "/app/model.js": {
+        "sha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+        "bytes": 1308
+      },
+      "/app/model": {
+        "sha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+        "bytes": 1308
+      }
+    },
+    "upstreamTransformersSha256": "ad44c6e41ff23fd5b01fa3fe08199a0440a35711dc9f80a31132fcce08fbd432",
+    "resamplerSourceSha256": "a73257786eb279a269e4df0bab86eeb2c1b8d682dcd3c32e8fba1df5b89efb81",
+    "serverSourceSha256": "a810a5a9012bba870f10be18e67468df36cb441afd9ae37a3d0bcd6b76b95902",
+    "checkpointValidatorSha256": "0e91bce95cdddebdf5ca95e6d2b6e2fd343b02c901364bf7bfd9b717aa10ad4a",
+    "pcmFormat": "little-endian IEEE754 Float32 mono, exact first five seconds; no browser decoder",
+    "sessionOptions": {
+      "executionProviders": [
+        "wasm"
+      ],
+      "graphOptimizationLevel": "all",
+      "executionMode": "sequential"
+    },
+    "promotionAllowed": false
+  }
+}

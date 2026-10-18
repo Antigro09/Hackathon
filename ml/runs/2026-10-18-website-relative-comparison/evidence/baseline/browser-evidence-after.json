@@ -1,0 +1,107 @@
+{
+  "browser": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "platform": "Win32",
+    "hardwareConcurrency": 16,
+    "language": "en-US",
+    "timeOrigin": 1792349054459.7
+  },
+  "state": {
+    "phase": "complete",
+    "completed": 416,
+    "total": 416,
+    "errors": [],
+    "network": [
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/config.json",
+        "method": "GET",
+        "sha256": "39c6d90fe29cf2cce650dd5c92c38a1e35b130d9ce0bb98585222ad687ad979b",
+        "bytes": 699,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/tokenizer_config.json",
+        "method": "GET",
+        "sha256": "2c964a338683aec3695ea37687271e75b40905233f5d2a5bbb9be8cb40c4d0a0",
+        "bytes": 1392,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json",
+        "method": "GET",
+        "sha256": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+        "bytes": 541,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/onnx/model_quantized.onnx",
+        "method": "GET",
+        "sha256": "3f559313ec268518193101007fc0569ee4b2cfac03e369091c50adb4795f5c5d",
+        "bytes": 161024085,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/tokenizer.json",
+        "method": "GET",
+        "sha256": "dc239041d98de27ffc3975473a1a23e3db4c937b23c138c38bbc66588bd247e5",
+        "bytes": 2108774,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json",
+        "method": "GET",
+        "sha256": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+        "bytes": 541,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/tokenizer.json",
+        "method": "GET",
+        "sha256": "dc239041d98de27ffc3975473a1a23e3db4c937b23c138c38bbc66588bd247e5",
+        "bytes": 2108774,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/tokenizer_config.json",
+        "method": "GET",
+        "sha256": "2c964a338683aec3695ea37687271e75b40905233f5d2a5bbb9be8cb40c4d0a0",
+        "bytes": 1392,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://huggingface.co/Xenova/clap-htsat-unfused/resolve/c28f2883575e590e04d3146ff0713c2448d691ba/onnx/model_quantized.onnx",
+        "method": "GET",
+        "sha256": "3f559313ec268518193101007fc0569ee4b2cfac03e369091c50adb4795f5c5d",
+        "bytes": 161024085,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.31.0-dev.20260914-8d85527a0/dist/ort-wasm-simd-threaded.asyncify.wasm",
+        "method": "GET",
+        "sha256": "49871f5a4409519797e127440868a6d1923339d9185907f301a5b2a1d90af082",
+        "bytes": 26861777,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      },
+      {
+        "url": "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.31.0-dev.20260914-8d85527a0/dist/ort-wasm-simd-threaded.asyncify.mjs",
+        "method": "GET",
+        "sha256": "0966b6105cd936744498aa60df7a22cbd47af3374dbc64a9ab561c08a71e3611",
+        "bytes": 53057,
+        "servedFromVerifiedLocalSnapshot": true,
+        "transport": "307-to-verified-loopback-GET"
+      }
+    ],
+    "contractSha256": "a326e70bc14d71cce69466ccdc59e13452166234fcc2d78d35fd8f92fc0dcd14",
+    "runPhase": "classify"
+  }
+}

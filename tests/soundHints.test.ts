@@ -88,46 +88,20 @@ describe('separate model resampling', () => {
     expect(soundHintResampleLength(length, fs)).toBe(expected);
   });
 
-  it('gives the renderer the true source rate and exact output length to preserve pitch and duration', async () => {
-    const disconnect = vi.fn();
-    const start = vi.fn();
-    const connect = vi.fn();
-    const copy = vi.fn();
-    let sourceRate = 0;
-    let sourceLength = 0;
-    const output = signal();
-    const contextConstructor = vi.fn(function (channels: number, length: number, fs: number) {
-      expect([channels, length, fs]).toEqual([1, 240000, 48000]);
-      return {
-        destination: 'offline-destination',
-        createBuffer: (inputChannels: number, inputLength: number, inputRate: number) => {
-          expect(inputChannels).toBe(1); sourceRate = inputRate; sourceLength = inputLength;
-          return { copyToChannel: copy };
-        },
-        createBufferSource: () => ({ buffer: null, connect, start, disconnect }),
-        startRendering: async () => ({ getChannelData: () => output }),
-      };
-    });
-    vi.stubGlobal('OfflineAudioContext', contextConstructor);
+  it('converts the true source rate locally without Web Audio or DSP mutation', async () => {
+    vi.stubGlobal('OfflineAudioContext', undefined);
     const pcm = signal(44100);
     const before = pcm.slice();
     const rendered = await resampleForSoundHints(pcm, 44100);
-    expect(sourceRate).toBe(44100);
-    expect(sourceLength / sourceRate).toBe(5);
     expect(rendered.length / 48000).toBe(5);
-    expect(copy.mock.calls[0][0]).toEqual(pcm);
-    expect(copy.mock.calls[0][0].buffer).not.toBe(pcm.buffer);
     expect(pcm).toEqual(before);
-    expect(start).toHaveBeenCalledOnce();
-    expect(connect).toHaveBeenCalledWith('offline-destination');
-    expect(disconnect).toHaveBeenCalledOnce();
-    expect(rendered.buffer).not.toBe(output.buffer);
+    expect(rendered.buffer).not.toBe(pcm.buffer);
+    expect(rendered[12012]).toBeCloseTo(0.1 * Math.sin(2 * Math.PI * 1000 * 12012 / 48000), 3);
   });
 
-  it('reports a missing local renderer and invalid samples without requesting a model', async () => {
-    vi.stubGlobal('OfflineAudioContext', undefined);
-    await expect(resampleForSoundHints(signal(44100), 44100)).rejects.toThrow(/cannot resample/);
+  it('rejects invalid samples and duration before requesting a model', async () => {
     await expect(resampleForSoundHints(new Float32Array([NaN]), 48000)).rejects.toThrow(/invalid audio/);
+    await expect(resampleForSoundHints(signal(44100), 48000)).rejects.toThrow(/exactly five seconds/);
     expect(() => soundHintResampleLength(0, 44100)).toThrow(/invalid/);
     expect(() => soundHintResampleLength(44100, 0)).toThrow(/invalid/);
   });

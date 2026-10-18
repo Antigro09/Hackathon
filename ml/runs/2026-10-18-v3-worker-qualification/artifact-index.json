@@ -1,0 +1,113 @@
+{
+  "formatVersion": 1,
+  "purpose": "verified-module-worker-numerical-qualification",
+  "promotionAllowed": false,
+  "files": {
+    "browser-qualified.json": {
+      "sha256": "ae0743d80565d78784c4a839adce5cba102efe2a862d36c7f923ed00a08d3f93",
+      "bytes": 553063
+    },
+    "browser-requests-qualified.txt": {
+      "sha256": "d8fa3095d0f688fca4cd7cdd9caef51b0d94bbbc16a2233cab0d63af61556e57",
+      "bytes": 3126
+    },
+    "console-qualified.txt": {
+      "sha256": "5e022534a5fe0feeb06a8fc815ff2ad8e4598aae62e789579db7dbcbfb58bc2a",
+      "bytes": 58
+    },
+    "README.md": {
+      "sha256": "9629e48af60a8b9cf01082b566873affe074aec037f7ce7bbeed070d91bec9c3",
+      "bytes": 7592
+    },
+    "reference/chrome-reference.json": {
+      "sha256": "f713e30fb35ed458a3ec80337476bf2e0feccf627e8a2e5d27248563610404f4",
+      "bytes": 548240
+    },
+    "reference/qualification-staged-manifest.json": {
+      "sha256": "25448ca576662cf21511b2f691100e6e8d93d4f76c985bc35e6da55430f63e68",
+      "bytes": 67223
+    },
+    "reference/self-test-v3-reference.json": {
+      "sha256": "6d5414df3b9413283c88f599887d149314c9c8fb189c5324205b452e33a2212d",
+      "bytes": 36622
+    },
+    "requests-qualified.json": {
+      "sha256": "9efb0fce69836525d4476ad8de0690b966810fd6a32315cd2257d278e2684dbe",
+      "bytes": 14000
+    },
+    "runtime/asset-manifest.json": {
+      "sha256": "12d9497e5a9bfa12c29df76eb1b816c7bfc499ceb2ed98c16835ceaedcb4213d",
+      "bytes": 8415
+    },
+    "source/canonicalCheckpoint.mjs": {
+      "sha256": "0e91bce95cdddebdf5ca95e6d2b6e2fd343b02c901364bf7bfd9b717aa10ad4a",
+      "bytes": 1704
+    },
+    "source/canonicalEncoder.mjs": {
+      "sha256": "6cda0b9db5fee7c1612629d014ead11a93d6e369b101a68af9e32d82c031ebb4",
+      "bytes": 4625
+    },
+    "source/integerHeadV3.ts": {
+      "sha256": "c89ed32798a923eaf19b62fabfda9a8b3ae87b5757fd57458e9ec54aa715b0f7",
+      "bytes": 7198
+    },
+    "source/model.ts": {
+      "sha256": "04f764ff1abd63d3342126b3d2bc26aaf752664319483f85885c963fa6b04388",
+      "bytes": 1269
+    },
+    "source/prepareProductionV3.mjs": {
+      "sha256": "984745bb7bce808c51d1c3769032a3b01124bedb8383e21dd9aa8d0523d87e34",
+      "bytes": 22520
+    },
+    "source/productionHarnessServerV3.mjs": {
+      "sha256": "7c9b6aeaa49e939176d738edd17f26cc160367cb6a03d9ab46598d714a2d002e",
+      "bytes": 7806
+    },
+    "source/productionHarnessV3.mjs": {
+      "sha256": "3e3d039e88baad150314ea1a4a7223c55d0bd34b55ccd0c696eaffa246ca4667",
+      "bytes": 7384
+    },
+    "source/productionWorkerV3.mjs": {
+      "sha256": "f622383fb66b1090f98f59739eea13971915eabe419af090ad833b1b436a5713",
+      "bytes": 18333
+    },
+    "source/resample.ts": {
+      "sha256": "a73257786eb279a269e4df0bab86eeb2c1b8d682dcd3c32e8fba1df5b89efb81",
+      "bytes": 4160
+    },
+    "source/selfTestV3.mjs": {
+      "sha256": "cf4c6a95f4b5108c4c906829385f062a66ccf363a2ece78c49da31b634af4105",
+      "bytes": 1775
+    },
+    "verified-summary.json": {
+      "sha256": "978f431b41f291e2bed365bf5454e1e0e453b0c31d49c9b4f9dd821dd9f45eaa",
+      "bytes": 873
+    },
+    "verify-qualification.py": {
+      "sha256": "6941d395b8fdba562e0887736af823bdf7d09f8172bb97029c838c9cd71fe6d8",
+      "bytes": 10089
+    }
+  },
+  "bytePreservedRawCopySources": {
+    "browser-qualified.json": "output/production-worker-v3-qa/browser-qualified.json",
+    "requests-qualified.json": "output/production-worker-v3-qa/requests-qualified.json",
+    "browser-requests-qualified.txt": "output/production-worker-v3-qa/browser-requests-qualified.txt",
+    "console-qualified.txt": "output/production-worker-v3-qa/console-qualified.txt",
+    "reference/chrome-reference.json": "ml/runs/2026-10-18-v3-canonical/chrome-reference.json",
+    "reference/qualification-staged-manifest.json": "ml/runs/2026-10-18-v3-canonical/qualification-staged-manifest.json",
+    "reference/self-test-v3-reference.json": "ml/browser/fixtures/self-test-v3-reference.json",
+    "runtime/asset-manifest.json": "output/production-v3-assets-selftest/asset-manifest.json",
+    "source/productionWorkerV3.mjs": "ml/browser/productionWorkerV3.mjs",
+    "source/productionHarnessV3.mjs": "ml/browser/productionHarnessV3.mjs",
+    "source/productionHarnessServerV3.mjs": "ml/browser/productionHarnessServerV3.mjs",
+    "source/prepareProductionV3.mjs": "ml/browser/prepareProductionV3.mjs",
+    "source/canonicalEncoder.mjs": "ml/browser/canonicalEncoder.mjs",
+    "source/canonicalCheckpoint.mjs": "ml/browser/canonicalCheckpoint.mjs",
+    "source/selfTestV3.mjs": "ml/browser/selfTestV3.mjs",
+    "source/integerHeadV3.ts": "ml/browser/integerHeadV3.ts",
+    "source/resample.ts": "src/ai/resample.ts",
+    "source/model.ts": "src/ai/model.ts"
+  },
+  "totalPayloadBytes": 1326075,
+  "indexExcludesItself": true
+}

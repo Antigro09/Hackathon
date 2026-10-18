@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "row": 127,
+  "clipId": "798103",
+  "sourceSha256": "fd439251b10a095f39416cfea7eddab993aae48c3c691e88fcd221be294fee16",
+  "pcmSha256": "39c05ee34b73cd738b0ffb9b0b04cf801730005c664e501ca10d114d3de1c60f",
+  "contractSha256": "a326e70bc14d71cce69466ccdc59e13452166234fcc2d78d35fd8f92fc0dcd14",
+  "inputUnchanged": true,
+  "rawResponse": {
+    "type": "result",
+    "sessionId": 128,
+    "result": {
+      "status": "uncertain",
+      "reason": "not-validated",
+      "provisionalGatePassed": true,
+      "rankings": [
+        {
+          "score": 0.8550540208816528,
+          "label": "wind blowing across a microphone"
+        },
+        {
+          "score": 0.06656065583229065,
+          "label": "road traffic passing outside"
+        }
+      ],
+      "modelId": "Xenova/clap-htsat-unfused",
+      "modelRevision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+      "preprocessing": {
+        "originalSampleRateHz": 48000,
+        "originalSampleCount": 240000,
+        "observationSeconds": 5,
+        "modelSampleRateHz": 48000,
+        "modelInputSamples": 240000,
+        "processorSeconds": 10,
+        "padding": "zero-pad",
+        "configuredPadding": "repeatpad",
+        "featureBandHz": [
+          50,
+          14000
+        ]
+      },
+      "timing": {
+        "modelLoadMs": 0,
+        "inferenceMs": 815.2999999523163,
+        "totalMs": 816.5,
+        "reusedModel": true
+      }
+    }
+  },
+  "analysis": {
+    "algorithmVersion": "tw-screen-v2",
+    "sampleRateHz": 48000,
+    "sampleCount": 240000,
+    "durationSeconds": 5,
+    "frameCount": 57,
+    "qualityCodes": [
+      "imported-processing-unknown"
+    ]
+  },
+  "qualityArtifactSha256": "3ac09ea4fc0e2fc10abe85dbd66c46c5d1e66f8f4237861912bdc8085c21105b",
+  "resampledPcmSha256": "39c05ee34b73cd738b0ffb9b0b04cf801730005c664e501ca10d114d3de1c60f",
+  "outcome": "result"
+}

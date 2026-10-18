@@ -1,0 +1,805 @@
+{
+  "purpose": "Read-only candidate ranking audit; no code edits or field/source claims",
+  "sampleRateHz": 44100,
+  "fftSize": 8192,
+  "hopSize": 4096,
+  "binSpacingHz": 5.38330078125,
+  "proposal": "Preserve per-frame12dB prominence/60percent concentration and track>=80percent/atleast20frames eligibility. Among eligibletracks rank median three-bin linear core power first, then persistence/prominence ties.",
+  "results": [
+    {
+      "id": "float63-5s",
+      "durationSeconds": 5,
+      "qualityCodes": [],
+      "frameCount": 52,
+      "actualEngineCandidate": {
+        "centerHz": 64.599609375,
+        "prominenceDb": 47.36380200061822,
+        "persistentFrameFraction": 1
+      },
+      "currentRanking": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 52,
+        "totalFrames": 52,
+        "persistence": 1,
+        "prominenceDb": 47.36380200061822,
+        "corePower": 0.004975747293901871,
+        "eligible": true,
+        "corePowerDb": -23.03141684517168,
+        "averagedBinPsdDb": -32.57912533651247
+      },
+      "proposedRanking": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 52,
+        "totalFrames": 52,
+        "persistence": 1,
+        "prominenceDb": 47.36380200061822,
+        "corePower": 0.004975747293901871,
+        "eligible": true,
+        "corePowerDb": -23.03141684517168,
+        "averagedBinPsdDb": -32.57912533651247
+      },
+      "dominantEligibleTop3": [
+        {
+          "bin": 12,
+          "hz": 64.599609375,
+          "count": 52,
+          "totalFrames": 52,
+          "persistence": 1,
+          "prominenceDb": 47.36380200061822,
+          "corePower": 0.004975747293901871,
+          "eligible": true,
+          "corePowerDb": -23.03141684517168,
+          "averagedBinPsdDb": -32.57912533651247
+        }
+      ],
+      "near63": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 52,
+        "totalFrames": 52,
+        "persistence": 1,
+        "prominenceDb": 47.36380200061822,
+        "corePower": 0.004975747293901871,
+        "eligible": true,
+        "corePowerDb": -23.03141684517168,
+        "averagedBinPsdDb": -32.57912533651247
+      },
+      "near1954": null,
+      "near1000": null,
+      "maximumAveragedPsdDb": -32.57912533651247
+    },
+    {
+      "id": "raw-pcm16-63-5s",
+      "durationSeconds": 5,
+      "qualityCodes": [],
+      "frameCount": 52,
+      "actualEngineCandidate": {
+        "centerHz": 1954.13818359375,
+        "prominenceDb": 49.169968112020676,
+        "persistentFrameFraction": 1
+      },
+      "currentRanking": {
+        "bin": 363,
+        "hz": 1954.13818359375,
+        "count": 52,
+        "totalFrames": 52,
+        "persistence": 1,
+        "prominenceDb": 49.169968112020676,
+        "corePower": 5.978784682010908e-13,
+        "eligible": true,
+        "corePowerDb": -122.23387086837141,
+        "averagedBinPsdDb": -131.5470379051038
+      },
+      "proposedRanking": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 52,
+        "totalFrames": 52,
+        "persistence": 1,
+        "prominenceDb": 47.36380199756027,
+        "corePower": 0.004975588968292901,
+        "eligible": true,
+        "corePowerDb": -23.031555037544067,
+        "averagedBinPsdDb": -32.57926352888782
+      },
+      "dominantEligibleTop3": [
+        {
+          "bin": 12,
+          "hz": 64.599609375,
+          "count": 52,
+          "totalFrames": 52,
+          "persistence": 1,
+          "prominenceDb": 47.36380199756027,
+          "corePower": 0.004975588968292901,
+          "eligible": true,
+          "corePowerDb": -23.031555037544067,
+          "averagedBinPsdDb": -32.57926352888782
+        },
+        {
+          "bin": 82,
+          "hz": 441.4306640625,
+          "count": 52,
+          "totalFrames": 52,
+          "persistence": 1,
+          "prominenceDb": 26.115106885331365,
+          "corePower": 2.7220830848871172e-12,
+          "eligible": true,
+          "corePowerDb": -115.6509862316012,
+          "averagedBinPsdDb": -124.77368920231936
+        },
+        {
+          "bin": 363,
+          "hz": 1954.13818359375,
+          "count": 52,
+          "totalFrames": 52,
+          "persistence": 1,
+          "prominenceDb": 49.169968112020676,
+          "corePower": 5.978784682010908e-13,
+          "eligible": true,
+          "corePowerDb": -122.23387086837141,
+          "averagedBinPsdDb": -131.5470379051038
+        }
+      ],
+      "near63": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 52,
+        "totalFrames": 52,
+        "persistence": 1,
+        "prominenceDb": 47.36380199756027,
+        "corePower": 0.004975588968292901,
+        "eligible": true,
+        "corePowerDb": -23.031555037544067,
+        "averagedBinPsdDb": -32.57926352888782
+      },
+      "near1954": {
+        "bin": 363,
+        "hz": 1954.13818359375,
+        "count": 52,
+        "totalFrames": 52,
+        "persistence": 1,
+        "prominenceDb": 49.169968112020676,
+        "corePower": 5.978784682010908e-13,
+        "eligible": true,
+        "corePowerDb": -122.23387086837141,
+        "averagedBinPsdDb": -131.5470379051038
+      },
+      "near1000": null,
+      "maximumAveragedPsdDb": -32.57926352888782
+    },
+    {
+      "id": "browser-pcm16-63-5s",
+      "durationSeconds": 5,
+      "qualityCodes": [],
+      "frameCount": 52,
+      "actualEngineCandidate": {
+        "centerHz": 1954.13818359375,
+        "prominenceDb": 49.169258784483794,
+        "persistentFrameFraction": 1
+      },
+      "currentRanking": {
+        "bin": 363,
+        "hz": 1954.13818359375,
+        "count": 52,
+        "totalFrames": 52,
+        "persistence": 1,
+        "prominenceDb": 49.169258784483794,
+        "corePower": 5.97981631863462e-13,
+        "eligible": true,
+        "corePowerDb": -122.23312155982923,
+        "averagedBinPsdDb": -131.5462886689674
+      },
+      "proposedRanking": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 52,
+        "totalFrames": 52,
+        "persistence": 1,
+        "prominenceDb": 47.36379660578717,
+        "corePower": 0.004975740839873928,
+        "eligible": true,
+        "corePowerDb": -23.031422478396948,
+        "averagedBinPsdDb": -32.57913096984349
+      },
+      "dominantEligibleTop3": [
+        {
+          "bin": 12,
+          "hz": 64.599609375,
+          "count": 52,
+          "totalFrames": 52,
+          "persistence": 1,
+          "prominenceDb": 47.36379660578717,
+          "corePower": 0.004975740839873928,
+          "eligible": true,
+          "corePowerDb": -23.031422478396948,
+          "averagedBinPsdDb": -32.57913096984349
+        },
+        {
+          "bin": 82,
+          "hz": 441.4306640625,
+          "count": 52,
+          "totalFrames": 52,
+          "persistence": 1,
+          "prominenceDb": 26.11636136154653,
+          "corePower": 2.7220237210077334e-12,
+          "eligible": true,
+          "corePowerDb": -115.65108094467777,
+          "averagedBinPsdDb": -124.77378312091915
+        },
+        {
+          "bin": 363,
+          "hz": 1954.13818359375,
+          "count": 52,
+          "totalFrames": 52,
+          "persistence": 1,
+          "prominenceDb": 49.169258784483794,
+          "corePower": 5.97981631863462e-13,
+          "eligible": true,
+          "corePowerDb": -122.23312155982923,
+          "averagedBinPsdDb": -131.5462886689674
+        }
+      ],
+      "near63": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 52,
+        "totalFrames": 52,
+        "persistence": 1,
+        "prominenceDb": 47.36379660578717,
+        "corePower": 0.004975740839873928,
+        "eligible": true,
+        "corePowerDb": -23.031422478396948,
+        "averagedBinPsdDb": -32.57913096984349
+      },
+      "near1954": {
+        "bin": 363,
+        "hz": 1954.13818359375,
+        "count": 52,
+        "totalFrames": 52,
+        "persistence": 1,
+        "prominenceDb": 49.169258784483794,
+        "corePower": 5.97981631863462e-13,
+        "eligible": true,
+        "corePowerDb": -122.23312155982923,
+        "averagedBinPsdDb": -131.5462886689674
+      },
+      "near1000": null,
+      "maximumAveragedPsdDb": -32.57913096984349
+    },
+    {
+      "id": "float63-15s",
+      "durationSeconds": 15,
+      "qualityCodes": [],
+      "frameCount": 160,
+      "actualEngineCandidate": {
+        "centerHz": 64.599609375,
+        "prominenceDb": 47.364312774348235,
+        "persistentFrameFraction": 1
+      },
+      "currentRanking": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 47.364312774348235,
+        "corePower": 0.004975747591833139,
+        "eligible": true,
+        "corePowerDb": -23.031416585130536,
+        "averagedBinPsdDb": -32.57912708799344
+      },
+      "proposedRanking": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 47.364312774348235,
+        "corePower": 0.004975747591833139,
+        "eligible": true,
+        "corePowerDb": -23.031416585130536,
+        "averagedBinPsdDb": -32.57912708799344
+      },
+      "dominantEligibleTop3": [
+        {
+          "bin": 12,
+          "hz": 64.599609375,
+          "count": 160,
+          "totalFrames": 160,
+          "persistence": 1,
+          "prominenceDb": 47.364312774348235,
+          "corePower": 0.004975747591833139,
+          "eligible": true,
+          "corePowerDb": -23.031416585130536,
+          "averagedBinPsdDb": -32.57912708799344
+        }
+      ],
+      "near63": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 47.364312774348235,
+        "corePower": 0.004975747591833139,
+        "eligible": true,
+        "corePowerDb": -23.031416585130536,
+        "averagedBinPsdDb": -32.57912708799344
+      },
+      "near1954": null,
+      "near1000": null,
+      "maximumAveragedPsdDb": -32.57912708799344
+    },
+    {
+      "id": "raw-pcm16-63-15s",
+      "durationSeconds": 15,
+      "qualityCodes": [],
+      "frameCount": 160,
+      "actualEngineCandidate": {
+        "centerHz": 1954.13818359375,
+        "prominenceDb": 49.16400236365433,
+        "persistentFrameFraction": 1
+      },
+      "currentRanking": {
+        "bin": 363,
+        "hz": 1954.13818359375,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 49.16400236365433,
+        "corePower": 5.978780526213622e-13,
+        "eligible": true,
+        "corePowerDb": -122.23387388711275,
+        "averagedBinPsdDb": -131.54714504271396
+      },
+      "proposedRanking": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 47.364312774170926,
+        "corePower": 0.004975589266214423,
+        "eligible": true,
+        "corePowerDb": -23.031554777503157,
+        "averagedBinPsdDb": -32.57926528036377
+      },
+      "dominantEligibleTop3": [
+        {
+          "bin": 12,
+          "hz": 64.599609375,
+          "count": 160,
+          "totalFrames": 160,
+          "persistence": 1,
+          "prominenceDb": 47.364312774170926,
+          "corePower": 0.004975589266214423,
+          "eligible": true,
+          "corePowerDb": -23.031554777503157,
+          "averagedBinPsdDb": -32.57926528036377
+        },
+        {
+          "bin": 82,
+          "hz": 441.4306640625,
+          "count": 160,
+          "totalFrames": 160,
+          "persistence": 1,
+          "prominenceDb": 26.06507516890023,
+          "corePower": 2.722219745181108e-12,
+          "eligible": true,
+          "corePowerDb": -115.65076820254058,
+          "averagedBinPsdDb": -124.76058835644515
+        },
+        {
+          "bin": 363,
+          "hz": 1954.13818359375,
+          "count": 160,
+          "totalFrames": 160,
+          "persistence": 1,
+          "prominenceDb": 49.16400236365433,
+          "corePower": 5.978780526213622e-13,
+          "eligible": true,
+          "corePowerDb": -122.23387388711275,
+          "averagedBinPsdDb": -131.54714504271396
+        }
+      ],
+      "near63": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 47.364312774170926,
+        "corePower": 0.004975589266214423,
+        "eligible": true,
+        "corePowerDb": -23.031554777503157,
+        "averagedBinPsdDb": -32.57926528036377
+      },
+      "near1954": {
+        "bin": 363,
+        "hz": 1954.13818359375,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 49.16400236365433,
+        "corePower": 5.978780526213622e-13,
+        "eligible": true,
+        "corePowerDb": -122.23387388711275,
+        "averagedBinPsdDb": -131.54714504271396
+      },
+      "near1000": null,
+      "maximumAveragedPsdDb": -32.57926528036377
+    },
+    {
+      "id": "browser-pcm16-63-15s",
+      "durationSeconds": 15,
+      "qualityCodes": [],
+      "frameCount": 160,
+      "actualEngineCandidate": {
+        "centerHz": 1954.13818359375,
+        "prominenceDb": 49.164051376073544,
+        "persistentFrameFraction": 1
+      },
+      "currentRanking": {
+        "bin": 363,
+        "hz": 1954.13818359375,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 49.164051376073544,
+        "corePower": 5.979812038872799e-13,
+        "eligible": true,
+        "corePowerDb": -122.23312466808123,
+        "averagedBinPsdDb": -131.5463958211259
+      },
+      "proposedRanking": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 47.36431277416513,
+        "corePower": 0.004975741137857779,
+        "eligible": true,
+        "corePowerDb": -23.031422218309572,
+        "averagedBinPsdDb": -32.57913272119666
+      },
+      "dominantEligibleTop3": [
+        {
+          "bin": 12,
+          "hz": 64.599609375,
+          "count": 160,
+          "totalFrames": 160,
+          "persistence": 1,
+          "prominenceDb": 47.36431277416513,
+          "corePower": 0.004975741137857779,
+          "eligible": true,
+          "corePowerDb": -23.031422218309572,
+          "averagedBinPsdDb": -32.57913272119666
+        },
+        {
+          "bin": 82,
+          "hz": 441.4306640625,
+          "count": 160,
+          "totalFrames": 160,
+          "persistence": 1,
+          "prominenceDb": 26.064853169586073,
+          "corePower": 2.7221613311775893e-12,
+          "eligible": true,
+          "corePowerDb": -115.65086139542711,
+          "averagedBinPsdDb": -124.7606817594702
+        },
+        {
+          "bin": 363,
+          "hz": 1954.13818359375,
+          "count": 160,
+          "totalFrames": 160,
+          "persistence": 1,
+          "prominenceDb": 49.164051376073544,
+          "corePower": 5.979812038872799e-13,
+          "eligible": true,
+          "corePowerDb": -122.23312466808123,
+          "averagedBinPsdDb": -131.5463958211259
+        }
+      ],
+      "near63": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 47.36431277416513,
+        "corePower": 0.004975741137857779,
+        "eligible": true,
+        "corePowerDb": -23.031422218309572,
+        "averagedBinPsdDb": -32.57913272119666
+      },
+      "near1954": {
+        "bin": 363,
+        "hz": 1954.13818359375,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 49.164051376073544,
+        "corePower": 5.979812038872799e-13,
+        "eligible": true,
+        "corePowerDb": -122.23312466808123,
+        "averagedBinPsdDb": -131.5463958211259
+      },
+      "near1000": null,
+      "maximumAveragedPsdDb": -32.57913272119666
+    },
+    {
+      "id": "strong63-80percent-vs-weak1000-always",
+      "durationSeconds": 15,
+      "qualityCodes": [],
+      "frameCount": 160,
+      "actualEngineCandidate": {
+        "centerHz": 1001.2939453125,
+        "prominenceDb": 48.6327951724023,
+        "persistentFrameFraction": 1
+      },
+      "currentRanking": {
+        "bin": 186,
+        "hz": 1001.2939453125,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 48.6327951724023,
+        "corePower": 4.985608635850615e-7,
+        "eligible": true,
+        "corePowerDb": -63.022818160772175,
+        "averagedBinPsdDb": -72.40656062487622
+      },
+      "proposedRanking": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 129,
+        "totalFrames": 160,
+        "persistence": 0.80625,
+        "prominenceDb": 47.364312248083074,
+        "corePower": 0.004975747607869632,
+        "eligible": true,
+        "corePowerDb": -23.031416571133523,
+        "averagedBinPsdDb": -33.53553317799878
+      },
+      "dominantEligibleTop3": [
+        {
+          "bin": 12,
+          "hz": 64.599609375,
+          "count": 129,
+          "totalFrames": 160,
+          "persistence": 0.80625,
+          "prominenceDb": 47.364312248083074,
+          "corePower": 0.004975747607869632,
+          "eligible": true,
+          "corePowerDb": -23.031416571133523,
+          "averagedBinPsdDb": -33.53553317799878
+        },
+        {
+          "bin": 186,
+          "hz": 1001.2939453125,
+          "count": 160,
+          "totalFrames": 160,
+          "persistence": 1,
+          "prominenceDb": 48.6327951724023,
+          "corePower": 4.985608635850615e-7,
+          "eligible": true,
+          "corePowerDb": -63.022818160772175,
+          "averagedBinPsdDb": -72.40656062487622
+        }
+      ],
+      "near63": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 129,
+        "totalFrames": 160,
+        "persistence": 0.80625,
+        "prominenceDb": 47.364312248083074,
+        "corePower": 0.004975747607869632,
+        "eligible": true,
+        "corePowerDb": -23.031416571133523,
+        "averagedBinPsdDb": -33.53553317799878
+      },
+      "near1954": null,
+      "near1000": {
+        "bin": 186,
+        "hz": 1001.2939453125,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 48.6327951724023,
+        "corePower": 4.985608635850615e-7,
+        "eligible": true,
+        "corePowerDb": -63.022818160772175,
+        "averagedBinPsdDb": -72.40656062487622
+      },
+      "maximumAveragedPsdDb": -33.53553317799878
+    },
+    {
+      "id": "strong63-75percent-vs-weak1000-always",
+      "durationSeconds": 15,
+      "qualityCodes": [],
+      "frameCount": 160,
+      "actualEngineCandidate": {
+        "centerHz": 1001.2939453125,
+        "prominenceDb": 48.63279460269753,
+        "persistentFrameFraction": 1
+      },
+      "currentRanking": {
+        "bin": 186,
+        "hz": 1001.2939453125,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 48.63279460269753,
+        "corePower": 4.985608636651511e-7,
+        "eligible": true,
+        "corePowerDb": -63.022818160074515,
+        "averagedBinPsdDb": -72.40655327617537
+      },
+      "proposedRanking": {
+        "bin": 186,
+        "hz": 1001.2939453125,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 48.63279460269753,
+        "corePower": 4.985608636651511e-7,
+        "eligible": true,
+        "corePowerDb": -63.022818160074515,
+        "averagedBinPsdDb": -72.40655327617537
+      },
+      "dominantEligibleTop3": [
+        {
+          "bin": 186,
+          "hz": 1001.2939453125,
+          "count": 160,
+          "totalFrames": 160,
+          "persistence": 1,
+          "prominenceDb": 48.63279460269753,
+          "corePower": 4.985608636651511e-7,
+          "eligible": true,
+          "corePowerDb": -63.022818160074515,
+          "averagedBinPsdDb": -72.40655327617537
+        }
+      ],
+      "near63": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 121,
+        "totalFrames": 160,
+        "persistence": 0.75625,
+        "prominenceDb": 47.36328856355464,
+        "corePower": 0.004975747013610299,
+        "eligible": false,
+        "corePowerDb": -23.031417089816514,
+        "averagedBinPsdDb": -33.81819872893765
+      },
+      "near1954": null,
+      "near1000": {
+        "bin": 186,
+        "hz": 1001.2939453125,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 48.63279460269753,
+        "corePower": 4.985608636651511e-7,
+        "eligible": true,
+        "corePowerDb": -63.022818160074515,
+        "averagedBinPsdDb": -72.40655327617537
+      },
+      "maximumAveragedPsdDb": -33.81819872893765
+    },
+    {
+      "id": "low-gain63-15s",
+      "durationSeconds": 15,
+      "qualityCodes": [],
+      "frameCount": 160,
+      "actualEngineCandidate": {
+        "centerHz": 64.599609375,
+        "prominenceDb": 47.3643127743574,
+        "persistentFrameFraction": 1
+      },
+      "currentRanking": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 47.3643127743574,
+        "corePower": 4.9757476208868895e-9,
+        "eligible": true,
+        "corePowerDb": -83.03141655977177,
+        "averagedBinPsdDb": -92.57912706263467
+      },
+      "proposedRanking": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 47.3643127743574,
+        "corePower": 4.9757476208868895e-9,
+        "eligible": true,
+        "corePowerDb": -83.03141655977177,
+        "averagedBinPsdDb": -92.57912706263467
+      },
+      "dominantEligibleTop3": [
+        {
+          "bin": 12,
+          "hz": 64.599609375,
+          "count": 160,
+          "totalFrames": 160,
+          "persistence": 1,
+          "prominenceDb": 47.3643127743574,
+          "corePower": 4.9757476208868895e-9,
+          "eligible": true,
+          "corePowerDb": -83.03141655977177,
+          "averagedBinPsdDb": -92.57912706263467
+        }
+      ],
+      "near63": {
+        "bin": 12,
+        "hz": 64.599609375,
+        "count": 160,
+        "totalFrames": 160,
+        "persistence": 1,
+        "prominenceDb": 47.3643127743574,
+        "corePower": 4.9757476208868895e-9,
+        "eligible": true,
+        "corePowerDb": -83.03141655977177,
+        "averagedBinPsdDb": -92.57912706263467
+      },
+      "near1954": null,
+      "near1000": null,
+      "maximumAveragedPsdDb": -92.57912706263467
+    },
+    {
+      "id": "short-burst-5s",
+      "durationSeconds": 5,
+      "qualityCodes": [],
+      "frameCount": 52,
+      "actualEngineCandidate": null,
+      "currentRanking": null,
+      "proposedRanking": null,
+      "dominantEligibleTop3": [],
+      "near63": null,
+      "near1954": null,
+      "near1000": {
+        "bin": 186,
+        "hz": 1001.2939453125,
+        "count": 2,
+        "totalFrames": 52,
+        "persistence": 0.038461538461538464,
+        "prominenceDb": 28.61805045818657,
+        "corePower": 0.004752713186202401,
+        "eligible": false,
+        "corePowerDb": -23.230583934494113,
+        "averagedBinPsdDb": -46.958739769030615
+      },
+      "maximumAveragedPsdDb": -46.958739769030615
+    },
+    {
+      "id": "white-noise-5s",
+      "durationSeconds": 5,
+      "qualityCodes": [],
+      "frameCount": 52,
+      "actualEngineCandidate": null,
+      "currentRanking": null,
+      "proposedRanking": null,
+      "dominantEligibleTop3": [],
+      "near63": null,
+      "near1954": null,
+      "near1000": null,
+      "maximumAveragedPsdDb": -67.15037811884388
+    }
+  ],
+  "duplicatedImplementations": [
+    "src/analysis/engine.ts framePeaks/sustainedPeak",
+    "field_lab.html inline script#field-lab-dsp twFieldFramePeaks/twFieldSustainedPeak",
+    "output/standalone-dsp-fragment.js scratch source"
+  ],
+  "versionImpact": "A ranking change changes the heuristic and requires algorithm-version/method notes, standalone-lab parity update, and focused regressions."
+}

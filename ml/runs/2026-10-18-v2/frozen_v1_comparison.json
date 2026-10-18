@@ -1,0 +1,830 @@
+{
+  "historicalModelSha256": "36b280011b1864b12fd4341ca3d2ed5e6f49df0bdd794a7d3bbfc9eeb4328c82",
+  "v2EvaluationSha256": "9fbd28cacb911fb57bace9835b8402894b53428595d2e7166d56c9f4bf42df39",
+  "comparisonSourceSha256": "e1075ee481fa7cd70f4346323e8a6d71eaa4a9cf4675db8dfd332a96eb74df0d",
+  "scoringSourceSha256": "911e000d0c79c23b17afd9979df8a4098c1f50036faf164fa2b0e36fb9e6962c",
+  "manifestSha256": "8a22e336d2eb1806ab228b381badb46156e67f198013d77b31a0565fbb3f0ab8",
+  "embeddingCacheSha256": "25ffd41e3359c952357b941dad9be832ad604a3bb5e2046dda7324d64eaecbd7",
+  "selectionOrCalibrationPerformed": false,
+  "promotionAllowed": false,
+  "comparison": "Frozen v1 classifier versus completed v2 classifier on identical fresh recordings and native embeddings; not the live eight-description app.",
+  "frozenV1": {
+    "classOrder": [
+      "buzz",
+      "mechanical_fan",
+      "speech",
+      "traffic",
+      "wind"
+    ],
+    "rejectionRule": {
+      "abstainAll": false,
+      "minDecisionMargin": null,
+      "minPredictedCentroidCosine": 0.609697327931026
+    },
+    "splits": {
+      "test": {
+        "ungated": {
+          "sampleCount": 157,
+          "accuracy": 0.8407643312101911,
+          "macroF1": 0.8281387707794003,
+          "balancedAccuracy": 0.8288235294117647,
+          "confusionMatrix": [
+            [
+              23,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              36,
+              1,
+              1,
+              2
+            ],
+            [
+              0,
+              0,
+              34,
+              2,
+              4
+            ],
+            [
+              1,
+              0,
+              1,
+              12,
+              6
+            ],
+            [
+              0,
+              1,
+              2,
+              4,
+              27
+            ]
+          ],
+          "classOrder": [
+            "buzz",
+            "mechanical_fan",
+            "speech",
+            "traffic",
+            "wind"
+          ],
+          "perClass": [
+            {
+              "label": "buzz",
+              "precision": 0.9583333333333334,
+              "recall": 1.0,
+              "f1": 0.9787234042553191,
+              "support": 23
+            },
+            {
+              "label": "mechanical_fan",
+              "precision": 0.972972972972973,
+              "recall": 0.9,
+              "f1": 0.935064935064935,
+              "support": 40
+            },
+            {
+              "label": "speech",
+              "precision": 0.8947368421052632,
+              "recall": 0.85,
+              "f1": 0.8717948717948718,
+              "support": 40
+            },
+            {
+              "label": "traffic",
+              "precision": 0.631578947368421,
+              "recall": 0.6,
+              "f1": 0.6153846153846154,
+              "support": 20
+            },
+            {
+              "label": "wind",
+              "precision": 0.6923076923076923,
+              "recall": 0.7941176470588235,
+              "f1": 0.7397260273972602,
+              "support": 34
+            }
+          ],
+          "classesAbsentFromThisSplit": []
+        },
+        "acceptedOnly": {
+          "sampleCount": 65,
+          "accuracy": 0.9384615384615385,
+          "macroF1": 0.883062558356676,
+          "balancedAccuracy": 0.8720695970695971,
+          "confusionMatrix": [
+            [
+              21,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              25,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              2,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              6,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              7
+            ]
+          ],
+          "classOrder": [
+            "buzz",
+            "mechanical_fan",
+            "speech",
+            "traffic",
+            "wind"
+          ],
+          "perClass": [
+            {
+              "label": "buzz",
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 21
+            },
+            {
+              "label": "mechanical_fan",
+              "precision": 1.0,
+              "recall": 0.9615384615384616,
+              "f1": 0.9803921568627451,
+              "support": 26
+            },
+            {
+              "label": "speech",
+              "precision": 1.0,
+              "recall": 0.6666666666666666,
+              "f1": 0.8,
+              "support": 3
+            },
+            {
+              "label": "traffic",
+              "precision": 0.8571428571428571,
+              "recall": 0.8571428571428571,
+              "f1": 0.8571428571428571,
+              "support": 7
+            },
+            {
+              "label": "wind",
+              "precision": 0.7,
+              "recall": 0.875,
+              "f1": 0.7777777777777778,
+              "support": 8
+            }
+          ],
+          "classesAbsentFromThisSplit": []
+        },
+        "coverage": {
+          "successes": 65,
+          "total": 157,
+          "rate": 0.4140127388535032,
+          "wilson95": [
+            0.3399184991716502,
+            0.49221433400477876
+          ]
+        },
+        "selectiveAccuracy": {
+          "successes": 61,
+          "total": 65,
+          "rate": 0.9384615384615385,
+          "wilson95": [
+            0.852178481344768,
+            0.9758109450336497
+          ]
+        },
+        "correctAcceptedPerKnownClip": {
+          "successes": 61,
+          "total": 157,
+          "rate": 0.3885350318471338,
+          "wilson95": [
+            0.315823300067429,
+            0.46657111330942336
+          ]
+        },
+        "perClass": [
+          {
+            "label": "buzz",
+            "coverage": {
+              "successes": 21,
+              "total": 23,
+              "rate": 0.9130434782608695,
+              "wilson95": [
+                0.7320401892425634,
+                0.9758199955157796
+              ]
+            },
+            "correctTrueClassCoverage": {
+              "successes": 21,
+              "total": 23,
+              "rate": 0.9130434782608695,
+              "wilson95": [
+                0.7320401892425634,
+                0.9758199955157796
+              ]
+            },
+            "acceptedPredictedPrecision": {
+              "successes": 21,
+              "total": 21,
+              "rate": 1.0,
+              "wilson95": [
+                0.8453609810751531,
+                1.0
+              ]
+            }
+          },
+          {
+            "label": "mechanical_fan",
+            "coverage": {
+              "successes": 26,
+              "total": 40,
+              "rate": 0.65,
+              "wilson95": [
+                0.49505880837257693,
+                0.7786547112682372
+              ]
+            },
+            "correctTrueClassCoverage": {
+              "successes": 25,
+              "total": 40,
+              "rate": 0.625,
+              "wilson95": [
+                0.47032439137301096,
+                0.7577702083276673
+              ]
+            },
+            "acceptedPredictedPrecision": {
+              "successes": 25,
+              "total": 25,
+              "rate": 1.0,
+              "wilson95": [
+                0.8668077490609515,
+                0.9999999999999999
+              ]
+            }
+          },
+          {
+            "label": "speech",
+            "coverage": {
+              "successes": 3,
+              "total": 40,
+              "rate": 0.075,
+              "wilson95": [
+                0.025836025774588198,
+                0.19864233524310543
+              ]
+            },
+            "correctTrueClassCoverage": {
+              "successes": 2,
+              "total": 40,
+              "rate": 0.05,
+              "wilson95": [
+                0.013820667386148344,
+                0.16503877369140962
+              ]
+            },
+            "acceptedPredictedPrecision": {
+              "successes": 2,
+              "total": 2,
+              "rate": 1.0,
+              "wilson95": [
+                0.34238022750665303,
+                1.0
+              ]
+            }
+          },
+          {
+            "label": "traffic",
+            "coverage": {
+              "successes": 7,
+              "total": 20,
+              "rate": 0.35,
+              "wilson95": [
+                0.18119182410108206,
+                0.5671457233147638
+              ]
+            },
+            "correctTrueClassCoverage": {
+              "successes": 6,
+              "total": 20,
+              "rate": 0.3,
+              "wilson95": [
+                0.1454772448676043,
+                0.5189728183535235
+              ]
+            },
+            "acceptedPredictedPrecision": {
+              "successes": 6,
+              "total": 7,
+              "rate": 0.8571428571428571,
+              "wilson95": [
+                0.4868721707256811,
+                0.9743203756552565
+              ]
+            }
+          },
+          {
+            "label": "wind",
+            "coverage": {
+              "successes": 8,
+              "total": 34,
+              "rate": 0.23529411764705882,
+              "wilson95": [
+                0.12436985532639575,
+                0.3999613792253638
+              ]
+            },
+            "correctTrueClassCoverage": {
+              "successes": 7,
+              "total": 34,
+              "rate": 0.20588235294117646,
+              "wilson95": [
+                0.10349526899031913,
+                0.36798388051163594
+              ]
+            },
+            "acceptedPredictedPrecision": {
+              "successes": 7,
+              "total": 10,
+              "rate": 0.7,
+              "wilson95": [
+                0.39677814746114537,
+                0.8922087325936989
+              ]
+            }
+          }
+        ]
+      },
+      "ood_test": {
+        "falseAcceptance": {
+          "successes": 12,
+          "total": 190,
+          "rate": 0.06315789473684211,
+          "wilson95": [
+            0.03649465189670734,
+            0.10713540015757397
+          ]
+        }
+      }
+    }
+  },
+  "v2": {
+    "training": {
+      "kind": "linear",
+      "C": 10.0
+    },
+    "splits": {
+      "test": {
+        "ungated": {
+          "sampleCount": 157,
+          "accuracy": 0.8598726114649682,
+          "macroF1": 0.8496276072741573,
+          "balancedAccuracy": 0.8561764705882353,
+          "confusionMatrix": [
+            [
+              23,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              40,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              33,
+              3,
+              4
+            ],
+            [
+              0,
+              0,
+              0,
+              15,
+              5
+            ],
+            [
+              0,
+              1,
+              1,
+              8,
+              24
+            ]
+          ],
+          "classOrder": [
+            "buzz",
+            "mechanical_fan",
+            "speech",
+            "traffic",
+            "wind"
+          ],
+          "perClass": [
+            {
+              "label": "buzz",
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 23
+            },
+            {
+              "label": "mechanical_fan",
+              "precision": 0.975609756097561,
+              "recall": 1.0,
+              "f1": 0.9876543209876543,
+              "support": 40
+            },
+            {
+              "label": "speech",
+              "precision": 0.9705882352941176,
+              "recall": 0.825,
+              "f1": 0.8918918918918919,
+              "support": 40
+            },
+            {
+              "label": "traffic",
+              "precision": 0.5769230769230769,
+              "recall": 0.75,
+              "f1": 0.6521739130434783,
+              "support": 20
+            },
+            {
+              "label": "wind",
+              "precision": 0.7272727272727273,
+              "recall": 0.7058823529411765,
+              "f1": 0.7164179104477612,
+              "support": 34
+            }
+          ],
+          "classesAbsentFromThisSplit": []
+        },
+        "acceptedOnly": {
+          "sampleCount": 72,
+          "accuracy": 0.9861111111111112,
+          "macroF1": 0.7866666666666667,
+          "balancedAccuracy": 0.8,
+          "confusionMatrix": [
+            [
+              23,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              28,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              13,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              7
+            ]
+          ],
+          "classOrder": [
+            "buzz",
+            "mechanical_fan",
+            "speech",
+            "traffic",
+            "wind"
+          ],
+          "perClass": [
+            {
+              "label": "buzz",
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 23
+            },
+            {
+              "label": "mechanical_fan",
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 28
+            },
+            {
+              "label": "speech",
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 13
+            },
+            {
+              "label": "traffic",
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 1
+            },
+            {
+              "label": "wind",
+              "precision": 0.875,
+              "recall": 1.0,
+              "f1": 0.9333333333333333,
+              "support": 7
+            }
+          ],
+          "classesAbsentFromThisSplit": []
+        },
+        "coverage": {
+          "successes": 72,
+          "total": 157,
+          "rate": 0.4585987261146497,
+          "wilson95": [
+            0.38257508234352977,
+            0.5365999854821583
+          ]
+        },
+        "selectiveAccuracy": {
+          "successes": 71,
+          "total": 72,
+          "rate": 0.9861111111111112,
+          "wilson95": [
+            0.9254339785252386,
+            0.9975440481170943
+          ]
+        },
+        "correctAcceptedPerKnownClip": {
+          "successes": 71,
+          "total": 157,
+          "rate": 0.45222929936305734,
+          "wilson95": [
+            0.376443796061413,
+            0.5302966668143809
+          ]
+        },
+        "rejectedCount": 85,
+        "perClass": [
+          {
+            "label": "buzz",
+            "coverage": {
+              "successes": 23,
+              "total": 23,
+              "rate": 1.0,
+              "wilson95": [
+                0.8568833815495731,
+                1.0
+              ]
+            },
+            "correctTrueClassCoverage": {
+              "successes": 23,
+              "total": 23,
+              "rate": 1.0,
+              "wilson95": [
+                0.8568833815495731,
+                1.0
+              ]
+            },
+            "precisionAmongAcceptedKnownPredictions": {
+              "successes": 23,
+              "total": 23,
+              "rate": 1.0,
+              "wilson95": [
+                0.8568833815495731,
+                1.0
+              ]
+            }
+          },
+          {
+            "label": "mechanical_fan",
+            "coverage": {
+              "successes": 28,
+              "total": 40,
+              "rate": 0.7,
+              "wilson95": [
+                0.5456998118185507,
+                0.8192515477025347
+              ]
+            },
+            "correctTrueClassCoverage": {
+              "successes": 28,
+              "total": 40,
+              "rate": 0.7,
+              "wilson95": [
+                0.5456998118185507,
+                0.8192515477025347
+              ]
+            },
+            "precisionAmongAcceptedKnownPredictions": {
+              "successes": 28,
+              "total": 28,
+              "rate": 1.0,
+              "wilson95": [
+                0.8793566952341543,
+                0.9999999999999998
+              ]
+            }
+          },
+          {
+            "label": "speech",
+            "coverage": {
+              "successes": 13,
+              "total": 40,
+              "rate": 0.325,
+              "wilson95": [
+                0.200845022317827,
+                0.47982253810122333
+              ]
+            },
+            "correctTrueClassCoverage": {
+              "successes": 13,
+              "total": 40,
+              "rate": 0.325,
+              "wilson95": [
+                0.200845022317827,
+                0.47982253810122333
+              ]
+            },
+            "precisionAmongAcceptedKnownPredictions": {
+              "successes": 13,
+              "total": 13,
+              "rate": 1.0,
+              "wilson95": [
+                0.7719046276458016,
+                0.9999999999999999
+              ]
+            }
+          },
+          {
+            "label": "traffic",
+            "coverage": {
+              "successes": 1,
+              "total": 20,
+              "rate": 0.05,
+              "wilson95": [
+                0.008881448800795402,
+                0.23613119344674205
+              ]
+            },
+            "correctTrueClassCoverage": {
+              "successes": 0,
+              "total": 20,
+              "rate": 0.0,
+              "wilson95": [
+                0.0,
+                0.16112515805281938
+              ]
+            },
+            "precisionAmongAcceptedKnownPredictions": {
+              "successes": 0,
+              "total": 0,
+              "rate": null,
+              "wilson95": null
+            }
+          },
+          {
+            "label": "wind",
+            "coverage": {
+              "successes": 7,
+              "total": 34,
+              "rate": 0.20588235294117646,
+              "wilson95": [
+                0.10349526899031913,
+                0.36798388051163594
+              ]
+            },
+            "correctTrueClassCoverage": {
+              "successes": 7,
+              "total": 34,
+              "rate": 0.20588235294117646,
+              "wilson95": [
+                0.10349526899031913,
+                0.36798388051163594
+              ]
+            },
+            "precisionAmongAcceptedKnownPredictions": {
+              "successes": 7,
+              "total": 8,
+              "rate": 0.875,
+              "wilson95": [
+                0.5291118177871464,
+                0.9775825085499433
+              ]
+            }
+          }
+        ]
+      },
+      "ood_test": {
+        "falseAcceptance": {
+          "successes": 11,
+          "total": 190,
+          "rate": 0.05789473684210526,
+          "wilson95": [
+            0.03263163603913921,
+            0.10068070579892863
+          ]
+        },
+        "acceptedByLabel": {
+          "buzz": 5,
+          "mechanical_fan": 4,
+          "speech": 0,
+          "traffic": 1,
+          "wind": 1
+        },
+        "perClassFalseAcceptance": {
+          "buzz": {
+            "successes": 5,
+            "total": 190,
+            "rate": 0.02631578947368421,
+            "wilson95": [
+              0.011291765010824347,
+              0.06011431552996262
+            ]
+          },
+          "mechanical_fan": {
+            "successes": 4,
+            "total": 190,
+            "rate": 0.021052631578947368,
+            "wilson95": [
+              0.008216683210937811,
+              0.05287168711363567
+            ]
+          },
+          "speech": {
+            "successes": 0,
+            "total": 190,
+            "rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.01981752945971958
+            ]
+          },
+          "traffic": {
+            "successes": 1,
+            "total": 190,
+            "rate": 0.005263157894736842,
+            "wilson95": [
+              0.0009296815656636322,
+              0.029205558110269425
+            ]
+          },
+          "wind": {
+            "successes": 1,
+            "total": 190,
+            "rate": 0.005263157894736842,
+            "wilson95": [
+              0.0009296815656636322,
+              0.029205558110269425
+            ]
+          }
+        },
+        "rejectedCount": 179
+      }
+    }
+  },
+  "limitations": [
+    "Higher acceptance can trade precision for coverage; inspect every class and unknown false accepts.",
+    "These source-tagged public recordings do not establish equipment identity or field accuracy.",
+    "Corpus/pretraining overlap and machine/uploader sampling limit independence and generalization.",
+    "No test-driven tuning or retesting of the fitted candidate is performed here."
+  ]
+}

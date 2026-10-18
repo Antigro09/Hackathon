@@ -1,0 +1,20 @@
+{
+  "cases": 26,
+  "chromeRepeatsPerCase": 3,
+  "nodeRepeatsPerCase": 2,
+  "all26PcmFeatureEmbeddingBitExact": true,
+  "maxEmbeddingCoordinateError": 0,
+  "chromeInferenceMeanMs": 345.5807692240446,
+  "chromePreprocessingMeanMs": 29.920512822958138,
+  "nodeInferenceMeanMs": 312.6809365384615,
+  "nodePreprocessingMeanMs": 26.885917307692264,
+  "nodeModelLoadMs": 1084.3022,
+  "nodeFullWallMs": 19244.5451,
+  "chromeContractSha256": "421d7e2a6cbc46cfda0e13971ba0936f9067d56b93bc56d7303a342c4b2c9441",
+  "nodeContractSha256": "c020ef1439e6aad9e8f83fc813bc47c3711c57e47922a42e3243617072ae89ae",
+  "nodeEmbeddingsSha256": "e5b9334721ff002d8dd2443f6f6635296d4d43df69a996903d8966ec1586212d",
+  "chromeEmbeddingsSha256": "f713e30fb35ed458a3ec80337476bf2e0feccf627e8a2e5d27248563610404f4",
+  "goldenZipBytes": 19457284,
+  "goldenZipSha256": "133adbfbe924598c16d306bb1a1298854fa9a4191f4a70bc4b4aa322fa670cb0",
+  "promotionAllowed": false
+}

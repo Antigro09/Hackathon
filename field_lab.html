@@ -42,7 +42,7 @@
 <h2>Campaign log</h2><p><button id="csv" type="button">⬇ Export CSV</button><button id="wav" type="button" disabled>Download last PCM WAV</button><button id="raw-log" type="button" hidden>Backup stored raw log</button><button id="wipe" type="button">Clear log</button></p>
 <p id="storage-note" class="method-note" role="status"></p><p id="log-count" class="method-note"></p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Campaign observations table; scroll horizontally for all columns"><table id="log"><thead><tr><th>#</th><th>Capture-start receipt UTC</th><th>Experiment</th><th>Spot / conditions</th><th>In/Out</th><th>Distance note</th><th>What I hear</th><th>Device note</th><th>Actual duration s</th><th>Effective Hz</th><th>A digital dB</th><th>C digital dB</th><th>C−A dB</th><th>60/120 Hz candidates</th><th>Independent screening observations</th><th>Provenance / quality</th></tr></thead><tbody id="log-body"></tbody></table></div>
-<details><summary>Method, clock and storage limits</summary><p class="method-note">Version tw-field-lab-v2 uses sample-counted first-channel microphone PCM after 0.5 s warm-up. It applies a periodic Hann window (8,192 samples, 4,096-sample hop), removes each frame’s mean, averages linear one-sided power density across all complete frames, and integrates A/C responses normalized at 1 kHz over 20 Hz–20 kHz. Silence, clipping, non-finite samples, incomplete capture and unsupported rates make numeric indicators unavailable. Browser processing flags remain attached. This is not hardware or acoustic field validation.</p><p class="method-note">The UTC capture timestamp is the browser-clock receipt of the first post-warm-up sample notification; clock accuracy is not established. Sample count, effective rate and analyzed duration are stored separately. Old log records are retained unchanged inside a legacy wrapper and exported in the legacy_original_json column; old numeric values and labels are not revalidated. Invalid stored JSON is not overwritten until the user explicitly clears it.</p><p class="method-note">Recording a peak near 60/120 Hz does not identify a source; not finding one does not rule out a sound or establish microphone sensitivity. C−A changes with spectrum and device processing, not only source changes. Constant gain cancels only for otherwise identical unclipped samples; microphone response shaping does not.</p></details>
+<details><summary>Method, clock and storage limits</summary><p class="method-note">Version tw-field-lab-v3 uses sample-counted first-channel microphone PCM after 0.5 s warm-up. It applies a periodic Hann window (8,192 samples, 4,096-sample hop), removes each frame’s mean, averages linear one-sided power density across all complete frames, and integrates A/C responses normalized at 1 kHz over 20 Hz–20 kHz. Sustained peak candidates must retain the existing local-prominence/concentration gates and appear in at least 80% of all complete frames, with at least 20 frames; qualifying tracks are ranked by median three-bin linear power, then persistence and prominence. Silence, clipping, non-finite samples, incomplete capture and unsupported rates make numeric indicators unavailable. Browser processing flags remain attached. This is not hardware or acoustic field validation.</p><p class="method-note">The UTC capture timestamp is the browser-clock receipt of the first post-warm-up sample notification; clock accuracy is not established. Sample count, effective rate and analyzed duration are stored separately. Structured v2/v3 log records keep their original method and metadata. Earlier unversioned records are retained unchanged inside a legacy wrapper and exported in the legacy_original_json column; old numeric values and labels are not revalidated. Invalid stored JSON is not overwritten until the user explicitly clears it.</p><p class="method-note">Recording a peak near 60/120 Hz does not identify a source; not finding one does not rule out a sound or establish microphone sensitivity. C−A changes with spectrum and device processing, not only source changes. Constant gain cancels only for otherwise identical unclipped samples; microphone response shaping does not.</p></details>
 <footer>Audio and campaign entries remain on this device. CSV/WAV downloads require a deliberate click. Keep synthetic demonstrations, externally reported data and real recordings distinct. Uncalibrated screening only; no source identification or legal-compliance determination.</footer>
 <script id="field-lab-dsp">
 /* BEGIN TONALWATCH STANDALONE DSP — no imports, remote code, or build step.
@@ -163,7 +163,7 @@ function twFieldFramePeaks(psd, df, bandEnd) {
     }
     if (background.length < 4 || neighborhood <= 0) continue;
     var prominenceDb = 10 * Math.log10((core / 3) / Math.max(twFieldMedian(background), 1e-20));
-    if (prominenceDb >= 12 && core / neighborhood >= 0.60) peaks.push({ bin: k, prominenceDb: prominenceDb });
+    if (prominenceDb >= 12 && core / neighborhood >= 0.60) peaks.push({ bin: k, prominenceDb: prominenceDb, corePower: core });
   }
   return peaks;
 }
@@ -174,6 +174,7 @@ function twFieldSustainedPeak(frames, df, referenceHz) {
   for (var center = Math.ceil(40 / df); center <= Math.floor(2000 / df); center++) {
     var actualBins = [];
     var prominences = [];
+    var corePowers = [];
     for (var f = 0; f < frames.length; f++) {
       var candidate = null;
       for (var p = 0; p < frames[f].length; p++) {
@@ -181,16 +182,26 @@ function twFieldSustainedPeak(frames, df, referenceHz) {
         if (Math.abs(peak.bin - center) > 1) continue;
         // A reference-window result must still be an actual qualifying peak.
         if (referenceHz !== undefined && Math.abs(peak.bin * df - referenceHz) > df) continue;
-        if (!candidate || peak.prominenceDb > candidate.prominenceDb) candidate = peak;
+        if (!candidate || peak.corePower > candidate.corePower ||
+          (peak.corePower === candidate.corePower && (peak.prominenceDb > candidate.prominenceDb ||
+            (peak.prominenceDb === candidate.prominenceDb && peak.bin < candidate.bin)))) candidate = peak;
       }
-      if (candidate) { actualBins.push(candidate.bin); prominences.push(candidate.prominenceDb); }
+      if (candidate) { actualBins.push(candidate.bin); prominences.push(candidate.prominenceDb); corePowers.push(candidate.corePower); }
     }
-    if (!best || actualBins.length > best.actualBins.length ||
-      (actualBins.length === best.actualBins.length && twFieldMedian(prominences) > twFieldMedian(best.prominences))) {
-      best = { actualBins: actualBins, prominences: prominences };
+    // Qualify persistence before ranking power, so a louder brief event cannot
+    // hide a valid sustained track. Fixed df makes PSD sums rank like power.
+    if (actualBins.length / frames.length < 0.8) continue;
+    var corePower = twFieldMedian(corePowers);
+    var prominence = twFieldMedian(prominences);
+    var medianBin = twFieldMedian(actualBins);
+    if (!best || corePower > best.corePower ||
+      (corePower === best.corePower && (actualBins.length > best.actualBins.length ||
+        (actualBins.length === best.actualBins.length && (prominence > best.prominence ||
+          (prominence === best.prominence && medianBin < best.medianBin)))))) {
+      best = { actualBins: actualBins, prominences: prominences, corePower: corePower, prominence: prominence, medianBin: medianBin };
     }
   }
-  if (!best || best.actualBins.length / frames.length < 0.8) return null;
+  if (!best) return null;
   var representativeBin = twFieldMedian(best.actualBins);
   if (referenceHz !== undefined) {
     // A line-window marker uses a bin that was actually observed (the most
@@ -217,7 +228,7 @@ function analyzeStandalonePcm(pcm, fs, expectedDuration) {
   var codes = [];
   function flag(code) { if (codes.indexOf(code) === -1) codes.push(code); }
   var result = {
-    algorithmVersion: 'tw-field-lab-v2', sampleRateHz: fs, sampleCount: count,
+    algorithmVersion: 'tw-field-lab-v3', sampleRateHz: fs, sampleCount: count,
     durationSeconds: duration, expectedDurationSeconds: expectedDuration,
     fftSize: TW_FIELD_FFT_SIZE, hopSize: TW_FIELD_HOP_SIZE,
     binSpacingHz: fs === 44100 || fs === 48000 ? fs / TW_FIELD_FFT_SIZE : null,
@@ -291,7 +302,8 @@ function analyzeStandalonePcm(pcm, fs, expectedDuration) {
 </script>
 <script id="field-lab-core">
 // Pure helpers are kept inline in the final standalone HTML; no imports or build.
-const FIELD_LAB_VERSION = 'tw-field-lab-v2';
+const FIELD_LAB_VERSION = 'tw-field-lab-v3';
+const FIELD_LAB_STORED_VERSIONS = Object.freeze(['tw-field-lab-v2', FIELD_LAB_VERSION]);
 const FIELD_LAB_LOG_KEY = 'tw_field_log';
 const FIELD_LAB_WORKLET_SOURCE = `
 class FieldLabCollector extends AudioWorkletProcessor {
@@ -346,7 +358,7 @@ registerProcessor('tw-field-collector-v2', FieldLabCollector);
 function fieldLabValidCurrentEntry(entry) {
   const finiteOrNull = value => value === null || typeof value === 'number' && Number.isFinite(value);
   const validPeak = peak => peak === null || peak && ['centerHz', 'prominenceDb', 'persistentFrameFraction'].every(key => typeof peak[key] === 'number' && Number.isFinite(peak[key]));
-  return entry && typeof entry === 'object' && entry.schemaVersion === 2 && entry.algorithmVersion === FIELD_LAB_VERSION
+  return entry && typeof entry === 'object' && entry.schemaVersion === 2 && FIELD_LAB_STORED_VERSIONS.includes(entry.algorithmVersion)
     && entry.provenance === 'microphone-uncalibrated' && typeof entry.id === 'string'
     && ['durationSeconds', 'sampleRateHz', 'sampleCount', 'frameCount', 'fftSize', 'hopSize', 'binSpacingHz'].every(key => typeof entry[key] === 'number' && Number.isFinite(entry[key]))
     && ['aDigitalDb', 'cDigitalDb', 'cMinusADb'].every(key => finiteOrNull(entry[key]))
@@ -741,9 +753,15 @@ async function startCapture() {
 }
 
 function downloadBlob(blob, filename) {
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement('a'); anchor.href = url; anchor.download = filename; anchor.hidden = true;
-  document.body.append(anchor); anchor.click(); anchor.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+  const anchor = document.createElement('a'); anchor.download = filename; anchor.hidden = true;
+  try {
+    const url = URL.createObjectURL(blob); anchor.href = url;
+    document.body.append(anchor); anchor.click(); anchor.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+    return;
+  } catch (e) { /* file:// strictness - fall through to data URI */ }
+  const fr = new FileReader();
+  fr.onload = () => { anchor.href = fr.result; document.body.append(anchor); anchor.click(); anchor.remove(); };
+  fr.readAsDataURL(blob);
 }
 $('start').addEventListener('click', startCapture);
 $('stop').addEventListener('click', () => stopCapture());

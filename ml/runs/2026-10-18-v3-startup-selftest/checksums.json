@@ -1,0 +1,108 @@
+{
+  "formatVersion": 1,
+  "purpose": "Two-case synthetic numerical startup parity metadata; not field evidence",
+  "fieldEvidence": false,
+  "promotionAllowed": false,
+  "audioIncluded": false,
+  "weightsIncluded": false,
+  "copiedArtifacts": {
+    "chrome/checkpoints/000000.json": {
+      "originalPath": "output/v3-selftest/chrome/checkpoints/000000.json",
+      "byteIdentical": true
+    },
+    "chrome/checkpoints/000001.json": {
+      "originalPath": "output/v3-selftest/chrome/checkpoints/000001.json",
+      "byteIdentical": true
+    },
+    "chrome/contract.json": {
+      "originalPath": "output/v3-selftest/chrome/contract.json",
+      "byteIdentical": true
+    },
+    "chrome/embeddings.json": {
+      "originalPath": "output/v3-selftest/chrome/embeddings.json",
+      "byteIdentical": true
+    },
+    "node/checkpoints/000000.json": {
+      "originalPath": "output/v3-selftest/node/checkpoints/000000.json",
+      "byteIdentical": true
+    },
+    "node/checkpoints/000001.json": {
+      "originalPath": "output/v3-selftest/node/checkpoints/000001.json",
+      "byteIdentical": true
+    },
+    "node/contract.json": {
+      "originalPath": "output/v3-selftest/node/contract.json",
+      "byteIdentical": true
+    },
+    "node/embeddings.json": {
+      "originalPath": "output/v3-selftest/node/embeddings.json",
+      "byteIdentical": true
+    },
+    "sources/selfTestV3.mjs": {
+      "originalPath": "ml/browser/selfTestV3.mjs",
+      "byteIdentical": true
+    },
+    "staged/manifest.json": {
+      "originalPath": "output/v3-selftest/staged/manifest.json",
+      "byteIdentical": true
+    },
+    "staged/synthetic-source.json": {
+      "originalPath": "output/v3-selftest/staged/synthetic-source.json",
+      "byteIdentical": true
+    }
+  },
+  "externalReference": {
+    "path": "ml/browser/fixtures/self-test-v3-reference.json",
+    "sha256": "6d5414df3b9413283c88f599887d149314c9c8fb189c5324205b452e33a2212d"
+  },
+  "files": {
+    "chrome/checkpoints/000000.json": {
+      "sha256": "3eaa46fc3e640757a9725746b753157c224e022222e3f2f011ce3af4a2e61320",
+      "bytes": 15099
+    },
+    "chrome/checkpoints/000001.json": {
+      "sha256": "4dcdee1d5e548dac5fe53a4bec61d58debf9ce75459f546edbae26a4aea4e158",
+      "bytes": 15112
+    },
+    "chrome/contract.json": {
+      "sha256": "0708eaa7e0912f1edaf18f8b8f6e115476f391f31325aba88bd0e25538d4901b",
+      "bytes": 4159
+    },
+    "chrome/embeddings.json": {
+      "sha256": "2b2e38ea16a6705a768ea82465e6eeabb92a833d5e9cc8991b306a040493c312",
+      "bytes": 43247
+    },
+    "node/checkpoints/000000.json": {
+      "sha256": "01522f4f2cb6b2029172305694c2d5ba175a88b940c67ca6b3bd54807cebc30c",
+      "bytes": 14801
+    },
+    "node/checkpoints/000001.json": {
+      "sha256": "605d99359d013143da85dfdae67ef3da041a4b9a96321e266deb197ff66c9de4",
+      "bytes": 14827
+    },
+    "node/contract.json": {
+      "sha256": "d2e3a0e9acfaea5603a36e1a3d37be6c41b85f9805991723f69a63a74eb0ec1e",
+      "bytes": 3332
+    },
+    "node/embeddings.json": {
+      "sha256": "590932cebda8b220168c53793ad9f91f79066cfba93ab80e06af18c3a9ff0884",
+      "bytes": 41818
+    },
+    "README.md": {
+      "sha256": "ea39aae2ad107a3bc2a616c2693813789bcc85e88971bfbe74ec0e280c5bfdf2",
+      "bytes": 3355
+    },
+    "sources/selfTestV3.mjs": {
+      "sha256": "cf4c6a95f4b5108c4c906829385f062a66ccf363a2ece78c49da31b634af4105",
+      "bytes": 1775
+    },
+    "staged/manifest.json": {
+      "sha256": "cb05d0819d7839a0adbd5323f1e4618fd61aadc4ae7444963a14be33b6ec01d9",
+      "bytes": 2399
+    },
+    "staged/synthetic-source.json": {
+      "sha256": "91a944d1386d5c1692218aec113e6fa87f7d0f97e9eed42e2ea11a6a6ba8c438",
+      "bytes": 3079
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "MODEL_NOTICE.txt": {
+    "sha256": "e13916e945aa5a47496b03b3c4c1ac915ed37c44a3d2a0eb4c705542fbe42e48",
+    "bytes": 1857
+  },
+  "NOTICES.txt": {
+    "sha256": "9735c408346051f33908cf58af4b041cfa7316cc02dfdf968e24b87ce095489a",
+    "bytes": 1694
+  },
+  "TRAINING_ATTRIBUTION.json": {
+    "sha256": "ee3e308568fb891b34012ea358725d9d0fc468d9c49cb8a9f0a11865dab0bf36",
+    "bytes": 579873
+  },
+  "app/model": {
+    "sha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+    "bytes": 1308
+  },
+  "app/model.js": {
+    "sha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+    "bytes": 1308
+  },
+  "app/resample.js": {
+    "sha256": "2ab0e2e2a8d3bbc8dc2d3608993c7b27c2df4726a20411e5054414f4223d0477",
+    "bytes": 4233
+  },
+  "asset-manifest.json": {
+    "sha256": "12d9497e5a9bfa12c29df76eb1b816c7bfc499ceb2ed98c16835ceaedcb4213d",
+    "bytes": 8415
+  },
+  "audio_model_quantized.onnx": {
+    "sha256": "3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f",
+    "bytes": 34301667
+  },
+  "canonicalEncoder.mjs": {
+    "sha256": "6cda0b9db5fee7c1612629d014ead11a93d6e369b101a68af9e32d82c031ebb4",
+    "bytes": 4625
+  },
+  "integerHeadV3.js": {
+    "sha256": "5b969fa736aad8b336c198d24f20bf59bbe4e788ef7878ea86dd8126c20ed25f",
+    "bytes": 6814
+  },
+  "licenses/onnxruntime-LICENSE.txt": {
+    "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+    "bytes": 1073
+  },
+  "licenses/onnxruntime-ThirdPartyNotices.txt": {
+    "sha256": "143764b952fdb1a7c69ce653bfba74a7744d6a8a573bfb73e235fba356c83de3",
+    "bytes": 338088
+  },
+  "licenses/transformers-APACHE-2.0.txt": {
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "bytes": 11358
+  },
+  "models/c28f2883575e590e04d3146ff0713c2448d691ba/config.json": {
+    "sha256": "39c6d90fe29cf2cce650dd5c92c38a1e35b130d9ce0bb98585222ad687ad979b",
+    "bytes": 699
+  },
+  "models/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json": {
+    "sha256": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+    "bytes": 541
+  },
+  "ort.wasm.bundle.min.mjs": {
+    "sha256": "17b52c1ac62b421dc508b4c28b9a9675251c6e25dd512ef54b83a5e2c4242869",
+    "bytes": 73123
+  },
+  "productionWorkerV3.mjs": {
+    "sha256": "f622383fb66b1090f98f59739eea13971915eabe419af090ad833b1b436a5713",
+    "bytes": 18333
+  },
+  "runtime/ort-wasm-simd-threaded.mjs": {
+    "sha256": "c57ca56328877353a575e51bbca6f18450027d6c9bf2307a2cb2c41363b4de9f",
+    "bytes": 24381
+  },
+  "runtime/ort-wasm-simd-threaded.wasm": {
+    "sha256": "06ba057753da3847e4c24f02d91ab133455b0817c69a44993a9a53a2146df9e3",
+    "bytes": 14264838
+  },
+  "self-test-v3-reference.json": {
+    "sha256": "6d5414df3b9413283c88f599887d149314c9c8fb189c5324205b452e33a2212d",
+    "bytes": 36622
+  },
+  "selfTestV3.mjs": {
+    "sha256": "cf4c6a95f4b5108c4c906829385f062a66ccf363a2ece78c49da31b634af4105",
+    "bytes": 1775
+  },
+  "tonalwatch-head-v3.json": {
+    "sha256": "1e373cd18cbd706812dac10b19a320b73a568e6ee40e3f34236e03ae6122f491",
+    "bytes": 47746
+  },
+  "transformers.web.js": {
+    "sha256": "f2da43b6b960ca15ae8678e4899a5df0031125c38e94a03e458bd762751d6367",
+    "bytes": 1156772
+  }
+}

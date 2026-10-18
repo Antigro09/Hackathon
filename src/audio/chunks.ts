@@ -20,7 +20,7 @@ export class CaptureCollector {
   constructor(readonly sampleRate: number, readonly durationSeconds: CaptureDurationSeconds = 5) {
     assertCaptureDuration(durationSeconds);
     if (!Number.isFinite(sampleRate) || sampleRate <= 0) {
-      throw new AudioInputError('invalid-rate', 'The microphone returned an invalid sample rate. Try a file or demo.');
+      throw new AudioInputError('invalid-rate', 'The microphone returned an invalid sample rate. Try another microphone or a current browser.');
     }
     this.warmupSamples = Math.round(0.5 * sampleRate);
     this.pcm = new Float32Array(Math.round(durationSeconds * sampleRate));
@@ -35,7 +35,7 @@ export class CaptureCollector {
     if (this.complete) return;
     if (!Number.isSafeInteger(chunk.startSample) || chunk.startSample !== this.expectedSample
       || !(chunk.samples instanceof Float32Array) || chunk.samples.length === 0) {
-      throw new AudioInputError('incomplete', 'Recording was interrupted or audio samples were lost. Keep this tab visible and retry, or choose a file or demo.');
+      throw new AudioInputError('incomplete', 'Recording was interrupted or audio samples were lost. Keep this tab visible and retry.');
     }
     const skip = Math.max(0, Math.min(chunk.samples.length, this.warmupSamples - this.expectedSample));
     const take = Math.min(chunk.samples.length - skip, this.pcm.length - this.written);

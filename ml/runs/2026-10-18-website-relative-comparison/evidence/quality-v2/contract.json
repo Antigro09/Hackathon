@@ -1,0 +1,73 @@
+{
+  "contractSha256": "9841a154fa53ef3b6c2143af5e27d6c58b231b4ad039e904eb834461151c0dd8",
+  "contract": {
+    "schemaVersion": 1,
+    "implementation": "tw-legacy-website-baseline-v1",
+    "mode": "final",
+    "phase": "quality",
+    "protocol": {
+      "path": "ml/BASELINE_COMPARISON_PROTOCOL.md",
+      "sha256": "b8a453622e02f340b6196c1dca62abecf2646176eb324a5401e2cf05fad38aca",
+      "commit": "dbb71588a7d4897f30fe6f64a395ace300cad6f1"
+    },
+    "qualityArtifactSha256": null,
+    "manifestSha256": "4f7002914f11686c7b3c4d71c3db582b44da861fa4c43b56e8cb384b9306ab3a",
+    "sourceManifestSha256": "197e24e42c36de1368f9cd25424c98a4f8935af7c60429c4521d8d80feaa9520",
+    "deployedOrigin": "https://tonalwatch.vercel.app",
+    "distAssets": {
+      "soundHints.worker-BshSXPiJ.js": {
+        "bytes": 5204,
+        "sha256": "26f40691a2c49f2c717beee0a4f415a1003db4f2d5c4c72ebc27cc2d644005b8"
+      },
+      "transformers.web-B7_wdX-V.js": {
+        "bytes": 545164,
+        "sha256": "06dfd43d60e53f8c5c191f9054abf594297c4f577eb68b337b89cd26824af8af"
+      },
+      "analysis.worker-BwKrUFVx.js": {
+        "bytes": 10766,
+        "sha256": "a5918dda07bf28fd7b705d797734185446be9d13ab0feb7f5b5a5025717d443f"
+      },
+      "ort-wasm-simd-threaded.asyncify-CxOG5pUO.wasm": {
+        "bytes": 26861777,
+        "sha256": "49871f5a4409519797e127440868a6d1923339d9185907f301a5b2a1d90af082"
+      }
+    },
+    "remoteArtifacts": [],
+    "labels": [
+      "a buzzing indoor fluorescent light fixture or lamp ballast",
+      "an outdoor electrical transformer humming",
+      "outdoor industrial ventilation fans or cooling machinery humming",
+      "a household fan or air conditioner running",
+      "road traffic passing outside",
+      "wind blowing across a microphone",
+      "people talking in a room",
+      "a quiet room with background noise"
+    ],
+    "originalWorkerReturns": "top2 only; preserve always-uncertain status/reason and provisional gate; no confidence probabilities",
+    "commonQuality": "exact deployed analysis.worker-BwKrUFVx.js on same original5s PCM; prepared-public import provenance; blocked outcomes retained",
+    "resamplerSha256": "2ab0e2e2a8d3bbc8dc2d3608993c7b27c2df4726a20411e5054414f4223d0477",
+    "execution": {
+      "transformersVersion": "4.3.1",
+      "ortVersion": "1.31.0-dev.20260914-8d85527a0",
+      "device": "wasm",
+      "dtype": "q8",
+      "numThreads": 1,
+      "proxy": false,
+      "hypothesisTemplate": "{}",
+      "executedInThisPhase": false,
+      "assertionBasis": "unchanged verified public worker and bundled source; transport artifact GET evidence"
+    },
+    "sourceHashes": {
+      "legacyBaselineServerV3.mjs": "620c479e50d489b9a5cc9534dbc2a19d8f7373bc82ab076bf19aaea68053da77",
+      "legacyBaselineV3.mjs": "4e4b9a4c1d5c417b7b7dff6d10691ae71c3a0d67e7f13040c032ab43524e6ab9",
+      "legacyBaselinePageV3.mjs": "63f0272438fcab16d814e3ec5fc5b16b7927a983fc55fdf3e42f837e4f0fd16f",
+      "legacyBaselineRoutesV3.js": "feabdb20ac6d67a6c7eaaaa95fcbf1c107f0735433cf6246e331776009e204e6"
+    },
+    "environment": {
+      "node": "v24.18.0",
+      "platform": "win32",
+      "architecture": "x64"
+    },
+    "promotionAllowed": false
+  }
+}

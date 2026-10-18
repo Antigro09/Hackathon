@@ -1,0 +1,58 @@
+{
+  "additionalFailureOrLogFilesPreserved": [],
+  "baselineKnownMacroF1": 0.39449688261950117,
+  "candidateKnownMacroF1": 0.7779942503551978,
+  "completionSha256": "a00a2e2adfff98b7021076c62ac1a2cc82e02a635d8c24bdf2d42cdc2c1d6375",
+  "counts": {
+    "baselineErrors": 0,
+    "eligibleKnown": 218,
+    "eligibleUnknown": 191,
+    "fullKnown": 222,
+    "fullUnknown": 194,
+    "qualityBlockedBothAbstain": 7,
+    "qualityEligible": 409,
+    "total": 416
+  },
+  "difference": 0.3834973677356966,
+  "headSha256": "1e373cd18cbd706812dac10b19a320b73a568e6ee40e3f34236e03ae6122f491",
+  "modelsQueriedByVerifier": 0,
+  "omittedNonmetadataInputs": [
+    {
+      "evidence": "quality-v2",
+      "path": "compiled-resampler/",
+      "reason": "raw audio/encoder/cache directory excluded"
+    },
+    {
+      "evidence": "baseline",
+      "path": "compiled-resampler/",
+      "reason": "raw audio/encoder/cache directory excluded"
+    },
+    {
+      "evidence": "quality-interrupted-firstpass",
+      "path": "compiled-resampler/",
+      "reason": "raw audio/encoder/cache directory excluded"
+    },
+    {
+      "evidence": "candidate",
+      "path": "compiled-app/",
+      "reason": "raw audio/encoder/cache directory excluded"
+    },
+    {
+      "bytes": 1156922,
+      "evidence": "candidate",
+      "path": "preprocessing.web.mjs",
+      "reason": "generated preprocessing code omitted; raw contract/source pins preserved"
+    }
+  ],
+  "originalDevelopmentStrictAuditPassed": false,
+  "relativeChecks": {
+    "allFiveClassesHaveCorrectAcceptance": true,
+    "completePairedRecognition": true,
+    "knownSelectivePrecisionAtLeastBaseline": true,
+    "strictlyGreaterKnownMacroF1": true,
+    "unknownHintRateAtMostBaseline": true
+  },
+  "relativeRecognitionPassed": true,
+  "sourceSha256": "197e24e42c36de1368f9cd25424c98a4f8935af7c60429c4521d8d80feaa9520",
+  "status": "complete"
+}

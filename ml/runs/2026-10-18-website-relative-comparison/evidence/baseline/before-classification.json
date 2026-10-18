@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "implementationFreezeCommit": "2469911d31e6a312292918f02113c8e12e96e778",
+  "headAtLaunch": "2469911d31e6a312292918f02113c8e12e96e778",
+  "authorization": "Coordinator explicit GO after immutable local commit; no model-dependent changes",
+  "sourceManifestSha256": "197e24e42c36de1368f9cd25424c98a4f8935af7c60429c4521d8d80feaa9520",
+  "classifiersNotYetStarted": true,
+  "files": {
+    "browser-environment.json": "b2ae18c06bd558b8f4923ce19f908f3c88b2c38b613e1b86f37a1d41c9676e1a",
+    "contract.json": "1f4e2b68acd1b2e44371a481cf8b880b35735c28176b5d291aa8a2ef06eb00f9"
+  }
+}

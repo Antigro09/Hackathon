@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "row": 367,
+  "clipId": "tobee_c8cb5521a71e98a0ae3e2749",
+  "sourceSha256": "089880fad3258a68aea8a189959a33e2cf591a341a8f8f5472eeb65a91b3dea8",
+  "pcmSha256": "0354bd3e14aec7c1a08f72090d35a00086d7c0551e85da63ef84ae6aaaf2d6f9",
+  "contractSha256": "a326e70bc14d71cce69466ccdc59e13452166234fcc2d78d35fd8f92fc0dcd14",
+  "inputUnchanged": true,
+  "rawResponse": {
+    "type": "result",
+    "sessionId": 368,
+    "result": {
+      "status": "uncertain",
+      "reason": "not-validated",
+      "provisionalGatePassed": true,
+      "rankings": [
+        {
+          "score": 0.7250881195068359,
+          "label": "a buzzing indoor fluorescent light fixture or lamp ballast"
+        },
+        {
+          "score": 0.12017729878425598,
+          "label": "an outdoor electrical transformer humming"
+        }
+      ],
+      "modelId": "Xenova/clap-htsat-unfused",
+      "modelRevision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+      "preprocessing": {
+        "originalSampleRateHz": 48000,
+        "originalSampleCount": 240000,
+        "observationSeconds": 5,
+        "modelSampleRateHz": 48000,
+        "modelInputSamples": 240000,
+        "processorSeconds": 10,
+        "padding": "zero-pad",
+        "configuredPadding": "repeatpad",
+        "featureBandHz": [
+          50,
+          14000
+        ]
+      },
+      "timing": {
+        "modelLoadMs": 0,
+        "inferenceMs": 556.5,
+        "totalMs": 557.7000000476837,
+        "reusedModel": true
+      }
+    }
+  },
+  "analysis": {
+    "algorithmVersion": "tw-screen-v2",
+    "sampleRateHz": 48000,
+    "sampleCount": 240000,
+    "durationSeconds": 5,
+    "frameCount": 57,
+    "qualityCodes": [
+      "imported-processing-unknown"
+    ]
+  },
+  "qualityArtifactSha256": "3ac09ea4fc0e2fc10abe85dbd66c46c5d1e66f8f4237861912bdc8085c21105b",
+  "resampledPcmSha256": "0354bd3e14aec7c1a08f72090d35a00086d7c0551e85da63ef84ae6aaaf2d6f9",
+  "outcome": "result"
+}

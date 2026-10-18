@@ -1,9 +1,11 @@
 output/
 .playwright-cli/
 ml/
+tests/
 notebooks/
 docs/
 .git/
 .vercel/
 .env*
 *.tsbuildinfo
+FIELDTEST*.csv

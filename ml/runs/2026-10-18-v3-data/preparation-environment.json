@@ -1,0 +1,11 @@
+{
+  "libsndfile": "1.2.2",
+  "numpy": "2.2.6",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python_full": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+  "python_implementation": "CPython",
+  "python_version": "3.10.11",
+  "scipy": "1.15.3",
+  "scope": "Source decode/resampling/preflight only; this is not an encoder/classifier runtime contract.",
+  "soundfile": "0.13.1"
+}

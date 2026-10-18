@@ -677,6 +677,26 @@ html body .map-preview-canvas .leaflet-control-attribution{font-size:13px}
 .why-icon,.how-num,.step-icon{border:1px solid var(--hairline);box-sizing:border-box}
 
 
+/* ===== Microphone-only Check: Length segmented control (Mic options) and Home steps ===== */
+html body .length-picker{border:0;margin:0;padding:0;min-width:0}
+html body .length-picker legend{font-size:13px;font-weight:500;color:var(--muted);padding:0;margin:0 0 6px}
+html body .length-picker .duration-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;padding:2px;background:var(--fill);border-radius:var(--r-control)}
+html body .length-picker .duration-options button{display:flex;align-items:center;justify-content:center;min-height:44px;border:0;border-radius:8px;background:transparent;color:var(--ink);font-size:15px;font-weight:500;padding:0;box-shadow:none}
+html body .length-picker .duration-options button.selected{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.08),0 0 0 .5px rgba(0,0,0,.06)}
+html body .length-picker .duration-options button:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+html body #main-content .length-picker>p{font-size:13px;line-height:1.45;color:var(--muted);margin:8px 0 0;border:0;padding:0}
+html body #main-content .inline-options-body .footnote{font-size:13px;line-height:1.45;color:var(--muted);margin:0}
+.check-sub{font-size:15px;font-weight:500;color:var(--muted);margin-top:-26px}
+.check-panel--again .check-sub{margin-top:-12px}
+html body #main-content .how-list li{display:block;padding:0}
+html body .how-row{display:flex;align-items:center;gap:12px;padding:12px 16px;min-height:44px;text-decoration:none;color:var(--ink);transition:background-color .15s}
+.how-text{flex:1;display:flex;flex-direction:column;min-width:0}
+.how-text strong{font-size:17px;font-weight:600}
+.how-text span{font-size:15px;color:var(--muted)}
+.how-row>svg{color:var(--tertiary);flex:0 0 auto}
+@media (hover:hover){html body a.how-row:hover{background-color:var(--fill-2)}}
+html body a.how-row:active{background-color:var(--fill)}
+
 /* ===== Classic theme (the earlier forest-green palette). Opt in with ?theme=classic; ?theme=mono switches back. ===== */
 html[data-theme="classic"]{
   --bg:#f7f8f3; --surface:#fff; --ink:#20372c; --ink-2:#34493e; --muted:#5c6b60; --tertiary:#8a978d;

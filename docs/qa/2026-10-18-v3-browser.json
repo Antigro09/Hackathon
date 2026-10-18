@@ -1,0 +1,1172 @@
+{
+  "date": "2026-10-18",
+  "scope": "Final built V3 app in isolated Chrome with generated virtual microphone; not hardware or field validation.",
+  "frozenComparisonCommit": "2469911d31e6a312292918f02113c8e12e96e778",
+  "sourceSha256": {
+    "src/App.tsx": "8805f1bdc2810b0d9b7a4ad29153627416b1a577d2b9d3fed9c1c8e0c2c1c07b",
+    "src/components/SoundHintsPanelV3.tsx": "3b9f1235f685033632f927d21ce7c222a7c03eab7e8934fd4b5fb0d432fe98a9",
+    "src/ai/headV3.ts": "b4b9b256b3d4cb73b342c378063cf00191378340ade81044e280d11b8a8d430a",
+    "src/ai/modelV3.ts": "7abd250a44516c04af05b94346cc585bd03f72f224488dfebbc7018a19f0242a",
+    "vercel.json": "4fec6ad823b71900eff83d7521ed0aee0eaa57c2087f2a495fe1651815903376"
+  },
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+  "fixture": "Chromium fake microphone, generated63Hz/48kHz mono WAV; integration software check, not acoustic/field evidence.",
+  "testFiles": 21,
+  "testsPassed": 428,
+  "buildPassed": true,
+  "opaquePayloadsVerified": 23,
+  "distIndexSha256": "8bc75dd9525f8d295901fd576ea67d645d7528b80aa8a13dca1cec1cc8e62f2c",
+  "beforeExplore": {
+    "ready": true,
+    "origin": "http://127.0.0.1:4175",
+    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "fixture": "Chromium fake microphone, generated63Hz/48kHz mono WAV; integration software check, not acoustic/field evidence.",
+    "requests": 0,
+    "modelGets": 0,
+    "maximumEncoderWorkers": 0
+  },
+  "actualBrowserEvidence": {
+    "results": {
+      "capture": {
+        "liveMeter": "-26.4 dB relative to RMS 1",
+        "plot": "Frequency spectrum\n15.00 s · 48.0 kHz",
+        "metrics": "Captured-spectrum C−A\n\n25.3 dB\nUncalibrated input\n\nA relative\n\n-47.6 dB\nWeighted digital level\n\nC relative\n\n-22.3 dB\nWeighted digital level",
+        "stoppedMeter": "Microphone inactive",
+        "beforeExploreModelGets": 0
+      },
+      "ai": {
+        "family": "No sound family suggested",
+        "observedSelfTestUi": false,
+        "startupGatePassedByVerifiedPanel": true,
+        "rendered": "No sound family suggested\n\nThis model did not accept a known family strongly enough. It leaves this sound unclassified.",
+        "requests": 18,
+        "modelGets": 17,
+        "maximumEncoderWorkers": 1
+      },
+      "lifecycle": {
+        "clearUnloaded": true,
+        "actualWorkerStartupCanceled": true,
+        "heldUnmodifiedGraphReleasedAfterNavigation": true,
+        "staleHintAbsent": true,
+        "reportAvailable": true,
+        "requests": 54,
+        "modelGets": 51,
+        "maximumEncoderWorkers": 1
+      },
+      "report": {
+        "nativeDownloadFilename": "tonalwatch-observation-2026-10-18.txt",
+        "savedText": "output/playwright/v3-observation-summary-15s.txt",
+        "pdf": "output/playwright/v3-observation-summary-15s.pdf",
+        "graphCharacters": 6579,
+        "graphUnchanged": true,
+        "caption": "MICROPHONE INPUT — uncalibrated browser capture · 15.000 s analyzed · Fresh microphone recording\nDigital PSD · dB re 1²/Hz · 20–20000 Hz analyzed band · 5.859 Hz bin spacing · 174 complete frames. The graph uses a 100 dB display range; lower bins stop at the display floor. The analysis uses the full linear spectral power.",
+        "aiExcluded": true
+      },
+      "layout-320": [
+        {
+          "route": "/",
+          "viewport": 320,
+          "document": 320,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 781.234375,
+            "bottom": 899.609375,
+            "viewport": 900,
+            "scrollY": 959,
+            "totalHeight": 1859
+          }
+        },
+        {
+          "route": "/measure",
+          "viewport": 320,
+          "document": 320,
+          "scale": 1,
+          "buttons": [
+            {
+              "text": "Explore sound families (experimental)",
+              "left": 39,
+              "right": 281,
+              "width": 242,
+              "client": 240,
+              "scroll": 240
+            }
+          ],
+          "footer": {
+            "top": 781.328125,
+            "bottom": 899.703125,
+            "viewport": 900,
+            "scrollY": 5741,
+            "totalHeight": 6641
+          }
+        },
+        {
+          "route": "/learn",
+          "viewport": 320,
+          "document": 320,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 781.46875,
+            "bottom": 899.84375,
+            "viewport": 900,
+            "scrollY": 3114,
+            "totalHeight": 4014
+          }
+        },
+        {
+          "route": "/map",
+          "viewport": 320,
+          "document": 320,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 781.125,
+            "bottom": 899.5,
+            "viewport": 900,
+            "scrollY": 7082,
+            "totalHeight": 7982
+          }
+        },
+        {
+          "route": "/sources",
+          "viewport": 320,
+          "document": 320,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 781.890625,
+            "bottom": 900.265625,
+            "viewport": 900,
+            "scrollY": 5963,
+            "totalHeight": 6863
+          }
+        },
+        {
+          "route": "/report",
+          "viewport": 320,
+          "document": 320,
+          "scale": 1,
+          "buttons": [
+            {
+              "text": "Download text summary",
+              "left": 16,
+              "right": 304,
+              "width": 288,
+              "client": 286,
+              "scroll": 286
+            },
+            {
+              "text": "Print / save PDF",
+              "left": 16,
+              "right": 304,
+              "width": 288,
+              "client": 286,
+              "scroll": 286
+            }
+          ],
+          "footer": {
+            "top": 782.046875,
+            "bottom": 900.421875,
+            "viewport": 900,
+            "scrollY": 6916,
+            "totalHeight": 7816
+          }
+        }
+      ],
+      "layout-390": [
+        {
+          "route": "/",
+          "viewport": 390,
+          "document": 390,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 810.125,
+            "bottom": 899.5625,
+            "viewport": 900,
+            "scrollY": 718,
+            "totalHeight": 1618
+          }
+        },
+        {
+          "route": "/measure",
+          "viewport": 390,
+          "document": 390,
+          "scale": 1,
+          "buttons": [
+            {
+              "text": "Explore sound families (experimental)",
+              "left": 39,
+              "right": 351,
+              "width": 312,
+              "client": 310,
+              "scroll": 310
+            }
+          ],
+          "footer": {
+            "top": 810.546875,
+            "bottom": 899.984375,
+            "viewport": 900,
+            "scrollY": 5090,
+            "totalHeight": 5990
+          }
+        },
+        {
+          "route": "/learn",
+          "viewport": 390,
+          "document": 390,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 810.578125,
+            "bottom": 900.015625,
+            "viewport": 900,
+            "scrollY": 2707,
+            "totalHeight": 3607
+          }
+        },
+        {
+          "route": "/map",
+          "viewport": 390,
+          "document": 390,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 810.828125,
+            "bottom": 900.265625,
+            "viewport": 900,
+            "scrollY": 6434,
+            "totalHeight": 7334
+          }
+        },
+        {
+          "route": "/sources",
+          "viewport": 390,
+          "document": 390,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 810.4375,
+            "bottom": 899.875,
+            "viewport": 900,
+            "scrollY": 4989,
+            "totalHeight": 5889
+          }
+        },
+        {
+          "route": "/report",
+          "viewport": 390,
+          "document": 390,
+          "scale": 1,
+          "buttons": [
+            {
+              "text": "Download text summary",
+              "left": 16,
+              "right": 191,
+              "width": 175,
+              "client": 173,
+              "scroll": 173
+            },
+            {
+              "text": "Print / save PDF",
+              "left": 199,
+              "right": 374,
+              "width": 175,
+              "client": 173,
+              "scroll": 173
+            }
+          ],
+          "footer": {
+            "top": 811.046875,
+            "bottom": 900.484375,
+            "viewport": 900,
+            "scrollY": 6214,
+            "totalHeight": 7114
+          }
+        }
+      ],
+      "layout-1280": [
+        {
+          "route": "/",
+          "viewport": 1280,
+          "document": 1280,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 813.46875,
+            "bottom": 900.265625,
+            "viewport": 900,
+            "scrollY": 222,
+            "totalHeight": 1122
+          }
+        },
+        {
+          "route": "/measure",
+          "viewport": 1280,
+          "document": 1280,
+          "scale": 1,
+          "buttons": [
+            {
+              "text": "Explore sound families (experimental)",
+              "left": 68,
+              "right": 346.203125,
+              "width": 278.203125,
+              "client": 276,
+              "scroll": 276
+            }
+          ],
+          "footer": {
+            "top": 813.59375,
+            "bottom": 900.390625,
+            "viewport": 900,
+            "scrollY": 3083,
+            "totalHeight": 3983
+          }
+        },
+        {
+          "route": "/learn",
+          "viewport": 1280,
+          "document": 1280,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 813.125,
+            "bottom": 899.921875,
+            "viewport": 900,
+            "scrollY": 1839,
+            "totalHeight": 2739
+          }
+        },
+        {
+          "route": "/map",
+          "viewport": 1280,
+          "document": 1280,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 813.296875,
+            "bottom": 900.09375,
+            "viewport": 900,
+            "scrollY": 2233,
+            "totalHeight": 3133
+          }
+        },
+        {
+          "route": "/sources",
+          "viewport": 1280,
+          "document": 1280,
+          "scale": 1,
+          "buttons": [],
+          "footer": {
+            "top": 813.203125,
+            "bottom": 900,
+            "viewport": 900,
+            "scrollY": 2414,
+            "totalHeight": 3314
+          }
+        },
+        {
+          "route": "/report",
+          "viewport": 1280,
+          "document": 1280,
+          "scale": 1,
+          "buttons": [
+            {
+              "text": "Download text summary",
+              "left": 910.265625,
+              "right": 1092.9375,
+              "width": 182.671875,
+              "client": 181,
+              "scroll": 181
+            },
+            {
+              "text": "Print / save PDF",
+              "left": 1102.9375,
+              "right": 1242,
+              "width": 139.0625,
+              "client": 137,
+              "scroll": 137
+            }
+          ],
+          "footer": {
+            "top": 813.390625,
+            "bottom": 900.1875,
+            "viewport": 900,
+            "scrollY": 4165,
+            "totalHeight": 5065
+          }
+        }
+      ],
+      "tonalwatch-head-v3.json": {
+        "asset": "tonalwatch-head-v3.json",
+        "intercepted": 1,
+        "error": "Sound hints unavailable\n\nThe optional local sound model could not complete its checks. Your standard indicators and report remain available. Clear the hints or try again in a current browser with enough free memory.",
+        "ordinaryReportAccessible": true,
+        "requests": 80,
+        "modelGets": 53,
+        "maximumEncoderWorkers": 1
+      },
+      "audio_model_quantized.onnx": {
+        "asset": "audio_model_quantized.onnx",
+        "intercepted": 1,
+        "error": "Sound hints unavailable\n\nThe optional local sound model could not complete its checks. Your standard indicators and report remain available. Clear the hints or try again in a current browser with enough free memory.",
+        "ordinaryReportAccessible": true,
+        "requests": 99,
+        "modelGets": 70,
+        "maximumEncoderWorkers": 1
+      }
+    },
+    "networkCheck": {
+      "requests": 99,
+      "modelGets": 70,
+      "maximumEncoderWorkers": 1
+    },
+    "requests": [
+      {
+        "stage": "live-15-second-capture",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/assets/analysis.worker-BwKrUFVx.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/tonalwatch-head-v3.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/integerHeadV3.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/productionWorkerV3.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/asset-manifest.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/canonicalEncoder.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/transformers.web.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/ort.wasm.bundle.min.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.wasm",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/app/resample.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/app/model.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/app/model",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/config.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/selfTestV3.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/self-test-v3-reference.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "explicit-explore",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/audio_model_quantized.onnx",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/tonalwatch-head-v3.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/integerHeadV3.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/productionWorkerV3.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/asset-manifest.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/canonicalEncoder.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/transformers.web.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/ort.wasm.bundle.min.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.wasm",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/app/resample.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/app/model.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/app/model",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/config.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/selfTestV3.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/self-test-v3-reference.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-cancel",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/audio_model_quantized.onnx",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/tonalwatch-head-v3.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/integerHeadV3.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/productionWorkerV3.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/asset-manifest.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/canonicalEncoder.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/transformers.web.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/ort.wasm.bundle.min.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.wasm",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/app/resample.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/app/model.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/app/model",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/config.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/selfTestV3.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/self-test-v3-reference.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/audio_model_quantized.onnx",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "retry-then-navigation",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "report-export",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-320",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-320",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-320",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-320",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/assets/ObservationMap-BSBpBwL5.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-320",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/assets/ObservationMap-DyBRl5Rc.css",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-320",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-320",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-320",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-390",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-390",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-390",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-390",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-390",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-390",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-1280",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-1280",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-1280",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-1280",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-1280",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-1280",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "layout-1280",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-tonalwatch-head-v3.json",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/tonalwatch-head-v3.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-tonalwatch-head-v3.json",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/integerHeadV3.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-tonalwatch-head-v3.json",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-tonalwatch-head-v3.json",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/tonalwatch-head-v3.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/integerHeadV3.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/productionWorkerV3.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/asset-manifest.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/canonicalEncoder.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/transformers.web.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/ort.wasm.bundle.min.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/runtime/ort-wasm-simd-threaded.wasm",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/app/resample.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/app/model.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/app/model",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/config.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/models/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/selfTestV3.mjs",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/self-test-v3-reference.json",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/ai/canonical-v3/audio_model_quantized.onnx",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "origin": "http://127.0.0.1:4175",
+        "path": "/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      }
+    ],
+    "workers": [
+      {
+        "event": "created",
+        "stage": "explicit-explore",
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/productionWorkerV3.mjs"
+      },
+      {
+        "event": "closed",
+        "stage": "clear-ready-hints",
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/productionWorkerV3.mjs"
+      },
+      {
+        "event": "created",
+        "stage": "retry-then-cancel",
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/productionWorkerV3.mjs"
+      },
+      {
+        "event": "closed",
+        "stage": "retry-then-cancel",
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/productionWorkerV3.mjs"
+      },
+      {
+        "event": "created",
+        "stage": "retry-then-navigation",
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/productionWorkerV3.mjs"
+      },
+      {
+        "event": "closed",
+        "stage": "retry-then-navigation",
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/productionWorkerV3.mjs"
+      },
+      {
+        "event": "created",
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/productionWorkerV3.mjs"
+      },
+      {
+        "event": "closed",
+        "stage": "intentional-corruption-audio_model_quantized.onnx",
+        "url": "http://127.0.0.1:4175/ai/canonical-v3/productionWorkerV3.mjs"
+      }
+    ],
+    "pageErrors": [],
+    "consoleErrors": [],
+    "note": "Generated fake microphone/software QA only; no field accuracy evidence and no model or classifier replaced."
+  },
+  "textSummary": {
+    "bytes": 7718,
+    "lines": 116,
+    "sha256": "fefbe1288df22d0fc9a7ed4ec0e27052fe157ac32392f95fff0587ffcfeb6374"
+  },
+  "earlierQaAttempt": "An earlier preview was open during a copy rebuild and requested its deleted old map chunk. That mixed-build session was discarded; the final fresh isolated session reported here has no page/console errors. Earlier logs remain under ignored output/playwright/v3-first-build-console.log and v3-qa08.log."
+}

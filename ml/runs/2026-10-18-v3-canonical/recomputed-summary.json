@@ -1,0 +1,48 @@
+{
+  "cases": 26,
+  "chromeReferenceSha256": "f713e30fb35ed458a3ec80337476bf2e0feccf627e8a2e5d27248563610404f4",
+  "chromeRepeatsPerCase": 3,
+  "preparedPcmOnly": true,
+  "headOrAccuracyEvaluated": false,
+  "promotionAllowed": false,
+  "runs": {
+    "linux": {
+      "environment": {
+        "node": "v20.19.0",
+        "v8": "11.3.244.8-node.26",
+        "platform": "linux",
+        "architecture": "x64"
+      },
+      "contractSha256": "ca8670144ccaef1b9b191dc02b53a9f97026a5e3e3bd027e278c605326e2a865",
+      "embeddingsSha256": "32f34acd2313ca358425232e6dd22370ac0270b9467f2affcc3ec0565517d498",
+      "cases": 26,
+      "repeatsPerCase": 2,
+      "allRecordedPcmFeatureEmbeddingHashesEqualChrome": true,
+      "allEmbeddingCoordinatesBitExactToChrome": true,
+      "maxEmbeddingCoordinateError": 0,
+      "modelLoadMs": 6563.106966,
+      "totalWallMs": 54641.532686000006,
+      "meanInferenceMs": 806.1533618846152,
+      "meanPreprocessingMs": 96.43852561538435
+    },
+    "windows": {
+      "environment": {
+        "node": "v24.18.0",
+        "v8": "13.6.233.17-node.50",
+        "platform": "win32",
+        "architecture": "x64"
+      },
+      "contractSha256": "5da0e86b201940146ee04c454282f7b617e910e05e10eec430a5668c5ed2d39b",
+      "embeddingsSha256": "d2f9fe62fb56105c34776b036c35a8a2ef6cd0b0c639e104853c011fa5b4c636",
+      "cases": 26,
+      "repeatsPerCase": 2,
+      "allRecordedPcmFeatureEmbeddingHashesEqualChrome": true,
+      "allEmbeddingCoordinatesBitExactToChrome": true,
+      "maxEmbeddingCoordinateError": 0,
+      "modelLoadMs": 1159.4312,
+      "totalWallMs": 13886.6215,
+      "meanInferenceMs": 219.69726923076936,
+      "meanPreprocessingMs": 18.259911538461434
+    }
+  }
+}

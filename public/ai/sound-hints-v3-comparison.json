@@ -1,0 +1,540 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-18",
+  "kind": "fixed-public-cohort-comparison-summary",
+  "model": "Frozen CLAP audio-only q8 encoder with trained TonalWatch v3 integer classifier",
+  "encoderRevision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+  "headSha256": "1e373cd18cbd706812dac10b19a320b73a568e6ee40e3f34236e03ae6122f491",
+  "comparisonCompletionSha256": "a00a2e2adfff98b7021076c62ac1a2cc82e02a635d8c24bdf2d42cdc2c1d6375",
+  "comparisonResultsSha256": "c0958e60c0bbf70dbbb1b0d3737b8a3f6a57f5fcad6b57a11dca1eacfea41e23",
+  "relativeRecognitionPassed": true,
+  "relativeChecks": {
+    "allFiveClassesHaveCorrectAcceptance": true,
+    "completePairedRecognition": true,
+    "knownSelectivePrecisionAtLeastBaseline": true,
+    "strictlyGreaterKnownMacroF1": true,
+    "unknownHintRateAtMostBaseline": true
+  },
+  "counts": {
+    "baselineErrors": 0,
+    "eligibleKnown": 218,
+    "eligibleUnknown": 191,
+    "fullKnown": 222,
+    "fullUnknown": 194,
+    "qualityBlockedBothAbstain": 7,
+    "qualityEligible": 409,
+    "total": 416
+  },
+  "candidate": {
+    "knownCorrectOutputs": 98,
+    "knownEligibleOutputCoverage": {
+      "rate": 0.4724770642201835,
+      "successes": 103,
+      "total": 218
+    },
+    "knownFullOutputCoverage": {
+      "rate": 0.46396396396396394,
+      "successes": 103,
+      "total": 222
+    },
+    "knownSelectivePrecision": {
+      "rate": 0.9514563106796117,
+      "successes": 98,
+      "total": 103
+    },
+    "knownTop1MacroF1": 0.7779942503551978,
+    "knownWrongOutputs": 5,
+    "mixturePrecision": {
+      "rate": 0.8909090909090909,
+      "successes": 98,
+      "total": 110
+    },
+    "perClass": [
+      {
+        "correctAcceptedEligible": {
+          "rate": 0.5,
+          "successes": 18,
+          "total": 36
+        },
+        "correctAcceptedFull": {
+          "rate": 0.5,
+          "successes": 18,
+          "total": 36
+        },
+        "eligibleTrueCount": 36,
+        "fullTrueCount": 36,
+        "label": "buzz",
+        "ungatedF1": 0.6774193548387096,
+        "ungatedPrecision": 0.8076923076923077,
+        "ungatedRecall": 0.5833333333333334
+      },
+      {
+        "correctAcceptedEligible": {
+          "rate": 0.4857142857142857,
+          "successes": 17,
+          "total": 35
+        },
+        "correctAcceptedFull": {
+          "rate": 0.4857142857142857,
+          "successes": 17,
+          "total": 35
+        },
+        "eligibleTrueCount": 35,
+        "fullTrueCount": 35,
+        "label": "mechanical_fan",
+        "ungatedF1": 0.7297297297297297,
+        "ungatedPrecision": 0.6923076923076923,
+        "ungatedRecall": 0.7714285714285715
+      },
+      {
+        "correctAcceptedEligible": {
+          "rate": 0.6122448979591837,
+          "successes": 30,
+          "total": 49
+        },
+        "correctAcceptedFull": {
+          "rate": 0.5769230769230769,
+          "successes": 30,
+          "total": 52
+        },
+        "eligibleTrueCount": 49,
+        "fullTrueCount": 52,
+        "label": "speech",
+        "ungatedF1": 0.8604651162790697,
+        "ungatedPrecision": 1.0,
+        "ungatedRecall": 0.7551020408163265
+      },
+      {
+        "correctAcceptedEligible": {
+          "rate": 0.21153846153846154,
+          "successes": 11,
+          "total": 52
+        },
+        "correctAcceptedFull": {
+          "rate": 0.21153846153846154,
+          "successes": 11,
+          "total": 52
+        },
+        "eligibleTrueCount": 52,
+        "fullTrueCount": 52,
+        "label": "traffic",
+        "ungatedF1": 0.8468468468468469,
+        "ungatedPrecision": 0.7966101694915254,
+        "ungatedRecall": 0.9038461538461539
+      },
+      {
+        "correctAcceptedEligible": {
+          "rate": 0.4782608695652174,
+          "successes": 22,
+          "total": 46
+        },
+        "correctAcceptedFull": {
+          "rate": 0.46808510638297873,
+          "successes": 22,
+          "total": 47
+        },
+        "eligibleTrueCount": 46,
+        "fullTrueCount": 47,
+        "label": "wind",
+        "ungatedF1": 0.7755102040816326,
+        "ungatedPrecision": 0.7307692307692307,
+        "ungatedRecall": 0.8260869565217391
+      }
+    ],
+    "unknownEligibleHintRate": {
+      "rate": 0.03664921465968586,
+      "successes": 7,
+      "total": 191
+    },
+    "unknownFullHintRate": {
+      "rate": 0.03608247422680412,
+      "successes": 7,
+      "total": 194
+    },
+    "unknownHintFamilies": {
+      "buzz": 1,
+      "mechanical_fan": 0,
+      "speech": 3,
+      "traffic": 0,
+      "wind": 3
+    }
+  },
+  "baseline": {
+    "knownCorrectOutputs": 95,
+    "knownEligibleOutputCoverage": {
+      "rate": 0.9908256880733946,
+      "successes": 216,
+      "total": 218
+    },
+    "knownFullOutputCoverage": {
+      "rate": 0.972972972972973,
+      "successes": 216,
+      "total": 222
+    },
+    "knownSelectivePrecision": {
+      "rate": 0.4398148148148148,
+      "successes": 95,
+      "total": 216
+    },
+    "knownTop1MacroF1": 0.39449688261950117,
+    "knownWrongOutputs": 121,
+    "mixturePrecision": {
+      "rate": 0.23869346733668342,
+      "successes": 95,
+      "total": 398
+    },
+    "perClass": [
+      {
+        "correctAcceptedEligible": {
+          "rate": 0.6944444444444444,
+          "successes": 25,
+          "total": 36
+        },
+        "correctAcceptedFull": {
+          "rate": 0.6944444444444444,
+          "successes": 25,
+          "total": 36
+        },
+        "eligibleTrueCount": 36,
+        "fullTrueCount": 36,
+        "label": "buzz",
+        "ungatedF1": 0.49019607843137253,
+        "ungatedPrecision": 0.3787878787878788,
+        "ungatedRecall": 0.6944444444444444
+      },
+      {
+        "correctAcceptedEligible": {
+          "rate": 0.37142857142857144,
+          "successes": 13,
+          "total": 35
+        },
+        "correctAcceptedFull": {
+          "rate": 0.37142857142857144,
+          "successes": 13,
+          "total": 35
+        },
+        "eligibleTrueCount": 35,
+        "fullTrueCount": 35,
+        "label": "mechanical_fan",
+        "ungatedF1": 0.3170731707317073,
+        "ungatedPrecision": 0.2765957446808511,
+        "ungatedRecall": 0.37142857142857144
+      },
+      {
+        "correctAcceptedEligible": {
+          "rate": 0.24489795918367346,
+          "successes": 12,
+          "total": 49
+        },
+        "correctAcceptedFull": {
+          "rate": 0.23076923076923078,
+          "successes": 12,
+          "total": 52
+        },
+        "eligibleTrueCount": 49,
+        "fullTrueCount": 52,
+        "label": "speech",
+        "ungatedF1": 0.39344262295081966,
+        "ungatedPrecision": 1.0,
+        "ungatedRecall": 0.24489795918367346
+      },
+      {
+        "correctAcceptedEligible": {
+          "rate": 0.07692307692307693,
+          "successes": 4,
+          "total": 52
+        },
+        "correctAcceptedFull": {
+          "rate": 0.07692307692307693,
+          "successes": 4,
+          "total": 52
+        },
+        "eligibleTrueCount": 52,
+        "fullTrueCount": 52,
+        "label": "traffic",
+        "ungatedF1": 0.13114754098360656,
+        "ungatedPrecision": 0.4444444444444444,
+        "ungatedRecall": 0.07692307692307693
+      },
+      {
+        "correctAcceptedEligible": {
+          "rate": 0.8913043478260869,
+          "successes": 41,
+          "total": 46
+        },
+        "correctAcceptedFull": {
+          "rate": 0.8723404255319149,
+          "successes": 41,
+          "total": 47
+        },
+        "eligibleTrueCount": 46,
+        "fullTrueCount": 47,
+        "label": "wind",
+        "ungatedF1": 0.640625,
+        "ungatedPrecision": 0.5,
+        "ungatedRecall": 0.8913043478260869
+      }
+    ],
+    "unknownEligibleHintRate": {
+      "rate": 0.9528795811518325,
+      "successes": 182,
+      "total": 191
+    },
+    "unknownFullHintRate": {
+      "rate": 0.9381443298969072,
+      "successes": 182,
+      "total": 194
+    },
+    "unknownHintFamilies": {
+      "buzz": 54,
+      "mechanical_fan": 36,
+      "speech": 2,
+      "traffic": 29,
+      "wind": 61
+    }
+  },
+  "baselineActualTop2Exposure": {
+    "quietTop1WithKnownSecondOnUnknown": 9,
+    "trueKnownFamilyIncluded": {
+      "rate": 0.6192660550458715,
+      "successes": 135,
+      "total": 218
+    },
+    "unknownAnyKnownFamilyEligible": {
+      "rate": 1.0,
+      "successes": 191,
+      "total": 191
+    },
+    "unknownAnyKnownFamilyFull": {
+      "rate": 0.9845360824742269,
+      "successes": 191,
+      "total": 194
+    }
+  },
+  "originalDevelopmentStrictAuditPassed": false,
+  "originalStrictCriteriaAreNotRelativeReleaseBar": true,
+  "fieldAccuracyEstablished": false,
+  "probabilityOrPhysicalSourceIdentity": false,
+  "limitations": "Prepared public clips and creator labels; group/collection/domain dependence and possible encoder pretraining overlap. Relative scores are not probabilities, certified measurements or physical-source identity. Relative recognition pass requires separate product checks before integration.",
+  "fullEvidence": "https://github.com/Antigro09/Hackathon/tree/main/ml/runs/2026-10-18-website-relative-comparison",
+  "methods": "https://github.com/Antigro09/Hackathon/blob/main/docs/AI_V3_RESULTS.md",
+  "strictCriteriaEvaluation": {
+    "scope": "Original strict criteria applied descriptively to the 409 quality-eligible rows of this fresh fixed-cohort comparison; not a new development fit or the relative release bar.",
+    "passed": false,
+    "criteria": {
+      "max_unknown_wilson_upper": 0.05,
+      "min_correct_accepted_per_class": 5,
+      "min_correct_class_coverage": 0.2,
+      "min_groups_per_class": 3,
+      "min_known_per_class": 20,
+      "min_known_precision": 0.9,
+      "min_known_precision_wilson_lower": 0.8,
+      "min_predicted_class_precision": 0.9,
+      "min_unknown_clips": 100,
+      "min_unknown_groups": 10
+    },
+    "perClass": [
+      {
+        "clipCount": 36,
+        "correctAcceptedCoverage": {
+          "rate": 0.5,
+          "successes": 18,
+          "total": 36,
+          "wilson95": [
+            0.34474325409626827,
+            0.6552567459037317
+          ]
+        },
+        "groupCount": 13,
+        "groupsWithAnyCorrectAcceptance": 9,
+        "label": "buzz",
+        "passed": true,
+        "precisionAmongAcceptedKnown": {
+          "rate": 0.9473684210526315,
+          "successes": 18,
+          "total": 19,
+          "wilson95": [
+            0.753612688331012,
+            0.9906480059376995
+          ]
+        },
+        "precisionAmongAllAcceptedPredictions": {
+          "rate": 0.9,
+          "successes": 18,
+          "total": 20,
+          "wilson95": [
+            0.6989663547715128,
+            0.9721335187862319
+          ]
+        }
+      },
+      {
+        "clipCount": 35,
+        "correctAcceptedCoverage": {
+          "rate": 0.4857142857142857,
+          "successes": 17,
+          "total": 35,
+          "wilson95": [
+            0.32994236002509725,
+            0.6443119540413141
+          ]
+        },
+        "groupCount": 20,
+        "groupsWithAnyCorrectAcceptance": 10,
+        "label": "mechanical_fan",
+        "passed": true,
+        "precisionAmongAcceptedKnown": {
+          "rate": 0.9444444444444444,
+          "successes": 17,
+          "total": 18,
+          "wilson95": [
+            0.7424269921812741,
+            0.990124809021697
+          ]
+        },
+        "precisionAmongAllAcceptedPredictions": {
+          "rate": 0.9444444444444444,
+          "successes": 17,
+          "total": 18,
+          "wilson95": [
+            0.7424269921812741,
+            0.990124809021697
+          ]
+        }
+      },
+      {
+        "clipCount": 49,
+        "correctAcceptedCoverage": {
+          "rate": 0.6122448979591837,
+          "successes": 30,
+          "total": 49,
+          "wilson95": [
+            0.4724599944352045,
+            0.7357098828826433
+          ]
+        },
+        "groupCount": 48,
+        "groupsWithAnyCorrectAcceptance": 29,
+        "label": "speech",
+        "passed": true,
+        "precisionAmongAcceptedKnown": {
+          "rate": 1.0,
+          "successes": 30,
+          "total": 30,
+          "wilson95": [
+            0.8864866068260312,
+            0.9999999999999999
+          ]
+        },
+        "precisionAmongAllAcceptedPredictions": {
+          "rate": 0.9090909090909091,
+          "successes": 30,
+          "total": 33,
+          "wilson95": [
+            0.7642739435353026,
+            0.9685960584754184
+          ]
+        }
+      },
+      {
+        "clipCount": 52,
+        "correctAcceptedCoverage": {
+          "rate": 0.21153846153846154,
+          "successes": 11,
+          "total": 52,
+          "wilson95": [
+            0.12244370532487485,
+            0.34032104628504567
+          ]
+        },
+        "groupCount": 32,
+        "groupsWithAnyCorrectAcceptance": 6,
+        "label": "traffic",
+        "passed": true,
+        "precisionAmongAcceptedKnown": {
+          "rate": 1.0,
+          "successes": 11,
+          "total": 11,
+          "wilson95": [
+            0.7411670330319684,
+            1.0
+          ]
+        },
+        "precisionAmongAllAcceptedPredictions": {
+          "rate": 1.0,
+          "successes": 11,
+          "total": 11,
+          "wilson95": [
+            0.7411670330319684,
+            1.0
+          ]
+        }
+      },
+      {
+        "clipCount": 46,
+        "correctAcceptedCoverage": {
+          "rate": 0.4782608695652174,
+          "successes": 22,
+          "total": 46,
+          "wilson95": [
+            0.34124689434045685,
+            0.6186258692719597
+          ]
+        },
+        "groupCount": 32,
+        "groupsWithAnyCorrectAcceptance": 13,
+        "label": "wind",
+        "passed": false,
+        "precisionAmongAcceptedKnown": {
+          "rate": 0.88,
+          "successes": 22,
+          "total": 25,
+          "wilson95": [
+            0.7004420607907267,
+            0.9583318284955964
+          ]
+        },
+        "precisionAmongAllAcceptedPredictions": {
+          "rate": 0.7857142857142857,
+          "successes": 22,
+          "total": 28,
+          "wilson95": [
+            0.6046141434627812,
+            0.8978753966710211
+          ]
+        }
+      }
+    ],
+    "knownSelectivePrecision": {
+      "rate": 0.9514563106796117,
+      "successes": 98,
+      "total": 103,
+      "wilson95": [
+        0.8913594304491902,
+        0.9790891859074674
+      ]
+    },
+    "unknownFalseAcceptance": {
+      "rate": 0.03664921465968586,
+      "successes": 7,
+      "total": 191,
+      "wilson95": [
+        0.01786427342628781,
+        0.07370483578015169
+      ]
+    },
+    "acceptedMixturePrecision": {
+      "rate": 0.8909090909090909,
+      "successes": 98,
+      "total": 110,
+      "wilson95": [
+        0.8189511686524213,
+        0.9364853910235593
+      ]
+    },
+    "failedChecks": [
+      "Unknown-sound false-acceptance Wilson95 upper bound exceeds5%.",
+      "Precision of accepted wind predictions among true-known inputs is22/25 (88%), below90%."
+    ]
+  }
+}

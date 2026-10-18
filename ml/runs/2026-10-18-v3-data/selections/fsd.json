@@ -1,0 +1,1025 @@
+{
+  "seed": 18043,
+  "policy": "all residual officialeval fan/buzz/traffic/wind; first20uploaderdiverse speech; no model scores; excludeALLv1+v2groups/IDs/audiohashes",
+  "records": [
+    {
+      "clip_id": "348204",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Animal",
+        "Buzz",
+        "Insect",
+        "Wild_animals"
+      ],
+      "uploader": "konstantinusz",
+      "uploader_group": "konstantinusz",
+      "title": "scarab.wav",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/348204/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/348204.wav",
+      "label": "buzz",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "398486",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Animal",
+        "Buzz",
+        "Insect",
+        "Wild_animals"
+      ],
+      "uploader": "Wakerone",
+      "uploader_group": "wakerone",
+      "title": "Wasp Wings 1",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/398486/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/398486.wav",
+      "label": "buzz",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "133895",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Animal",
+        "Buzz",
+        "Insect",
+        "Wild_animals"
+      ],
+      "uploader": "JoelAudio",
+      "uploader_group": "joelaudio",
+      "title": "FLY_STUCK_BUZZING_002.wav",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/133895/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/133895.wav",
+      "label": "buzz",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "243490",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Animal",
+        "Buzz",
+        "Insect",
+        "Wild_animals"
+      ],
+      "uploader": "Julien Nicolas",
+      "uploader_group": "julien nicolas",
+      "title": "Fly insect",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/243490/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/243490.wav",
+      "label": "buzz",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "398487",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Animal",
+        "Buzz",
+        "Insect",
+        "Wild_animals"
+      ],
+      "uploader": "Wakerone",
+      "uploader_group": "wakerone",
+      "title": "Wasp Wings 2",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/398487/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/398487.wav",
+      "label": "buzz",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "361212",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Mechanical_fan",
+        "Mechanisms"
+      ],
+      "uploader": "josepharaoh99",
+      "uploader_group": "josepharaoh99",
+      "title": "Large Fan Running",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/361212/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/361212.wav",
+      "label": "mechanical_fan",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "275848",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Mechanical_fan",
+        "Mechanisms"
+      ],
+      "uploader": "deleted_user_4798915",
+      "uploader_group": "deleted_user_4798915",
+      "title": "Fan Running Loud.aiff",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/275848/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/275848.wav",
+      "label": "mechanical_fan",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "352805",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Mechanical_fan",
+        "Mechanisms"
+      ],
+      "uploader": "bigmanjoe",
+      "uploader_group": "bigmanjoe",
+      "title": "fan_3.wav",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/352805/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/352805.wav",
+      "label": "mechanical_fan",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "245935",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Mechanical_fan",
+        "Mechanisms"
+      ],
+      "uploader": "sophiehall3535",
+      "uploader_group": "sophiehall3535",
+      "title": "Wind spinning.wav",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/245935/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/245935.wav",
+      "label": "mechanical_fan",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "174919",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Mechanical_fan",
+        "Mechanisms"
+      ],
+      "uploader": "ibm5155",
+      "uploader_group": "ibm5155",
+      "title": "fan sound",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/174919/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/174919.wav",
+      "label": "mechanical_fan",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "370162",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Mechanical_fan",
+        "Mechanisms"
+      ],
+      "uploader": "dotY21",
+      "uploader_group": "doty21",
+      "title": "electric ventilator",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/370162/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/370162.wav",
+      "label": "mechanical_fan",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "48353",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Mechanical_fan",
+        "Mechanisms"
+      ],
+      "uploader": "Sonjaaa",
+      "uploader_group": "sonjaaa",
+      "title": "sound001.wav",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/48353/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/48353.wav",
+      "label": "mechanical_fan",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "174916",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Mechanical_fan",
+        "Mechanisms"
+      ],
+      "uploader": "ibm5155",
+      "uploader_group": "ibm5155",
+      "title": "wind machine",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/174916/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/174916.wav",
+      "label": "mechanical_fan",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "153054",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Alarm",
+        "Bell",
+        "Bicycle",
+        "Bicycle_bell",
+        "Motor_vehicle_(road)",
+        "Traffic_noise_and_roadway_noise",
+        "Vehicle"
+      ],
+      "uploader": "Xampi8",
+      "uploader_group": "xampi8",
+      "title": "Bicycle-bell.wav",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/153054/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/153054.wav",
+      "label": "traffic",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "233457",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Motor_vehicle_(road)",
+        "Tearing",
+        "Traffic_noise_and_roadway_noise",
+        "Vehicle"
+      ],
+      "uploader": "dmadridp",
+      "uploader_group": "dmadridp",
+      "title": "Paper.wav",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/233457/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/233457.wav",
+      "label": "traffic",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "38690",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Car",
+        "Car_passing_by",
+        "Engine",
+        "Motor_vehicle_(road)",
+        "Traffic_noise_and_roadway_noise",
+        "Vehicle"
+      ],
+      "uploader": "metamorphmuses",
+      "uploader_group": "metamorphmuses",
+      "title": "car traffic blend 02.wav",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/38690/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/38690.wav",
+      "label": "traffic",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "156100",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Alarm",
+        "Car",
+        "Motor_vehicle_(road)",
+        "Traffic_noise_and_roadway_noise",
+        "Vehicle"
+      ],
+      "uploader": "marcolo91",
+      "uploader_group": "marcolo91",
+      "title": "Car Alarm.wav",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/156100/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/156100.wav",
+      "label": "traffic",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "152806",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Animal",
+        "Bird",
+        "Bird_vocalization_and_bird_call_and_bird_song",
+        "Chirp_and_tweet",
+        "Motor_vehicle_(road)",
+        "Run",
+        "Traffic_noise_and_roadway_noise",
+        "Vehicle",
+        "Wild_animals"
+      ],
+      "uploader": "mireia_af",
+      "uploader_group": "mireia_af",
+      "title": "Running.wav",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/152806/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/152806.wav",
+      "label": "traffic",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "115364",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Drip",
+        "Liquid",
+        "Motor_vehicle_(road)",
+        "Splash_and_splatter",
+        "Traffic_noise_and_roadway_noise",
+        "Vehicle",
+        "Water"
+      ],
+      "uploader": "tm1000",
+      "uploader_group": "tm1000",
+      "title": "splash.wav",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/115364/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/115364.wav",
+      "label": "traffic",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "425140",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Drip",
+        "Liquid",
+        "Motor_vehicle_(road)",
+        "Splash_and_splatter",
+        "Traffic_noise_and_roadway_noise",
+        "Vehicle"
+      ],
+      "uploader": "gis_sweden",
+      "uploader_group": "gis_sweden",
+      "title": "Small Splash (field recording walk with daughter - rec 3).wav",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/425140/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/425140.wav",
+      "label": "traffic",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "153196",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Animal",
+        "Bird",
+        "Crowd",
+        "Human_group_actions",
+        "Motor_vehicle_(road)",
+        "Traffic_noise_and_roadway_noise",
+        "Vehicle",
+        "Wild_animals"
+      ],
+      "uploader": "marcolo91",
+      "uploader_group": "marcolo91",
+      "title": "Pigeon flying.wav",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/153196/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/153196.wav",
+      "label": "traffic",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "156943",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Animal",
+        "Bird",
+        "Bird_vocalization_and_bird_call_and_bird_song",
+        "Chirp_and_tweet",
+        "Rattle",
+        "Wild_animals",
+        "Wind"
+      ],
+      "uploader": "AAEPGranollers",
+      "uploader_group": "aaepgranollers",
+      "title": "ocells.wav",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/156943/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/156943.wav",
+      "label": "wind",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "238522",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Skateboard",
+        "Vehicle",
+        "Wind"
+      ],
+      "uploader": "ggc9",
+      "uploader_group": "ggc9",
+      "title": "skate.wav",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/238522/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/238522.wav",
+      "label": "wind",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "140054",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Wind"
+      ],
+      "uploader": "Autistic Lucario",
+      "uploader_group": "autistic lucario",
+      "title": "Wind Whirr",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/140054/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/140054.wav",
+      "label": "wind",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "178615",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Wind"
+      ],
+      "uploader": "Montacue",
+      "uploader_group": "montacue",
+      "title": "The Rustle of a Bush",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/178615/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/178615.wav",
+      "label": "wind",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "240120",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Bell",
+        "Church_bell",
+        "Wind"
+      ],
+      "uploader": "pedrotasio",
+      "uploader_group": "pedrotasio",
+      "title": "The bells (C\u00e1ceres).mp3",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/240120/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/240120.wav",
+      "label": "wind",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "152803",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Chatter",
+        "Human_group_actions",
+        "Wind"
+      ],
+      "uploader": "mireia_af",
+      "uploader_group": "mireia_af",
+      "title": "Trash_bag.wav",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/152803/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/152803.wav",
+      "label": "wind",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "381853",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Wind"
+      ],
+      "uploader": "sqeeeek",
+      "uploader_group": "sqeeeek",
+      "title": "wind_gust_short_sqeeeek.wav",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/381853/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/381853.wav",
+      "label": "wind",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "188038",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Crackle",
+        "Fire",
+        "Wind"
+      ],
+      "uploader": "AntumDeluge",
+      "uploader_group": "antumdeluge",
+      "title": "Fire Crackling",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/188038/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/188038.wav",
+      "label": "wind",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "170107",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Cough",
+        "Domestic_sounds_and_home_sounds",
+        "Human_voice",
+        "Keys_jangling",
+        "Respiratory_sounds",
+        "Run",
+        "Sigh",
+        "Walk_and_footsteps",
+        "Wind"
+      ],
+      "uploader": "RackhamsReverse",
+      "uploader_group": "rackhamsreverse",
+      "title": "Running",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/170107/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/170107.wav",
+      "label": "wind",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "362954",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Clapping",
+        "Hands",
+        "Human_voice",
+        "Speech"
+      ],
+      "uploader": "josepharaoh99",
+      "uploader_group": "josepharaoh99",
+      "title": "Hand Claps",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/362954/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/362954.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "328712",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Female_speech_and_woman_speaking",
+        "Human_voice",
+        "Speech"
+      ],
+      "uploader": "fawkes1118",
+      "uploader_group": "fawkes1118",
+      "title": "speech-female_hpsModel.wav",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/328712/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/328712.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "197947",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Human_voice",
+        "Male_speech_and_man_speaking",
+        "Speech"
+      ],
+      "uploader": "mpwarne",
+      "uploader_group": "mpwarne",
+      "title": "Cording.wav",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/197947/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/197947.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "336029",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Human_voice",
+        "Male_speech_and_man_speaking",
+        "Speech"
+      ],
+      "uploader": "ipaghost",
+      "uploader_group": "ipaghost",
+      "title": "Ipa_MeowVoice_07_F#3.wav",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/336029/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/336029.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "338167",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Bus",
+        "Chatter",
+        "Engine",
+        "Human_group_actions",
+        "Human_voice",
+        "Male_speech_and_man_speaking",
+        "Motor_vehicle_(road)",
+        "Speech",
+        "Vehicle"
+      ],
+      "uploader": "edranil",
+      "uploader_group": "edranil",
+      "title": "Bus-conductor3.mp3",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/338167/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/338167.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "395124",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Chatter",
+        "Crowd",
+        "Human_group_actions",
+        "Human_voice",
+        "Male_speech_and_man_speaking",
+        "Screaming",
+        "Speech"
+      ],
+      "uploader": "ptrflr",
+      "uploader_group": "ptrflr",
+      "title": "People_marrymaking.mp3",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/395124/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/395124.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "258102",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Female_speech_and_woman_speaking",
+        "Human_voice",
+        "Speech"
+      ],
+      "uploader": "mauress",
+      "uploader_group": "mauress",
+      "title": "speech-female_sineModel.wav",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/258102/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/258102.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "327996",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Female_speech_and_woman_speaking",
+        "Human_voice",
+        "Speech",
+        "Speech_synthesizer"
+      ],
+      "uploader": "fyac44",
+      "uploader_group": "fyac44",
+      "title": "speech-female_hprModel_sines.wav",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/327996/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/327996.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "125717",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Conversation",
+        "Human_group_actions",
+        "Human_voice",
+        "Laughter",
+        "Male_speech_and_man_speaking",
+        "Speech"
+      ],
+      "uploader": "origin35",
+      "uploader_group": "origin35",
+      "title": "Chinatown - Open Air Market - Conversation 1 (Radiation).aif",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/125717/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/125717.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "389993",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Conversation",
+        "Female_speech_and_woman_speaking",
+        "Human_voice",
+        "Male_speech_and_man_speaking",
+        "Speech"
+      ],
+      "uploader": "morganveilleux",
+      "uploader_group": "morganveilleux",
+      "title": "distant conversation- dance studio",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/389993/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/389993.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "156946",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Bell",
+        "Chatter",
+        "Church_bell",
+        "Human_group_actions",
+        "Human_voice",
+        "Male_speech_and_man_speaking",
+        "Speech",
+        "Walk_and_footsteps"
+      ],
+      "uploader": "AAEPGranollers",
+      "uploader_group": "aaepgranollers",
+      "title": "Campanes esgl\u00e9sia_melodia1.wav",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/156946/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/156946.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "418281",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Female_speech_and_woman_speaking",
+        "Human_voice",
+        "Speech"
+      ],
+      "uploader": "nursedespise",
+      "uploader_group": "nursedespise",
+      "title": "female whisper \"You're leader and I follow...\"",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/418281/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/418281.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "416241",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Human_voice",
+        "Male_speech_and_man_speaking",
+        "Speech"
+      ],
+      "uploader": "balloonhead",
+      "uploader_group": "balloonhead",
+      "title": "Chirp.wav",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/416241/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/416241.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "263052",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Human_voice",
+        "Male_speech_and_man_speaking",
+        "Speech",
+        "Tap"
+      ],
+      "uploader": "13anicholson",
+      "uploader_group": "13anicholson",
+      "title": "Pencil Tapping.wav",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/263052/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/263052.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "164805",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Human_voice",
+        "Male_speech_and_man_speaking",
+        "Speech",
+        "Tearing"
+      ],
+      "uploader": "exterminat",
+      "uploader_group": "exterminat",
+      "title": "Fabric Tear",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/164805/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/164805.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "369913",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Human_voice",
+        "Male_speech_and_man_speaking",
+        "Speech",
+        "Whispering"
+      ],
+      "uploader": "germanio",
+      "uploader_group": "germanio",
+      "title": "whispering male",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/369913/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/369913.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "398979",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Human_voice",
+        "Male_speech_and_man_speaking",
+        "Speech"
+      ],
+      "uploader": "SamsterBirdies",
+      "uploader_group": "samsterbirdies",
+      "title": "uh oh",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/398979/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/398979.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "405210",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Female_speech_and_woman_speaking",
+        "Human_voice",
+        "Speech",
+        "Whispering"
+      ],
+      "uploader": "drotzruhn",
+      "uploader_group": "drotzruhn",
+      "title": "woman whispering.wav",
+      "license": "http://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://freesound.org/s/405210/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/405210.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "209965",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Car",
+        "Car_passing_by",
+        "Conversation",
+        "Cough",
+        "Engine",
+        "Human_voice",
+        "Male_speech_and_man_speaking",
+        "Motor_vehicle_(road)",
+        "Race_car_and_auto_racing",
+        "Respiratory_sounds",
+        "Speech",
+        "Vehicle"
+      ],
+      "uploader": "jrosin",
+      "uploader_group": "jrosin",
+      "title": "Car out of the track.flac",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/209965/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/209965.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    },
+    {
+      "clip_id": "266499",
+      "original_split": "eval",
+      "official_dev_split": null,
+      "original_labels": [
+        "Animal",
+        "Bell",
+        "Bird",
+        "Bird_vocalization_and_bird_call_and_bird_song",
+        "Church_bell",
+        "Human_voice",
+        "Speech",
+        "Wild_animals"
+      ],
+      "uploader": "Refrain",
+      "uploader_group": "refrain",
+      "title": "Church bell in Belmonte, Portugal",
+      "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://freesound.org/s/266499/",
+      "mirror_url": "https://huggingface.co/datasets/Fhrozen/FSD50k/resolve/ccf1acaff12f3f4a4c10052dddafbb6d22152c9b/clips/eval/266499.wav",
+      "label": "speech",
+      "split": "test",
+      "dataset": "FSD50K"
+    }
+  ]
+}

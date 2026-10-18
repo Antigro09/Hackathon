@@ -1,0 +1,66 @@
+{
+  "baseline-results.json": {
+    "bytes": 2614386,
+    "sha256": "6575bfc45daa03cc4db110a6fb73a82e18618452b4af2a2d030b2dd2ad60f8a1"
+  },
+  "contract.json": {
+    "bytes": 5240,
+    "sha256": "1f4e2b68acd1b2e44371a481cf8b880b35735c28176b5d291aa8a2ef06eb00f9"
+  },
+  "browser-environment.json": {
+    "bytes": 550,
+    "sha256": "b2ae18c06bd558b8f4923ce19f908f3c88b2c38b613e1b86f37a1d41c9676e1a"
+  },
+  "before-classification.json": {
+    "bytes": 614,
+    "sha256": "68f58b6841bcad05f3f8089443de964c95187a113cdb7378b64e0a78d695f92b"
+  },
+  "browser-identity-raw.txt": {
+    "bytes": 442,
+    "sha256": "6db7c52e97e1d9f191486162c10f21b484a7cb15c38ee02188a40ba565c0e11e"
+  },
+  "browser-evidence-after-raw.txt": {
+    "bytes": 5556,
+    "sha256": "7d57971f2b783ed89159b235401980e97a04a8ce803abe1e570e40bd7dbec2ab"
+  },
+  "browser-evidence-after.json": {
+    "bytes": 4917,
+    "sha256": "98453e0afa5bf13d73931eb23ed1dc0e1abd5754951af0f60fb9114c3b3590f5"
+  },
+  "browser-run-raw.txt": {
+    "bytes": 1535,
+    "sha256": "3abcc0bba4e564b519d554420de7a955aedaa1b0c0fbe0d659dfd6e37106c332"
+  },
+  "browser-requests.txt": {
+    "bytes": 49193,
+    "sha256": "3040b0cb492ca1c2ec1603397f26d1029703386d0ad93b10781d54130d88d593"
+  },
+  "browser-console.txt": {
+    "bytes": 58,
+    "sha256": "5e022534a5fe0feeb06a8fc815ff2ad8e4598aae62e789579db7dbcbfb58bc2a"
+  },
+  "requests.ndjson": {
+    "bytes": 129309,
+    "sha256": "2af8948820cc7a26a60e5ed55bdd9175cfaed907c4b4eec26c7bf95f76c69fc6"
+  },
+  "network-summary.json": {
+    "bytes": 612,
+    "sha256": "b79741d8da2a3dde4088fcc084efc4191cd50dcbe966ddfce48b33f56da52adb"
+  },
+  "source/legacyBaselinePageV3.mjs": {
+    "bytes": 6194,
+    "sha256": "2aa310d4f9ba914247a3dfeafa32dca2773cd8f1400ee098347907da02c4156f"
+  },
+  "source/legacyBaselineRoutesV3.js": {
+    "bytes": 1464,
+    "sha256": "dc50382fa5a4b3a255f530f14e71610e01d5c2bf53a9ce6c25fd449cdb652b9a"
+  },
+  "source/legacyBaselineServerV3.mjs": {
+    "bytes": 17062,
+    "sha256": "e5d2fc9c7e5664e74a18fe2e3ed491bd004756c29cdacc4d44c8b658557c7ddd"
+  },
+  "source/legacyBaselineV3.mjs": {
+    "bytes": 9818,
+    "sha256": "818d9fe2b8b552d43bb33431e44c04a95d05509bc4aa3fe9f9465370e2e16c22"
+  }
+}

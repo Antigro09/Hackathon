@@ -2,7 +2,40 @@
 
 Verified October 18, 2026, in Chrome 155 on Windows.
 
-## Expanded app release
+## Current microphone-only release
+
+- Public URL: [tonalwatch.vercel.app](https://tonalwatch.vercel.app).
+- Application source: `322d40e0d9a0146e35c61e1a46b05d7e9fffb662` on main; deployment `dpl_EhmQkBGYPCodTYTEq8qHN2Twgikp`, production **READY**. Published from an exact Git archive to the existing TonalWatch project. Later research/documentation commits do not change these application sources.
+- Fresh Vercel `npm ci` found zero vulnerabilities; TypeScript/Vite build succeeded. The matching application/lab checkout passed **388 tests across 19 files** (349 app + 39 standalone-lab checks).
+- Observation accepts live microphone capture only, with visible 5/15/30-second choices. File and Demo input controls, their runtime imports/state, Home shortcut and stale instructions are removed. Permission, missing-device, unsupported-browser and interruption errors describe microphone recovery. Learn's listening aids and the map's labeled illustrations remain separate from observation inputs.
+- Public Chrome reproduced an immediate Cancel → Retry startup failure before the first committed chunk. The recorder now discards only provisional startup audio, restarting contiguous sample indices at zero. Missing samples after the first chunk still invalidate capture, and the no-data watchdog, warm-up and exact capture counts remain intact.
+- Public HTTPS recheck passed live meter → Cancel (zero analysis) → immediate Retry → complete 15-second AudioWorklet capture → report → native text download. The result retained **720,000 samples / 174 frames at 48 kHz**, microphone provenance and method `tw-screen-v2`. Every microphone track ended after cancel, completion and navigation. Generated virtual-microphone QA is explicitly labeled in the screenshots; this does not validate physical hardware.
+- Native text summary: **5,828 bytes / 94 lines**, no individual bin rows. The actual SVG graph remained visible under print media and the toolbar hid. All six pages at **320/390/1280 px** had no file inputs, stale input instructions or horizontal overflow; scrolling reached the footer within half a pixel. No page or console errors occurred. Optional AI inference was not requested in this release check; the trained research candidates remain outside the app.
+- Home, Observation, Learn, Report and Sources screenshots were refreshed from this public release. The incoming judge guide was separately updated to use the current live microphone workflow and explain the app's measured limits.
+
+## Prior sustained-peak correction release
+
+- Public URL: [tonalwatch.vercel.app](https://tonalwatch.vercel.app).
+- Application source: `c54ab688548a93bfc88720617e5c50d9971c1392` on main; deployment `dpl_4ESRPj5Moqk7xHLKmrgYwu5qFj3S`, production **READY**. Later research/documentation commits do not change these app sources.
+- Exact Git-archive deployment; fresh `npm ci` found zero vulnerabilities and TypeScript/Vite production build succeeded. The matching checkout passed **380 tests across 19 files** (341 app + 39 standalone-lab checks).
+- Method `tw-screen-v2` retains the same PSD, weighted levels and quality/peak eligibility gates, then ranks eligible sustained tracks by median three-bin power. A generated PCM16 artifact 99.20 dB weaker than a 63 Hz tone no longer wins on prominence alone. Sources discloses the new selection rule without claiming a fundamental or source.
+- The repository's separate lab mirrors the selection as `tw-field-lab-v3`; structured v2/v3 records retain their original values and versions. The static Vite app does not publish that standalone instrument.
+- Concise text summaries, visual report/print spectrum, visible duration choices, negative-dB explanations and supported WAV-rate preservation remain included. The trained research classifier remains outside the app; [strict candidate browser parity failed](../ml/runs/2026-10-18-v2-browser-parity/README.md).
+- Public HTTPS verification loaded `index-TOHZiOpm.js` and analyzed the generated 15-second 44.1 kHz PCM16 fixture: **661,500 samples / 160 frames / peak 64.599609375 Hz**, A −49.179906, C −23.835842 and C−A 25.344064 dB. Pre-correction PSD reference bins agreed within 1e−6; the safe decoder provenance and five-second AI prefix boundary remained intact. No model inference/download was requested.
+- Native text download was **6,576 bytes / 99 lines / zero bin rows**. It retained the corrected candidate, version and full recording provenance. The graph remained visible in print media and toolbar controls hid. Report and Sources at **320/390/1280 px** had no horizontal overflow; scrolling to the maximum reached a fully visible footer in every case (less than 0.5 px rounding). No page/console/HTTP/request errors occurred. Observation, Report and Sources screenshots were refreshed from this public release, with generated-QA context explicitly identified.
+
+## Prior report and audio-import release
+
+- Public URL: [tonalwatch.vercel.app](https://tonalwatch.vercel.app), checked without authentication.
+- Application source: main commit `0b94eb0e092fbb4a30c94407a62f01a0d91cbaeb`; deployment `dpl_8DJ8cYJBXhj5wGhTsgDoA6zPf92f`, production **READY**. Subsequent research/documentation commits do not change these app sources.
+- Published from an exact Git archive, excluding experiment caches, training modules, field CSVs and local output. Fresh `npm ci` found zero vulnerabilities; TypeScript/Vite build succeeded. The matching checkout passed **365 tests in 18 files** (330 app + 35 standalone-lab checks).
+- Recording controls expose 5/15/30 seconds, with a direct 15-second microphone action from Demo. Digital negative dB and the separate signed C−A difference have visible explanations. These controls were first published at `48010fc` (`dpl_Dfgfi9D3qVhPguPHnR55DZ36oQbT`).
+- Text exports contain a concise spectrum summary without individual bin rows. The actual spectrum remains in the report and print/PDF view. This first passed public download/print checks at `55a0dcb` (`dpl_2G7KJB1Ptbfs3vCVpCG43YfoUAAs`): 7,610 bytes, 109 lines, zero CSV bin rows, with 15-second/720,000-sample/174-frame provenance and references retained.
+- The current release avoids an extra decoding resample for supported WAV rates and preserves safe decoder provenance. A public 15-second 44.1 kHz PCM16 import retained **661,500 samples, 160 frames and 5.383 Hz/bin**. Its report showed requested/effective 44,100 Hz, matched hint, no fallback and exact crop. Native text download was **6,352 bytes / 99 lines**, with no bin rows. The graph remained visible under print media and the toolbar hid correctly.
+- A test observer confirmed the actual AI request used **220,500 samples at 44.1 kHz → 240,000 at 48 kHz**, while DSP/report retained the full 15 seconds. Inference was suppressed for this workflow check; it does not measure candidate accuracy. No model requests, page/console/HTTP errors or failed requests occurred.
+- Source-rate preservation does not establish identical byte-to-float PCM16 conversion across browsers. The trained v2 classifier remains outside the deployed app; [its results](AI_V2_RESULTS.md) retain traffic/unknown-rejection limitations.
+
+## Prior expanded app release
 
 - Public production URL: [tonalwatch.vercel.app](https://tonalwatch.vercel.app), unauthenticated HTTP200.
 - Application source: main commit `e14bffa`; deployment `dpl_CfJbc9bjbwua57MzWRWoWyv1i4g1`, production **READY**. Later research/lab commits do not change these deployed app sources.

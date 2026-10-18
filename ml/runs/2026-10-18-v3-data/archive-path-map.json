@@ -1,0 +1,156 @@
+{
+  "files": [
+    {
+      "bytes": 1400636,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\final-data.json",
+      "path": "final-data.json",
+      "sha256": "197e24e42c36de1368f9cd25424c98a4f8935af7c60429c4521d8d80feaa9520"
+    },
+    {
+      "bytes": 146747,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\final-reservations.json",
+      "path": "final-reservations.json",
+      "sha256": "08f9e9bcd5eecdcf7fe3273ffd8d8e75397ce3291938fd0d32fe6b8e10ea5b7b"
+    },
+    {
+      "bytes": 1296,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\preflight-audit.json",
+      "path": "preflight-audit.json",
+      "sha256": "e6c3751d06f57ec07274dee8de0c315b5a1b7deee807c5addc92b988fce0d1c8"
+    },
+    {
+      "bytes": 1237675,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\bsd-final-audit\\manifest.json",
+      "path": "manifests/bsd-final-audit.json",
+      "sha256": "95bd60db117c4a10189cd753bd3cf8a5fd2bec01dc33b324b47539ce640536db"
+    },
+    {
+      "bytes": 79393,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\tobee\\manifest.json",
+      "path": "manifests/tobee.json",
+      "sha256": "70c00546c62c8bec7be5d37a1b26fbde177ac7c11cb0ecdef51a10c05ea32f71"
+    },
+    {
+      "bytes": 95106,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\fsd-speech\\manifest.json",
+      "path": "manifests/fsd-speech.json",
+      "sha256": "36d1b3cc944d5e50073f236a5b18b986cb1d08710ef6c52ef155f175c8b578f3"
+    },
+    {
+      "bytes": 997233,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\bsd\\selection-plan.json",
+      "path": "selections/bsd.json",
+      "sha256": "83479497fd04f9f12d43670f8fe51729ff0bcfc2557303ba0f5d3588e165253d"
+    },
+    {
+      "bytes": 995529,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\bsd-final\\selection-plan.json",
+      "path": "selections/bsd-final.json",
+      "sha256": "ac0e9ee6f8aa88706053a5eeb2f4337e202763879ab4ddb26dddbb1bac8522b1"
+    },
+    {
+      "bytes": 796471,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\bsd-reviewed\\selection-plan.json",
+      "path": "selections/bsd-reviewed.json",
+      "sha256": "daf8e32a2c9709d30fb253fa90079bef76d7393c06208c3e772002e8d278a23a"
+    },
+    {
+      "bytes": 792764,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\bsd-final-audit\\selection-plan.json",
+      "path": "selections/bsd-final-audit.json",
+      "sha256": "b765b0e4d110dbdee7daeab1426e54526b9a7c6e1e1992b562311aab84aa3efc"
+    },
+    {
+      "bytes": 44724,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\tobee\\selection-plan.json",
+      "path": "selections/tobee.json",
+      "sha256": "e8c9d75d79d85f804dc49169e3c0604bfce51a2fd922e845b77ec62a2d468ee6"
+    },
+    {
+      "bytes": 35921,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\fsd\\selection-plan.json",
+      "path": "selections/fsd.json",
+      "sha256": "8aab878ab69c67845d0a7f6878db7f3e630455698e0098fa15bda94507299af7"
+    },
+    {
+      "bytes": 75954,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\fsd-speech\\selection-plan.json",
+      "path": "selections/fsd-speech.json",
+      "sha256": "d5d8b4220402216e0f1f8527064766d26785449035e563ee85649f6b51545f4d"
+    },
+    {
+      "bytes": 1241717,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\bsd-reviewed\\manifest.json",
+      "path": "superseded/bsd-v3-manifest.json",
+      "sha256": "7171dba5d1634ea643b8ce0d054a9a1ecdc2591a2f9b568602e444b4da2ea062"
+    },
+    {
+      "bytes": 19979,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\fsd\\quality-preflight.json",
+      "path": "superseded/fsd-initial-quality-preflight.json",
+      "sha256": "ee2846087098ea2bda340dd4aa04b7790e1b7f36796e3f31246b7ce8208fb1c4"
+    },
+    {
+      "bytes": 50311,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\tobee\\cache\\beeAnnotations.mlf",
+      "path": "source-metadata/beeAnnotations.mlf",
+      "sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2"
+    },
+    {
+      "bytes": 14367,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight\\tobee-catalog.json",
+      "path": "source-metadata/tobee-catalog.json",
+      "sha256": "806330750db9d4c488ccea2cadfbeb604856e24189c1f7b6225891d7049094ba"
+    },
+    {
+      "bytes": 24545,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\ml\\bsd.py",
+      "path": "source/ml/bsd.py",
+      "sha256": "75ede79fe736ed57ade0f4bf10d483b0895c521b871394dda5479cf373dbda56"
+    },
+    {
+      "bytes": 15619,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\ml\\tobee.py",
+      "path": "source/ml/tobee.py",
+      "sha256": "b09cade1fbd88b74992dc24c490b4adaed11dbdd886735a22a981eb3f8348db0"
+    },
+    {
+      "bytes": 20960,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\ml\\data.py",
+      "path": "source/ml/data.py",
+      "sha256": "87afaa2a54f59d53d26af57a0441c7ac11144070cf4527fa85001ce153a50605"
+    },
+    {
+      "bytes": 20046,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\ml\\mimii.py",
+      "path": "source/ml/mimii.py",
+      "sha256": "3a4513d3c88d034da01eafbe134718caf3885cb07977c6a508e9e2a3407bbe52"
+    },
+    {
+      "bytes": 12649,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\ml\\test_bsd.py",
+      "path": "source/ml/test_bsd.py",
+      "sha256": "48bfe3605c7fdef508734d0cde8c53f053c036f5bedbb0a529d4c13a9a6fdba6"
+    },
+    {
+      "bytes": 7858,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\ml\\test_tobee.py",
+      "path": "source/ml/test_tobee.py",
+      "sha256": "48cd0123941ddbfc269ea3998477634b79649be5efe5b545837d0371bddb2eb7"
+    },
+    {
+      "bytes": 2279,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight-fsd-speech.py",
+      "path": "source/preflight-fsd-speech.py",
+      "sha256": "2e3682c947ee5137b6fb10a8734d7f2280ff840b541a83ad2fa76c04dde379d1"
+    },
+    {
+      "bytes": 6305,
+      "original_path": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-preflight-assemble.py",
+      "path": "source/assemble-preflight.py",
+      "sha256": "ed10ff9b162570cf19d21dccf8b1f853ccef0277925736afa7113f9db7ef576e"
+    }
+  ],
+  "formatVersion": 1,
+  "note": "Raw JSON paths deliberately retain original local cache/source paths. This mapping identifies byte-identical archived counterparts; do not edit archived manifests to rebase paths."
+}

@@ -1,0 +1,389 @@
+{
+  "purpose": "Synthetic-only parity, no classification or unseen-test predictions; not a promotion decision",
+  "browser": {
+    "status": "ready",
+    "libraryVersion": "4.3.1",
+    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "modelLoadMs": 3122.399999856949,
+    "modelRevision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+    "modelFile": "onnx/audio_model_quantized.onnx",
+    "processorClass": "Processor",
+    "featureExtractorClass": "ClapFeatureExtractor",
+    "disposed": true
+  },
+  "modelSha256": "3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f",
+  "cases": [
+    {
+      "id": "sine63-48000",
+      "sourceRateHz": 48000,
+      "featureShape": [
+        1,
+        1,
+        1001,
+        64
+      ],
+      "embeddingShape": [
+        1,
+        512
+      ],
+      "samePcmPreprocessingError": {
+        "maxAbs": 7.62939453125e-06,
+        "meanAbs": 5.907059966267406e-08,
+        "rmse": 5.917618505694211e-07
+      },
+      "sameFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.0024209897965192795,
+        "meanAbs": 0.0006924122968019475,
+        "rmse": 0.0008651445575721823,
+        "cosine": 0.9998083903723904,
+        "normA": 1.0000000004768923,
+        "normB": 0.9999999963777734
+      },
+      "sameNativeFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.0024209897965192795,
+        "meanAbs": 0.0006924122968019475,
+        "rmse": 0.0008651445575721823,
+        "cosine": 0.9998083903723904,
+        "normA": 1.0000000004768923,
+        "normB": 0.9999999963777734
+      },
+      "sameBrowserPcmEndToEndEmbeddingError": {
+        "maxAbs": 0.0024209897965192795,
+        "meanAbs": 0.0006924122968019475,
+        "rmse": 0.0008651445575721823,
+        "cosine": 0.9998083903723904,
+        "normA": 1.0000000004768923,
+        "normB": 0.9999999963777734
+      },
+      "browserVsTrainingResamplePcmError": {
+        "maxAbs": 0.0,
+        "meanAbs": 0.0,
+        "rmse": 0.0
+      },
+      "browserVsTrainingFeaturesError": {
+        "maxAbs": 7.62939453125e-06,
+        "meanAbs": 5.907059966267406e-08,
+        "rmse": 5.917618505694211e-07
+      },
+      "browserVsTrainingEndToEndEmbeddingError": {
+        "maxAbs": 0.0024209897965192795,
+        "meanAbs": 0.0006924122968019475,
+        "rmse": 0.0008651445575721823,
+        "cosine": 0.9998083903723904,
+        "normA": 1.0000000004768923,
+        "normB": 0.9999999963777734
+      }
+    },
+    {
+      "id": "sine1000-48000",
+      "sourceRateHz": 48000,
+      "featureShape": [
+        1,
+        1,
+        1001,
+        64
+      ],
+      "embeddingShape": [
+        1,
+        512
+      ],
+      "samePcmPreprocessingError": {
+        "maxAbs": 7.62939453125e-06,
+        "meanAbs": 6.399156021458524e-08,
+        "rmse": 4.788483253884062e-07
+      },
+      "sameFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.0027725957334041595,
+        "meanAbs": 0.0006951284612313202,
+        "rmse": 0.000869541507482134,
+        "cosine": 0.9998064377775238,
+        "normA": 1.0000000008906509,
+        "normB": 1.0000000013392913
+      },
+      "sameNativeFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.0027725957334041595,
+        "meanAbs": 0.0006951284612313202,
+        "rmse": 0.000869541507482134,
+        "cosine": 0.9998064377775238,
+        "normA": 1.0000000008906509,
+        "normB": 1.0000000013392913
+      },
+      "sameBrowserPcmEndToEndEmbeddingError": {
+        "maxAbs": 0.0027725957334041595,
+        "meanAbs": 0.0006951284612313202,
+        "rmse": 0.000869541507482134,
+        "cosine": 0.9998064377775238,
+        "normA": 1.0000000008906509,
+        "normB": 1.0000000013392913
+      },
+      "browserVsTrainingResamplePcmError": {
+        "maxAbs": 0.0,
+        "meanAbs": 0.0,
+        "rmse": 0.0
+      },
+      "browserVsTrainingFeaturesError": {
+        "maxAbs": 7.62939453125e-06,
+        "meanAbs": 6.399156021458524e-08,
+        "rmse": 4.788483253884062e-07
+      },
+      "browserVsTrainingEndToEndEmbeddingError": {
+        "maxAbs": 0.0027725957334041595,
+        "meanAbs": 0.0006951284612313202,
+        "rmse": 0.000869541507482134,
+        "cosine": 0.9998064377775238,
+        "normA": 1.0000000008906509,
+        "normB": 1.0000000013392913
+      }
+    },
+    {
+      "id": "noise-48000",
+      "sourceRateHz": 48000,
+      "featureShape": [
+        1,
+        1,
+        1001,
+        64
+      ],
+      "embeddingShape": [
+        1,
+        512
+      ],
+      "samePcmPreprocessingError": {
+        "maxAbs": 7.62939453125e-06,
+        "meanAbs": 1.0945877947888293e-07,
+        "rmse": 4.2816053705580055e-07
+      },
+      "sameFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.0026569683104753494,
+        "meanAbs": 0.0006594111498401389,
+        "rmse": 0.000811039035577582,
+        "cosine": 0.9998316072147749,
+        "normA": 0.9999999973879925,
+        "normB": 1.000000002526677
+      },
+      "sameNativeFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.0026569683104753494,
+        "meanAbs": 0.0006594111498401389,
+        "rmse": 0.000811039035577582,
+        "cosine": 0.9998316072147749,
+        "normA": 0.9999999973879925,
+        "normB": 1.000000002526677
+      },
+      "sameBrowserPcmEndToEndEmbeddingError": {
+        "maxAbs": 0.0026569683104753494,
+        "meanAbs": 0.0006594111498401389,
+        "rmse": 0.000811039035577582,
+        "cosine": 0.9998316072147749,
+        "normA": 0.9999999973879925,
+        "normB": 1.000000002526677
+      },
+      "browserVsTrainingResamplePcmError": {
+        "maxAbs": 0.0,
+        "meanAbs": 0.0,
+        "rmse": 0.0
+      },
+      "browserVsTrainingFeaturesError": {
+        "maxAbs": 7.62939453125e-06,
+        "meanAbs": 1.0945877947888293e-07,
+        "rmse": 4.2816053705580055e-07
+      },
+      "browserVsTrainingEndToEndEmbeddingError": {
+        "maxAbs": 0.0026569683104753494,
+        "meanAbs": 0.0006594111498401389,
+        "rmse": 0.000811039035577582,
+        "cosine": 0.9998316072147749,
+        "normA": 0.9999999973879925,
+        "normB": 1.000000002526677
+      }
+    },
+    {
+      "id": "sine63-44100",
+      "sourceRateHz": 44100,
+      "featureShape": [
+        1,
+        1,
+        1001,
+        64
+      ],
+      "embeddingShape": [
+        1,
+        512
+      ],
+      "samePcmPreprocessingError": {
+        "maxAbs": 7.62939453125e-06,
+        "meanAbs": 4.9333115081329803e-08,
+        "rmse": 5.436039109882556e-07
+      },
+      "sameFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.0032264813780784607,
+        "meanAbs": 0.0008746228378075926,
+        "rmse": 0.0010888002359184818,
+        "cosine": 0.9996965155954766,
+        "normA": 0.9999999976764411,
+        "normB": 1.0000000011146448
+      },
+      "sameNativeFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.0034376680850982666,
+        "meanAbs": 0.0007545379306463929,
+        "rmse": 0.0009319454614093599,
+        "cosine": 0.9997776582802717,
+        "normA": 1.0000000006535934,
+        "normB": 0.9999999997526073
+      },
+      "sameBrowserPcmEndToEndEmbeddingError": {
+        "maxAbs": 0.0032264813780784607,
+        "meanAbs": 0.0008746228378075926,
+        "rmse": 0.0010888002359184818,
+        "cosine": 0.9996965155954766,
+        "normA": 0.9999999976764411,
+        "normB": 1.0000000011146448
+      },
+      "browserVsTrainingResamplePcmError": {
+        "maxAbs": 6.75097107887268e-05,
+        "meanAbs": 1.7082870603446766e-05,
+        "rmse": 2.1919742029912167e-05
+      },
+      "browserVsTrainingFeaturesError": {
+        "maxAbs": 34.86497497558594,
+        "meanAbs": 1.097207727535934,
+        "rmse": 5.197501781052162
+      },
+      "browserVsTrainingEndToEndEmbeddingError": {
+        "maxAbs": 0.020111317397095263,
+        "meanAbs": 0.005330229806290276,
+        "rmse": 0.006600304272707263,
+        "cosine": 0.9888476117492944,
+        "normA": 0.9999999976764411,
+        "normB": 0.9999999997526073
+      }
+    },
+    {
+      "id": "sine1000-44100",
+      "sourceRateHz": 44100,
+      "featureShape": [
+        1,
+        1,
+        1001,
+        64
+      ],
+      "embeddingShape": [
+        1,
+        512
+      ],
+      "samePcmPreprocessingError": {
+        "maxAbs": 7.62939453125e-06,
+        "meanAbs": 8.88852497467866e-08,
+        "rmse": 7.346731414052494e-07
+      },
+      "sameFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.0031111836433410645,
+        "meanAbs": 0.0007128866679790846,
+        "rmse": 0.0008857089601431485,
+        "cosine": 0.9997991730276562,
+        "normA": 1.000000001918299,
+        "normB": 0.9999999998149544
+      },
+      "sameNativeFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.003239598125219345,
+        "meanAbs": 0.0008217685705318445,
+        "rmse": 0.0010087814554412347,
+        "cosine": 0.9997394841541255,
+        "normA": 1.0000000007908652,
+        "normB": 1.0000000010705603
+      },
+      "sameBrowserPcmEndToEndEmbeddingError": {
+        "maxAbs": 0.0031111836433410645,
+        "meanAbs": 0.0007128866679790846,
+        "rmse": 0.0008857089601431485,
+        "cosine": 0.9997991730276562,
+        "normA": 1.000000001918299,
+        "normB": 0.9999999998149544
+      },
+      "browserVsTrainingResamplePcmError": {
+        "maxAbs": 0.0003107115626335144,
+        "meanAbs": 0.0001467599697351199,
+        "rmse": 0.00017097683573396495
+      },
+      "browserVsTrainingFeaturesError": {
+        "maxAbs": 23.462387084960938,
+        "meanAbs": 1.5970714165022937,
+        "rmse": 4.850668046107931
+      },
+      "browserVsTrainingEndToEndEmbeddingError": {
+        "maxAbs": 0.02566746436059475,
+        "meanAbs": 0.00562112780783508,
+        "rmse": 0.007053426556771355,
+        "cosine": 0.9872637885329744,
+        "normA": 1.000000001918299,
+        "normB": 1.0000000010705603
+      }
+    },
+    {
+      "id": "noise-44100",
+      "sourceRateHz": 44100,
+      "featureShape": [
+        1,
+        1,
+        1001,
+        64
+      ],
+      "embeddingShape": [
+        1,
+        512
+      ],
+      "samePcmPreprocessingError": {
+        "maxAbs": 7.62939453125e-06,
+        "meanAbs": 1.10069116750559e-07,
+        "rmse": 4.332530586522954e-07
+      },
+      "sameFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.002876691520214081,
+        "meanAbs": 0.0007993016883105497,
+        "rmse": 0.000990035447953208,
+        "cosine": 0.9997490764322237,
+        "normA": 1.0000000018367534,
+        "normB": 0.9999999997722546
+      },
+      "sameNativeFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.003480512648820877,
+        "meanAbs": 0.0008996184049578915,
+        "rmse": 0.0011331575651715511,
+        "cosine": 0.9996712842061699,
+        "normA": 0.9999999982860303,
+        "normB": 1.000000000044399
+      },
+      "sameBrowserPcmEndToEndEmbeddingError": {
+        "maxAbs": 0.002876691520214081,
+        "meanAbs": 0.0007993016883105497,
+        "rmse": 0.000990035447953208,
+        "cosine": 0.9997490764322237,
+        "normA": 1.0000000018367534,
+        "normB": 0.9999999997722546
+      },
+      "browserVsTrainingResamplePcmError": {
+        "maxAbs": 0.07109087705612183,
+        "meanAbs": 0.010752192342467682,
+        "rmse": 0.01458302304576586
+      },
+      "browserVsTrainingFeaturesError": {
+        "maxAbs": 4.657218933105469,
+        "meanAbs": 0.21243610674446517,
+        "rmse": 0.5248728014118468
+      },
+      "browserVsTrainingEndToEndEmbeddingError": {
+        "maxAbs": 0.01115500763989985,
+        "meanAbs": 0.0029472105345575983,
+        "rmse": 0.0037013007618779785,
+        "cosine": 0.9964928954101487,
+        "normA": 1.0000000018367534,
+        "normB": 1.000000000044399
+      }
+    }
+  ],
+  "limitations": [
+    "Only six synthetic signals on one Chrome/WASM and one native-CPU runtime were checked.",
+    "The q8 audio-only branch differs from the deployed combined CLAP graph; no model replacement was performed.",
+    "Backend differences with identical feature inputs are isolated from preprocessing and resampling differences.",
+    "Training uses scipy polyphase conversion while the app uses OfflineAudioContext; these are compared rather than assumed identical."
+  ]
+}

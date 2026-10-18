@@ -1,0 +1,71 @@
+{
+  "contractSha256": "5da0e86b201940146ee04c454282f7b617e910e05e10eec430a5668c5ed2d39b",
+  "contract": {
+    "schemaVersion": 1,
+    "implementation": "tw-canonical-clap-wasm-v1",
+    "modelId": "Xenova/clap-htsat-unfused",
+    "revision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+    "modelFile": "onnx/audio_model_quantized.onnx",
+    "modelSha256": "3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f",
+    "transformersVersion": "4.3.1",
+    "ortVersion": "1.31.0-dev.20260914-8d85527a0",
+    "runtimeSha256": {
+      "ort.wasm.bundle.min.mjs": "17b52c1ac62b421dc508b4c28b9a9675251c6e25dd512ef54b83a5e2c4242869",
+      "ort-wasm-simd-threaded.mjs": "c57ca56328877353a575e51bbca6f18450027d6c9bf2307a2cb2c41363b4de9f",
+      "ort-wasm-simd-threaded.wasm": "06ba057753da3847e4c24f02d91ab133455b0817c69a44993a9a53a2146df9e3"
+    },
+    "sampleRateHz": 48000,
+    "inputDurationSeconds": 5,
+    "featureShape": [
+      1,
+      1,
+      1001,
+      64
+    ],
+    "embeddingSize": 512,
+    "normalization": "Float64 sequential squared sum and sqrt, then Float32 coordinate division",
+    "preprocessing": "Transformers.js4.3.1 ClapFeatureExtractor: five seconds input plus five seconds zero padding",
+    "execution": {
+      "provider": "wasm",
+      "numThreads": 1,
+      "proxy": false,
+      "simdFeatureCheck": "fixed",
+      "graphOptimizationLevel": "all",
+      "executionMode": "sequential"
+    },
+    "repeatCount": 2,
+    "manifestSha256": "25448ca576662cf21511b2f691100e6e8d93d4f76c985bc35e6da55430f63e68",
+    "runtimeHashes": {
+      "ort.wasm.bundle.min.mjs": {
+        "sha256": "17b52c1ac62b421dc508b4c28b9a9675251c6e25dd512ef54b83a5e2c4242869",
+        "bytes": 73123
+      },
+      "ort-wasm-simd-threaded.wasm": {
+        "sha256": "06ba057753da3847e4c24f02d91ab133455b0817c69a44993a9a53a2146df9e3",
+        "bytes": 14264838
+      },
+      "ort-wasm-simd-threaded.mjs": {
+        "sha256": "c57ca56328877353a575e51bbca6f18450027d6c9bf2307a2cb2c41363b4de9f",
+        "bytes": 24381
+      }
+    },
+    "transformersBrowserBundleSha256": "ad44c6e41ff23fd5b01fa3fe08199a0440a35711dc9f80a31132fcce08fbd432",
+    "preprocessorSha256": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+    "preprocessingRuntimeOverride": "Transformers.js documented Symbol.for(onnxruntime) override bound to the same ORT-Web WASM bundle",
+    "resamplerSourceSha256": "a73257786eb279a269e4df0bab86eeb2c1b8d682dcd3c32e8fba1df5b89efb81",
+    "compiledResamplerSha256": "2ab0e2e2a8d3bbc8dc2d3608993c7b27c2df4726a20411e5054414f4223d0477",
+    "modelConfigSourceSha256": "04f764ff1abd63d3342126b3d2bc26aaf752664319483f85885c963fa6b04388",
+    "compiledModelSha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+    "encoderSourceSha256": "6cda0b9db5fee7c1612629d014ead11a93d6e369b101a68af9e32d82c031ebb4",
+    "runnerSourceSha256": "ea25c92f666b14b54c7a8b3a545b5099617f30d497670d1032b6173ecd1d396d",
+    "checkpointValidatorSha256": "0e91bce95cdddebdf5ca95e6d2b6e2fd343b02c901364bf7bfd9b717aa10ad4a",
+    "environment": {
+      "node": "v24.18.0",
+      "v8": "13.6.233.17-node.50",
+      "platform": "win32",
+      "architecture": "x64"
+    },
+    "pcmFormat": "little-endian IEEE754 Float32 mono, exact first five seconds; no browser decoder",
+    "promotionAllowed": false
+  }
+}

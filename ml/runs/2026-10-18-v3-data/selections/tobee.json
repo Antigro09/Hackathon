@@ -1,0 +1,860 @@
+{
+  "annotated_recording_names": 78,
+  "annotation_issues": [
+    {
+      "line_number": 369,
+      "raw_interval": "173.02\t173.0\tbee",
+      "reason": "invalid interval bounds; entire recording excluded without repair",
+      "recording": "CJ001 - Missing Queen - Day -  (101)"
+    },
+    {
+      "line_number": 1408,
+      "raw_interval": "322.79\t322.77\tbee",
+      "reason": "invalid interval bounds; entire recording excluded without repair",
+      "recording": "Hive1_31_05_2018_NO_QueenBee_H1_audio___15_30_00"
+    }
+  ],
+  "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+  "audio_available": 56,
+  "catalog_sha256": "806330750db9d4c488ccea2cadfbeb604856e24189c1f7b6225891d7049094ba",
+  "eligible_by_hive": {
+    "tobee:cf001": 1,
+    "tobee:cf003": 13,
+    "tobee:cj001": 1,
+    "tobee:gh001": 1,
+    "tobee:hive1": 14,
+    "tobee:hive3": 16
+  },
+  "excluded_metadata": {
+    "first_five_seconds_not_entirely_human_annotated_bee": 10
+  },
+  "per_hive": 8,
+  "policy": "Entire ToBee collection final-only. Hash-seeded cap8 per hive, only first0–5s human bee annotation, no later crops/padding/replacement or predictions.",
+  "previous_records_sha256": "7efd529689b9625739221be1db3f373cd88f93e67c9194f224171913f7e9181d",
+  "records": [
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        28.97
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_55c497cffe2a626239be1d4a",
+      "collection_group": "ToBee:OSBH-citizen-science",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "CJ001",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/CJ001%20-%20Missing%20Queen%20-%20Day%20-%20%20(102).wav/content",
+      "published_original_bytes": 26460044,
+      "published_original_md5": "7a7b9318e482922c5375acffcb6dd4f3",
+      "source_filename": "CJ001 - Missing Queen - Day -  (102).wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:cj001"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        300.0
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_bb655f72d778ac4308d71fa3",
+      "collection_group": "ToBee:OSBH-citizen-science",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "CF003",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/CF003%20-%20Active%20-%20Day%20-%20(222).wav/content",
+      "published_original_bytes": 26460044,
+      "published_original_md5": "e519337dd0de723a749f21649ae78297",
+      "source_filename": "CF003 - Active - Day - (222).wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:cf003"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        177.48
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_4d5d0493589bfb99d32c71fe",
+      "collection_group": "ToBee:OSBH-citizen-science",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "CF003",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/CF003%20-%20Active%20-%20Day%20-%20(224).wav/content",
+      "published_original_bytes": 26460044,
+      "published_original_md5": "69f6e4dde181719c57939a955de1901a",
+      "source_filename": "CF003 - Active - Day - (224).wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:cf003"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        7.23
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_da33ff2bf39c5f156dead1bb",
+      "collection_group": "ToBee:OSBH-citizen-science",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "CF003",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/CF003%20-%20Active%20-%20Day%20-%20(216).wav/content",
+      "published_original_bytes": 26460044,
+      "published_original_md5": "8caa6a8c113007f160c188ca449160b6",
+      "source_filename": "CF003 - Active - Day - (216).wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:cf003"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        7.3
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_ee26969584b7684336f17d3b",
+      "collection_group": "ToBee:OSBH-citizen-science",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "CF003",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/CF003%20-%20Active%20-%20Day%20-%20(214).wav/content",
+      "published_original_bytes": 26460044,
+      "published_original_md5": "ef54bf7122b3689f80d1c71852e34975",
+      "source_filename": "CF003 - Active - Day - (214).wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:cf003"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        12.42
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_3f97cff7afaef2ad5b7fc6dc",
+      "collection_group": "ToBee:OSBH-citizen-science",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "CF003",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/CF003%20-%20Active%20-%20Day%20-%20(217).wav/content",
+      "published_original_bytes": 26460044,
+      "published_original_md5": "3d3141627c7b1a8f8eae9de5968d7a4b",
+      "source_filename": "CF003 - Active - Day - (217).wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:cf003"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        19.59
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_d869cbf1b743095830fc1132",
+      "collection_group": "ToBee:OSBH-citizen-science",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "CF003",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/CF003%20-%20Active%20-%20Day%20-%20(215).wav/content",
+      "published_original_bytes": 26460044,
+      "published_original_md5": "5914a41640ca4c0a31718039c21fa808",
+      "source_filename": "CF003 - Active - Day - (215).wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:cf003"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        300.0
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_b6c0466045b5a9469715d04d",
+      "collection_group": "ToBee:OSBH-citizen-science",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "CF003",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/CF003%20-%20Active%20-%20Day%20-%20(220).wav/content",
+      "published_original_bytes": 26460044,
+      "published_original_md5": "4024e4f8f4c6a3d57a21cf325e785a5b",
+      "source_filename": "CF003 - Active - Day - (220).wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:cf003"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        62.49
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_a89ec3afc51a9ac8689ae93a",
+      "collection_group": "ToBee:OSBH-citizen-science",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "CF003",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/CF003%20-%20Active%20-%20Day%20-%20(226).wav/content",
+      "published_original_bytes": 26460044,
+      "published_original_md5": "a7fba7ad5b5cf17fdd49cae1367c1110",
+      "source_filename": "CF003 - Active - Day - (226).wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:cf003"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        56.14
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_2055d3a5ddd67e7872f41777",
+      "collection_group": "ToBee:NU-Hive",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "Hive3",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/Hive3_15_07_2017_NO_QueenBee_H3_audio___06_10_00.wav/content",
+      "published_original_bytes": 104448044,
+      "published_original_md5": "a588c9c2c1ce71344286a77251e964a8",
+      "source_filename": "Hive3_15_07_2017_NO_QueenBee_H3_audio___06_10_00.wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:hive3"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        61.0
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_9a58e42c84ffb19aa55fcb95",
+      "collection_group": "ToBee:NU-Hive",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "Hive3",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/Hive3_12_07_2017_NO_QueenBee_H3_audio___17_00_00.wav/content",
+      "published_original_bytes": 104448044,
+      "published_original_md5": "820c6620c14910d179b1921762a31ab0",
+      "source_filename": "Hive3_12_07_2017_NO_QueenBee_H3_audio___17_00_00.wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:hive3"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        123.91
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_b933c601c9aa4e373a619902",
+      "collection_group": "ToBee:NU-Hive",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "Hive3",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/Hive3_12_07_2017_NO_QueenBee_H3_audio___15_40_00.wav/content",
+      "published_original_bytes": 103628844,
+      "published_original_md5": "e25f7faa524cfa28d53bb5ad4b4c967e",
+      "source_filename": "Hive3_12_07_2017_NO_QueenBee_H3_audio___15_40_00.wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:hive3"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        32.5
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_7d11a5750e500beac75481cd",
+      "collection_group": "ToBee:NU-Hive",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "Hive3",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/Hive3_15_07_2017_NO_QueenBee_H3_audio___06_50_00.wav/content",
+      "published_original_bytes": 104038444,
+      "published_original_md5": "976473091af608b0fa34c9f573cf5d6a",
+      "source_filename": "Hive3_15_07_2017_NO_QueenBee_H3_audio___06_50_00.wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:hive3"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        26.44
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_46725169c90b8f1f3b125e12",
+      "collection_group": "ToBee:NU-Hive",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "Hive3",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/Hive3_12_07_2017_NO_QueenBee_H3_audio___16_40_00.wav/content",
+      "published_original_bytes": 103628844,
+      "published_original_md5": "9c65d6fa23ae86397b6c857c8337e7d8",
+      "source_filename": "Hive3_12_07_2017_NO_QueenBee_H3_audio___16_40_00.wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:hive3"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        41.53
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_464f686850073e0d297c1a06",
+      "collection_group": "ToBee:NU-Hive",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "Hive3",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/Hive3_12_07_2017_NO_QueenBee_H3_audio___15_20_00.wav/content",
+      "published_original_bytes": 103219244,
+      "published_original_md5": "d1db7f03f06a6f13a281e2c964b52d08",
+      "source_filename": "Hive3_12_07_2017_NO_QueenBee_H3_audio___15_20_00.wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:hive3"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        6.94
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_fc0909b5d5be37777a8afda3",
+      "collection_group": "ToBee:NU-Hive",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "Hive3",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/Hive3_15_07_2017_NO_QueenBee_H3_audio___06_20_00.wav/content",
+      "published_original_bytes": 104448044,
+      "published_original_md5": "9e9b22a2b2bdb9ca52b9e08a9146a85e",
+      "source_filename": "Hive3_15_07_2017_NO_QueenBee_H3_audio___06_20_00.wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:hive3"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        245.01
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_1eea92f6498d2971d485fac9",
+      "collection_group": "ToBee:NU-Hive",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "Hive3",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/Hive3_12_07_2017_NO_QueenBee_H3_audio___16_20_00.wav/content",
+      "published_original_bytes": 104038444,
+      "published_original_md5": "09b8dbe04c2fc1cbf5e0c5203a27d3bf",
+      "source_filename": "Hive3_12_07_2017_NO_QueenBee_H3_audio___16_20_00.wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:hive3"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        60.69
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_f7af5c8dd22a1b9a771f06e2",
+      "collection_group": "ToBee:OSBH-citizen-science",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "GH001",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/GH001%20-%20Active%20-%20Day%20-%20141022_0659_0751.mp3/content",
+      "published_original_bytes": 49992250,
+      "published_original_md5": "dc0aa0e87b4cb6f3845e28c0e64a10b5",
+      "source_filename": "GH001 - Active - Day - 141022_0659_0751.mp3",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:gh001"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        11.25
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_f56668982eeba8601da476ba",
+      "collection_group": "ToBee:OSBH-citizen-science",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "CF001",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/CF001%20-%20Missing%20Queen%20-%20Day%20-.mp3/content",
+      "published_original_bytes": 247012,
+      "published_original_md5": "7619dc60d425a1ab8604bd4212e11e83",
+      "source_filename": "CF001 - Missing Queen - Day -.mp3",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:cf001"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        54.97
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_bf38f972cf4ef5f405d05304",
+      "collection_group": "ToBee:NU-Hive",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "Hive1",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/Hive1_12_06_2018_QueenBee_H1_audio___16_20_00.wav/content",
+      "published_original_bytes": 76595244,
+      "published_original_md5": "f92e505d995fd5a2b044f218d6549ad7",
+      "source_filename": "Hive1_12_06_2018_QueenBee_H1_audio___16_20_00.wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:hive1"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        17.43
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_943d1a955e0c3aa0c2fcaddb",
+      "collection_group": "ToBee:NU-Hive",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "Hive1",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/Hive1_12_06_2018_QueenBee_H1_audio___16_50_00.wav/content",
+      "published_original_bytes": 76595244,
+      "published_original_md5": "8029f8d923d45fdf7d3c0ea2397b278e",
+      "source_filename": "Hive1_12_06_2018_QueenBee_H1_audio___16_50_00.wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:hive1"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        9.91
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_4bda80468f41b0ef41ba9795",
+      "collection_group": "ToBee:NU-Hive",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "Hive1",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/Hive1_31_05_2018_NO_QueenBee_H1_audio___15_10_00.wav/content",
+      "published_original_bytes": 76185644,
+      "published_original_md5": "cf1e9a76bbcdb00d2154a41034da2333",
+      "source_filename": "Hive1_31_05_2018_NO_QueenBee_H1_audio___15_10_00.wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:hive1"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        39.96
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_0ba329a05cec35b9c945bde4",
+      "collection_group": "ToBee:NU-Hive",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "Hive1",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/Hive1_12_06_2018_QueenBee_H1_audio___15_00_00.wav/content",
+      "published_original_bytes": 76595244,
+      "published_original_md5": "672dae7ead4fdae19c79f794467db1ed",
+      "source_filename": "Hive1_12_06_2018_QueenBee_H1_audio___15_00_00.wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:hive1"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        32.5
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_8f48eeabb22eebaf475ff81f",
+      "collection_group": "ToBee:NU-Hive",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "Hive1",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/Hive1_12_06_2018_QueenBee_H1_audio___16_10_00.wav/content",
+      "published_original_bytes": 76595244,
+      "published_original_md5": "814a2c99101742f6efdbba09869a95ef",
+      "source_filename": "Hive1_12_06_2018_QueenBee_H1_audio___16_10_00.wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:hive1"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        10.01
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_7f0c001cde55375275f5a190",
+      "collection_group": "ToBee:NU-Hive",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "Hive1",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/Hive1_12_06_2018_QueenBee_H1_audio___15_30_00.wav/content",
+      "published_original_bytes": 76595244,
+      "published_original_md5": "f8d3ce9a274775b177c2db85237acbf6",
+      "source_filename": "Hive1_12_06_2018_QueenBee_H1_audio___15_30_00.wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:hive1"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        124.98
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_fc7df5b7ec299d95d0d661aa",
+      "collection_group": "ToBee:NU-Hive",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "Hive1",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/Hive1_12_06_2018_QueenBee_H1_audio___16_40_00.wav/content",
+      "published_original_bytes": 76595244,
+      "published_original_md5": "ac3d907a6abcb1669aa04e8a38fd7e98",
+      "source_filename": "Hive1_12_06_2018_QueenBee_H1_audio___16_40_00.wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:hive1"
+    },
+    {
+      "annotation_interval_seconds": [
+        0.0,
+        110.04
+      ],
+      "annotation_sha256": "a16eb64b631f824fb64acf549ae432450a55d5f02be4e25a59c57c13b9bac6f2",
+      "attribution": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "citation": "Nolasco, I. & Benetos, E. (2018). To bee or not to bee: An annotated dataset for beehive sound recognition. Zenodo. DOI:10.5281/zenodo.1321278",
+      "clip_id": "tobee_c8cb5521a71e98a0ae3e2749",
+      "collection_group": "ToBee:NU-Hive",
+      "dataset": "ToBee",
+      "grouping_unit": "original hive ID across all sessions/codecs; collection entirely final-only",
+      "hive_id": "Hive1",
+      "label": "buzz",
+      "label_quality": "human interval annotation: bee for entire first0–5s; not a physical-source or electrical-hum claim",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "original_labels": [
+        "bee"
+      ],
+      "original_split": "ToBee release (our whole-collection final holdout)",
+      "original_split_is_official": false,
+      "original_url": "https://zenodo.org/api/records/1321278/files/Hive1_31_05_2018_NO_QueenBee_H1_audio___15_20_00.wav/content",
+      "published_original_bytes": 75366444,
+      "published_original_md5": "3f54b05c6c1ae222c3349691bc9338ee",
+      "source_filename": "Hive1_31_05_2018_NO_QueenBee_H1_audio___15_20_00.wav",
+      "source_url": "https://zenodo.org/records/1321278",
+      "split": "test",
+      "uploader": "Inês Nolasco; Emmanouil Benetos (Queen Mary University of London)",
+      "uploader_group": "tobee:hive1"
+    }
+  ],
+  "reserved_collections": [
+    "ToBee:NU-Hive",
+    "ToBee:OSBH-citizen-science"
+  ],
+  "reserved_uploaders": [
+    "tobee:cf001",
+    "tobee:cf003",
+    "tobee:cj001",
+    "tobee:gh001",
+    "tobee:hive1",
+    "tobee:hive3"
+  ],
+  "seed": 18043,
+  "selection_version": "tobee-annotated-first-five-v1"
+}

@@ -1,11 +1,8 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { FIXTURES, generateFixture, syntheticMeta } from './analysis/fixtures';
-import type { FixtureId } from './analysis/fixtures';
 import { ALGORITHM_VERSION, METHOD_UPDATED } from './analysis/version';
 import { startCapture } from './audio/capture';
 import { CAPTURE_DURATIONS_SECONDS } from './audio/chunks';
 import type { CaptureDurationSeconds } from './audio/chunks';
-import { decodeAudioFile } from './audio/decode';
 import { copySoundHintObservation } from './ai/input';
 import { sources, methodLimitations } from './data/references';
 import { buildReport, sourceStatus } from './report/buildReport';
@@ -19,8 +16,8 @@ import { CaptureComparison } from './components/CaptureComparison';
 import { InputMeter } from './components/InputMeter';
 import { LearnPage, LearnPanel } from './components/Learn';
 import type { InputMeterReading } from './audio/meter';
-import { SoundHintsPanel } from './components/SoundHintsPanel';
-import type { SoundHintsInput } from './components/SoundHintsPanel';
+import { SoundHintsPanelV3 as SoundHintsPanel } from './components/SoundHintsPanelV3';
+import type { SoundHintsInputV3 as SoundHintsInput } from './components/SoundHintsPanelV3';
 import type { AnalysisResponse, AnalysisResult, InputMeta, ObservationContext } from './types';
 import type { SessionMapReading } from './data/readings';
 import { LOUDOUN_DATA_CENTERS, LOUDOUN_DATA_CENTER_SOURCE } from './data/loudounDataCenters';
@@ -35,8 +32,7 @@ const NAV_ITEMS = [
 ] as const;
 
 type Route = '/' | '/measure' | '/report' | '/sources' | '/learn' | '/map' | '/why';
-type Phase = 'idle' | 'permission-pending' | 'warming-up' | 'recording' | 'decoding' | 'analyzing' | 'ready';
-type InputMode = 'demo' | 'microphone' | 'file';
+type Phase = 'idle' | 'permission-pending' | 'warming-up' | 'recording' | 'analyzing' | 'ready';
 const emptyContext: ObservationContext = { jurisdiction: 'unknown-other', environment: 'unknown', locationDescription: '', recurrenceNotes: '', conditionsNotes: '', suspectedSourceNotes: '' };
 const readRoute = (): Route => {
   const hash = window.location.hash.slice(1);
@@ -74,9 +70,9 @@ function Home() {
     <div className="home-lower"><div><a className="group row-link-card" href="#/why"><span className="why-icon"><Icon name="heart" size={22}/></span><span className="row-link-text"><strong>Why it matters</strong><span>What steady deep noise can do to sleep and health</span></span><Icon name="chevron" size={20}/></a></div>
     <div><h2 className="list-title">How it works</h2>
     <ol className="list how-list">
-      <li><span className="how-num">1</span>Hold your phone toward the hum</li>
-      <li><span className="how-num">2</span>See if a deep hum is there</li>
-      <li><span className="how-num">3</span>Print a report for your county</li>
+      <li><a className="how-row" href="#/measure"><span className="how-num">1</span><span className="how-text"><strong>Start an observation</strong><span>Record a live microphone sample for 5, 15, or 30 seconds.</span></span><Icon name="chevron" size={20}/></a></li>
+      <li><a className="how-row" href="#/learn"><span className="how-num">2</span><span className="how-text"><strong>Understand the signal</strong><span>See if a deep hum is there.</span></span><Icon name="chevron" size={20}/></a></li>
+      <li><div className="how-row"><span className="how-num">3</span><span className="how-text"><strong>Print a report</strong><span>With your county’s own sources.</span></span></div></li>
     </ol></div></div>
     <p className="footnote home-boundary-note">A screening tool, not a certified measurement. Audio never leaves your phone. <a href="#/sources">Method</a></p>
   </main>;
@@ -87,10 +83,12 @@ function SourcesPage() {
     <div className="page-heading"><div><h1>Method</h1><p>How the result is calculated, what it can’t establish, and the original references.</p></div></div>
     <section className="group"><div className="group-head"><h2>Two screening indicators</h2></div><div className="group-body prose">
       <p>The captured-spectrum C−A difference compares A- and C-weighted digital powers from the same samples. A difference of at least 15 dB suggests low-frequency contribution under this prototype convention. It does not establish a tone.</p>
-      <p>The experimental sustained-peak heuristic checks 40–2,000 Hz for a narrow peak in at least 80% of all complete frames, with at least 20 frames. Its prominence and persistence thresholds are engineering choices, not a standardized tonality assessment or a county definition.</p>
+      <p>The experimental sustained-peak heuristic checks 40–2,000 Hz for a narrow peak in at least 80% of all complete frames, with at least 20 frames. Among qualifying tracks, it selects the strongest median three-bin power, with persistence and prominence as tie-breakers. This does not identify a fundamental or source. Its thresholds and ranking are engineering choices, not a standardized tonality assessment or a county definition.</p>
       <p>Linear power is averaged before conversion to dB. A/C curves are normalized at 1 kHz; integration spans 20 Hz to min(20 kHz, Nyquist). Digital levels use RMS 1 as the reference. Constant gain cancels in C−A; frequency response and processing do not.</p>
+      <p><strong>Choose a capture duration:</strong> On Check, open Mic options and choose a 5, 15, or 30-second live microphone capture. For the 60 Hz exercise, 15 seconds gives more analysis frames to inspect persistence. Five seconds can also show a peak near 60 Hz; a longer capture does not change the FFT bin spacing or establish a source. Optional AI sound hints use only the first 5 seconds of any observation.</p>
     </div>
     <dl className="spec-list"><div><dt>Method</dt><dd>{ALGORITHM_VERSION}</dd></div><div><dt>Updated</dt><dd>{METHOD_UPDATED}</dd></div><div><dt>Captures</dt><dd>5 / 15 / 30 s</dd></div><div><dt>FFT</dt><dd>8,192 points, periodic Hann, 50% overlap</dd></div><div><dt>Tested rates</dt><dd>44.1 / 48 kHz</dd></div></dl></section>
+    <section className="group"><div className="group-head"><h2>Optional local sound hints</h2></div><div className="group-body prose"><p>A trained classifier on frozen CLAP audio features can suggest five broad sound families or leave a sound unclassified. It runs only after you choose Explore, using the first five recorded seconds. It does not change the standard indicators or exported report.</p><p>In an October 18, 2026 comparison of 416 reserved public recordings, both models used the same quality checks: 218 known-family and 191 unfamiliar recordings were eligible, and 7 recordings were blocked for both. Known-family macro F1 increased from 0.394 for the previous eight-description model to 0.778 for this classifier.</p><p>The classifier suggested a family on 103 of 218 eligible known recordings, with 98 correct. It also suggested families on 7 of 191 unfamiliar recordings; the previous model’s mapped first description did so on 182 of 191. These are results on this test set, not confidence probabilities or accuracy guarantees for your microphone.</p><p>The model trades coverage for fewer incorrect hints. When applied to this comparison, the original stricter criteria still fail on the unknown-sound uncertainty bound and wind-family precision. The earlier development audit also failed. Public labels, shared recording conditions and possible encoder-pretraining overlap limit interpretation. The buzz examples include insects and do not establish electrical or equipment identification.</p><p><a href="https://github.com/Antigro09/Hackathon/blob/main/docs/AI_V3_RESULTS.md" target="_blank" rel="noreferrer">Read the full comparison, original audit failures and source links</a> · <a href="/ai/sound-hints-v3-comparison.json" target="_blank" rel="noreferrer">Download comparison summary</a> · <a href="/ai/canonical-v3/TRAINING_ATTRIBUTION.json" target="_blank" rel="noreferrer">Training-data credits</a>.</p></div></section>
     <section className="group"><div className="group-head"><h2>What the result can’t establish</h2></div><div className="group-body prose"><ul className="limitation-list">{methodLimitations.map((text, i) => <li key={i}>{text}</li>)}</ul><p>Audio and notes stay in memory until reset or page close. No accounts, tracking, GPS, or automatic sharing. Reports contain the context you type; review them before sharing.</p></div></section>
     <h2 className="list-title">Original sources</h2>
     <p className="footnote list-note">A county selection supplies context. Only the responsible agency can confirm which requirements apply. A short browser sample implements neither county’s formal procedure.</p>
@@ -101,8 +99,6 @@ function SourcesPage() {
 
 export default function App() {
   const [route, setRoute] = useState<Route>(readRoute);
-  const [mode, setMode] = useState<InputMode>('microphone');
-  const [fixture, setFixture] = useState<FixtureId>('hum-harmonics');
   const [phase, setPhase] = useState<Phase>('idle');
   const [progress, setProgress] = useState(0);
   const [meterReading, setMeterReading] = useState<InputMeterReading | null>(null);
@@ -112,7 +108,6 @@ export default function App() {
   const [context, setContext] = useState<ObservationContext>({ ...emptyContext });
   const [report, setReport] = useState<ReportModel | null>(null);
   const [error, setError] = useState('');
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [durationSeconds, setDurationSeconds] = useState<CaptureDurationSeconds>(5);
   const [mapReadings, setMapReadings] = useState<SessionMapReading[]>([]);
   const [tonePlaying, setTonePlaying] = useState(false);
@@ -169,36 +164,25 @@ export default function App() {
         }
         nextWorker.terminate(); if (worker.current === nextWorker) worker.current = null;
       };
-      nextWorker.onerror = () => { if (sessionId === activeId.current) { setError('Analysis could not finish. Retry this input or choose another.'); setPhase('idle'); } nextWorker.terminate(); };
+      nextWorker.onerror = () => { if (sessionId === activeId.current) { setError('Analysis could not finish. Record another microphone observation.'); setPhase('idle'); } nextWorker.terminate(); };
       nextWorker.postMessage({ sessionId, pcm, fs, meta }, [pcm.buffer]);
     } catch { setError('Your browser could not start the analysis worker. Retry in a current browser.'); setPhase('idle'); }
   };
-  const runDemo = (id: FixtureId = fixture) => {
-    invalidate(); const sessionId = activeId.current;
-    setFixture(id); setMode('demo');
-    analyze(generateFixture(id, 48000), 48000, syntheticMeta(id), sessionId);
-  };
   const startInput = async () => {
-    if (mode === 'microphone' && tonePlayingRef.current) {
+    if (tonePlayingRef.current) {
       setError('Stop the Learn tone before recording an observation.');
       return;
     }
     invalidate(); const sessionId = activeId.current;
     const abort = new AbortController(); controller.current = abort;
     try {
-      if (mode === 'microphone') {
-        setPhase('permission-pending');
-        const input = await startCapture({ durationSeconds, signal: abort.signal, onProgress: (nextPhase, fraction) => { if (sessionId === activeId.current) { setPhase(nextPhase); setProgress(fraction); } }, onMeter: reading => { if (sessionId === activeId.current) setMeterReading(reading); } });
-        if (sessionId === activeId.current) setMeterReading(null);
-        analyze(input.pcm, input.fs, input.meta, sessionId);
-      } else if (selectedFile) {
-        setPhase('decoding');
-        const input = await decodeAudioFile(selectedFile, abort.signal, durationSeconds);
-        analyze(input.pcm, input.fs, input.meta, sessionId);
-      }
+      setPhase('permission-pending');
+      const input = await startCapture({ durationSeconds, signal: abort.signal, onProgress: (nextPhase, fraction) => { if (sessionId === activeId.current) { setPhase(nextPhase); setProgress(fraction); } }, onMeter: reading => { if (sessionId === activeId.current) setMeterReading(reading); } });
+      if (sessionId === activeId.current) setMeterReading(null);
+      analyze(input.pcm, input.fs, input.meta, sessionId);
     } catch (cause) {
       if (sessionId !== activeId.current || abort.signal.aborted) return;
-      setError(cause instanceof Error ? cause.message : 'This input could not be read. Try a demo or another recording.'); setPhase('idle'); setMeterReading(null);
+      setError(cause instanceof Error ? cause.message : 'Microphone capture could not finish. Check microphone permission and try again.'); setPhase('idle'); setMeterReading(null);
     }
   };
   const review = () => {
@@ -209,19 +193,17 @@ export default function App() {
   const downloadText = () => {
     if (!report) return;
     const url = URL.createObjectURL(new Blob([report.text], { type: 'text/plain;charset=utf-8' }));
-    const a = document.createElement('a'); a.href = url; a.download = `tonalwatch-${result?.inputKind === 'synthetic' ? 'synthetic-demo' : 'observation'}-${new Date().toISOString().slice(0, 10)}.txt`; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+    const a = document.createElement('a'); a.href = url; a.download = `tonalwatch-observation-${new Date().toISOString().slice(0, 10)}.txt`; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
-  const switchMode = (next: InputMode) => { invalidate(); setMode(next); };
-  const originLabel = result?.inputKind === 'synthetic' ? 'Synthetic demo' : result?.inputKind === 'imported-file' ? 'Imported file' : result ? 'Microphone' : '';
-  const clearAll = () => { invalidate(); setSelectedFile(null); setContext({ ...emptyContext }); setMapReadings([]); setPreviousResult(null); lastCompletedResult.current = null; };
+  const clearAll = () => { invalidate(); setContext({ ...emptyContext }); setMapReadings([]); setPreviousResult(null); lastCompletedResult.current = null; };
   const ready = Boolean(result) && !busy;
-  const durationSelect = <label className="field duration-picker">Length<select value={durationSeconds} disabled={busy} onChange={event => { invalidate(); setDurationSeconds(Number(event.target.value) as CaptureDurationSeconds); }}>{CAPTURE_DURATIONS_SECONDS.map(seconds => <option key={seconds} value={seconds}>{seconds} seconds</option>)}</select></label>;
+  const durationPicker = <fieldset className="duration-picker length-picker" disabled={busy} aria-describedby="duration-help"><legend>Length</legend><div className="duration-options">{CAPTURE_DURATIONS_SECONDS.map(seconds => <button type="button" key={seconds} className={durationSeconds === seconds ? 'selected' : ''} aria-label={`${seconds}-second observation`} aria-pressed={durationSeconds === seconds} onClick={() => { if (seconds !== durationSeconds) { invalidate(); setDurationSeconds(seconds); } }}>{seconds} s</button>)}</div><p id="duration-help" className="footnote">For the 60 Hz exercise, try <strong>15 seconds</strong>. Five seconds can also show a nearby peak.</p><p className="footnote duration-ai-note">The report uses all {durationSeconds} seconds. Optional sound hints use the first 5.</p></fieldset>;
 
   return <>
     <a className="skip-link" href="#main-content" onClick={event => { event.preventDefault(); const main = document.getElementById('main-content'); main?.setAttribute('tabindex', '-1'); main?.focus(); main?.scrollIntoView(); }}>Skip to content</a>
     <header className="site-header app-bar"><a className="brand" href="#/" aria-label="TonalWatch home"><span className="brand-icon"><Icon name="wave" size={18}/></span>TonalWatch</a><nav className="top-nav" aria-label="Main navigation">{NAV_ITEMS.map(item => <a key={item.route} href={`#${item.route}`} aria-current={route === item.route ? 'page' : undefined}>{item.label}</a>)}<a href="#/sources" aria-current={route === '/sources' ? 'page' : undefined}>Method</a></nav><a className="app-bar-action" href="#/sources" aria-label="Method and sources" aria-current={route === '/sources' ? 'page' : undefined}><Icon name="info" size={22}/></a></header>
     <nav className="tab-bar" aria-label="App navigation">{NAV_ITEMS.map(item => <a key={item.route} href={`#${item.route}`} aria-current={route === item.route ? 'page' : undefined}><Icon name={item.icon} size={24}/><span>{item.label}</span></a>)}</nav>
-    {result ? <div className={`origin-strip ${result.inputKind === 'synthetic' ? 'synthetic-strip' : ''}`} role="note"><strong>{originLabel}</strong><span>{result.inputKind === 'synthetic' ? 'Made on this device, not a real recording.' : result.inputKind === 'imported-file' ? 'Recording time and processing unknown.' : 'Recorded on this phone; not calibrated.'}</span></div> : null}
+    {result ? <div className="origin-strip" role="note"><strong>Microphone</strong><span>Recorded on this phone; not calibrated.</span></div> : null}
     {route === '/' ? <Home/> : null}
     {route === '/measure' ? <main id="main-content" className="page-shell measure-page">
       <div className="page-heading"><h1>Check</h1>{result || error ? <button className="text-button" onClick={clearAll}>Clear</button> : null}</div>
@@ -234,41 +216,22 @@ export default function App() {
         </section>
         <p className="footnote screening-line">Screening only: not a certified measurement or a legal finding.</p>
       </> : null}
-      <section className={`group check-panel${result ? ' check-panel--again' : ''}`} aria-label="Check a sound">
+      <section className={`group check-panel${result ? ' check-panel--again' : ''}`} aria-label="Live microphone">
         {result ? <h2 className="check-again-title">Check again</h2> : null}
-        {mode === 'microphone' ? <>
-          <button className={`check-button${busy ? ' is-listening' : ''}`} onClick={startInput} disabled={busy || tonePlaying} aria-describedby="check-hint"><span className="check-circle" aria-hidden="true"><Icon name="mic" size={result ? 28 : 40}/></span><span className="check-label">Check</span></button>
-          <p id="check-hint" className="check-hint">Hold your phone toward the sound for {durationSeconds} seconds.</p>
-          {phase === 'warming-up' || phase === 'recording' ? <InputMeter reading={meterReading} active/> : null}
-          {tonePlaying ? <p className="learn-disabled" role="status">Stop the listening tone before checking.</p> : null}
-          <details className="inline-options"><summary>Mic options</summary><div className="inline-options-body">{durationSelect}<p className="footnote input-footnote">Needs microphone permission (HTTPS or localhost). Your phone may still filter the sound. Access ends after the check.</p></div></details>
-        </> : null}
-        {mode === 'demo' ? <div className="input-body">
-          <label className="field">Demo signal<select value={fixture} disabled={busy} onChange={e => { invalidate(); setFixture(e.target.value as FixtureId); }}>{FIXTURES.map(item => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label>
-          {result ? null : <p className="footnote fixture-description">Synthetic sound made on this device, not a real recording.</p>}
-          <button className={`button ${ready ? 'secondary' : 'primary'} input-action`} disabled={busy} onClick={() => runDemo()}>Analyze demo</button>
-        </div> : null}
-        {mode === 'file' ? <div className="input-body">
-          <label className="field file-picker">Audio file, up to 10 MB<input type="file" accept="audio/*,.wav" disabled={busy} onChange={e => { const file = e.target.files?.[0] ?? null; invalidate(); setSelectedFile(file); e.target.value = ''; }}/></label>
-          {selectedFile ? <p className="selected-filename">{selectedFile.name}</p> : null}
-          {durationSelect}
-          <p className="footnote input-footnote">Uses the first {durationSeconds} seconds; WAV works best. Recording time and processing are unknown.</p>
-          <button className={`button ${ready ? 'secondary' : 'primary'} input-action`} onClick={startInput} disabled={busy || !selectedFile}>Analyze file</button>
-        </div> : null}
-        {busy ? <div className="capture-progress" role="status"><strong>{phase === 'permission-pending' ? 'Waiting for microphone permission…' : phase === 'warming-up' ? 'Getting ready…' : phase === 'recording' ? `Listening ${(Math.max(0, progress) * durationSeconds).toFixed(1)} / ${durationSeconds.toFixed(1)} s` : phase === 'decoding' ? 'Opening the file…' : 'Checking…'}</strong>{phase === 'recording' ? <progress value={progress} max={1} aria-label="Recorded sample progress"/> : <span className="working-line"/>}<button className="button secondary" onClick={invalidate}>Cancel</button></div> : null}
-        {error ? <div className="error-box" role="alert"><strong>That didn’t work</strong><p>{error}</p></div> : null}
-        <div className="mode-switch" role="group" aria-label="Other ways to check">
-          {mode !== 'microphone' ? <button className="text-button" disabled={busy} onClick={() => switchMode('microphone')}>Use microphone</button> : null}
-          {mode !== 'demo' ? <button className="text-button" disabled={busy} onClick={() => switchMode('demo')}>Try a demo</button> : null}
-          {mode !== 'file' ? <button className="text-button" disabled={busy} onClick={() => switchMode('file')}>Use a file</button> : null}
-        </div>
+        <button className={`check-button${busy ? ' is-listening' : ''}`} onClick={startInput} disabled={busy || tonePlaying} aria-describedby="check-hint"><span className="check-circle" aria-hidden="true"><Icon name="mic" size={result ? 28 : 40}/></span><span className="check-label">Check</span><span className="check-sub">Start {durationSeconds}-second capture</span></button>
+        <p id="check-hint" className="check-hint">Hold your phone toward the sound and stay quiet.</p>
+        {phase === 'warming-up' || phase === 'recording' ? <InputMeter reading={meterReading} active/> : null}
+        {tonePlaying ? <p className="learn-disabled" role="status">Stop the listening tone before checking.</p> : null}
+        {busy ? <div className="capture-progress" role="status"><strong>{phase === 'permission-pending' ? 'Waiting for microphone permission…' : phase === 'warming-up' ? 'Getting ready…' : phase === 'recording' ? `Listening ${(Math.max(0, progress) * durationSeconds).toFixed(1)} / ${durationSeconds.toFixed(1)} s` : 'Checking…'}</strong>{phase === 'recording' ? <progress value={progress} max={1} aria-label="Recorded sample progress"/> : <span className="working-line"/>}<button className="button secondary" onClick={invalidate}>Cancel</button></div> : null}
+        {error ? <div className="error-box" role="alert"><strong>That didn’t work</strong><p>{error}</p><span>Check microphone permission and try another capture.</span></div> : null}
+        <details className="inline-options"><summary>Mic options</summary><div className="inline-options-body">{durationPicker}<p className="footnote input-footnote">A 0.5 s warm-up comes first. Needs microphone permission (HTTPS or localhost). Your phone may still filter the sound. Access ends after the check.</p></div></details>
       </section>
       <p className="local-note"><Icon name="shield" size={18}/><span>Audio stays on your phone. Nothing is uploaded.</span></p>
       {result ? <details className="group notes-disclosure"><summary><span>What did you notice?</span><small>Optional notes</small></summary><ObservationForm showJurisdiction={false} context={context} onChange={value => { setContext(value); setReport(null); }}/></details> : null}
       <details className="group details-disclosure"><summary><span>{result ? 'Details' : 'How it works'}</span></summary>
         <div className="details-body">
           {result ? <>
-            <ResultPanel result={result} analyzing={phase === 'analyzing'} targetDurationSeconds={mode === 'demo' ? 5 : durationSeconds}/>
+            <ResultPanel result={result} analyzing={phase === 'analyzing'} targetDurationSeconds={durationSeconds}/>
             <CaptureComparison current={result} previous={previousResult}/>
             <details className="disclosure"><summary><span>Sound type hints</span><small>Experimental</small></summary><SoundHintsPanel key={result.id} result={result} input={retainedAudio.current}/></details>
           </> : <ol className="how-lines">
@@ -286,7 +249,7 @@ export default function App() {
     {route === '/learn' ? <LearnPage result={result} disabled={busy} onPlaybackChange={updateTonePlayback}/> : null}
     {route === '/map' ? <Suspense fallback={<main id="main-content" className="page-shell"><p role="status">Loading map…</p></main>}><ObservationMap currentResult={result} sessionReadings={mapReadings} onAddReading={reading => setMapReadings(previous => [...previous, reading])} onClearSessionReadings={() => setMapReadings([])}/></Suspense> : null}
     {route === '/sources' ? <SourcesPage/> : null}
-    {route === '/report' ? <main id="main-content" className="page-shell report-page">{report && result ? <><a className="back-link" href="#/measure">‹ Check</a><div className="page-heading report-toolbar"><div><h1>Report</h1><p>Review before sharing. Your notes may contain personal information.</p></div><div className="report-actions"><button className="button primary" onClick={() => window.print()}><Icon name="print" size={18}/> Print / save PDF</button><button className="button secondary" onClick={downloadText}><Icon name="download" size={18}/> Download text</button></div></div><ReportView report={report}/></> : <div className="empty-state"><span className="empty-icon"><Icon name="file" size={32}/></span><h1>No report yet</h1><p>Check a sound or a demo first. Your report is built from that result.</p><a className="button primary" href="#/measure">Go to Check</a></div>}</main> : null}
+    {route === '/report' ? <main id="main-content" className="page-shell report-page">{report && result ? <><a className="back-link" href="#/measure">‹ Check</a><div className="page-heading report-toolbar"><div><h1>Report</h1><p>Download a concise text summary, or print / save PDF to include the graph. Review your notes before sharing.</p></div><div className="report-actions"><button className="button primary" onClick={() => window.print()}><Icon name="print" size={18}/> Print / save PDF</button><button className="button secondary" onClick={downloadText}><Icon name="download" size={18}/> Download text summary</button></div></div><ReportView report={report}/></> : <div className="empty-state"><span className="empty-icon"><Icon name="file" size={32}/></span><h1>No report yet</h1><p>Record a live microphone sample to create your analysis and report.</p><a className="button primary" href="#/measure">Go to Check</a></div>}</main> : null}
     <footer className="site-footer"><a className="brand footer-brand" href="#/"><Icon name="wave" size={18}/> TonalWatch</a><a href="#/sources">Method & sources</a></footer>
   </>;
 }

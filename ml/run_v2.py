@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PACKAGES = ("numpy", "scipy", "scikit-learn", "joblib", "transformers", "onnxruntime", "soundfile")
 ENCODER_PACKAGES = ("numpy", "scipy", "transformers", "onnxruntime", "soundfile")
 FIT_PACKAGES = ("numpy", "scipy", "scikit-learn", "joblib")
-SOURCE_FILES = ("ml/features.py", "ml/data.py", "ml/data_v2.py", "ml/mimii.py", "ml/experiment.py", "ml/experiment_v2.py", "ml/run_v2.py", "ml/V2_PROTOCOL.md", "ml/requirements.txt")
+SOURCE_FILES = ("ml/features.py", "ml/data.py", "ml/data_v2.py", "ml/mimii.py", "ml/buzz.py", "ml/experiment.py", "ml/experiment_v2.py", "ml/run_v2.py", "ml/V2_PROTOCOL.md", "ml/requirements.txt")
 
 
 def sha_file(path: Path) -> str:
@@ -77,12 +77,14 @@ def fit_runtime_contract() -> dict:
 def data_phase(args) -> Path:
     from ml.data_v2 import prepare_dataset_v2, assert_mixed_disjoint
     from ml.mimii import prepare_mimii_fans
+    from ml.buzz import prepare_buzz
 
     manifest_path = args.output / "manifest-v2.json"
     configuration = {"seed": args.seed, "previous_manifest_sha256": sha_file(args.previous_run / "manifest.json"),
-                     "source_sha256": {name: sha_file(ROOT / name) for name in ("ml/data.py", "ml/data_v2.py", "ml/mimii.py")},
+                     "source_sha256": {name: sha_file(ROOT / name) for name in ("ml/data.py", "ml/data_v2.py", "ml/mimii.py", "ml/buzz.py")},
                      "fsd_caps": {"train": 500, "val": 80, "test": 40, "unknown_per_split": 160},
-                     "mimii_caps": {"train_per_unit": 40, "val": 30, "test": 40, "unknown_per_machine_per_split": 10}}
+                     "mimii_caps": {"train_per_unit": 40, "val": 30, "test": 40, "unknown_per_machine_per_split": 10},
+                     "ivbee_policy": "IVBEE1.0: all original files passing unchanged five-second quality rules; entire collection test only"}
     configuration_path = args.output / "data_configuration.json"
     if configuration_path.exists() and read_json(configuration_path) != configuration:
         raise ValueError("Data configuration changed; use a new preregistered output directory")
@@ -103,6 +105,7 @@ def data_phase(args) -> Path:
     supplemental = prepare_mimii_fans(args.output / "mimii", seed=args.seed,
                                      max_train_per_unit=40, max_val=30, max_test=40,
                                      max_unknown_per_machine=10)
+    supplemental.extend(prepare_buzz(args.output / "buzz", args.previous_run / "manifest.json", seed=args.seed))
     return prepare_dataset_v2(args.previous_run / "manifest.json", args.output,
                               cache_root=args.cache_root, extra_records=supplemental,
                               seed=args.seed, max_train_per_class=500, max_val_per_class=80,
@@ -330,11 +333,11 @@ def fit_phase(args, manifest_path: Path) -> dict:
                        "pip_freeze_sha256": sha_file(pip_freeze_path),
                        "packages": {name: importlib.metadata.version(name) for name in PACKAGES},
                        "previous_run": str(args.previous_run), "baseline": "not evaluated; v1 and v2 cohorts differ",
-                       "grouping": "FSD50K uploader; MIMII physical machine/model ID (shared collection conditions remain)",
+                       "grouping": "FSD50K uploader; MIMII physical machine/model ID; IVBEE specimen (entire bee collection test only; shared collection conditions remain)",
                        "promotionAllowed": False, "browserPortable": False,
                        "note": "Classifiers/group gates are experimental; MIMII BY-SA licensing and browser/field validation remain unresolved."}
         write_json(environment_path, environment)
-    sources = [manifest_path, args.output / "mimii/manifest.json", args.output / "data_configuration.json",
+    sources = [manifest_path, args.output / "mimii/manifest.json", args.output / "buzz/manifest.json", args.output / "data_configuration.json",
                args.output / "data_provenance.json",
                args.output / "embedding_environment.json", freeze_path, args.output / "run_environment.json",
                args.output / "pip-freeze.txt", evaluation_path, results / "classifier_v2.joblib"]
@@ -358,7 +361,7 @@ def fit_phase(args, manifest_path: Path) -> dict:
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--phase", choices=("data", "embed", "fit", "all"), default="all")
-    parser.add_argument("--output", type=Path, default=Path("/content/tonalwatch-artifacts-v2"))
+    parser.add_argument("--output", type=Path, default=Path("/content/tonalwatch-artifacts-v2b"))
     parser.add_argument("--cache-root", type=Path, default=Path("/content/tonalwatch-artifacts/data"))
     parser.add_argument("--model-cache", type=Path, default=Path("/content/tonalwatch-artifacts/models"))
     parser.add_argument("--previous-run", type=Path, default=ROOT / "ml/runs/2026-10-18")

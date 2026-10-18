@@ -59,7 +59,7 @@ export function oneSidedPsd(
   return psd;
 }
 
-type FramePeak = { bin: number; prominenceDb: number };
+type FramePeak = { bin: number; prominenceDb: number; corePower: number };
 
 function median(values: number[]): number {
   if (!values.length) return 0;
@@ -84,45 +84,61 @@ function framePeaks(psd: Float64Array, df: number, bandEnd: number): FramePeak[]
     }
     if (background.length < 4 || neighborhood <= 0) continue;
     const prominenceDb = 10 * Math.log10((core / 3) / Math.max(median(background), 1e-20));
-    if (prominenceDb >= 12 && core / neighborhood >= 0.60) peaks.push({ bin: k, prominenceDb });
+    if (prominenceDb >= 12 && core / neighborhood >= 0.60) peaks.push({ bin: k, prominenceDb, corePower: core });
   }
   return peaks;
 }
 
 function sustainedPeak(frames: FramePeak[][], df: number): AnalysisResult['peakCandidate'] {
   if (frames.length < 20) return null;
-  let best: { actualBins: number[]; prominences: number[] } | null = null;
+  let best: { count: number; medianPower: number; medianProminence: number; medianBin: number } | null = null;
   // Adjacent search centers represent one overlapping track. Selecting its actual
   // candidates preserves the peak location rather than reporting a cluster edge.
   for (let center = Math.ceil(40 / df); center <= Math.floor(2000 / df); center++) {
     const actualBins: number[] = [];
     const prominences: number[] = [];
+    const corePowers: number[] = [];
     for (const peaks of frames) {
       const candidate = peaks.filter((peak) => Math.abs(peak.bin - center) <= 1)
-        .sort((a, b) => b.prominenceDb - a.prominenceDb)[0];
+        .sort((a, b) => b.corePower - a.corePower || b.prominenceDb - a.prominenceDb || a.bin - b.bin)[0];
       if (candidate) {
         actualBins.push(candidate.bin);
         prominences.push(candidate.prominenceDb);
+        corePowers.push(candidate.corePower);
       }
     }
-    if (!best || actualBins.length > best.actualBins.length ||
-      (actualBins.length === best.actualBins.length && median(prominences) > median(best.prominences))) {
-      best = { actualBins, prominences };
+    // Eligibility precedes ranking: a loud brief event cannot displace a
+    // qualifying sustained track. Local prominence alone can favor a tiny
+    // quantization harmonic over the dominant persistent tone.
+    if (actualBins.length / frames.length < 0.8) continue;
+    const track = { count: actualBins.length, medianPower: median(corePowers),
+      medianProminence: median(prominences), medianBin: median(actualBins) };
+    if (!best || (track.medianPower - best.medianPower || track.count - best.count ||
+      track.medianProminence - best.medianProminence || best.medianBin - track.medianBin) > 0) {
+      best = track;
     }
   }
-  if (!best || best.actualBins.length / frames.length < 0.8) return null;
+  if (!best) return null;
   return {
-    centerHz: median(best.actualBins) * df,
-    prominenceDb: median(best.prominences),
-    persistentFrameFraction: best.actualBins.length / frames.length,
+    centerHz: best.medianBin * df,
+    prominenceDb: best.medianProminence,
+    persistentFrameFraction: best.count / frames.length,
   };
 }
 
 const SETTINGS_ALLOWLIST = ['sampleRate', 'sampleSize', 'channelCount', 'echoCancellation', 'noiseSuppression', 'autoGainControl', 'latency'];
+const DECODE_SETTINGS_ALLOWLIST = [
+  'decodeMethod', 'effectiveSampleRateHz', 'wavSampleRateHintHz', 'requestedDecodeSampleRateHz',
+  'decodeContextSampleRateHz', 'sampleRateHintMatched', 'decodeRateRequestFallback', 'decodeRatePolicy',
+  'decodedChannels', 'cropOffsetSeconds', 'cropDurationSeconds', 'decodedDurationSeconds',
+];
 
-function filteredSettings(settings: Record<string, unknown> | null): Record<string, unknown> | null {
+function filteredSettings(settings: Record<string, unknown> | null, inputKind: InputMeta['inputKind']): Record<string, unknown> | null {
   if (!settings) return null;
-  return Object.fromEntries(Object.entries(settings).filter(([key]) => SETTINGS_ALLOWLIST.includes(key)));
+  return Object.fromEntries(Object.entries(settings).filter(([key, value]) =>
+    (SETTINGS_ALLOWLIST.includes(key) || (inputKind === 'imported-file' && DECODE_SETTINGS_ALLOWLIST.includes(key))) &&
+    (value === null || typeof value === 'string' || typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))),
+  ));
 }
 
 /** Same deterministic calculation for synthetic, imported and microphone PCM. */
@@ -131,7 +147,7 @@ export function analyzePcm(pcm: Float32Array, fs: number, meta: InputMeta): Anal
   const flag = (code: QualityCode) => { if (!codes.includes(code)) codes.push(code); };
   const duration = Number.isFinite(fs) && fs > 0 ? pcm.length / fs : 0;
   const bandEnd = Number.isFinite(fs) && fs > 0 ? Math.min(20000, fs / 2) : 0;
-  const settings = filteredSettings(meta.deviceSettings);
+  const settings = filteredSettings(meta.deviceSettings, meta.inputKind);
   const result: AnalysisResult = {
     id: globalThis.crypto?.randomUUID?.() ?? `tw-${Date.now()}-${++fallbackResultId}`,
     algorithmVersion: ALGORITHM_VERSION,

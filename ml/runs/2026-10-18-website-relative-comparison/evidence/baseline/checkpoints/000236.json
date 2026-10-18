@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "row": 236,
+  "clipId": "800683",
+  "sourceSha256": "a4922b3162b20d036db06c01caf07d126aadd6bcf86b40233bc25e77e1619617",
+  "pcmSha256": "7f424f74527a569d76cc53979fd8dba0266993faa7c8a6ddf1b310f1e6ba1d9a",
+  "contractSha256": "a326e70bc14d71cce69466ccdc59e13452166234fcc2d78d35fd8f92fc0dcd14",
+  "inputUnchanged": true,
+  "rawResponse": {
+    "type": "result",
+    "sessionId": 237,
+    "result": {
+      "status": "uncertain",
+      "reason": "weak-separation",
+      "provisionalGatePassed": false,
+      "rankings": [
+        {
+          "score": 0.23288510739803314,
+          "label": "wind blowing across a microphone"
+        },
+        {
+          "score": 0.23199933767318726,
+          "label": "a buzzing indoor fluorescent light fixture or lamp ballast"
+        }
+      ],
+      "modelId": "Xenova/clap-htsat-unfused",
+      "modelRevision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+      "preprocessing": {
+        "originalSampleRateHz": 48000,
+        "originalSampleCount": 240000,
+        "observationSeconds": 5,
+        "modelSampleRateHz": 48000,
+        "modelInputSamples": 240000,
+        "processorSeconds": 10,
+        "padding": "zero-pad",
+        "configuredPadding": "repeatpad",
+        "featureBandHz": [
+          50,
+          14000
+        ]
+      },
+      "timing": {
+        "modelLoadMs": 0,
+        "inferenceMs": 573.6999998092651,
+        "totalMs": 575,
+        "reusedModel": true
+      }
+    }
+  },
+  "analysis": {
+    "algorithmVersion": "tw-screen-v2",
+    "sampleRateHz": 48000,
+    "sampleCount": 240000,
+    "durationSeconds": 5,
+    "frameCount": 57,
+    "qualityCodes": [
+      "imported-processing-unknown"
+    ]
+  },
+  "qualityArtifactSha256": "3ac09ea4fc0e2fc10abe85dbd66c46c5d1e66f8f4237861912bdc8085c21105b",
+  "resampledPcmSha256": "7f424f74527a569d76cc53979fd8dba0266993faa7c8a6ddf1b310f1e6ba1d9a",
+  "outcome": "result"
+}

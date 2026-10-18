@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "row": 279,
+  "clipId": "804787",
+  "sourceSha256": "bb7c78f03a0f1032286e56b2f76b5ceb0f62174a900e606315210682f3ce7c7a",
+  "pcmSha256": "b6d380f035cfca9ce7e662c2156d15e5bcece005c5759ef63db87b0cc4765716",
+  "contractSha256": "a326e70bc14d71cce69466ccdc59e13452166234fcc2d78d35fd8f92fc0dcd14",
+  "inputUnchanged": true,
+  "rawResponse": {
+    "type": "result",
+    "sessionId": 280,
+    "result": {
+      "status": "uncertain",
+      "reason": "weak-separation",
+      "provisionalGatePassed": false,
+      "rankings": [
+        {
+          "score": 0.4160364270210266,
+          "label": "a quiet room with background noise"
+        },
+        {
+          "score": 0.1855178028345108,
+          "label": "road traffic passing outside"
+        }
+      ],
+      "modelId": "Xenova/clap-htsat-unfused",
+      "modelRevision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+      "preprocessing": {
+        "originalSampleRateHz": 48000,
+        "originalSampleCount": 240000,
+        "observationSeconds": 5,
+        "modelSampleRateHz": 48000,
+        "modelInputSamples": 240000,
+        "processorSeconds": 10,
+        "padding": "zero-pad",
+        "configuredPadding": "repeatpad",
+        "featureBandHz": [
+          50,
+          14000
+        ]
+      },
+      "timing": {
+        "modelLoadMs": 0,
+        "inferenceMs": 833.4000000953674,
+        "totalMs": 834.7999999523163,
+        "reusedModel": true
+      }
+    }
+  },
+  "analysis": {
+    "algorithmVersion": "tw-screen-v2",
+    "sampleRateHz": 48000,
+    "sampleCount": 240000,
+    "durationSeconds": 5,
+    "frameCount": 57,
+    "qualityCodes": [
+      "imported-processing-unknown"
+    ]
+  },
+  "qualityArtifactSha256": "3ac09ea4fc0e2fc10abe85dbd66c46c5d1e66f8f4237861912bdc8085c21105b",
+  "resampledPcmSha256": "b6d380f035cfca9ce7e662c2156d15e5bcece005c5759ef63db87b0cc4765716",
+  "outcome": "result"
+}

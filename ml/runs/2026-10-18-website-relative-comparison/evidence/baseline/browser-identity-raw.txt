@@ -1,0 +1,11 @@
+### Result
+{
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+  "platform": "Win32",
+  "hardwareConcurrency": 16,
+  "language": "en-US"
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => ({userAgent:navigator.userAgent,platform:navigator.platform,hardwareConcurrency:navigator.hardwareConcurrency,language:navigator.language})');
+```

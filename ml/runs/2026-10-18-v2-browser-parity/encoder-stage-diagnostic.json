@@ -1,0 +1,380 @@
+{
+  "scope": "Same 20 validation cases: native ORT on browser features and local native features, saved Colab native embeddings, and browser WASM; no head reevaluation.",
+  "rawBrowserResultsSha256": "4f7bcfe95ebf8f1b3aafd4503b4c60fb81f7765a5f061dd290ea81fb271ada9e",
+  "python": "3.10.11",
+  "packages": {
+    "numpy": "2.2.6",
+    "onnxruntime": "1.23.2",
+    "transformers": "4.57.1"
+  },
+  "rows": [
+    {
+      "clipId": "109083",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.0037962738424539566,
+        "rmse": 0.0011058911817475902
+      },
+      "localNativeVsColabCachedCosine": 0.9996869132027043,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.004536435008049011,
+        "rmse": 0.00146541802591903
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0,
+      "nativeOnBrowserVsBrowserCosine": 0.9994502528030756
+    },
+    {
+      "clipId": "116400",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.004609748721122742,
+        "rmse": 0.001491583594665095
+      },
+      "localNativeVsColabCachedCosine": 0.9994304456659924,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.0036914199590682983,
+        "rmse": 0.0012556474064611676
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0000000000000002,
+      "nativeOnBrowserVsBrowserCosine": 0.9995963774955952
+    },
+    {
+      "clipId": "mimii_0db_pump_id04_abnormal_00000011",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.004322893917560577,
+        "rmse": 0.001377490116631776
+      },
+      "localNativeVsColabCachedCosine": 0.9995142453703916,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.00517767877317965,
+        "rmse": 0.0015991492766097581
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0,
+      "nativeOnBrowserVsBrowserCosine": 0.9993453367303883
+    },
+    {
+      "clipId": "mimii_0db_pump_id04_abnormal_00000028",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.005040539428591728,
+        "rmse": 0.0012948074200954712
+      },
+      "localNativeVsColabCachedCosine": 0.9995708092779018,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.00536227785050869,
+        "rmse": 0.0016199172452978105
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0,
+      "nativeOnBrowserVsBrowserCosine": 0.99932822223964
+    },
+    {
+      "clipId": "mimii_0db_slider_id04_abnormal_00000057",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.0055710989981889725,
+        "rmse": 0.0017202909148842838
+      },
+      "localNativeVsColabCachedCosine": 0.9992423933853292,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.0050709209172055125,
+        "rmse": 0.0015547618504156138
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0,
+      "nativeOnBrowserVsBrowserCosine": 0.9993811751878351
+    },
+    {
+      "clipId": "mimii_0db_slider_id04_abnormal_00000059",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.0042952317744493484,
+        "rmse": 0.0014338968729204404
+      },
+      "localNativeVsColabCachedCosine": 0.9994736485786695,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.004951588809490204,
+        "rmse": 0.001707352412142492
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0000000000000002,
+      "nativeOnBrowserVsBrowserCosine": 0.999253746624287
+    },
+    {
+      "clipId": "mimii_0db_valve_id04_abnormal_00000002",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.00450500100851059,
+        "rmse": 0.0014414789200773719
+      },
+      "localNativeVsColabCachedCosine": 0.9994680674621218,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.004377834498882294,
+        "rmse": 0.0014765162488310601
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0000000000000002,
+      "nativeOnBrowserVsBrowserCosine": 0.9994418943402378
+    },
+    {
+      "clipId": "mimii_0db_valve_id04_abnormal_00000049",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCachedCosine": 1.0,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.0038601942360401154,
+        "rmse": 0.001489703440486867
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0,
+      "nativeOnBrowserVsBrowserCosine": 0.9994318806168012
+    },
+    {
+      "clipId": "144017",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.0036514103412628174,
+        "rmse": 0.0014055407107869432
+      },
+      "localNativeVsColabCachedCosine": 0.9994942605611847,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.006215199828147888,
+        "rmse": 0.002120058032478561
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0000000000000002,
+      "nativeOnBrowserVsBrowserCosine": 0.9988493706096297
+    },
+    {
+      "clipId": "167455",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.0052849166095256805,
+        "rmse": 0.0014864948141172034
+      },
+      "localNativeVsColabCachedCosine": 0.9994343252895221,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.004963395185768604,
+        "rmse": 0.001708494741988788
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0,
+      "nativeOnBrowserVsBrowserCosine": 0.9992527477037284
+    },
+    {
+      "clipId": "179245",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.007524218410253525,
+        "rmse": 0.002334585805696843
+      },
+      "localNativeVsColabCachedCosine": 0.9986047255284581,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.004959706217050552,
+        "rmse": 0.0016827769241207786
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0,
+      "nativeOnBrowserVsBrowserCosine": 0.9992750750251651
+    },
+    {
+      "clipId": "216376",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.004724122583866119,
+        "rmse": 0.0015915453541271946
+      },
+      "localNativeVsColabCachedCosine": 0.9993515477450429,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.005276668816804886,
+        "rmse": 0.001691686017236717
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0,
+      "nativeOnBrowserVsBrowserCosine": 0.9992673787961036
+    },
+    {
+      "clipId": "mimii_0db_fan_id04_abnormal_00000012",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.003928946331143379,
+        "rmse": 0.0011364148624916591
+      },
+      "localNativeVsColabCachedCosine": 0.9996693916817856,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.003990299999713898,
+        "rmse": 0.0011704371379824084
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0,
+      "nativeOnBrowserVsBrowserCosine": 0.9996492996882926
+    },
+    {
+      "clipId": "mimii_0db_fan_id04_abnormal_00000013",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.004764501005411148,
+        "rmse": 0.001485705789052475
+      },
+      "localNativeVsColabCachedCosine": 0.9994349256458308,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.005711086094379425,
+        "rmse": 0.001593058595717637
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0000000000000002,
+      "nativeOnBrowserVsBrowserCosine": 0.9993503140620565
+    },
+    {
+      "clipId": "103382",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.0070467181503772736,
+        "rmse": 0.0021204029386661977
+      },
+      "localNativeVsColabCachedCosine": 0.9988489961960628,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.0066893938928842545,
+        "rmse": 0.0020749171069093
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0,
+      "nativeOnBrowserVsBrowserCosine": 0.9988978480642298
+    },
+    {
+      "clipId": "103385",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.0064902640879154205,
+        "rmse": 0.0017275464240659813
+      },
+      "localNativeVsColabCachedCosine": 0.9992359893425935,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.008091762661933899,
+        "rmse": 0.0022496123151813617
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0000000000000002,
+      "nativeOnBrowserVsBrowserCosine": 0.9987044465722926
+    },
+    {
+      "clipId": "140342",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.007291063666343689,
+        "rmse": 0.002296532857605233
+      },
+      "localNativeVsColabCachedCosine": 0.9986498398241324,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.007690584287047386,
+        "rmse": 0.0023881292137996153
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0000000000000002,
+      "nativeOnBrowserVsBrowserCosine": 0.9985399907474607
+    },
+    {
+      "clipId": "140344",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.006251096725463867,
+        "rmse": 0.0019252955057831379
+      },
+      "localNativeVsColabCachedCosine": 0.9990510687291252,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.00627506710588932,
+        "rmse": 0.0018711651817223407
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0000000000000002,
+      "nativeOnBrowserVsBrowserCosine": 0.999103677659824
+    },
+    {
+      "clipId": "129427",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.003454945981502533,
+        "rmse": 0.0011158899868460304
+      },
+      "localNativeVsColabCachedCosine": 0.9996812261217819,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.0035607051104307175,
+        "rmse": 0.0011864078818947747
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0,
+      "nativeOnBrowserVsBrowserCosine": 0.9996396637030213
+    },
+    {
+      "clipId": "129429",
+      "nativeOnBrowserVsNativeOnNative": {
+        "maxAbs": 0.0,
+        "rmse": 0.0
+      },
+      "localNativeVsColabCached": {
+        "maxAbs": 0.004263199865818024,
+        "rmse": 0.0013367565142171128
+      },
+      "localNativeVsColabCachedCosine": 0.9995425489978603,
+      "nativeOnBrowserVsBrowser": {
+        "maxAbs": 0.0069325827062129974,
+        "rmse": 0.0019256060493790614
+      },
+      "nativeOnBrowserVsNativeOnNativeCosine": 1.0,
+      "nativeOnBrowserVsBrowserCosine": 0.9990507625852841
+    }
+  ],
+  "promotionAllowed": false,
+  "summary": {
+    "maxLocalNativeBrowserVsPythonFeatureEmbeddingError": 0.0,
+    "maxLocalNativeVsColabCachedEmbeddingError": 0.007524218410253525,
+    "minLocalNativeVsColabCachedEmbeddingCosine": 0.9986047255284581,
+    "maxSameFeatureNativeVsWasmEmbeddingError": 0.008091762661933899,
+    "minSameFeatureNativeVsWasmEmbeddingCosine": 0.9985399907474607
+  }
+}

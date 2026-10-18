@@ -1,0 +1,10 @@
+{
+  "encoder-stage-diagnostic.json": {
+    "bytes": 12511,
+    "sha256": "757cdc8f7e243536f0fd5ebfa56d418d11f10d0b3b453d8b62766f691cd13c26"
+  },
+  "parity.json": {
+    "bytes": 206961,
+    "sha256": "96f1bd6f98b09553dc9e0a699a05fd8f650a77c947e495d3a715618c75708b5e"
+  }
+}

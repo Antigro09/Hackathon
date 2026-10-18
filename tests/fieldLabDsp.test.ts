@@ -81,7 +81,7 @@ describe('standalone full-recording DSP compared with the main numerical engine'
     const pcm = sine(fs, seconds);
     const actual = analyzeStandalone(pcm, fs, seconds);
     compareAnalysis(actual, analyzePcm(pcm, fs, syntheticMeta('sine-63')));
-    expect(actual.algorithmVersion).toBe('tw-field-lab-v2');
+    expect(actual.algorithmVersion).toBe('tw-field-lab-v3');
     expect(actual.sampleCount).toBe(fs * seconds);
     expect(actual.frameCount).toBe(1 + Math.floor((fs * seconds - FFT_SIZE) / HOP_SIZE));
     expect(actual.binSpacingHz).toBe(fs / FFT_SIZE);
@@ -97,6 +97,20 @@ describe('standalone full-recording DSP compared with the main numerical engine'
     expect(actual.cMinusADb).toBeGreaterThan(1);
     expect(actual.cMinusADb).toBeLessThan(3);
     expect(actual.peakScreen).toBe('not-indicated');
+  });
+
+  it.each([44100, 48000])('matches dominant eligible ranking for quantization and competing tracks at %i Hz', fs => {
+    const quantized = sine(fs, 15).map(value => Math.round(value * 32767) / 32768);
+    const lowGain = sine(fs, 15).map(value => value * 0.001);
+    const competing = (fraction: number) => Float32Array.from({ length: fs * 15 }, (_, n) => {
+      const fade = Math.min(1, Math.max(0, (Math.floor(fs * 15 * fraction) - n) / (fs * 0.02)));
+      return 0.1 * fade * Math.sin(2 * Math.PI * 63 * n / fs) + 0.001 * Math.sin(2 * Math.PI * 1000 * n / fs);
+    });
+    for (const pcm of [quantized, lowGain, competing(0.8), competing(0.75)]) {
+      const expected = analyzePcm(pcm, fs, syntheticMeta('sine-63'));
+      compareAnalysis(analyzeStandalone(pcm, fs, 15), expected);
+    }
+    expect(Math.abs(analyzeStandalone(quantized, fs, 15).peakCandidate!.centerHz - 63)).toBeLessThanOrEqual(fs / FFT_SIZE);
   });
 });
 

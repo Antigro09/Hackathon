@@ -66,7 +66,7 @@ export function ResultPanel({ result, analyzing, targetDurationSeconds = 5 }: { 
         <div className="metric"><dt>With the deep sounds left in <small>C-weighted</small></dt><dd>{number(result?.cDigitalDb ?? null)} <span>dB</span></dd></div>
         <div className="metric metric--gap"><dt>The gap <small>C−A</small></dt><dd>{number(result?.cMinusADb ?? null)} <span>dB</span></dd></div>
       </dl>
-      <p className="unit-caption">Phone levels are relative digital levels (re RMS 1), not calibrated sound-pressure levels.</p>
+      <div className="unit-caption level-explanation"><p><strong>Why can the levels be negative?</strong> A and C are digital levels relative to RMS 1. A value below 0 dB means the weighted signal is below that digital reference; for example, −20 dB is one-tenth of its RMS amplitude. It does not mean negative sound pressure. These values are not calibrated dB SPL.</p><p><strong>C−A is a separate difference.</strong> It can be negative when the C-weighted level is lower than the A-weighted level for this spectrum. Negative values alone do not indicate a recording error.</p></div>
       {result ? <>
         <dl className="indicator-list">
           <div className="indicator"><dt>Deep hum check<small>Gap of 15 dB or more · prototype rule</small></dt><dd>{screenText[result.lowFrequencyScreen]}</dd></div>
@@ -74,7 +74,7 @@ export function ResultPanel({ result, analyzing, targetDurationSeconds = 5 }: { 
         </dl>
         <div className="interpretation"><strong>Technical summary</strong><p>{interpretResult(result)}</p></div>
         {result.qualityCodes.length > 0 ? <div className="quality-notes"><strong>Recording quality</strong><ul>{result.qualityCodes.map(code => <li key={code}>{qualityText[code]}</li>)}</ul></div> : null}
-      </> : <p className="empty-guidance">Check a sound or a {targetDurationSeconds}-second screening sample to fill this in.</p>}
+      </> : <p className="empty-guidance">Record a live microphone sample to inspect the two independent indicators.</p>}
       <details className="method-details"><summary>How the analysis works</summary><p>The same PCM engine analyzes every input. It averages linear spectral power (PSD) across complete 8,192-sample periodic Hann windows with 50% overlap, then applies A and C response curves normalized at 1 kHz over 20 Hz–20 kHz.</p><p>The C−A difference screens for low-frequency contribution. A separate experimental peak test looks for narrow structure in at least 80% of complete frames. Neither establishes legal tonality, an equipment source, or field accuracy. Constant gain cancels in the difference; microphone response, filtering, processing, and clipping do not.</p><a href="#/sources">Sources and full method</a></details>
     </div>
   </section>;

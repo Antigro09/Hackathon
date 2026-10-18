@@ -1,0 +1,86 @@
+{
+  "manifest-v2.json": {
+    "sha256": "8a22e336d2eb1806ab228b381badb46156e67f198013d77b31a0565fbb3f0ab8",
+    "bytes": 2509717
+  },
+  "mimii/manifest.json": {
+    "sha256": "8d22c7d9943e2747cc5d869861f880d7c98e724043e905c6e78026139031482f",
+    "bytes": 650365
+  },
+  "buzz/manifest.json": {
+    "sha256": "57b111724c0ba3d465822ac606ef851483b99adfad4a49c2690e2ca150446388",
+    "bytes": 117007
+  },
+  "data_configuration.json": {
+    "sha256": "9f5139bc54da54e92512b31d7f65d2457b59ca68adc3555d0ca32908d6c91bc2",
+    "bytes": 833
+  },
+  "data_provenance.json": {
+    "sha256": "b1b963f136ed01f24b8dc095414f7cb41b00ad8bb5438e6fb279acdf87366d02",
+    "bytes": 160
+  },
+  "embedding_environment.json": {
+    "sha256": "142416d2895afdf21b773c1197a659eebcba80cbe2c54acc1801f7bbd9f2f149",
+    "bytes": 1191
+  },
+  "fit_input_contract.json": {
+    "sha256": "267cd332414ed0d27dbe6c09db10b3e15b83e4b2d6f1d37035de1cc8ccccb7bd",
+    "bytes": 2348
+  },
+  "run_environment.json": {
+    "sha256": "98d848e8ff7e77433c9dbef43b1e9b13c5ff4d7c69cdbfa602489f08d54e3bf6",
+    "bytes": 2498
+  },
+  "pip-freeze.txt": {
+    "sha256": "de277367272b340fa2bdacd9c15b6b4ff2e1dd5607fece68eccc741c922c3d24",
+    "bytes": 12767
+  },
+  "results/evaluation_v2.json": {
+    "sha256": "9fbd28cacb911fb57bace9835b8402894b53428595d2e7166d56c9f4bf42df39",
+    "bytes": 106010
+  },
+  "results/classifier_v2.joblib": {
+    "sha256": "c29ad0b6ed2361524560f60710fdd58c76ab57ad5086a99fe0940f003251b7d5",
+    "bytes": 2150382
+  },
+  "source/ml/features.py": {
+    "sha256": "43c1c42a38ea4eb84497f956e8d6cbc7f76a3f1774e2ccd6b44d2e37e0ef11d9",
+    "bytes": 13823
+  },
+  "source/ml/data.py": {
+    "sha256": "87afaa2a54f59d53d26af57a0441c7ac11144070cf4527fa85001ce153a50605",
+    "bytes": 20960
+  },
+  "source/ml/data_v2.py": {
+    "sha256": "c0fed7121b44a2312e30dae54b7d2494d583008eb9f427591f7028272955576b",
+    "bytes": 11280
+  },
+  "source/ml/mimii.py": {
+    "sha256": "3a4513d3c88d034da01eafbe134718caf3885cb07977c6a508e9e2a3407bbe52",
+    "bytes": 20046
+  },
+  "source/ml/buzz.py": {
+    "sha256": "697c3ad1e6a5ff585bdda95f4c776906f066ae4413cf22f7cc0806f1ade798e5",
+    "bytes": 12087
+  },
+  "source/ml/experiment.py": {
+    "sha256": "911e000d0c79c23b17afd9979df8a4098c1f50036faf164fa2b0e36fb9e6962c",
+    "bytes": 20775
+  },
+  "source/ml/experiment_v2.py": {
+    "sha256": "ff5aa30baabf44677e9acd27af727f8e03e60a848bc14e7493f665c017aa8703",
+    "bytes": 22400
+  },
+  "source/ml/run_v2.py": {
+    "sha256": "e1a8b75aea0908fb394c882136d1000c32ab4323f16bc42c4f54ceb242ed9f8e",
+    "bytes": 23256
+  },
+  "source/ml/V2_PROTOCOL.md": {
+    "sha256": "57f858d302a824451d4effb014c6188b296e0829c57a52018288efa681d5c7fb",
+    "bytes": 7186
+  },
+  "source/ml/requirements.txt": {
+    "sha256": "38804772c3bc851042e564f20a0a83927c1e4968f212fee4d8b83714ac3bbece",
+    "bytes": 384
+  }
+}

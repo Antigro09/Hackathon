@@ -19,15 +19,15 @@ function captureError(error: unknown): Error {
   switch (name) {
     case 'NotAllowedError':
     case 'SecurityError':
-      return new AudioInputError('permission-denied', 'Microphone permission was denied. Choose a local file or demo, or allow microphone access in browser settings and retry.');
+      return new AudioInputError('permission-denied', 'Microphone permission was denied. Allow microphone access in browser settings and retry.');
     case 'NotFoundError':
     case 'DevicesNotFoundError':
-      return new AudioInputError('no-microphone', 'No microphone was found. Connect one, or choose a local file or demo.');
+      return new AudioInputError('no-microphone', 'No microphone was found. Connect a microphone, then retry.');
     case 'NotReadableError':
     case 'TrackStartError':
-      return new AudioInputError('device-unreadable', 'The microphone could not be read. Close other apps using it, retry, or choose a local file or demo.');
+      return new AudioInputError('device-unreadable', 'The microphone could not be read. Close other apps using it, then retry.');
     default:
-      return new AudioInputError('capture-failed', 'Microphone capture could not start. Retry in a supported browser on HTTPS or localhost, or choose a local file or demo.');
+      return new AudioInputError('capture-failed', 'Microphone capture could not start. Retry in a supported browser on HTTPS or localhost.');
   }
 }
 
@@ -36,10 +36,10 @@ export async function startCapture({ onProgress, onMeter, signal, durationSecond
   if (signal.aborted) throw cancelledError();
   assertCaptureDuration(durationSeconds);
   if (!globalThis.isSecureContext || !navigator.mediaDevices?.getUserMedia) {
-    throw new AudioInputError('secure-context-required', 'Microphone capture needs HTTPS or localhost. Open this app there, or choose a local file or demo.');
+    throw new AudioInputError('secure-context-required', 'Microphone capture needs HTTPS or localhost. Open this app there, then retry.');
   }
   if (typeof AudioContext === 'undefined' || typeof AudioWorkletNode === 'undefined') {
-    throw new AudioInputError('worklet-unavailable', 'This browser does not support the required audio recorder. Use a current browser, local WAV file, or demo.');
+    throw new AudioInputError('worklet-unavailable', 'This browser does not support the required audio recorder. Open the app in a current browser.');
   }
   if (document.visibilityState === 'hidden') {
     throw new AudioInputError('incomplete', 'Keep the recording tab visible, then retry.');
@@ -57,7 +57,7 @@ export async function startCapture({ onProgress, onMeter, signal, durationSecond
   const interrupted = new Promise<never>((_, reject) => { interrupt = reject; });
   // Attach the rejection handler before permission or module loading can remain pending.
   const guarded = <T>(promise: Promise<T>) => abortable(Promise.race([promise, interrupted]), signal);
-  const interruption = () => interrupt(new AudioInputError('incomplete', 'Recording was interrupted. Keep this tab visible and retry, or choose a local file or demo.'));
+  const interruption = () => interrupt(new AudioInputError('incomplete', 'Recording was interrupted. Keep this tab visible and retry.'));
   const onVisibility = () => { if (document.visibilityState === 'hidden') interruption(); };
   const onPageHide = () => interruption();
   const onStateChange = () => { if (graphActive && context?.state !== 'running') interruption(); };
@@ -68,7 +68,7 @@ export async function startCapture({ onProgress, onMeter, signal, durationSecond
   try {
     context = new AudioContext();
     if (!context.audioWorklet) {
-      throw new AudioInputError('worklet-unavailable', 'This browser cannot create an audio recorder. Choose a local WAV file or demo.');
+      throw new AudioInputError('worklet-unavailable', 'This browser cannot create an audio recorder. Open the app in a current browser.');
     }
     // Resume immediately, while this call still belongs to the user's button gesture.
     const resumed = context.resume();
@@ -87,11 +87,11 @@ export async function startCapture({ onProgress, onMeter, signal, durationSecond
     const loaded = context.audioWorklet.addModule(`${import.meta.env.BASE_URL}capture-worklet.js`);
     await guarded(Promise.all([resumed, loaded, requestedStream]));
     if (signal.aborted) throw cancelledError();
-    if (!stream) throw new AudioInputError('capture-failed', 'Microphone capture ended before it started. Retry, or choose a file or demo.');
+    if (!stream) throw new AudioInputError('capture-failed', 'Microphone capture ended before it started. Check the microphone connection and retry.');
     const track = stream.getAudioTracks()[0];
-    if (!track || track.readyState === 'ended') throw new AudioInputError('no-microphone', 'No active microphone track was returned. Choose a local file or demo.');
+    if (!track || track.readyState === 'ended') throw new AudioInputError('no-microphone', 'No active microphone track was returned. Check the microphone connection and retry.');
     if (context.state !== 'running') await guarded(context.resume());
-    if (context.state !== 'running') throw new AudioInputError('context-suspended', 'Audio recording is suspended. Retry from the recording button, or choose a file or demo.');
+    if (context.state !== 'running') throw new AudioInputError('context-suspended', 'Audio recording is suspended. Retry from the recording button.');
 
     const settings = filterDeviceSettings(track.getSettings());
     const qualityCodes: QualityCode[] = [];
@@ -112,7 +112,7 @@ export async function startCapture({ onProgress, onMeter, signal, durationSecond
     context.addEventListener('statechange', onStateChange);
     const captured = new Promise<void>((resolve, reject) => {
       if (!recorder) return;
-      recorder.onprocessorerror = () => reject(new AudioInputError('incomplete', 'The audio recorder stopped unexpectedly. Retry, or choose a file or demo.'));
+      recorder.onprocessorerror = () => reject(new AudioInputError('incomplete', 'The audio recorder stopped unexpectedly. Check the microphone connection and retry.'));
       recorder.port.onmessage = (event: MessageEvent) => {
         if (finished || signal.aborted || collector.complete) return;
         try {

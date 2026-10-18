@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "sourceManifestSha256": "91a944d1386d5c1692218aec113e6fa87f7d0f97e9eed42e2ea11a6a6ba8c438",
+  "preparation": "Exact generated little-endian Float32; no audio decoder, gain, normalization, or training",
+  "records": [
+    {
+      "row": 0,
+      "clip_id": "tw-v3-square-44100",
+      "source_sha256": "c5fda595540149391f6507afcecd0efc574e067e7396e3315b4a38f4a5e21297",
+      "pcm_sha256": "c5fda595540149391f6507afcecd0efc574e067e7396e3315b4a38f4a5e21297",
+      "pcm_path": "tw-v3-square-44100.f32",
+      "sample_rate": 44100,
+      "sample_count": 220500,
+      "label": "synthetic_software_check",
+      "split": "software_check",
+      "uploader": "deterministic-generator",
+      "source_record": {
+        "kind": "synthetic-software-test",
+        "generatorSha256": "cf4c6a95f4b5108c4c906829385f062a66ccf363a2ece78c49da31b634af4105",
+        "generatorImplementation": "tw-v3-synthetic-self-test-inputs-v1",
+        "specification": {
+          "id": "tw-v3-square-44100",
+          "sampleRate": 44100,
+          "sampleCount": 220500,
+          "waveform": "alternating half cycles floor(n*126/sampleRate), amplitude +/- 0.0625"
+        },
+        "notTrainingData": true,
+        "fieldEvidence": false,
+        "sourceHashScope": "generated Float32 input bytes"
+      }
+    },
+    {
+      "row": 1,
+      "clip_id": "tw-v3-noise-48000",
+      "source_sha256": "9612fc9bc47aa9d4a2da72b7a22fcce2b66debf98b2433e86e3ddb0f2ef50a81",
+      "pcm_sha256": "9612fc9bc47aa9d4a2da72b7a22fcce2b66debf98b2433e86e3ddb0f2ef50a81",
+      "pcm_path": "tw-v3-noise-48000.f32",
+      "sample_rate": 48000,
+      "sample_count": 240000,
+      "label": "synthetic_software_check",
+      "split": "software_check",
+      "uploader": "deterministic-generator",
+      "source_record": {
+        "kind": "synthetic-software-test",
+        "generatorSha256": "cf4c6a95f4b5108c4c906829385f062a66ccf363a2ece78c49da31b634af4105",
+        "generatorImplementation": "tw-v3-synthetic-self-test-inputs-v1",
+        "specification": {
+          "id": "tw-v3-noise-48000",
+          "sampleRate": 48000,
+          "sampleCount": 240000,
+          "waveform": "xorshift32 shifts 13/17/5, update before sample, ((state>>>8)-0x800000)*2^-27"
+        },
+        "notTrainingData": true,
+        "fieldEvidence": false,
+        "sourceHashScope": "generated Float32 input bytes"
+      }
+    }
+  ]
+}

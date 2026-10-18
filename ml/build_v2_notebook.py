@@ -29,7 +29,7 @@ from pathlib import Path
 SOURCE_REF = "main"  # Use a recorded immutable commit to reproduce a completed run.
 REMOTE = "https://github.com/Antigro09/Hackathon.git"
 REPO = Path("/content/tonalwatch-source-v2")
-ARTIFACTS = Path("/content/tonalwatch-artifacts-v2")
+ARTIFACTS = Path("/content/tonalwatch-artifacts-v2b")
 CACHE_ROOT = Path("/content/tonalwatch-artifacts/data")
 MODEL_CACHE = Path("/content/tonalwatch-artifacts/models")
 ARTIFACTS.mkdir(parents=True, exist_ok=True)
@@ -66,7 +66,7 @@ print("Artifacts:", ARTIFACTS)
 These synthetic checks cover source licensing, deterministic cropping, exact processor padding, grouping/content leakage, training-only model selection, and validation-only rejection calibration. They do not measure field accuracy. Failed checks stop the notebook before downloading the expanded cohort.
 """),
         code('''
-TEST_MODULES = ["ml.test_data", "ml.test_features", "ml.test_experiment", "ml.test_mimii", "ml.test_data_v2", "ml.test_experiment_v2"]
+TEST_MODULES = ["ml.test_data", "ml.test_features", "ml.test_experiment", "ml.test_mimii", "ml.test_buzz", "ml.test_data_v2", "ml.test_experiment_v2", "ml.test_run_v2", "ml.test_compare_frozen_v1"]
 stream_command([sys.executable, "-m", "unittest", *TEST_MODULES, "-q"], cwd=REPO)
 COMMAND = [sys.executable, "-u", "-m", "ml.run_v2", "--output", str(ARTIFACTS),
            "--cache-root", str(CACHE_ROOT), "--model-cache", str(MODEL_CACHE),
@@ -80,6 +80,8 @@ def run_phase(phase):
 FSD50K contributes CC0/CC BY clips with uploader-disjoint development/fresh test groups. Every first-run uploader, clip ID, and exact audio fingerprint is excluded from the new held-out cohort. FSD caps: 500 train, 80 validation, 40 test per class; 160 unknowns per split. Quality failures and sparse categories are reported rather than replaced with old test data.
 
 The first run exhausted eligible FSD fan test recordings. Separately licensed [MIMII public 1.0](https://zenodo.org/records/3384388) supplies **CC BY-SA 4.0** fan audio: physical units 00/02 train (40 clips each), 04 validation (30), 06 test (40). Other machine types supply 10 unknown controls each per split (30 validation, 30 test) using distinct 04/06 units. Source archives are selectively read using strict HTTP ranges; pinned ZIP inventories, local headers, per-member CRC and source/prepared/PCM SHA256 are checked. Published whole-archive MD5 values are recorded but cannot be verified without downloading the entire archives.
+
+Fresh FSD buzz also failed the unchanged quality rules. The data-only protocol amendment adds [IVBEE-1.0](https://zenodo.org/records/20077113), **CC BY 4.0**, entirely as held-out insect-buzz stress data: all 23 eligible original recordings, first five seconds, no padding/stitching/gain changes. The remaining 203 files are too short. Six specimen groups share one laboratory collection and hardware; they are not six independent studies. The native WAVs are 48 kHz mono PCM16, despite the publisher's 24-bit description. Whole archive MD5/SHA256 and individual hashes/CRC are checked. This does not test electrical hum.
 
 ### Key assumptions and limits
 
@@ -115,7 +117,7 @@ print("V1 rows reused this invocation:", embedding_info["v1_rows_reused_this_inv
 
 Candidate selection uses training-group cross-validation only; class-specific margin/top-three cosine rules use known/unknown validation only. Each class must meet 20% correct true-class validation coverage and 80% accepted-known precision; finite empirical unknown budgets are 2% per class and 10% combined. A failed class abstains and is reported as a failure.
 
-The source/protocol/input hashes are saved before fit. Only after selection and calibration are fixed are fresh test metrics reported. Rerunning an identical completed fit reads its saved result. Changes motivated by this new test require another untouched test set. No old-system baseline is included, so v1/v2 scores from different cohorts are not a direct improvement comparison.
+The source/protocol/input hashes and exact training runtime are saved before fit. Only after selection and calibration are fixed are fresh test metrics reported. Rerunning an identical completed fit reads its saved result and preserves its original completion metadata. Changes motivated by this new test require another untouched test set. The optional frozen-v1 comparison below uses these same new recordings; the first run's old-cohort score cannot be compared directly.
 """),
         code('''
 run_phase("fit")
@@ -143,18 +145,34 @@ for raw, gated in zip(test["ungated"]["perClass"], test["perClass"]):
 print("Do not infer field improvement by comparing a score on this cohort with the different v1 cohort.")
 '''),
         markdown("""
+## 6b. Compare the unchanged first classifier on identical recordings
+
+V2 has already frozen its model, gate and result. Apply the immutable first-run linear coefficients, centroids and original gate without fitting or calibration. Both systems now use the exact same new test cohort and native embeddings. The comparator checks model, manifest, source and completion hashes; it never replaces the v2 evidence. Its separate JSON is not part of the original fit ZIP.
+"""),
+        code('''
+stream_command([sys.executable, "-u", "-m", "ml.compare_frozen_v1", "--output", str(ARTIFACTS),
+                "--previous-run", str(REPO / "ml/runs/2026-10-18")], cwd=REPO)
+print("Separate comparison:", ARTIFACTS / "results/frozen_v1_comparison.json")
+'''),
+        markdown("""
 ## 7. Download the audit bundle
 
 The ZIP contains results, the Python classifier, attributed manifests, exact source/protocol, environment, pip freeze and SHA256 index. It excludes raw audio and the standalone embedding cache. The classifier retains training reference vectors required for its rejection rule. Nothing is uploaded, published, or deployed automatically.
 """),
         code('''
 archive = ARTIFACTS / "tonalwatch-v2-results.zip"
-print("Result bundle:", archive, "bytes:", archive.stat().st_size)
-try:
-    from google.colab import files
-    files.download(str(archive))
-except ImportError:
-    print("Download this file from your runtime's file pane.")
+import hashlib, zipfile
+complete = ARTIFACTS.parent / "tonalwatch-v2-complete-results.zip"
+with zipfile.ZipFile(complete, "w", zipfile.ZIP_DEFLATED) as bundle:
+    bundle.write(archive, "fit-audit-bundle.zip")
+    comparison = ARTIFACTS / "results/frozen_v1_comparison.json"
+    if comparison.exists():
+        bundle.write(comparison, "frozen_v1_comparison.json")
+        bundle.write(REPO / "ml/compare_frozen_v1.py", "comparison_source.py")
+print("Result bundle:", complete, "bytes:", complete.stat().st_size)
+print("SHA256:", hashlib.sha256(complete.read_bytes()).hexdigest())
+print("In Colab: Files > Refresh, then right-click this ZIP and choose Download.")
+print("This uses the file pane and does not require output JavaScript widgets.")
 '''),
     ]
     notebook = nbf.v4.new_notebook(cells=cells)

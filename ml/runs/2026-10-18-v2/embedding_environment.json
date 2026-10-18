@@ -1,0 +1,29 @@
+{
+  "manifest_sha256": "8a22e336d2eb1806ab228b381badb46156e67f198013d77b31a0565fbb3f0ab8",
+  "encoder_contract": {
+    "model_id": "Xenova/clap-htsat-unfused",
+    "model_revision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+    "weights": "3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f",
+    "preprocessor": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+    "extractor_source": "43c1c42a38ea4eb84497f956e8d6cbc7f76a3f1774e2ccd6b44d2e37e0ef11d9",
+    "pcm": "first channel, first 240000 samples at48000Hz, no normalization",
+    "processor_padding": "append240000zeros to five-second clip; float32[1,1,1001,64]",
+    "embedding": "audio_model_quantized.onnx audio_embeds, L2-normalized float32[512]",
+    "packages": {
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "transformers": "4.57.1",
+      "onnxruntime": "1.23.2",
+      "soundfile": "0.13.1"
+    }
+  },
+  "cache_file": "embeddings-v2-9ebff6ad25971c4b96e9.npz",
+  "shape": [
+    1226,
+    512
+  ],
+  "complete": true,
+  "v1_rows_reused_this_invocation": 383,
+  "fresh_rows_this_invocation": 843,
+  "cache_sha256": "25ffd41e3359c952357b941dad9be832ad604a3bb5e2046dda7324d64eaecbd7"
+}

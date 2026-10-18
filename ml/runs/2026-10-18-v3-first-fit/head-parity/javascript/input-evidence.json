@@ -1,0 +1,30 @@
+{
+  "researchOnly": true,
+  "promotionAllowed": false,
+  "expectedSha256": "a2fa7d8a971eb5b5134f2d5f90c61e35fb1931dea1206955d23f0a7439ff585c",
+  "headSha256": "1e373cd18cbd706812dac10b19a320b73a568e6ee40e3f34236e03ae6122f491",
+  "frozenParametersAndRulesSha256": "6f1119be47ffeea7fcf8b3e1b4212af7d387cdef14667c3c871f46e9c98c8a92",
+  "pins": {
+    "compilerVersion": "7.0.2",
+    "scorerSourceSha256": "c89ed32798a923eaf19b62fabfda9a8b3ae87b5757fd57458e9ec54aa715b0f7",
+    "compiledScorerSha256": "5b969fa736aad8b336c198d24f20bf59bbe4e788ef7878ea86dd8126c20ed25f",
+    "pythonScorerSha256": "640e11d60776d8f87f01e9c19f356c49bd5cc02c433e2abd8edb740aecc026d1"
+  },
+  "compiler": {
+    "version": "7.0.2",
+    "wrapperSha256": {
+      "package.json": "3722b30210616a13a3213ded11575ba6b2dbab10c32a5ef67afca8513e27017e",
+      "bin/tsc": "2219f428a7e55aaf1f7ad85b9b0f0cf5078aeb76ccc9a7c6036c92d48f492ffd",
+      "lib/tsc.js": "cbdfbf11c26ed00dfc073155e316a42d6d6d8a387be61006b82fa9aa93ac572e",
+      "lib/getExePath.js": "96c10fd3a18e165d7323de8e314ac8d755ad96811f9fbc304a5b3ba4e05285cc"
+    },
+    "nativeExecutableSha256": "f9ecfbdc93753d2c972d66a8d0d75f5bd737fd4a5f88b422d9091ea282bcb2c7"
+  },
+  "node": {
+    "node": "v24.18.0",
+    "v8": "13.6.233.17-node.50",
+    "platform": "win32",
+    "architecture": "x64"
+  },
+  "comparatorSourceSha256": "e5c41f4bd6aa7e8e360f0b5b7c253fcc7cb82cee04d003a6dcdb5359c2e6d24c"
+}

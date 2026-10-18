@@ -22,7 +22,7 @@ if (!runtimeSource) throw new Error('Standalone lab must inline its capture runt
 
 function record(overrides: Record<string, unknown> = {}): FieldEntry {
   return core.fieldLabCaptureRecord({
-    algorithmVersion: 'tw-field-lab-v2', sampleRateHz: 48000, sampleCount: 720000,
+    algorithmVersion: 'tw-field-lab-v3', sampleRateHz: 48000, sampleCount: 720000,
     durationSeconds: 15, frameCount: 174, fftSize: 8192, hopSize: 4096,
     binSpacingHz: 48000 / 8192, aDigitalDb: -40, cDigitalDb: -20, cMinusADb: 20,
     lowFrequencyScreen: 'suggested', peakScreen: 'not-indicated', peakCandidate: null,
@@ -127,6 +127,30 @@ describe('standalone sample-counted microphone collector', () => {
 });
 
 describe('persistent campaign provenance and CSV', () => {
+  it('retains structured v2 and v3 records with their original method, values and observer metadata', () => {
+    const old = record({ algorithmVersion: 'tw-field-lab-v2',
+      peakCandidate: { centerHz: 1954.1, prominenceDb: 22, persistentFrameFraction: 1 }, peakScreen: 'suggested' });
+    const current = record();
+    const original = JSON.stringify([old, current]);
+    const decoded = core.fieldLabDecodeLog(original);
+    expect(decoded.invalid).toBe(false);
+    expect(JSON.stringify(decoded.entries)).toBe(original);
+    expect(core.fieldLabDecodeLog(JSON.stringify(decoded.entries))).toEqual(decoded);
+    expect(decoded.entries.map(entry => entry.algorithmVersion)).toEqual(['tw-field-lab-v2', 'tw-field-lab-v3']);
+    expect(decoded.entries.every(entry => entry.schemaVersion === 2 && !Object.hasOwn(entry, 'original'))).toBe(true);
+    const rows = parseCsv(core.fieldLabCsv(decoded.entries));
+    expect(rows.slice(1).map(row => row[rows[0].indexOf('algorithm_version')])).toEqual(['tw-field-lab-v2', 'tw-field-lab-v3']);
+    expect(rows[1][rows[0].indexOf('peak_frequency_hz')]).toBe('1954.1');
+    expect(rows[1][rows[0].indexOf('heard_user_note')]).toBe('first line\nsecond line, "quoted"');
+  });
+
+  it('keeps unknown-version structured records as unverified originals instead of silently relabeling their method', () => {
+    const future = record({ algorithmVersion: 'tw-field-lab-v99' });
+    const decoded = core.fieldLabDecodeLog(JSON.stringify([future]));
+    expect(decoded.entries[0]).toMatchObject({ schemaVersion: 1, provenance: 'legacy-unverified', original: future });
+    expect((decoded.entries[0].original as FieldEntry).algorithmVersion).toBe('tw-field-lab-v99');
+  });
+
   it('preserves legacy originals idempotently and labels their method unverified', () => {
     const original = { t: '12:00', s: 'raw, "quoted"\nsite', dur: '15 s', g: '20', v: 'SIGNATURE' };
     const first = core.fieldLabDecodeLog(JSON.stringify([original]));

@@ -1,8 +1,60 @@
 # TonalWatch validation record
 
-Build date: **October 18, 2026 (America/New_York)**. This record distinguishes software checks from browser integration and physical measurement validation. Algorithm: **`tw-screen-v1`**.
+Build date: **October 18, 2026 (America/New_York)**. This record distinguishes software checks from browser integration and physical measurement validation. Current algorithm: **`tw-screen-v2`**; earlier v1 checks remain historical evidence for unchanged weighting/PSD and their original peak-selection method.
 
-**Current status:** the combined checkout passed **294 tests across 14 files** (259 application +35 standalone-lab checks) and TypeScript/Vite build. Home navigation, Learn exhibits, map,5/15/30-second observations, and comparison passed public HTTPS verification. See [deployment evidence](DEPLOYMENT.md). Historical129/264-test runs remain separately labeled.
+**Current application/lab status:** **428 tests across 21 files** (388 existing checks plus 40 V3 panel/head-loader checks), with TypeScript/Vite build passed and all 23 opaque product payloads byte-exact. The mounted V3 app passed fresh-session local browser QA described below; public V3 deployment verification is pending. Observation accepts live microphone capture only. The UI keeps all three durations, the input meter, negative-dB explanations, concise text exports and the printed spectrum. The AI copy uses deterministic, independently checked resampling. See [deployment evidence](DEPLOYMENT.md). Historical test runs remain separately labeled.
+
+## Microphone-only observation
+
+Removed file-import and synthetic-demo observation controls, their runtime imports and mode state. Observation opens directly to the microphone with 5/15/30-second controls. Home, Learn, Sources, empty results/reports and every capture-error path describe the available microphone workflow. Educational listening tones, illustrative map examples and scientific fixtures remain separate from recording inputs.
+
+Chrome used a generated virtual microphone through the actual AudioWorklet: live meter samples arrived, cancel released every track without analysis, and a subsequent 15-second capture produced 720,000 samples / 174 complete frames at 48 kHz. Its report retained microphone provenance and the complete window. Native text download was 5,828 bytes / 94 lines, with no individual spectrum-bin rows; the graph remained visible under print media and controls hid. Navigating Home during another capture released every track and cleared the partial result. All six pages at 320/390/1280 px had no horizontal overflow, file inputs or stale input instructions, and scrolling reached the footer. These are software checks with generated input, not physical microphone validation.
+
+### Recorder startup follow-up
+
+Public Chrome testing reproduced Cancel → Retry failing before its first audio chunk: the old context had closed, but the new graph briefly lost its provisional input. Before any complete 2,048-sample chunk has been posted, the worklet now discards provisional samples and restarts at index zero. It never fills a gap or joins discontinuous audio. After the first chunk, all missing inputs or render gaps still fail closed; the existing no-data watchdog remains. The complete 0.5-second warm-up and selected capture duration are collected from the new continuous sequence. Device-clock recording times remain estimates, not authenticated sample timestamps.
+
+Six added regression cases verify fresh sample contents/indices, repeated provisional starts, silent outputs and strict post-commit interruption. All 37 capture tests pass. Chrome then completed immediate Cancel → Retry and a 15-second capture through text/print export, retaining 720,000 samples and 174 frames at 48 kHz. No software check establishes physical accuracy.
+
+## Prior capture-control and resampling follow-up
+
+The initial Observation mode was Demo, which hid the existing recording-duration selector and displayed a fixed five-second sample. Demo now discloses that distinction and provides a direct action selecting a 15-second microphone observation. Microphone/File expose 5/15/30-second buttons with pressed states and capture-time disabling. The method text distinguishes more time frames from unchanged FFT frequency spacing. Negative A/C digital levels relative to RMS 1 are explained separately from the signed C−A difference; −20 dB corresponds to one-tenth of the reference RMS amplitude, not negative pressure or calibrated dB SPL.
+
+Local Chrome integration exercised the new shortcut and a real AudioWorklet with virtual microphone input: a 15-second result/report retained 720,000 samples and 174 complete frames at 48 kHz. The virtual input clipped and correctly produced an inconclusive quality state. A separate 15-second 4 kHz WAV import produced A −22.0 dB, C −23.8 dB and C−A −1.8 dB, with the explanations visible and the AI panel retaining its first-five-second boundary. Selecting 30 seconds rejected that shorter file. At 1366, 1024 and 390 px, duration controls fit without document-width overflow. These are software/browser checks, not physical-device validation.
+
+The AI resampler matches independent SciPy references for 20 signals/rates at 448 positions per case. A separate six-signal browser diagnostic found bit-exact complete PCM after conversion and measured remaining native/WASM embedding drift; see [AI experiment evidence](AI_EXPERIMENT_RESULTS.md#browser-resampling-correction). No trained classifier or thresholds were promoted.
+
+## Concise text export
+
+The text report retains recording context, important results, quality notes, references and a short spectrum summary. It no longer serializes individual frequency/power bins. Full immutable arrays, the actual SVG path and the printed graph remain unchanged. The report offers “Download text summary” and explains that Print / save PDF includes the visual graph.
+
+The focused report suite passed 35 checks, including actual 15-second, 8,192-point FFT results at 44.1/48 kHz with over 3,000 bins. A native browser download was 7,623 bytes and 109 lines, with no bin rows; notes, references and 174-frame metadata remained. The SVG path was identical before and after download, and the graph was visible in the generated PDF. Report controls fit 320/390 px without horizontal overflow. Actual report length varies with user notes and references.
+
+The public HTTPS release at `55a0dcb` independently produced a 7,610-byte, 109-line native download with no bin rows. Its 15-second result retained 720,000 samples, 174 frames, context and official references. The actual spectrum path remained visible under print media; the toolbar hid as intended. No page/HTTP errors occurred.
+
+## WAV rate and decoder provenance
+
+The original default AudioContext resampled 44.1 kHz WAV files to 48 kHz before the explicit AI converter. A bounded RIFF/WAVE hint now requests supported 44.1/48 kHz rates, while the browser remains responsible for format validation. Unknown, malformed, ambiguous and unsupported headers use default decoding; unavailable requested rates fall back explicitly. Actual decoded rate always governs cropping and analysis. Contexts close on success, failure and cancellation. Analysis and reports separately filter twelve non-identifying decoder fields and omit private device/file metadata.
+
+Two generated five-second PCM16 WAVs (63 Hz/1 kHz) decoded at 44.1 kHz in Chrome, retaining 220,500 samples. Their actual AI requests used that prefix and converted to 240,000 samples at 48 kHz, bit-exact to SciPy applied to the **browser-decoded** waveform. Chrome's slight asymmetric PCM16 conversion still differs from the native symmetric reference: maximum PCM error about 3.08e−6, with same-native-encoder cosine 0.99971/0.99966. This distinction is separate from the previously measured native/WASM ONNX drift. No gain compensation or full WAV codec was introduced, and no classifier threshold was changed. Source-rate preservation is verified; raw-file-to-native-float equivalence is not claimed. The full 365-test run includes these parsing, lifetime, provenance and privacy checks.
+
+Public HTTPS verification of `0b94eb0` additionally retained 661,500 samples and 160 frames from an actual 15-second 44.1 kHz PCM16 file. Requested/effective rate, matched hint, fallback and crop fields survived into the report and its 6,352-byte / 99-line native text download, with no bin rows. A test-only observer confirmed the separate AI prefix retained its original 44.1 kHz rate before conversion. Print preserved the graph; no model download or page/console/network error occurred.
+
+## Second classifier experiment
+
+The completed Colab run and an independent hash/leakage/arithmetic audit are recorded in [AI_V2_RESULTS.md](AI_V2_RESULTS.md). The v2 candidate remains research-only, with useful-coverage and unknown-rejection failures. Python tests and isolated JavaScript scorer checks are separate from the app/lab count above. Saved results were not refit or retuned after fresh-test inspection.
+
+## Sustained-peak selection correction
+
+A generated 15-second, 44.1 kHz PCM16 63 Hz tone exposed a v1 ranking defect. Its main candidate near 64.600 Hz had three-bin power 0.004975741 and 47.36 dB local prominence; a quantization artifact near 1954.138 Hz had power 5.9798e−13 and 49.16 dB prominence. Both appeared in all 160 frames. V1 selected the artifact despite its being 99.20 dB weaker because it ranked persistence then prominence.
+
+V2 first requires the existing per-frame 12 dB prominence/60% concentration criteria and track persistence of at least 80% of all frames, with at least 20 frames. It then selects the eligible track with strongest median three-bin linear power, breaking ties by persistence, prominence and frequency. Adjacent candidates within a frame follow the same power priority. Filtering eligibility first prevents a louder brief event from hiding a quieter sustained track. This is an experimental representative-peak rule, not fundamental-frequency estimation or standardized tonality. Weighted A/C results, averaged PSD and quality/eligibility thresholds are unchanged.
+
+The dependency-free standalone lab mirrors this correction as `tw-field-lab-v3`. Its schema and storage key stay unchanged; explicitly recognized structured v2/v3 campaign rows keep their original algorithm, values and observer metadata. Old results are not silently recomputed or relabeled. Earlier unversioned and unknown-method rows retain their raw legacy wrappers.
+
+The [recorded before-fix audit](validation/peak-ranking-before.json) preserves the generated-signal comparison. Regression checks cover quantized tones at both supported rates and 5/15 seconds, stronger ~80%-persistent versus weaker fully persistent tracks, ineligible ~75% tracks, low-gain tones, noise/burst rejection, complete main/lab PSD and A/C parity, and historical structured-record preservation. **380 tests across 19 files and the production build passed** after the correction.
+
+Public release `c54ab68` then reported the generated 15-second 44.1 kHz PCM16 tone near **64.599609375 Hz**, retaining 661,500 samples/160 frames and the prior A/C values/PSD references. Text download was 6,576 bytes/99 lines with no bin rows; report/print kept the graph. At 320/390/1280 px, Report and Sources fit horizontally and their footers were fully reachable at maximum vertical scroll. No runtime/network errors occurred. These generated-input checks do not validate physical source identification.
 
 ## Environment and pinned dependencies
 
@@ -44,7 +96,7 @@ This table records the earlier release, not a new total after the approved exten
 
 ## Expanded-workflow checks
 
-**First expanded integration:** `npm test` passed264 tests across 13 files before the team restored the separate lab. Its five retirement tests were replaced; the current combined result is294 tests across 14 files, including259 application and 35 standalone checks. The exact deployed application archive passed259 application tests and build. Focused counts below overlap and are not additional tests.
+**First expanded integration:** `npm test` passed 264 tests across 13 files before the team restored the separate lab. Its five retirement tests were replaced; that follow-up passed 294 tests across 14 files, including 259 application and 35 standalone checks. The earlier expanded deployed application archive passed 259 application tests and build. The newer total is recorded above. Focused counts below overlap and are not additional tests.
 
 The following focused runs were observed during implementation. Their test files overlap; **do not add these counts together** or treat them as a full-suite count.
 
@@ -163,3 +215,42 @@ The standalone [`field_lab.html`](../field_lab.html) serves the E1–E5 campaign
 These checks do not establish hardware accuracy or retroactively validate [FIELD_LOG.md](FIELD_LOG.md). Its original notes retain explicit missing-provenance, duration, source, and unsupported-device-offset limitations; the instrument/version that produced them is unknown.
 
 OpenAI Codex assisted development and software verification. Core calculations and report wording are deterministic. The optional local CLAP comparison uses downloaded model/runtime files and no remote inference endpoint. No generative legal text, audio upload, or automated complaint submission is included. Upstream model and library attribution is recorded in [RESOURCES.md](RESOURCES.md).
+
+## V3 recorded relative comparison — October 18, 2026
+
+The [frozen comparison protocol](../ml/BASELINE_COMPARISON_PROTOCOL.md) was committed before the 416 reserved clips were encoded or classified. The exact original website eight-description worker/runtime was compared with the frozen audio-only CLAP encoder plus trained integer head. The encoder was not fine-tuned; prompts, parameters, rejection rules, quality policy and metrics were unchanged during final evaluation.
+
+The original website DSP worker froze a common mask before either classifier: 409 eligible rows (218 known, 191 unknown), seven blocking-quality joint abstentions, zero baseline errors and all 416 paired rows retained. Full denominators remain 222 known and 194 unknown. Saved row outcomes independently reproduce known-family macro F1 **0.7779942504 versus 0.3944968826**. V3 emitted 103 known-family hints on eligible true-known rows, 98 correct (**95.15% precision; 103/218 = 47.25% coverage**); baseline emitted 216, with 95 correct (**43.98% precision**). Unknown family-hint rates were **7/191 versus 182/191**. Correct V3 accepted coverage was 18/36 buzz, 17/35 fan, 30/49 speech, 11/52 traffic and 22/46 wind. All five predeclared relative recognition checks passed; [AI_V3_RESULTS.md](AI_V3_RESULTS.md) includes full denominators, subgroups, actual top-two baseline exposure and limitations.
+
+This does **not** pass the older strict bar. The original development audit retains its 6/116 unknown accepts and 10.8268% Wilson upper bound. On eligible final unknown rows, 7/191 gives a **7.3705%** upper bound above 5%; full 194 upper bound is 7.2594%. Accepted true-known predictions of wind are 22/25 = **88%**, below 90%. Creator labels, repeated hive/collection conditions, source/class confounding and possible encoder-pretraining overlap prevent a field/general-accuracy conclusion. Traffic's 11/52 correct acceptance and ToBee OSBH's 0/11 correct acceptance remain visible.
+
+Software prechecks available before mounted-app integration:
+
+| Check | Recorded result / scope |
+| --- | --- |
+| Frozen fitted-head parity | 1,360 development/synthetic cases, zero quantized-coordinate, six-score, margin, label or gate differences. |
+| Verified worker qualification | All 26 original software fixtures plus two startup cases matched full stage hashes and 512D vectors exactly; no fresh final recordings were used for this qualification. |
+| Exact legacy transport | Two fixed synthetic inputs completed through the unchanged public eight-description worker; pinned artifact bytes/options retained, including the 307 streaming transport. |
+| Prepared panel/head loader | 40 tests passed; strict TypeScript check passed. Lazy loading, native first-five-second copying, quality blocking, one-worker ownership, abort/stale isolation, integrity rejection and accepted-family-only output were checked without mounting the new app. |
+| Comparison/harness regressions | 12 comparator and eight harness synthetic checks passed. They cover fixed denominators/arithmetic, input/source/quality/browser bindings, immutable snapshots and mismatch rejection; they do not query fresh audio. |
+| Prepared public payloads | All 23 byte-index entries verified, totaling 50,887,143 bytes. Recording credits match all 1,358 development rows; licenses are CC0/CC BY. No MIMII recording is in fitted-head data. |
+
+Recognition evidence: [paired archive](../ml/runs/2026-10-18-website-relative-comparison/), completion SHA256 `a00a2e2adfff98b7021076c62ac1a2cc82e02a635d8c24bdf2d42cdc2c1d6375`, result SHA256 `c0958e60c0bbf70dbbb1b0d3737b8a3f6a57f5fcad6b57a11dca1eacfea41e23`. Historical strict fit evidence remains in the [first-fit archive](../ml/runs/2026-10-18-v3-first-fit/README.md).
+
+### Completed local mounted-app V3 checks
+
+The final isolated Chrome session `v3-app-final` exercised the built app at loopback with a generated 63 Hz/48 kHz virtual microphone. The [raw browser record](qa/2026-10-18-v3-browser.json) binds its actual source hashes and results. This does not validate a physical microphone or recognition accuracy on real nuisance sounds.
+
+| Check | Actual observation |
+| --- | --- |
+| Combined suite and build | **428 tests across 21 files**, TypeScript/Vite build passed; all 23 opaque static payloads remained byte-exact. |
+| Live 15-second capture | Meter responded, capture completed at 48 kHz, report retained **720,000 samples and 174 frames**. AI disclosure retained first 5 seconds versus full 15-second DSP/report scope. |
+| Consent / real model | No AI request before Explore. The actual model returned **No sound family suggested** for the generated tone. This software fixture has no claimed expected family. |
+| Startup evidence | The successful result passed the panel's exact provenance and `selfTestPassed` checks. Transient self-test UI text was too quick to observe, so the record does not claim it was seen or timed. |
+| Lifetime | At most **one** encoder worker. Clear/unload, retry/cancel and navigation while the unchanged graph request was held passed; releasing the old request produced **zero stale hints**. |
+| Corruption | Same-length corrupt head and graph each failed closed, with the standard spectrum/report still available. No fallback classifier or guessed family appeared. |
+| Native text and print | **7,718-byte/117-line** native TXT omitted individual bins and AI. PDF print retained the unchanged **6,579-character** actual SVG path and full 15-second metadata. |
+| Six pages and footers | Home, Observation, Learn, Map, Sources and Report at **320/390/1280 px**, visual viewport scale 1: zero horizontal overflow and reachable footer bottoms within **0.5 CSS px**. |
+| Network and runtime | **99 same-origin GETs**, zero request-body bytes, zero page errors and zero console errors in the final session. |
+
+The first session crossed preview rebuilds and requested a stale Map chunk, causing a 404; its ignored logs are preserved. The final evidence above comes from a fresh session against the fixed completed build. Updated six-page screenshots are linked from [README.md](../README.md). Public V3 HTTPS deployment verification remains **pending**; previous deployed legacy-model evidence does not substitute for it. The software result leaves all recorded strict model failures, coverage limitations and outstanding hardware/field validation intact.
