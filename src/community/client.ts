@@ -9,7 +9,7 @@ const finite = (v: unknown): v is number => typeof v === 'number' && Number.isFi
 const utc = (v: unknown) => typeof v === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?Z$/.test(v) && Number.isFinite(Date.parse(v)) && new Date(Date.parse(v)).toISOString().slice(0,19)===v.slice(0,19);
 const uuid = (v: unknown) => typeof v === 'string' && /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(v);
 const qualityCodes = ['near-zero','clipped','near-full-scale','incomplete','unsupported-rate','processing-active','processing-unknown','imported-processing-unknown','non-finite','no-band-power'];
-function observation(value: unknown): value is CommunityObservation {
+export function isCommunityObservation(value: unknown): value is CommunityObservation {
   if (!fields(value,['schemaVersion','inputKind','coordinates','label','note','capturedAtUtc','durationSeconds','sampleRateHz','sampleCount','frameCount','algorithmVersion','qualityCodes','aDigitalDb','cDigitalDb','cMinusADb','peakScreen','nearbyFacility','id','publishedAtUtc','provenance','verification','locationPrecision'])) return false;
   if (value.schemaVersion !== 1 || value.inputKind !== 'microphone' || !uuid(value.id) || !utc(value.capturedAtUtc) || !utc(value.publishedAtUtc) || value.provenance !== 'public-self-reported' || value.verification !== 'unverified' || value.locationPrecision !== 'rounded-3-decimals' || value.algorithmVersion !== 'tw-screen-v2') return false;
   const p = value.coordinates;
@@ -24,8 +24,8 @@ function observation(value: unknown): value is CommunityObservation {
   const f=value.nearbyFacility;
   return f===null || fields(f,['osmType','osmId','name']) && ['node','way','relation'].includes(f.osmType as string) && typeof f.osmId==='string' && /^[1-9]\d{0,15}$/.test(f.osmId) && typeof f.name==='string' && f.name.length>0 && f.name.length<=120;
 }
-const feed = (v: unknown): v is CommunityFeed => fields(v,['observations','nextCursor','limit','scanned','notice']) && Number.isSafeInteger(v.limit) && (v.limit as number)>0 && (v.limit as number)<=200 && Number.isSafeInteger(v.scanned) && (v.scanned as number)>=0 && (v.scanned as number)<=500 && Array.isArray(v.observations) && v.observations.length<=(v.limit as number) && v.observations.every(observation) && (v.nextCursor===null || typeof v.nextCursor==='string' && /^[A-Za-z0-9_-]{1,512}$/.test(v.nextCursor)) && typeof v.notice==='string' && v.notice.length<=1000;
-const publication = (v: unknown): v is CommunityPublishResult => fields(v,['observation','deleteToken','replayed']) && observation(v.observation) && typeof v.deleteToken==='string' && /^[A-Za-z0-9_-]{43}$/.test(v.deleteToken) && typeof v.replayed==='boolean';
+const feed = (v: unknown): v is CommunityFeed => fields(v,['observations','nextCursor','limit','scanned','notice']) && Number.isSafeInteger(v.limit) && (v.limit as number)>0 && (v.limit as number)<=200 && Number.isSafeInteger(v.scanned) && (v.scanned as number)>=0 && (v.scanned as number)<=500 && Array.isArray(v.observations) && v.observations.length<=(v.limit as number) && v.observations.every(isCommunityObservation) && (v.nextCursor===null || typeof v.nextCursor==='string' && /^[A-Za-z0-9_-]{1,512}$/.test(v.nextCursor)) && typeof v.notice==='string' && v.notice.length<=1000;
+const publication = (v: unknown): v is CommunityPublishResult => fields(v,['observation','deleteToken','replayed']) && isCommunityObservation(v.observation) && typeof v.deleteToken==='string' && /^[A-Za-z0-9_-]{43}$/.test(v.deleteToken) && typeof v.replayed==='boolean';
 async function request<T>(url: string, init: RequestInit, validate: (value: unknown) => value is T, signal?: AbortSignal): Promise<T> {
   const response = await fetch(url, { ...init, signal, credentials: 'same-origin', redirect: 'error', cache: 'no-store' });
   const reader=response.body?.getReader();let value: unknown=null;
