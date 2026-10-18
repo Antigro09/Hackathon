@@ -2,7 +2,42 @@
 
 Verified October 18, 2026, in Chrome 155 on Windows.
 
-## Current V3 local-model release
+## Current public community-map release
+
+Public [tonalwatch.vercel.app](https://tonalwatch.vercel.app) is READY from main
+commit `6a9f558eedc55b7839e45b1058d005f333089c3b`, deployment
+`dpl_2ajcVoTdB9PPnuPNYsF8QgQz4Bcf`. The immutable URL is
+`https://tonalwatch-a4pzxxejo-antigro09s-projects.vercel.app`. The release was
+uploaded from an exact Git archive. All 497 tests in 27 files, strict TypeScript
+(including API/server code), and Vite build passed. The Vercel build succeeded
+and deployed `api/community` in `iad1`.
+
+The free Redis integration is connected to Production only, with automatic paid
+upgrades and eviction disabled. Shared posts use reviewed metadata and rounded
+locations; audio, private report notes and AI hints stay outside the community
+API. The previous synthetic example map is replaced by actual public posts and
+a separate attributed, dated OSM directory. Search is explicit and incomplete
+directory coverage is disclosed.
+
+Fresh public Chrome qualification passed a live virtual-microphone capture →
+reviewed publication (201) → persistence for an independent visitor → identical
+retry without a duplicate → owner removal after reload → confirmed absence.
+The labeled software-QA post was removed. Actual city search found 92 mapped
+records within 5 km of Ashburn; optional street tiles loaded after their action.
+All six routes passed 320/390/1280 px at scale 1 with reachable footer bottoms
+within 0.5 px and no horizontal overflow. There were no page/console errors or
+audio uploads. The text summary remained 5,912 bytes/94 lines without bin rows;
+print retained the actual full-window SVG spectrum.
+
+All 32 read-only static checks matched the release, including the unchanged 23
+AI payloads and exact 3,142,621-byte ODbL snapshot. The comparison-summary JSON
+was compared with the actual CRLF Git-archive upload, preserving its values and
+the earlier qualification explanation. [Public evidence](qa/2026-10-18-community-public.json),
+[isolated real Redis checks](qa/2026-10-18-community-provider.json), and
+[UI recovery/viewport checks](qa/2026-10-18-community-ui.json) retain their scopes.
+This release does not change the frozen classifier, DSP, or field-validation limits.
+
+## Previous V3 local-model release
 
 Public [tonalwatch.vercel.app](https://tonalwatch.vercel.app) is READY from main commit `34888362cfe704837d804bd706e526ba508c78bb`, deployment `dpl_7WQabbkCYJ53y7TrfBUTg98tJew3`. The immutable deployment is `https://tonalwatch-85qk0ul2u-antigro09s-projects.vercel.app`. Its direct comparison and unchanged strict failures are documented in [AI_V3_RESULTS.md](AI_V3_RESULTS.md). The trained classifier replaces the previous eight-description hints; the encoder remains frozen.
 
@@ -93,6 +128,6 @@ npm run build
 npx --yes vercel@64.5.0 deploy --prod --scope antigro09s-projects --yes --non-interactive
 ```
 
-The project is linked locally through ignored `.vercel/` metadata. The app itself needs no backend, API key, account, or runtime environment variables. Authenticated Vercel deployment is separate from public app use. Never commit local Vercel credentials or `.env.local`.
+The project is linked locally through ignored `.vercel/` metadata. Microphone analysis and reports need no backend or user account. The community API requires server-only Redis REST variables, described in [COMMUNITY_MAP.md](COMMUNITY_MAP.md). Authenticated Vercel deployment is separate from public app use. Never commit local Vercel credentials or `.env.local`.
 
 The deployment was created through the CLI. Automatic deployment from future GitHub pushes is not configured by this record.

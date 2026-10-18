@@ -2,9 +2,9 @@
 
 The community map uses a shared Redis database through `/api/community`.
 It is separate from the earlier synthetic example map and in-memory preview.
-The current implementation has passed the focused tests below and **16 isolated
-checks against the provisioned Redis service**. The deployed public HTTP/UI
-workflow still needs its end-to-end qualification.
+The current implementation passed the focused tests, **16 isolated checks on
+the provisioned Redis service**, and deployed browser publication, persistence
+and removal checks below.
 An unavailable or unconfigured database returns an explicit error. The product
 does not substitute local storage or invented pins for a shared feed.
 
@@ -53,6 +53,13 @@ permissions. Never put either value in `src/`, `public/`, a `VITE_` variable, or
 Git. The empty [.env.example](../.env.example) documents the names; actual local
 credentials belong in ignored `.env.local` and deployed values in Vercel's
 environment settings. Redeploy after changing production configuration.
+
+The deployed `tonalwatch-community` resource uses the **free plan**, with paid
+automatic upgrades and eviction disabled. It is connected only to Production;
+Preview and Development do not receive the production database credentials.
+Configure a separate development resource for routine local work. The isolated
+provider qualification used an ignored temporary credentials file and rewrote
+only its test keys into a random QA namespace; it did not populate the public map.
 Empty primary template values allow the complete alternate pair. A partially
 configured primary pair fails closed; credentials from different pairs are
 never mixed.
@@ -162,14 +169,28 @@ hostname, credentials, deletion tokens or publication retry keys. These are
 real-storage software checks with generated metadata, not field observations or
 proof of the deployed Vercel request path.
 
-Before calling deployment complete, run the deployed public workflow: publish a
-clearly labeled generated-QA observation, verify it from a
-second independent browser context, retry the identical key, reject a changed
-payload and wrong deletion capability, remove the test pin with its owner token,
-and confirm it is absent from a fresh public read. Check rounded coordinates,
-blocked numeric values, publication/capture provenance, and absence of secrets,
-audio, bins or private notes. Use the standard deployed app workflow as well as
-direct API checks. Preserve failures and remove all temporary QA pins afterward.
+Public HTTPS qualification passed at source
+`6a9f558eedc55b7839e45b1058d005f333089c3b`, deployment
+`dpl_2ajcVoTdB9PPnuPNYsF8QgQz4Bcf`. A generated virtual microphone completed
+a real 15-second AudioWorklet capture. The normal UI published a clearly labeled
+temporary software check (HTTP 201); a separate browser context saw the saved
+post without owner access. Coordinates were rounded before transport and at the
+server. Private report notes, audio, bins and AI were absent from the public
+request/feed. An identical retry returned the same post; a wrong removal
+capability returned 404. The owner controls survived reload, removed the post,
+and a fresh read confirmed its absence. All temporary public QA posts were
+removed. This is software verification, not a field observation.
+
+The public search returned 92 source records within 5 km of the selected Ashburn
+city point. Optional street tiles loaded only after the explicit action. All six
+routes passed 320/390/1280 px layouts at viewport scale 1 with reachable footers.
+The native report text stayed concise (5,912 bytes, 94 lines, zero bin rows), and
+print retained the full spectrum. No page or console errors were recorded.
+All 32 checked static assets matched the exact release, including the dated
+directory and all 23 unchanged AI payloads. See
+[raw public evidence](qa/2026-10-18-community-public.json),
+[isolated provider evidence](qa/2026-10-18-community-provider.json), and
+[mocked UI recovery/layout evidence](qa/2026-10-18-community-ui.json).
 
 The local Docker engine was unavailable; qualification used the provisioned
 Redis service instead. No daemon, VM, container or alternate database was started.

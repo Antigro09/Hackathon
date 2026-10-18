@@ -1,0 +1,306 @@
+{
+  "sourceCommit": "6a9f558eedc55b7839e45b1058d005f333089c3b",
+  "workflow": {
+    "scope": "headless UI fixture; all community API mocked, no actual public posts; actual same-origin dated OSM snapshot",
+    "checks": [
+      "no third-party discovery or tile request before action",
+      "no document overflow at 320px",
+      "no document overflow at 390px",
+      "no document overflow at 760px",
+      "no document overflow at 1280px",
+      "no document overflow at 1920px",
+      "first twenty facility cards, all matching pins separate",
+      "198 actual dated OSM tags near selected Ashburn center",
+      "dated source shown; normal outside-radius exclusions not called partial",
+      "coordinates rounded before mocked transport",
+      "public allowlist omits audio spectrum AI and private device/context",
+      "facility reference separate from recording location",
+      "changed draft cannot overwrite unresolved publication A",
+      "reload restores pending review without automatic POST",
+      "explicit recovery reuses identical nonce after reload",
+      "successful recovery retains per-tab removal access",
+      "removal token never rendered into public UI",
+      "public note escaped in React card and Leaflet text popup",
+      "owner controls survive navigation away and back",
+      "explicit removal clears per-tab owner record",
+      "delayed write refreshes latest selected region, not stale radius",
+      "no runtime page exceptions during fixture workflow"
+    ],
+    "geometry": [
+      {
+        "width": 320,
+        "scroll": 320
+      },
+      {
+        "width": 390,
+        "scroll": 390
+      },
+      {
+        "width": 760,
+        "scroll": 760
+      },
+      {
+        "width": 1280,
+        "scroll": 1280
+      },
+      {
+        "width": 1920,
+        "scroll": 1920
+      }
+    ],
+    "errors": []
+  },
+  "layouts": {
+    "scope": "actual application dev build; public API unavailable in Vite is visibly reported; no publication or third-party discovery",
+    "cases": 30,
+    "rows": [
+      {
+        "route": "/",
+        "width": 320,
+        "scroll": 320,
+        "footerTop": 781.90625,
+        "footerBottom": 900.28125,
+        "viewport": 900
+      },
+      {
+        "route": "/measure",
+        "width": 320,
+        "scroll": 320,
+        "footerTop": 781.21875,
+        "footerBottom": 899.59375,
+        "viewport": 900
+      },
+      {
+        "route": "/learn",
+        "width": 320,
+        "scroll": 320,
+        "footerTop": 781.59375,
+        "footerBottom": 899.96875,
+        "viewport": 900
+      },
+      {
+        "route": "/map",
+        "width": 320,
+        "scroll": 320,
+        "footerTop": 781.671875,
+        "footerBottom": 900.046875,
+        "viewport": 900
+      },
+      {
+        "route": "/sources",
+        "width": 320,
+        "scroll": 320,
+        "footerTop": 781.6875,
+        "footerBottom": 900.0625,
+        "viewport": 900
+      },
+      {
+        "route": "/report",
+        "width": 320,
+        "scroll": 320,
+        "footerTop": 723.4375,
+        "footerBottom": 841.8125,
+        "viewport": 900
+      },
+      {
+        "route": "/",
+        "width": 390,
+        "scroll": 390,
+        "footerTop": 810.796875,
+        "footerBottom": 900.234375,
+        "viewport": 900
+      },
+      {
+        "route": "/measure",
+        "width": 390,
+        "scroll": 390,
+        "footerTop": 810.734375,
+        "footerBottom": 900.171875,
+        "viewport": 900
+      },
+      {
+        "route": "/learn",
+        "width": 390,
+        "scroll": 390,
+        "footerTop": 810.234375,
+        "footerBottom": 899.671875,
+        "viewport": 900
+      },
+      {
+        "route": "/map",
+        "width": 390,
+        "scroll": 390,
+        "footerTop": 810.171875,
+        "footerBottom": 899.609375,
+        "viewport": 900
+      },
+      {
+        "route": "/sources",
+        "width": 390,
+        "scroll": 390,
+        "footerTop": 810.234375,
+        "footerBottom": 899.671875,
+        "viewport": 900
+      },
+      {
+        "route": "/report",
+        "width": 390,
+        "scroll": 390,
+        "footerTop": 723.4375,
+        "footerBottom": 812.875,
+        "viewport": 900
+      },
+      {
+        "route": "/",
+        "width": 760,
+        "scroll": 760,
+        "footerTop": 807.5625,
+        "footerBottom": 900.109375,
+        "viewport": 900
+      },
+      {
+        "route": "/measure",
+        "width": 760,
+        "scroll": 760,
+        "footerTop": 807.625,
+        "footerBottom": 900.171875,
+        "viewport": 900
+      },
+      {
+        "route": "/learn",
+        "width": 760,
+        "scroll": 760,
+        "footerTop": 807.53125,
+        "footerBottom": 900.078125,
+        "viewport": 900
+      },
+      {
+        "route": "/map",
+        "width": 760,
+        "scroll": 760,
+        "footerTop": 807.828125,
+        "footerBottom": 900.375,
+        "viewport": 900
+      },
+      {
+        "route": "/sources",
+        "width": 760,
+        "scroll": 760,
+        "footerTop": 807.921875,
+        "footerBottom": 900.46875,
+        "viewport": 900
+      },
+      {
+        "route": "/report",
+        "width": 760,
+        "scroll": 760,
+        "footerTop": 627.015625,
+        "footerBottom": 719.5625,
+        "viewport": 900
+      },
+      {
+        "route": "/",
+        "width": 1280,
+        "scroll": 1280,
+        "footerTop": 812.96875,
+        "footerBottom": 899.765625,
+        "viewport": 900
+      },
+      {
+        "route": "/measure",
+        "width": 1280,
+        "scroll": 1280,
+        "footerTop": 812.9375,
+        "footerBottom": 899.734375,
+        "viewport": 900
+      },
+      {
+        "route": "/learn",
+        "width": 1280,
+        "scroll": 1280,
+        "footerTop": 813.25,
+        "footerBottom": 900.046875,
+        "viewport": 900
+      },
+      {
+        "route": "/map",
+        "width": 1280,
+        "scroll": 1280,
+        "footerTop": 812.953125,
+        "footerBottom": 899.75,
+        "viewport": 900
+      },
+      {
+        "route": "/sources",
+        "width": 1280,
+        "scroll": 1280,
+        "footerTop": 812.75,
+        "footerBottom": 899.546875,
+        "viewport": 900
+      },
+      {
+        "route": "/report",
+        "width": 1280,
+        "scroll": 1280,
+        "footerTop": 608.875,
+        "footerBottom": 695.671875,
+        "viewport": 900
+      },
+      {
+        "route": "/",
+        "width": 1920,
+        "scroll": 1920,
+        "footerTop": 813.390625,
+        "footerBottom": 900.1875,
+        "viewport": 900
+      },
+      {
+        "route": "/measure",
+        "width": 1920,
+        "scroll": 1920,
+        "footerTop": 813.1875,
+        "footerBottom": 899.984375,
+        "viewport": 900
+      },
+      {
+        "route": "/learn",
+        "width": 1920,
+        "scroll": 1920,
+        "footerTop": 813.46875,
+        "footerBottom": 900.265625,
+        "viewport": 900
+      },
+      {
+        "route": "/map",
+        "width": 1920,
+        "scroll": 1920,
+        "footerTop": 813.265625,
+        "footerBottom": 900.0625,
+        "viewport": 900
+      },
+      {
+        "route": "/sources",
+        "width": 1920,
+        "scroll": 1920,
+        "footerTop": 813.5,
+        "footerBottom": 900.296875,
+        "viewport": 900
+      },
+      {
+        "route": "/report",
+        "width": 1920,
+        "scroll": 1920,
+        "footerTop": 619.875,
+        "footerBottom": 706.671875,
+        "viewport": 900
+      }
+    ],
+    "errors": []
+  },
+  "capacity": {
+    "scope": "mocked UI; no public writes",
+    "capacity": 20,
+    "retainedRemovalCapabilities": 20,
+    "extraPostRequests": 0
+  }
+}

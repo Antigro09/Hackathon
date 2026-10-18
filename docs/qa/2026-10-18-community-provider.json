@@ -1,0 +1,325 @@
+{
+  "report": {
+    "schemaVersion": 1,
+    "kind": "actual-redis-lua-isolated-qualification",
+    "createdAtUtc": "2026-10-18T19:19:27.550Z",
+    "realProvider": true,
+    "namespaceIsolated": true,
+    "productionKeysTouched": false,
+    "namespaceSha256": "59d17adb1d72344a362c3d8373f2c54e1a3f3e12b5e5654a57389dd5bd431485",
+    "credentialsPrinted": false,
+    "capabilitiesOrPublicationKeysRecorded": false,
+    "providerHostRecorded": false,
+    "passed": true,
+    "checks": [
+      {
+        "name": "actual-lua-create",
+        "pass": true
+      },
+      {
+        "name": "server-rounds-coordinates",
+        "pass": true
+      },
+      {
+        "name": "independent-handler-shared-persistence",
+        "pass": true
+      },
+      {
+        "name": "public-feed-has-no-capability",
+        "pass": true
+      },
+      {
+        "name": "same-key-replay-and-capability-recovery",
+        "pass": true
+      },
+      {
+        "name": "changed-payload-conflict",
+        "pass": true
+      },
+      {
+        "name": "wrong-capability-rejected",
+        "pass": true
+      },
+      {
+        "name": "own-capability-deletes",
+        "pass": true
+      },
+      {
+        "name": "old-retry-cannot-recreate-deleted-pin",
+        "pass": true
+      },
+      {
+        "name": "quality-blocked-descriptive-record",
+        "pass": true
+      },
+      {
+        "name": "far-record-created-in-isolated-namespace",
+        "pass": true
+      },
+      {
+        "name": "second-near-record-created",
+        "pass": true
+      },
+      {
+        "name": "bounded-filter-first-page",
+        "pass": true
+      },
+      {
+        "name": "cursor-second-page-without-duplicates",
+        "pass": true
+      },
+      {
+        "name": "bbox-excludes-distant-observation",
+        "pass": true
+      },
+      {
+        "name": "fresh-read-empty-after-owner-removals",
+        "pass": true
+      }
+    ],
+    "cleanup": {
+      "confirmedEmpty": true,
+      "deletedKeys": 8
+    },
+    "failure": null,
+    "sourceSha256": {
+      "server/community.ts": "6ff6dc6160d825b62e9ba1cbeda7f7a39d28ab1a61eb5e330637e4eb8542676b",
+      "server/communityValidation.ts": "e9d940a0660d90c7958a28f78886c1d404cf6ca1b768ce98212af7448d5593f3",
+      "src/community/types.ts": "a1ff55b5a7454c8aa56e4e65e08fb78f54299c72541941bfa1cc15a8684ec557",
+      "api/community.ts": "7b732aab10d5f9004f9f007f3685603241cb3b2e2f1a74deaba7bdd5137c2386"
+    }
+  },
+  "events": [
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_CREATE_V1",
+      "keyCount": 5,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "created",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_READ_V1",
+      "keyCount": 3,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "rows",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_CREATE_V1",
+      "keyCount": 5,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "replayed",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_CREATE_V1",
+      "keyCount": 5,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "conflict",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_DELETE_V1",
+      "keyCount": 3,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "denied",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_DELETE_V1",
+      "keyCount": 3,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "deleted",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_CREATE_V1",
+      "keyCount": 5,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "gone",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_CREATE_V1",
+      "keyCount": 5,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "created",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_CREATE_V1",
+      "keyCount": 5,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "created",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_CREATE_V1",
+      "keyCount": 5,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "created",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_READ_V1",
+      "keyCount": 3,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "rows",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_READ_V1",
+      "keyCount": 3,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "rows",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_READ_V1",
+      "keyCount": 3,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "rows",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_DELETE_V1",
+      "keyCount": 3,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "deleted",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_DELETE_V1",
+      "keyCount": 3,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "deleted",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_DELETE_V1",
+      "keyCount": 3,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "deleted",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_DELETE_V1",
+      "keyCount": 3,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "deleted",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "handler",
+      "method": "POST",
+      "command": "EVAL",
+      "operation": "TW_COMMUNITY_READ_V1",
+      "keyCount": 3,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": "rows",
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "cleanup",
+      "method": "POST",
+      "command": "SCAN",
+      "operation": "SCAN",
+      "keyCount": null,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": null,
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "cleanup",
+      "method": "POST",
+      "command": "DEL",
+      "operation": "DEL",
+      "keyCount": 8,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": null,
+      "namespaceGuardPassed": true
+    },
+    {
+      "source": "cleanup",
+      "method": "POST",
+      "command": "SCAN",
+      "operation": "SCAN",
+      "keyCount": null,
+      "httpStatus": 200,
+      "providerError": false,
+      "resultTag": null,
+      "namespaceGuardPassed": true
+    }
+  ]
+}
