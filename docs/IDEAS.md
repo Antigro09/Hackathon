@@ -67,6 +67,37 @@ Why I like it: It has a clear environmental purpose, a satisfying visual transfo
 
 maybe like something about recycling precious minerals and scanning trash yards or something like that
 
+Build a Sustainable Future
+1) Reforge — design something useful around the materials you already have
+This is my first choice for you personally.
+The idea: A workshop, contractor, or community garden has leftover wood in awkward lengths. Reforge takes that inventory and creates a usable design with an exact cutting plan.
+EPA identifies material reuse and designing to reduce construction waste as ways to conserve resources. Your project would make that actionable for someone standing in front of a pile of offcuts. US EPA
+How it works
+The user enters their measured board lengths and chooses a project—for the hackathon, one adjustable planter design.
+The system determines:
+- Which planter dimensions fit the available material.
+- Which parts come from each board.
+- How much material the saw cuts consume.
+- What reusable offcuts remain.
+- Whether any additional wood is needed.
+It returns a labeled cutting diagram and an assembly preview.
+The demo that could win
+Put a few cardboard strips or measured wood offcuts on the table.
+Enter their lengths. Reforge produces a planter design, and its component pieces animate into their assigned positions on the stock boards.
+Then tell a judge: “Remove any board.”
+Remove it from the inventory. The app recalculates the design and cutting plan. It either finds another feasible arrangement, adjusts the planter within the allowed size range, or identifies the extra stock required.
+That interaction demonstrates whether the product actually works.
+Your seven-hour MVP
+- One planter design with adjustable dimensions.
+- Boards of one shared width and thickness.
+- Manually entered, measured lengths.
+- A cutting optimizer that accounts for saw-cut width.
+- SVG cutting diagrams and a simple assembly view.
+Technical core: Search across allowed design dimensions, then solve the cutting-stock problem. Prioritize reducing new material purchases, followed by reducing unusable waste.
+Useful measured outputs: Material utilization, new wood required, number of cuts, and remaining offcuts—all calculated from the generated plan.
+Why I like it for you: Your construction experience gives you a practical understanding of the problem. You can explain who would use it, challenge the generated plan, and present a tangible result.
+Treat photo recognition as an optional extra. Confirmed measurements give you a reliable core product immediately.
+
 
 GridWeave — make an electric school-bus fleet fit its available power
 The idea: A school wants to run electric buses, but charging every bus immediately would exceed the depot’s electrical capacity. Your app figures out whether the buses can all be ready on time using the connection the school already has.
