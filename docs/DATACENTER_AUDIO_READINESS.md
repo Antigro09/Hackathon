@@ -1,6 +1,6 @@
 # Datacenter audio readiness
 
-Source review: 2026-10-18. This is a readiness audit, not a new training or evaluation run. No classifier, numerical threshold or model artifact was changed. No raw audio/video bulk download or new prediction was performed for this review.
+Source review: 2026-10-18. The initial audit below performed no raw-audio download or prediction. The extended public-source search has now retrieved outdoor candidates, documented further below. No new data-center classifier has been trained or promoted.
 
 The current V3 sound hints recognize five broad families with abstention. They were **not trained or validated to confirm outdoor datacenter noise**. A fan-like hint, persistent spectral peak, C−A difference or nearby mapped facility does not establish that a datacenter produced the recording. Technical recording usability, calibrated measurement accuracy and physical source attribution are separate questions.
 
@@ -52,3 +52,53 @@ A credible prospective validation protocol should:
 6. Freeze model, preprocessing, abstention policy and acceptance criteria before opening the new evaluation. Report facility-level dependence, per-domain/per-device results, accepted-label precision, coverage, false acceptance on unknowns, confusions and uncertainty. Include failed and inconclusive recordings, not only easy examples. Do not tune new numeric thresholds from the old observed final outcomes.
 
 Until that evidence exists, useful product wording is **recording usability checks** plus an **experimental sound-family hint**, followed by **datacenter comparison not validated**. No datacenter classifier is qualified or promoted by this source audit.
+
+## Extended public-source search and retrieved candidates
+
+The follow-up search retrieved original public audio files from INVC, rather
+than replacing the missing data with indoor servers. These are anonymous
+provider-documented cases with incomplete recording metadata, not an independent
+field-validation corpus. Raw third-party audio remains in ignored local storage.
+
+| Original context | Retrieved audio and fixed interval | Evidence and limit |
+| --- | --- | --- |
+| [Outside/inside cooling comparison](https://invc.com/noise-control/data-center-noise-attenuation/) | 11.55 s decoded, mono 44.1 kHz; first 0–5 s exterior, before the edit. | Consultant identifies exterior then interior hum. Site/device/session identity and source isolation are incomplete. |
+| [Chiller/AHU mitigation case](https://invc.com/resources/noise-control-case-studies/environmental-noise-control/data-centre-server-farm-chiller-fan-noise-reduction/) | 17.89 s, mono 22.05 kHz; first 0–5 s before mitigation. | Consultant describes its own physical changes and before/after result. The later, quieter section is still data-center audio and cannot become a negative. |
+| [Resident recording analyzed by Peter Wilson](https://invc.com/resources/newsposts/the-tonal-elephant-in-the-environmental-noise-report-room/) | 8.82 s, mono 22.05 kHz; first 0–5 s. | Article describes a smartphone recording at 150 m. This supports provider context, not independently isolated contribution. |
+| [University rooftop chiller compressors](https://invc.com/resources/noise-control-case-studies/fans/chiller-compressor-whine-noise-control-at-source/) | 12.51 s, mono 22.05 kHz; first 0–5 s, before the edit. | Candidate lookalike cooling control from a university building. Its exact site and surrounding-source absence remain unverified. |
+
+Automated speech screening found no speech in those four files. That is a
+screening result, not proof of natural audio, absence of music, source identity
+or faithful capture. Fixed first-five-second digital checks found no clipping,
+near-full-scale samples, silence or nonfinite values. The full chiller/AHU source
+has a later near-full-scale peak, outside its preselected first-five-second
+interval; that fact is retained. Three inputs require explicitly documented
+22.05→44.1 kHz preparation, which restores no original bandwidth.
+
+One apparently useful [sports-facility cooling control](https://invc.com/resources/noise-control-case-studies/fans/dry-cooler-fan-hum-noise-silencing-low-cost-high-fan-efficiency/)
+was **rejected before classifier queries**: spoken introductions leave no
+uninterrupted five-second speech-free interval. A downloaded original WWMT
+Dowagiac news package was similarly rejected for narration/interviews. The
+Atlas file is only 4.212154 s and was not padded or repeated. All failures remain
+recorded, rather than silently substituting favorable crops.
+
+[GULFF's community-noise exhibition](https://gulffonline.com/exhibitionarchive/datacenternoise/)
+provided original-source leads across several facilities. Its five-minute edits
+explicitly loop community audio and pair it with collaged imagery. They cannot
+be counted as five minutes of independent outdoor recording. Source overlays
+also include uncertain distances, facilities and planned capacities. Ordinary
+public-source retrieval was used; WUSA9 audio returned 403 and a Reddit route
+required authentication, so those routes stopped without bypassing access checks.
+
+The [new metadata audit and prospective protocol](../ml/OUTDOOR_DATACENTER_PROTOCOL.md)
+checks connected facility/session/provider/parent/hash dependence, historical
+cohort contamination and missing controls. Its current eight-record ledger binds
+1,984 historical IDs and their original/prepared/PCM hashes. All anonymous INVC
+cases share one conservative provider group. The current corpus **does not pass
+readiness for an independent training/calibration/test pilot**; more crops cannot
+repair that dependence. A separately frozen [development diagnostic](../ml/OUTDOOR_BASELINE_DIAGNOSTIC.md)
+may inspect the unchanged broad-family head without fitting a new detector or
+claiming field accuracy. [Source ledger and annotation evidence](../ml/runs/2026-10-18-outdoor-development/).
+
+The user selected public sources only. No recording request was sent to INVC or
+any other person.

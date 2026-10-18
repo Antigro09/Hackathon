@@ -1,0 +1,398 @@
+{
+  "schemaVersion": 1,
+  "audit": "tw-outdoor-corpus-metadata-v1",
+  "metadataOnly": true,
+  "audioFilesRead": false,
+  "modelQueries": false,
+  "promotionAllowed": false,
+  "readyForPilot": false,
+  "blockers": [
+    {
+      "code": "missing-split-class",
+      "message": "train has no eligible verified-source-positive recording."
+    },
+    {
+      "code": "missing-split-class",
+      "message": "train has no eligible hard-negative recording."
+    },
+    {
+      "code": "missing-lookalike-control",
+      "message": "train needs real non-datacenter cooling controls."
+    },
+    {
+      "code": "missing-split-class",
+      "message": "calibration has no eligible verified-source-positive recording."
+    },
+    {
+      "code": "missing-split-class",
+      "message": "calibration has no eligible hard-negative recording."
+    },
+    {
+      "code": "missing-lookalike-control",
+      "message": "calibration needs real non-datacenter cooling controls."
+    },
+    {
+      "code": "missing-split-class",
+      "message": "test has no eligible verified-source-positive recording."
+    },
+    {
+      "code": "missing-split-class",
+      "message": "test has no eligible hard-negative recording."
+    },
+    {
+      "code": "missing-lookalike-control",
+      "message": "test needs real non-datacenter cooling controls."
+    },
+    {
+      "code": "missing-environment-control",
+      "message": "The pilot lacks eligible traffic controls."
+    },
+    {
+      "code": "missing-environment-control",
+      "message": "The pilot lacks eligible wind controls."
+    }
+  ],
+  "warnings": [
+    {
+      "code": "processed-recording",
+      "message": "Documented processing requires review; do not treat it as an unprocessed measurement.",
+      "sourceIds": [
+        "invc-outside-inside"
+      ]
+    },
+    {
+      "code": "opaque-facility-identity",
+      "message": "The expert/source context uses an opaque site identity. Share the collection group wherever independent facilities or sessions cannot be established.",
+      "sourceIds": [
+        "invc-outside-inside"
+      ]
+    },
+    {
+      "code": "ineligible-source-lead",
+      "message": "Natural ambient audio has not been verified. musicStatus is unknown; select and review an eligible natural interval first.",
+      "sourceIds": [
+        "invc-outside-inside"
+      ]
+    },
+    {
+      "code": "uncertain-not-ground-truth",
+      "message": "Keep this context example uncertain; it is neither a positive nor a verified negative.",
+      "sourceIds": [
+        "invc-outside-inside"
+      ]
+    },
+    {
+      "code": "processed-recording",
+      "message": "Documented processing requires review; do not treat it as an unprocessed measurement.",
+      "sourceIds": [
+        "invc-before-after"
+      ]
+    },
+    {
+      "code": "opaque-facility-identity",
+      "message": "The expert/source context uses an opaque site identity. Share the collection group wherever independent facilities or sessions cannot be established.",
+      "sourceIds": [
+        "invc-before-after"
+      ]
+    },
+    {
+      "code": "ineligible-source-lead",
+      "message": "Natural ambient audio has not been verified. musicStatus is unknown; select and review an eligible natural interval first.",
+      "sourceIds": [
+        "invc-before-after"
+      ]
+    },
+    {
+      "code": "processed-recording",
+      "message": "Documented processing requires review; do not treat it as an unprocessed measurement.",
+      "sourceIds": [
+        "invc-150m"
+      ]
+    },
+    {
+      "code": "opaque-facility-identity",
+      "message": "The expert/source context uses an opaque site identity. Share the collection group wherever independent facilities or sessions cannot be established.",
+      "sourceIds": [
+        "invc-150m"
+      ]
+    },
+    {
+      "code": "ineligible-source-lead",
+      "message": "Natural ambient audio has not been verified. musicStatus is unknown; select and review an eligible natural interval first.",
+      "sourceIds": [
+        "invc-150m"
+      ]
+    },
+    {
+      "code": "uncertain-not-ground-truth",
+      "message": "Keep this context example uncertain; it is neither a positive nor a verified negative.",
+      "sourceIds": [
+        "invc-150m"
+      ]
+    },
+    {
+      "code": "processed-recording",
+      "message": "Documented processing requires review; do not treat it as an unprocessed measurement.",
+      "sourceIds": [
+        "invc-university-compressor"
+      ]
+    },
+    {
+      "code": "ineligible-source-lead",
+      "message": "Natural ambient audio has not been verified. musicStatus is unknown; select and review an eligible natural interval first.",
+      "sourceIds": [
+        "invc-university-compressor"
+      ]
+    },
+    {
+      "code": "unknown-processing",
+      "message": "Microphone/production processing is unknown; no fidelity claim follows.",
+      "sourceIds": [
+        "invc-sports-dry-cooler"
+      ]
+    },
+    {
+      "code": "preparation-rate-needed",
+      "message": "Native rate needs an explicitly documented preparation/resampling contract before this app's encoder.",
+      "sourceIds": [
+        "invc-sports-dry-cooler"
+      ]
+    },
+    {
+      "code": "unknown-processing",
+      "message": "Microphone/production processing is unknown; no fidelity claim follows.",
+      "sourceIds": [
+        "invc-atlas"
+      ]
+    },
+    {
+      "code": "preparation-rate-needed",
+      "message": "Native rate needs an explicitly documented preparation/resampling contract before this app's encoder.",
+      "sourceIds": [
+        "invc-atlas"
+      ]
+    },
+    {
+      "code": "unknown-processing",
+      "message": "Microphone/production processing is unknown; no fidelity claim follows.",
+      "sourceIds": [
+        "wwmt-dowagiac-original"
+      ]
+    },
+    {
+      "code": "unknown-processing",
+      "message": "Microphone/production processing is unknown; no fidelity claim follows.",
+      "sourceIds": [
+        "gulff-aligned-exhibition"
+      ]
+    },
+    {
+      "code": "dependent-recordings",
+      "message": "These 6 records count as one dependent group, not independent examples.",
+      "sourceIds": [
+        "invc-outside-inside",
+        "invc-before-after",
+        "invc-150m",
+        "invc-university-compressor",
+        "invc-sports-dry-cooler",
+        "invc-atlas"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "sourceId": "invc-outside-inside",
+      "claimedLabel": "facility-adjacent-uncertain",
+      "effectiveLabel": "excluded",
+      "split": "unassigned",
+      "ineligibilityReasons": [
+        "Natural ambient audio has not been verified.",
+        "musicStatus is unknown; select and review an eligible natural interval first."
+      ],
+      "historicalMatches": []
+    },
+    {
+      "sourceId": "invc-before-after",
+      "claimedLabel": "verified-source-positive",
+      "effectiveLabel": "excluded",
+      "split": "unassigned",
+      "ineligibilityReasons": [
+        "Natural ambient audio has not been verified.",
+        "musicStatus is unknown; select and review an eligible natural interval first."
+      ],
+      "historicalMatches": []
+    },
+    {
+      "sourceId": "invc-150m",
+      "claimedLabel": "facility-adjacent-uncertain",
+      "effectiveLabel": "excluded",
+      "split": "unassigned",
+      "ineligibilityReasons": [
+        "Natural ambient audio has not been verified.",
+        "musicStatus is unknown; select and review an eligible natural interval first."
+      ],
+      "historicalMatches": []
+    },
+    {
+      "sourceId": "invc-university-compressor",
+      "claimedLabel": "hard-negative",
+      "effectiveLabel": "excluded",
+      "split": "unassigned",
+      "ineligibilityReasons": [
+        "Natural ambient audio has not been verified.",
+        "musicStatus is unknown; select and review an eligible natural interval first."
+      ],
+      "historicalMatches": []
+    },
+    {
+      "sourceId": "invc-sports-dry-cooler",
+      "claimedLabel": "excluded",
+      "effectiveLabel": "excluded",
+      "split": "excluded",
+      "ineligibilityReasons": [
+        "The selected audio interval is not verified outdoor audio.",
+        "Natural ambient audio has not been verified.",
+        "Original, derived and PCM identities are not all pinned.",
+        "voiceoverStatus is present; select and review an eligible natural interval first.",
+        "musicStatus is unknown; select and review an eligible natural interval first.",
+        "Production processing has not been reviewed for destructive edits."
+      ],
+      "historicalMatches": []
+    },
+    {
+      "sourceId": "invc-atlas",
+      "claimedLabel": "excluded",
+      "effectiveLabel": "excluded",
+      "split": "excluded",
+      "ineligibilityReasons": [
+        "The selected audio interval is not verified outdoor audio.",
+        "Natural ambient audio has not been verified.",
+        "At least five genuine unpadded seconds have not been established.",
+        "Original, derived and PCM identities are not all pinned.",
+        "loopStatus is unknown; select and review an eligible natural interval first.",
+        "voiceoverStatus is unknown; select and review an eligible natural interval first.",
+        "musicStatus is unknown; select and review an eligible natural interval first.",
+        "Production processing has not been reviewed for destructive edits."
+      ],
+      "historicalMatches": []
+    },
+    {
+      "sourceId": "wwmt-dowagiac-original",
+      "claimedLabel": "excluded",
+      "effectiveLabel": "excluded",
+      "split": "excluded",
+      "ineligibilityReasons": [
+        "The selected audio interval is not verified outdoor audio.",
+        "Natural ambient audio has not been verified.",
+        "Original, derived and PCM identities are not all pinned.",
+        "voiceoverStatus is present; select and review an eligible natural interval first.",
+        "musicStatus is unknown; select and review an eligible natural interval first.",
+        "Production processing has not been reviewed for destructive edits."
+      ],
+      "historicalMatches": []
+    },
+    {
+      "sourceId": "gulff-aligned-exhibition",
+      "claimedLabel": "excluded",
+      "effectiveLabel": "excluded",
+      "split": "excluded",
+      "ineligibilityReasons": [
+        "The selected audio interval is not verified outdoor audio.",
+        "Natural ambient audio has not been verified.",
+        "Original, derived and PCM identities are not all pinned.",
+        "loopStatus is looped; select and review an eligible natural interval first.",
+        "voiceoverStatus is unknown; select and review an eligible natural interval first.",
+        "musicStatus is unknown; select and review an eligible natural interval first.",
+        "Production processing has not been reviewed for destructive edits."
+      ],
+      "historicalMatches": []
+    }
+  ],
+  "components": [
+    {
+      "componentId": "group-0001",
+      "sourceIds": [
+        "invc-outside-inside",
+        "invc-before-after",
+        "invc-150m",
+        "invc-university-compressor",
+        "invc-sports-dry-cooler",
+        "invc-atlas"
+      ],
+      "facilityIds": [
+        "invc-opaque-invc-150m",
+        "invc-opaque-invc-before-after",
+        "invc-opaque-invc-outside-inside"
+      ],
+      "activeSplits": [],
+      "effectiveLabels": {
+        "excluded": 6
+      },
+      "dependencyReasons": [
+        "collectionGroup",
+        "sourceId"
+      ]
+    },
+    {
+      "componentId": "group-0002",
+      "sourceIds": [
+        "wwmt-dowagiac-original"
+      ],
+      "facilityIds": [],
+      "activeSplits": [],
+      "effectiveLabels": {
+        "excluded": 1
+      },
+      "dependencyReasons": [
+        "sourceId"
+      ]
+    },
+    {
+      "componentId": "group-0003",
+      "sourceIds": [
+        "gulff-aligned-exhibition"
+      ],
+      "facilityIds": [],
+      "activeSplits": [],
+      "effectiveLabels": {
+        "excluded": 1
+      },
+      "dependencyReasons": [
+        "sourceId"
+      ]
+    }
+  ],
+  "summary": {
+    "submittedRecords": 8,
+    "validMetadataRecords": 8,
+    "effectiveLabels": {
+      "excluded": 8
+    },
+    "dependencyComponents": 3,
+    "eligiblePositiveFacilities": 0,
+    "bySplit": {
+      "train": {
+        "records": 0,
+        "labels": {},
+        "controlTypes": {},
+        "positiveIndependentGroups": 0,
+        "negativeIndependentGroups": 0
+      },
+      "calibration": {
+        "records": 0,
+        "labels": {},
+        "controlTypes": {},
+        "positiveIndependentGroups": 0,
+        "negativeIndependentGroups": 0
+      },
+      "test": {
+        "records": 0,
+        "labels": {},
+        "controlTypes": {},
+        "positiveIndependentGroups": 0,
+        "negativeIndependentGroups": 0
+      }
+    }
+  },
+  "ledgerSha256": "832b2d984982818640619a8319bbc6bbcd0ea995086be79075e8383725d2571e"
+}

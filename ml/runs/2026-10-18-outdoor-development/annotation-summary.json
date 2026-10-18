@@ -1,0 +1,285 @@
+{
+  "created_utc": "2026-10-18T19:56:09.421449+00:00",
+  "purpose": "Internal audio source speech annotation, before TonalWatch classifier queries; not an accuracy evaluation or source proof.",
+  "method": {
+    "script": "output/outdoor-source-audit/annotate_sources.py",
+    "script_sha256": "829248d2a59c51034bac9ba649a8d8a2fa1ca3462217a72c5485f525fe72be65",
+    "environment": "output/audio-annotation-venv",
+    "python": "3.12.14",
+    "packages": {
+      "faster-whisper": "1.2.1",
+      "ctranslate2": "4.8.3",
+      "huggingface-hub": "2.2.0",
+      "onnxruntime": "1.31.0",
+      "av": "16.1.0",
+      "numpy": "2.5.4"
+    },
+    "model": "Systran/faster-whisper-tiny.en",
+    "model_revision": "0d3d19a32d3338f10357c0889762bd8d64bbdeba",
+    "device": "cpu",
+    "compute_type": "int8",
+    "cpu_threads": 4,
+    "vad": {
+      "threshold": 0.5,
+      "min_speech_duration_ms": 250,
+      "min_silence_duration_ms": 500,
+      "speech_pad_ms": 100
+    },
+    "asr": {
+      "language": "en",
+      "beam_size": 5,
+      "condition_on_previous_text": false,
+      "word_timestamps": true,
+      "vad_filter": true,
+      "vad_min_silence_duration_ms": 500
+    },
+    "full_pip_freeze": [
+      "anyio==4.15.1",
+      "av==16.1.0",
+      "click==8.5.0",
+      "colorama==0.4.6",
+      "ctranslate2==4.8.3",
+      "faster-whisper==1.2.1",
+      "filelock==4.2.2",
+      "flatbuffers==25.12.19",
+      "fsspec==2026.9.0",
+      "h11==0.16.0",
+      "hf-xet==1.7.0",
+      "httpcore2==2.14.0",
+      "httpx2==2.14.0",
+      "huggingface_hub==2.2.0",
+      "idna==3.20",
+      "numpy==2.5.4",
+      "onnxruntime==1.31.0",
+      "packaging==26.3",
+      "protobuf==7.36.2",
+      "PyYAML==6.0.3",
+      "tokenizers==0.23.3",
+      "tqdm==4.70.1",
+      "truststore==0.10.5",
+      "typing_extensions==4.16.0"
+    ],
+    "downloaded_model_files": [
+      {
+        "path": "annotation-model-tiny-en/config.json",
+        "bytes": 2317,
+        "sha256": "14b1b421a90349bc551b881461426b561a874049cb9e4c4864f2ca384f6a7cc5"
+      },
+      {
+        "path": "annotation-model-tiny-en/model.bin",
+        "bytes": 75537502,
+        "sha256": "1a5afae06a4db91c975c9a9d78be5cc110ee4ea022ad57d55492e4550e936b2a"
+      },
+      {
+        "path": "annotation-model-tiny-en/tokenizer.json",
+        "bytes": 2128466,
+        "sha256": "929c5252409436dce1b38a75d1abbcb5e132d170d8e324e4e04ed915fa2d22df"
+      },
+      {
+        "path": "annotation-model-tiny-en/vocabulary.txt",
+        "bytes": 422309,
+        "sha256": "ff77588746d3a2595d32ab5b69ffd7b95ce2441ac57533cb66fc3eb575a115cf"
+      }
+    ]
+  },
+  "reproduce": [
+    "Create isolated Python3.12 venv at output/audio-annotation-venv.",
+    "Install the exact package versions in packages; PyAV16.1.0 is required for faster-whisper1.2.1 compatibility.",
+    "Restore original audio files at recorded paths and verify input_sha256.",
+    "Run output/audio-annotation-venv/Scripts/python.exe output/outdoor-source-audit/annotate_sources.py FILE1 FILE2 ...",
+    "Script downloads only the pinned public annotation model into output/outdoor-source-audit/annotation-model-tiny-en and writes per-input JSON under annotations/. It does not call CLAP or fit any model."
+  ],
+  "records": [
+    {
+      "id": "invc-150m",
+      "annotation_file": "output/outdoor-source-audit/annotations/invc-150m.json",
+      "annotation_sha256": "8ba67943100c902a9572ed27520ae3af5380ffb86c4addf444977efcb53a6e7f",
+      "input_file": "C:\\Users\\antho\\Documents\\Hackathon\\output\\outdoor-dc-source-research\\invc-150m.mp3",
+      "input_sha256": "fad13734deeeb8d6422ccf941a0c768692933d9840450d773fe7d5310f792b7b",
+      "decoded_duration_seconds": 8.8166875,
+      "vad_speech_intervals": [],
+      "asr_segment_count": 0,
+      "candidate_vad_gaps_5_seconds": [
+        {
+          "start": 0.0,
+          "end": 8.8166875,
+          "duration": 8.8166875
+        }
+      ],
+      "first5_speech_screen_pass": true,
+      "release_or_training_eligibility": "Not established. Source annotation only; source identity, music absence, editing and rights remain separate."
+    },
+    {
+      "id": "invc-before-after",
+      "annotation_file": "output/outdoor-source-audit/annotations/invc-before-after.json",
+      "annotation_sha256": "eb552f1510e60ef98b0a724098db4a77de8703b64d3e304ecc6309e61557ed02",
+      "input_file": "C:\\Users\\antho\\Documents\\Hackathon\\output\\outdoor-dc-source-research\\invc-before-after.mp3",
+      "input_sha256": "628d37c3e977b64bbe1e8dc917d6b8ef7d0a5124b80c1bec9d81ad4b962589bd",
+      "decoded_duration_seconds": 17.8939375,
+      "vad_speech_intervals": [],
+      "asr_segment_count": 0,
+      "candidate_vad_gaps_5_seconds": [
+        {
+          "start": 0.0,
+          "end": 17.8939375,
+          "duration": 17.8939375
+        }
+      ],
+      "first5_speech_screen_pass": true,
+      "release_or_training_eligibility": "Not established. Source annotation only; source identity, music absence, editing and rights remain separate."
+    },
+    {
+      "id": "invc-outside-inside",
+      "annotation_file": "output/outdoor-source-audit/annotations/invc-outside-inside.json",
+      "annotation_sha256": "a7eb0376817194a9443c861ef9c664d00ccc332400cb8274f96e01dab2dc498f",
+      "input_file": "C:\\Users\\antho\\Documents\\Hackathon\\output\\outdoor-dc-source-research\\invc-outside-inside.mp3",
+      "input_sha256": "89d05d6cdb0c3c922fe2513264d0728eb31d39c46ab29b359a33d83abe58f4f3",
+      "decoded_duration_seconds": 11.546125,
+      "vad_speech_intervals": [],
+      "asr_segment_count": 0,
+      "candidate_vad_gaps_5_seconds": [
+        {
+          "start": 0.0,
+          "end": 11.546125,
+          "duration": 11.546125
+        }
+      ],
+      "first5_speech_screen_pass": true,
+      "release_or_training_eligibility": "Not established. Source annotation only; source identity, music absence, editing and rights remain separate."
+    },
+    {
+      "id": "invc-sports-dry-cooler",
+      "annotation_file": "output/outdoor-source-audit/annotations/invc-sports-dry-cooler.json",
+      "annotation_sha256": "395cf189b86b7084971ef6cdcd01a23727b05834660c76738fb249bf7017f3c8",
+      "input_file": "C:\\Users\\antho\\Documents\\Hackathon\\output\\outdoor-dc-source-research\\invc-sports-dry-cooler.mp3",
+      "input_sha256": "338d3ea6a8d1498f395f003482d2e089a1e3d95b08f94a4d4bca898c0d96bac8",
+      "decoded_duration_seconds": 13.1986875,
+      "vad_speech_intervals": [
+        {
+          "start": 0.028,
+          "end": 2.052
+        },
+        {
+          "start": 6.492,
+          "end": 8.676
+        }
+      ],
+      "asr_segment_count": 2,
+      "candidate_vad_gaps_5_seconds": [],
+      "first5_speech_screen_pass": false,
+      "release_or_training_eligibility": "Not established. Source annotation only; source identity, music absence, editing and rights remain separate."
+    },
+    {
+      "id": "wwmt-dowagiac-original",
+      "annotation_file": "output/outdoor-source-audit/annotations/wwmt-dowagiac-original.json",
+      "annotation_sha256": "fe29d13e595e663bd915f8107d8bbb385dd2ec87e9212918ef08421df09f9d9c",
+      "input_file": "C:\\Users\\antho\\Documents\\Hackathon\\output\\outdoor-source-audit\\wwmt-dowagiac-original.mp4",
+      "input_sha256": "8d49c028c4ccda5a0bf8477715aa11fd6878a7654fb1cdc182b554ec7df23bf6",
+      "decoded_duration_seconds": 177.216,
+      "vad_speech_intervals": [
+        {
+          "start": 0.348,
+          "end": 3.556
+        },
+        {
+          "start": 4.316,
+          "end": 21.7
+        },
+        {
+          "start": 22.14,
+          "end": 24.74
+        },
+        {
+          "start": 27.228,
+          "end": 93.444
+        },
+        {
+          "start": 94.012,
+          "end": 104.196
+        },
+        {
+          "start": 106.556,
+          "end": 123.652
+        },
+        {
+          "start": 123.996,
+          "end": 134.724
+        },
+        {
+          "start": 135.132,
+          "end": 159.908
+        },
+        {
+          "start": 160.476,
+          "end": 168.676
+        },
+        {
+          "start": 170.108,
+          "end": 177.216
+        }
+      ],
+      "asr_segment_count": 42,
+      "candidate_vad_gaps_5_seconds": [],
+      "first5_speech_screen_pass": false,
+      "release_or_training_eligibility": "Not established. Source annotation only; source identity, music absence, editing and rights remain separate."
+    },
+    {
+      "id": "invc-university-compressor",
+      "annotation_file": "output/outdoor-source-audit/annotations/invc-university-compressor.json",
+      "annotation_sha256": "c534cf64f54164e4bfd85e357e3ebe7ebda83bda70521de74acb879c5367085c",
+      "input_file": "C:\\Users\\antho\\Documents\\Hackathon\\output\\outdoor-dc-source-research\\invc-university-compressor.mp3",
+      "input_sha256": "b5ae7b6951b090edbec216c3a5955c04942969a09227fc57f5e632343f15f4c6",
+      "decoded_duration_seconds": 12.5126875,
+      "vad_speech_intervals": [],
+      "asr_segment_count": 0,
+      "candidate_vad_gaps_5_seconds": [
+        {
+          "start": 0.0,
+          "end": 12.5126875,
+          "duration": 12.5126875
+        }
+      ],
+      "first5_speech_screen_pass": true,
+      "release_or_training_eligibility": "Not established. Source annotation only; source identity, music absence, editing and rights remain separate."
+    }
+  ],
+  "decisions_before_classifier_queries": {
+    "candidate_positive_first5s": [
+      "invc-outside-inside",
+      "invc-before-after",
+      "invc-150m"
+    ],
+    "excluded": [
+      "invc-sports-dry-cooler",
+      "wwmt-dowagiac-original"
+    ],
+    "exclusion_reason": "Sports first5 has speech; WWMT has narration/interviews and no VAD gap>=5s. Do not concatenate short gaps to fabricate a continuous recording.",
+    "candidate_hard_negative_first5s": [
+      "invc-university-compressor"
+    ]
+  },
+  "limitations": [
+    "No speech detected is only an annotation result; it is not manual listening, absence-of-music proof, editing proof or physical source validation.",
+    "All three INVC cases are one provider cluster with unknown facility/session independence.",
+    "No TonalWatch classifier/model prediction or training performed for annotation."
+  ],
+  "access_failures": [
+    {
+      "source": "WUSA9 article",
+      "result": "HTTP403Forbidden; stopped ordinary publisher route."
+    },
+    {
+      "source": "WUSA9 YouTube JflFFqbZ1X8",
+      "result": "Ordinary yt-dlp metadata succeeded; audio HTTP403Forbidden. Stopped; no cookies, login or bypass."
+    },
+    {
+      "source": "Reddit4kVHS1sfitbz",
+      "result": "Ordinary yt-dlp required account authentication. Stopped without cookies."
+    },
+    {
+      "source": "YouTube publisher captions for WUSA9/WWMT",
+      "result": "Public listedCC1tracks returnedHTTP200 empty0bytes; no usable captions."
+    }
+  ],
+  "archive_guidance": "Archive this compact summary and the annotation script only; no audio/video, model binaries or full news transcript is required to preserve screening decisions."
+}
