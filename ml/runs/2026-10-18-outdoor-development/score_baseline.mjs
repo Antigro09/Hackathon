@@ -1,0 +1,24 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import {pathToFileURL} from 'node:url';
+import path from 'node:path';
+import {validateCanonicalCheckpoint} from '../../browser/canonicalCheckpoint.mjs';
+const root=process.cwd(), sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const input='output/outdoor-development-2026-10-18/canonical/embeddings.json';
+const bytes=fs.readFileSync(input), data=JSON.parse(bytes);
+const headFile='public/ai/canonical-v3/tonalwatch-head-v3.json', scorerFile='public/ai/canonical-v3/integerHeadV3.js';
+const headBytes=fs.readFileSync(headFile), scorerBytes=fs.readFileSync(scorerFile);
+if(sha(headBytes)!=='1e373cd18cbd706812dac10b19a320b73a568e6ee40e3f34236e03ae6122f491'||sha(scorerBytes)!=='5b969fa736aad8b336c198d24f20bf59bbe4e788ef7878ea86dd8126c20ed25f')throw Error('Frozen production head/scorer changed');
+if(data.records.length!==4 || data.records.map(row=>row.clip_id).join(',')!=='invc-outside-inside,invc-before-after,invc-150m,invc-university-compressor')throw Error('Diagnostic input set changed');
+const module=await import(pathToFileURL(path.join(root,scorerFile)).href), head=module.createIntegerHeadV3(JSON.parse(headBytes));
+for(const row of data.records)validateCanonicalCheckpoint(row.checkpoint,row,data.contractSha256,1);
+const results=data.records.map(row=>{
+  const checkpoint=row.checkpoint;
+  const embedding=Float32Array.from(checkpoint.embedding);
+  if(embedding.length!==512 || embedding.some(x=>!Number.isFinite(x)) || sha(Buffer.from(embedding.buffer))!==checkpoint.repeats[0].embeddingSha256)throw Error('Invalid embedding bytes');
+  const prediction=head.predict(embedding);
+  return {clipId:row.clip_id,contextLabel:row.label,embeddingSha256:checkpoint.repeats[0].embeddingSha256,accepted:prediction.accepted,family:prediction.accepted?prediction.label:null};
+});
+const report={schemaVersion:1,protocolCommit:'54f24c63af267a788543bac72fc81265d0010777',purpose:'Fixed development diagnostic of unchanged production broad-family head, not a new data-center classifier',inputPath:input,inputSha256:sha(bytes),headSha256:sha(headBytes),scorerSha256:sha(scorerBytes),results,providerDependencyGroups:1,newClassifierTrained:false,promotionAllowed:false,limitations:['Anonymous provider-documented contexts; independent site/session and manual source/music audition incomplete.','Three sources were resampled22.05→44.1kHz without restoring lost bandwidth.','A broad family is not data-center identity, a causal source confidence or acoustic fidelity.','Sports-cooling narration, news narration and short Atlas file were excluded before predictions.','These four newly inspected inputs are development data and cannot be used as a fresh final test.']};
+fs.writeFileSync('output/outdoor-development-2026-10-18/baseline-results.json',JSON.stringify(report,null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify(report));

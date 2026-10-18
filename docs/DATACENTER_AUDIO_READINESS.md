@@ -102,3 +102,9 @@ claiming field accuracy. [Source ledger and annotation evidence](../ml/runs/2026
 
 The user selected public sources only. No recording request was sent to INVC or
 any other person.
+
+The diagnostic was subsequently executed exactly once on the four fixed
+windows. The existing production head abstained on all four. This is evidence
+of limited coverage on these newly inspected development candidates, not a
+field accuracy estimate. No new data-center head was fitted or promoted.
+[Complete diagnostic results and reproducibility record](../ml/runs/2026-10-18-outdoor-development/README.md).

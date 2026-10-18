@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "protocolCommit": "54f24c63af267a788543bac72fc81265d0010777",
+  "purpose": "Fixed development diagnostic of unchanged production broad-family head, not a new data-center classifier",
+  "inputPath": "output/outdoor-development-2026-10-18/canonical/embeddings.json",
+  "inputSha256": "8779703690449e1ea2e8f659a70bf22695e72f59537ccb7c658a3acaa11ba307",
+  "headSha256": "1e373cd18cbd706812dac10b19a320b73a568e6ee40e3f34236e03ae6122f491",
+  "scorerSha256": "5b969fa736aad8b336c198d24f20bf59bbe4e788ef7878ea86dd8126c20ed25f",
+  "results": [
+    {
+      "clipId": "invc-outside-inside",
+      "contextLabel": "provider-documented-outdoor-candidate",
+      "embeddingSha256": "cd16d509cab9020e0bdc11f708831b47b1a7f8278b849e42f0415aeb3b6fd54d",
+      "accepted": false,
+      "family": null
+    },
+    {
+      "clipId": "invc-before-after",
+      "contextLabel": "provider-documented-outdoor-candidate",
+      "embeddingSha256": "820f0b2930a3cfe1cde54b5a935668e0ef3c1b97d7ba4081fa68e659a422446a",
+      "accepted": false,
+      "family": null
+    },
+    {
+      "clipId": "invc-150m",
+      "contextLabel": "provider-documented-outdoor-candidate",
+      "embeddingSha256": "b9599fa6488afa471b4955f2e6e49b153660847ec0bae2bdbe631e4c8a9536ae",
+      "accepted": false,
+      "family": null
+    },
+    {
+      "clipId": "invc-university-compressor",
+      "contextLabel": "non-datacenter-cooling-context-candidate",
+      "embeddingSha256": "9d369745696f58d6d84873a5dc94df82866d130f8efa7c113b0950c14cb52950",
+      "accepted": false,
+      "family": null
+    }
+  ],
+  "providerDependencyGroups": 1,
+  "newClassifierTrained": false,
+  "promotionAllowed": false,
+  "limitations": [
+    "Anonymous provider-documented contexts; independent site/session and manual source/music audition incomplete.",
+    "Three sources were resampled22.05→44.1kHz without restoring lost bandwidth.",
+    "A broad family is not data-center identity, a causal source confidence or acoustic fidelity.",
+    "Sports-cooling narration, news narration and short Atlas file were excluded before predictions.",
+    "These four newly inspected inputs are development data and cannot be used as a fresh final test."
+  ]
+}
