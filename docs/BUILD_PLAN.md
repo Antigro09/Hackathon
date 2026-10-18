@@ -1,3 +1,5 @@
+> **Planning archive:** The corrected plan below guided the current implementation; its schedules, proposed pilots, and future validation are historical planning material. Current implementation status and completed checks supersede planning-time status statements: see [README](../README.md) and [VALIDATION](VALIDATION.md).
+
 # TonalWatch — implementation-ready plan for 804 Hacks
 
 **Planning date:** October 18, 2026 · **Build window:** 10:00 a.m.–5:00 p.m. Eastern · **Submission target:** 4:15 p.m. · **Pitch:** at most 5 minutes, followed by 2 minutes of questions.

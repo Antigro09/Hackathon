@@ -1,3 +1,5 @@
+> **Historical briefing — superseded:** This document preserves earlier claims and scope that the corrected user-supplied [implementation plan](BUILD_PLAN.md) replaced. It is not current technical, legal, calibration, or completion guidance. The current app implements the corrected plan; see [README](../README.md), [VALIDATION](VALIDATION.md), and [RESOURCES](RESOURCES.md) for current behavior, limits, and source status.
+
 # TonalWatch — Team Briefing (the in-depth version)
 
 *Hand this to the team. Everything below is verified, sourced in docs/RESOURCES.md, and already proven where it says "demonstrated."*
