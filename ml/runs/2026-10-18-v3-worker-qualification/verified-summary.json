@@ -1,0 +1,27 @@
+{
+  "verified": true,
+  "promotionAllowed": false,
+  "classifierIncluded": false,
+  "headOrAccuracyEvaluated": false,
+  "workerSha256": "f622383fb66b1090f98f59739eea13971915eabe419af090ad833b1b436a5713",
+  "assetManifestSha256": "12d9497e5a9bfa12c29df76eb1b816c7bfc499ceb2ed98c16835ceaedcb4213d",
+  "chromeReferenceSha256": "f713e30fb35ed458a3ec80337476bf2e0feccf627e8a2e5d27248563610404f4",
+  "qualificationCases": 26,
+  "qualificationActualVectorsRetained": 26,
+  "maximumEmbeddingCoordinateError": 0,
+  "syntheticCases": 2,
+  "syntheticActualStageHashesMatchReference": true,
+  "syntheticExpectedVectorsRetained": 2,
+  "syntheticActualVectorsRetained": 0,
+  "requests": 46,
+  "requestMethods": [
+    "GET"
+  ],
+  "requestStatuses": [
+    200
+  ],
+  "recordedOrigin": "http://127.0.0.1:4192",
+  "consoleErrors": 0,
+  "consoleWarnings": 0,
+  "capturedPhase": "disposed"
+}

@@ -1,0 +1,46 @@
+### Result
+4. [GET] http://127.0.0.1:4192/assets/asset-manifest.json => [200] OK
+5. [GET] http://127.0.0.1:4192/assets/canonicalEncoder.mjs => [200] OK
+6. [GET] http://127.0.0.1:4192/assets/transformers.web.js => [200] OK
+7. [GET] http://127.0.0.1:4192/assets/ort.wasm.bundle.min.mjs => [200] OK
+8. [GET] http://127.0.0.1:4192/assets/runtime/ort-wasm-simd-threaded.mjs => [200] OK
+9. [GET] http://127.0.0.1:4192/assets/runtime/ort-wasm-simd-threaded.wasm => [200] OK
+10. [GET] http://127.0.0.1:4192/assets/app/resample.js => [200] OK
+11. [GET] http://127.0.0.1:4192/assets/app/model.js => [200] OK
+12. [GET] http://127.0.0.1:4192/assets/app/model => [200] OK
+13. [GET] http://127.0.0.1:4192/assets/models/c28f2883575e590e04d3146ff0713c2448d691ba/config.json => [200] OK
+14. [GET] http://127.0.0.1:4192/assets/models/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json => [200] OK
+15. [GET] http://127.0.0.1:4192/assets/selfTestV3.mjs => [200] OK
+16. [GET] http://127.0.0.1:4192/assets/self-test-v3-reference.json => [200] OK
+17. [GET] http://127.0.0.1:4192/assets/audio_model_quantized.onnx => [200] OK
+25. [GET] http://127.0.0.1:4192/qualification.json => [200] OK
+26. [GET] http://127.0.0.1:4192/qualification/pcm/0 => [200] OK
+27. [GET] http://127.0.0.1:4192/qualification/pcm/1 => [200] OK
+28. [GET] http://127.0.0.1:4192/qualification/pcm/2 => [200] OK
+29. [GET] http://127.0.0.1:4192/qualification/pcm/3 => [200] OK
+30. [GET] http://127.0.0.1:4192/qualification/pcm/4 => [200] OK
+31. [GET] http://127.0.0.1:4192/qualification/pcm/5 => [200] OK
+32. [GET] http://127.0.0.1:4192/qualification/pcm/6 => [200] OK
+33. [GET] http://127.0.0.1:4192/qualification/pcm/7 => [200] OK
+34. [GET] http://127.0.0.1:4192/qualification/pcm/8 => [200] OK
+35. [GET] http://127.0.0.1:4192/qualification/pcm/9 => [200] OK
+36. [GET] http://127.0.0.1:4192/qualification/pcm/10 => [200] OK
+37. [GET] http://127.0.0.1:4192/qualification/pcm/11 => [200] OK
+38. [GET] http://127.0.0.1:4192/qualification/pcm/12 => [200] OK
+39. [GET] http://127.0.0.1:4192/qualification/pcm/13 => [200] OK
+40. [GET] http://127.0.0.1:4192/qualification/pcm/14 => [200] OK
+41. [GET] http://127.0.0.1:4192/qualification/pcm/15 => [200] OK
+42. [GET] http://127.0.0.1:4192/qualification/pcm/16 => [200] OK
+43. [GET] http://127.0.0.1:4192/qualification/pcm/17 => [200] OK
+44. [GET] http://127.0.0.1:4192/qualification/pcm/18 => [200] OK
+45. [GET] http://127.0.0.1:4192/qualification/pcm/19 => [200] OK
+46. [GET] http://127.0.0.1:4192/qualification/pcm/20 => [200] OK
+47. [GET] http://127.0.0.1:4192/qualification/pcm/21 => [200] OK
+48. [GET] http://127.0.0.1:4192/qualification/pcm/22 => [200] OK
+49. [GET] http://127.0.0.1:4192/qualification/pcm/23 => [200] OK
+50. [GET] http://127.0.0.1:4192/qualification/pcm/24 => [200] OK
+51. [GET] http://127.0.0.1:4192/qualification/pcm/25 => [200] OK
+52. [GET] http://127.0.0.1:4192/assets/selfTestV3.mjs => [200] OK
+53. [GET] http://127.0.0.1:4192/assets/self-test-v3-reference.json => [200] OK
+
+Note: 11 static requests not shown, run with --static option to see them.
