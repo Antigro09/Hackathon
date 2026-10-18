@@ -2,7 +2,18 @@
 
 Verified October 18, 2026, in Chrome 155 on Windows.
 
-## Current sustained-peak correction release
+## Current microphone-only release
+
+- Public URL: [tonalwatch.vercel.app](https://tonalwatch.vercel.app).
+- Application source: `322d40e0d9a0146e35c61e1a46b05d7e9fffb662` on main; deployment `dpl_EhmQkBGYPCodTYTEq8qHN2Twgikp`, production **READY**. Published from an exact Git archive to the existing TonalWatch project. Later research/documentation commits do not change these application sources.
+- Fresh Vercel `npm ci` found zero vulnerabilities; TypeScript/Vite build succeeded. The matching application/lab checkout passed **388 tests across 19 files** (349 app + 39 standalone-lab checks).
+- Observation accepts live microphone capture only, with visible 5/15/30-second choices. File and Demo input controls, their runtime imports/state, Home shortcut and stale instructions are removed. Permission, missing-device, unsupported-browser and interruption errors describe microphone recovery. Learn's listening aids and the map's labeled illustrations remain separate from observation inputs.
+- Public Chrome reproduced an immediate Cancel → Retry startup failure before the first committed chunk. The recorder now discards only provisional startup audio, restarting contiguous sample indices at zero. Missing samples after the first chunk still invalidate capture, and the no-data watchdog, warm-up and exact capture counts remain intact.
+- Public HTTPS recheck passed live meter → Cancel (zero analysis) → immediate Retry → complete 15-second AudioWorklet capture → report → native text download. The result retained **720,000 samples / 174 frames at 48 kHz**, microphone provenance and method `tw-screen-v2`. Every microphone track ended after cancel, completion and navigation. Generated virtual-microphone QA is explicitly labeled in the screenshots; this does not validate physical hardware.
+- Native text summary: **5,828 bytes / 94 lines**, no individual bin rows. The actual SVG graph remained visible under print media and the toolbar hid. All six pages at **320/390/1280 px** had no file inputs, stale input instructions or horizontal overflow; scrolling reached the footer within half a pixel. No page or console errors occurred. Optional AI inference was not requested in this release check; the trained research candidates remain outside the app.
+- Home, Observation, Learn, Report and Sources screenshots were refreshed from this public release. The incoming judge guide was separately updated to use the current live microphone workflow and explain the app's measured limits.
+
+## Prior sustained-peak correction release
 
 - Public URL: [tonalwatch.vercel.app](https://tonalwatch.vercel.app).
 - Application source: `c54ab688548a93bfc88720617e5c50d9971c1392` on main; deployment `dpl_4ESRPj5Moqk7xHLKmrgYwu5qFj3S`, production **READY**. Later research/documentation commits do not change these app sources.
