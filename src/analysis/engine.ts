@@ -119,10 +119,18 @@ function sustainedPeak(frames: FramePeak[][], df: number): AnalysisResult['peakC
 }
 
 const SETTINGS_ALLOWLIST = ['sampleRate', 'sampleSize', 'channelCount', 'echoCancellation', 'noiseSuppression', 'autoGainControl', 'latency'];
+const DECODE_SETTINGS_ALLOWLIST = [
+  'decodeMethod', 'effectiveSampleRateHz', 'wavSampleRateHintHz', 'requestedDecodeSampleRateHz',
+  'decodeContextSampleRateHz', 'sampleRateHintMatched', 'decodeRateRequestFallback', 'decodeRatePolicy',
+  'decodedChannels', 'cropOffsetSeconds', 'cropDurationSeconds', 'decodedDurationSeconds',
+];
 
-function filteredSettings(settings: Record<string, unknown> | null): Record<string, unknown> | null {
+function filteredSettings(settings: Record<string, unknown> | null, inputKind: InputMeta['inputKind']): Record<string, unknown> | null {
   if (!settings) return null;
-  return Object.fromEntries(Object.entries(settings).filter(([key]) => SETTINGS_ALLOWLIST.includes(key)));
+  return Object.fromEntries(Object.entries(settings).filter(([key, value]) =>
+    (SETTINGS_ALLOWLIST.includes(key) || (inputKind === 'imported-file' && DECODE_SETTINGS_ALLOWLIST.includes(key))) &&
+    (value === null || typeof value === 'string' || typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))),
+  ));
 }
 
 /** Same deterministic calculation for synthetic, imported and microphone PCM. */
@@ -131,7 +139,7 @@ export function analyzePcm(pcm: Float32Array, fs: number, meta: InputMeta): Anal
   const flag = (code: QualityCode) => { if (!codes.includes(code)) codes.push(code); };
   const duration = Number.isFinite(fs) && fs > 0 ? pcm.length / fs : 0;
   const bandEnd = Number.isFinite(fs) && fs > 0 ? Math.min(20000, fs / 2) : 0;
-  const settings = filteredSettings(meta.deviceSettings);
+  const settings = filteredSettings(meta.deviceSettings, meta.inputKind);
   const result: AnalysisResult = {
     id: globalThis.crypto?.randomUUID?.() ?? `tw-${Date.now()}-${++fallbackResultId}`,
     algorithmVersion: ALGORITHM_VERSION,

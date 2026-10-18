@@ -2,6 +2,7 @@ import type { InputMeta } from '../types';
 import { abortable, AudioInputError, cancelledError } from './errors';
 import { assertCaptureDuration } from './chunks';
 import type { CaptureDurationSeconds } from './chunks';
+import { wavSampleRateHint } from './wavRate';
 
 export const MAX_FILE_BYTES = 10 * 1024 * 1024;
 
@@ -14,7 +15,14 @@ export async function decodeAudioFile(file: File, signal?: AbortSignal, duration
   let context: AudioContext | undefined;
   try {
     const encoded = await abortable(file.arrayBuffer(), signal);
-    context = new AudioContext();
+    if (signal?.aborted) throw cancelledError();
+    const rateHint = wavSampleRateHint(encoded);
+    let rateRequestFallback = false;
+    if (rateHint !== null) {
+      try { context = new AudioContext({ sampleRate: rateHint }); }
+      catch { context = new AudioContext(); rateRequestFallback = true; }
+    } else context = new AudioContext();
+    if (signal?.aborted) throw cancelledError();
     const buffer = await abortable(context.decodeAudioData(encoded), signal);
     if (signal?.aborted) throw cancelledError();
     const fs = buffer.sampleRate;
@@ -31,7 +39,15 @@ export async function decodeAudioFile(file: File, signal?: AbortSignal, duration
         inputKind: 'imported-file', fixtureId: null, recordedAtUtc: null,
         channelPolicy: 'first-channel', qualityCodes: ['imported-processing-unknown'],
         deviceSettings: {
-          decodeMethod: 'local browser decodeAudioData; may resample', effectiveSampleRateHz: fs,
+          decodeMethod: 'local browser decodeAudioData; sample conversion may differ by browser', effectiveSampleRateHz: fs,
+          wavSampleRateHintHz: rateHint, requestedDecodeSampleRateHz: rateHint,
+          decodeContextSampleRateHz: context.sampleRate,
+          sampleRateHintMatched: rateHint === null ? null : fs === rateHint,
+          decodeRateRequestFallback: rateRequestFallback,
+          decodeRatePolicy: rateHint === null ? 'Default browser rate; encoded rate not established'
+            : rateRequestFallback ? 'Requested WAV rate unavailable; default browser context used'
+            : fs === rateHint ? 'WAV rate hint matched; browser sample conversion retained'
+            : 'Requested WAV rate not matched; effective decoded rate used',
           decodedChannels: buffer.numberOfChannels, cropOffsetSeconds: 0,
           cropDurationSeconds: sampleCount / fs, decodedDurationSeconds: buffer.length / fs,
           originalRecordingTime: 'unknown', originalProcessing: 'unknown',

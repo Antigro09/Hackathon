@@ -27,6 +27,15 @@ const absent = 'not provided';
 const unavailable = 'unavailable';
 const uncalibrated = 'Uncalibrated input — weighted digital levels, dB relative to RMS 1. Not sound-pressure levels.';
 const safeSettings = ['sampleRate', 'channelCount', 'sampleSize', 'latency', 'echoCancellation', 'noiseSuppression', 'autoGainControl'] as const;
+const safeDecodeSettings = [
+  'decodeMethod', 'effectiveSampleRateHz', 'wavSampleRateHintHz', 'requestedDecodeSampleRateHz',
+  'decodeContextSampleRateHz', 'sampleRateHintMatched', 'decodeRateRequestFallback', 'decodeRatePolicy',
+  'decodedChannels', 'cropOffsetSeconds', 'cropDurationSeconds', 'decodedDurationSeconds',
+] as const;
+const absentDecodeSettings: Record<string, string> = {
+  wavSampleRateHintHz: 'not established', requestedDecodeSampleRateHz: 'not requested',
+  sampleRateHintMatched: 'not applicable; no supported WAV rate hint',
+};
 
 function note(value: string): string { return value.trim() || absent; }
 function numeric(value: number | null, digits = 2): string {
@@ -77,8 +86,10 @@ export function buildReport(
   const duration = numeric(result.durationSeconds, 3);
   const spectrumOrigin = `${provenanceLabel} · ${duration} s analyzed${result.fixtureId ? ` · Fixture ${result.fixtureId}` : result.inputLabel ? ` · ${result.inputLabel}` : ''}`;
   const spectrum = buildReportSpectrum(result, spectrumOrigin);
-  const settings = safeSettings.flatMap(key => {
+  const settingsKeys = result.inputKind === 'imported-file' ? [...safeSettings, ...safeDecodeSettings] : safeSettings;
+  const settings = settingsKeys.flatMap(key => {
     const value = result.deviceSettings?.[key];
+    if (value === null && absentDecodeSettings[key]) return [row(key, absentDecodeSettings[key])];
     return typeof value === 'boolean' || typeof value === 'string' || (typeof value === 'number' && Number.isFinite(value))
       ? [row(key, String(value))] : [];
   });
@@ -146,8 +157,10 @@ export function buildReport(
       methodLimitations[0],
     ]),
     section('Recording quality', [], quality),
-    section('Reported browser track settings', settings, [
-      settings.length ? 'Only useful non-identifying settings are included. Requested processing preferences do not prove flat or raw acoustic response.' : 'No useful browser track settings were available. Processing and input response remain unestablished.',
+    section(result.inputKind === 'imported-file' ? 'Local file decoding provenance' : 'Reported browser track settings', settings, [
+      result.inputKind === 'imported-file'
+        ? settings.length ? 'Local browser decoding details only. A sample-rate hint is container metadata, not proof of recording time, original processing, calibration, or identical sample conversion across browsers.' : 'No local decoder settings were retained. The effective analysis rate is listed under Method; original recording context remains unknown.'
+        : settings.length ? 'Only useful non-identifying settings are included. Requested processing preferences do not prove flat or raw acoustic response.' : 'No useful browser track settings were available. Processing and input response remain unestablished.',
     ]),
     section('Limitations', [], methodLimitations),
     section('Jurisdiction context', [row('Selected profile', referenceProfile.title)], [referenceProfile.summary, referenceProfile.scopeNote]),
