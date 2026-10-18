@@ -1,0 +1,101 @@
+{
+  "formatVersion": 1,
+  "implementation": "tw-v3-python-js-head-parity-v1",
+  "researchOnly": true,
+  "promotionAllowed": false,
+  "encoderRun": false,
+  "accuracyEvaluated": false,
+  "headSha256": "1e373cd18cbd706812dac10b19a320b73a568e6ee40e3f34236e03ae6122f491",
+  "frozenParametersAndRulesSha256": "6f1119be47ffeea7fcf8b3e1b4212af7d387cdef14667c3c871f46e9c98c8a92",
+  "embeddingContract": {
+    "canonicalBackend": "browser-wasm",
+    "dimension": 512,
+    "normalization": "l2-float32",
+    "modelSha256": "3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f",
+    "runtimeFingerprintSha256": "f28a76756690691b355ee60359aaed7460b2c9674be6e8e10df2dd0159acdac9",
+    "preprocessingContractSha256": "8a3c23901e5ef9b122ae5170c7da1d92c0d92aeea0c1aa8552997dc64b5a8fc8",
+    "runtimeFingerprint": {
+      "ortVersion": "1.31.0-dev.20260914-8d85527a0",
+      "artifacts": {
+        "ort.wasm.bundle.min.mjs": {
+          "sha256": "17b52c1ac62b421dc508b4c28b9a9675251c6e25dd512ef54b83a5e2c4242869",
+          "bytes": 73123
+        },
+        "ort-wasm-simd-threaded.mjs": {
+          "sha256": "c57ca56328877353a575e51bbca6f18450027d6c9bf2307a2cb2c41363b4de9f",
+          "bytes": 24381
+        },
+        "ort-wasm-simd-threaded.wasm": {
+          "sha256": "06ba057753da3847e4c24f02d91ab133455b0817c69a44993a9a53a2146df9e3",
+          "bytes": 14264838
+        }
+      },
+      "execution": {
+        "provider": "wasm",
+        "numThreads": 1,
+        "proxy": false,
+        "simdFeatureCheck": "fixed",
+        "graphOptimizationLevel": "all",
+        "executionMode": "sequential"
+      }
+    },
+    "preprocessingContract": {
+      "implementation": "tw-canonical-clap-wasm-v1",
+      "transformersVersion": "4.3.1",
+      "transformersBrowserBundleSha256": "ad44c6e41ff23fd5b01fa3fe08199a0440a35711dc9f80a31132fcce08fbd432",
+      "preprocessorSha256": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+      "encoderSourceSha256": "6cda0b9db5fee7c1612629d014ead11a93d6e369b101a68af9e32d82c031ebb4",
+      "resamplerSourceSha256": "a73257786eb279a269e4df0bab86eeb2c1b8d682dcd3c32e8fba1df5b89efb81",
+      "compiledResamplerSha256": "2ab0e2e2a8d3bbc8dc2d3608993c7b27c2df4726a20411e5054414f4223d0477",
+      "compiledModelSha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+      "sampleRateHz": 48000,
+      "durationSeconds": 5,
+      "featureShape": [
+        1,
+        1,
+        1001,
+        64
+      ],
+      "normalization": "Float64 sequential squared sum and sqrt, then Float32 coordinate division",
+      "preprocessing": "Transformers.js4.3.1 ClapFeatureExtractor: five seconds input plus five seconds zero padding"
+    }
+  },
+  "pins": {
+    "compilerVersion": "7.0.2",
+    "scorerSourceSha256": "c89ed32798a923eaf19b62fabfda9a8b3ae87b5757fd57458e9ec54aa715b0f7",
+    "compiledScorerSha256": "5b969fa736aad8b336c198d24f20bf59bbe4e788ef7878ea86dd8126c20ed25f",
+    "pythonScorerSha256": "640e11d60776d8f87f01e9c19f356c49bd5cc02c433e2abd8edb740aecc026d1"
+  },
+  "inputs": [
+    {
+      "path": "inputs/00.json",
+      "sha256": "4c6cfb659085a23b9420fd11d3945d3e670adaf7e6ed302c4e85c0f317c59200",
+      "bytes": 27241072,
+      "kind": "canonical-development",
+      "stagedPath": "inputs/00-staged.json",
+      "stagedSha256": "5345e3d17959966ef39588a1689d23920d585ecb1e1ae5996f1b7786a18b9cd6",
+      "contractSha256": "19f3376d1e456add6a66dfe1bec014a895025d4ecc93e9ee0975ed19f3d618b1",
+      "rows": 1358
+    },
+    {
+      "path": "inputs/01.json",
+      "sha256": "6d5414df3b9413283c88f599887d149314c9c8fb189c5324205b452e33a2212d",
+      "bytes": 36622,
+      "kind": "synthetic-startup",
+      "rows": 2
+    }
+  ],
+  "python": {
+    "version": "3.10.11",
+    "implementation": "CPython",
+    "numpy": "2.2.6",
+    "platform": "Windows-10-10.0.26200-SP0"
+  },
+  "sourceSha256": {
+    "ml/browser/checkHeadV3.py": "3049f293d9e875e8453b24c07f61bb5d9f4006f95c730448d351f8dacf2f82ae",
+    "ml/browser/checkHeadV3.mjs": "e5c41f4bd6aa7e8e360f0b5b7c253fcc7cb82cee04d003a6dcdb5359c2e6d24c",
+    "ml/experiment_v3.py": "640e11d60776d8f87f01e9c19f356c49bd5cc02c433e2abd8edb740aecc026d1",
+    "ml/canonical_v3.py": "3e0c79d1525244c11fdbe05c1f154ea515c919d5dd2c8203cf8c6054b76948f1",
+    "ml/browser/canonicalCheckpoint.mjs": "0e91bce95cdddebdf5ca95e6d2b6e2fd343b02c901364bf7bfd9b717aa10ad4a"
+  }
+}

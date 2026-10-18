@@ -1,0 +1,6578 @@
+{
+  "formatVersion": 3,
+  "promotionAllowed": false,
+  "freshTestEvaluated": false,
+  "randomSeed": 18043,
+  "counts": {
+    "train": 461,
+    "unknown_train": 233,
+    "calibration": 215,
+    "unknown_calibration": 117,
+    "audit": 216,
+    "unknown_audit": 116
+  },
+  "criteria": {
+    "min_known_per_class": 20,
+    "min_groups_per_class": 3,
+    "min_correct_accepted_per_class": 5,
+    "min_correct_class_coverage": 0.2,
+    "min_predicted_class_precision": 0.9,
+    "min_known_precision": 0.9,
+    "min_known_precision_wilson_lower": 0.8,
+    "min_unknown_clips": 100,
+    "min_unknown_groups": 10,
+    "max_unknown_wilson_upper": 0.05
+  },
+  "training": {
+    "folds": 5,
+    "candidateGrid": [
+      {
+        "C": 0.01,
+        "unknownWeight": 1.0,
+        "groupBalancedFoldMacroF1": [
+          0.8202754842229286,
+          0.7108811967016977,
+          0.7867532081348223,
+          0.7325681774551757,
+          0.7780306365815887
+        ],
+        "unweightedFoldMacroF1": [
+          0.7536936881654294,
+          0.7313158089473878,
+          0.7048707613223743,
+          0.6126213111507229,
+          0.6099033816425121
+        ],
+        "selectionMeanMacroF1": 0.7657017406192426
+      },
+      {
+        "C": 0.01,
+        "unknownWeight": 2.0,
+        "groupBalancedFoldMacroF1": [
+          0.04761904761904764,
+          0.047619047619047596,
+          0.047619047619047665,
+          0.04761904761904761,
+          0.04761904761904771
+        ],
+        "unweightedFoldMacroF1": [
+          0.08465608465608465,
+          0.05024509803921568,
+          0.10625,
+          0.09341825902335456,
+          0.10961968680089486
+        ],
+        "selectionMeanMacroF1": 0.047619047619047644
+      },
+      {
+        "C": 0.1,
+        "unknownWeight": 1.0,
+        "groupBalancedFoldMacroF1": [
+          0.8384414605366936,
+          0.7427690789537196,
+          0.8047952023547825,
+          0.7795002014930127,
+          0.8088982927115488
+        ],
+        "unweightedFoldMacroF1": [
+          0.804730002474055,
+          0.7663310266295339,
+          0.746031746031746,
+          0.6843905068169774,
+          0.6838278762987141
+        ],
+        "selectionMeanMacroF1": 0.7948808472099514
+      },
+      {
+        "C": 0.1,
+        "unknownWeight": 2.0,
+        "groupBalancedFoldMacroF1": [
+          0.6158891913819509,
+          0.6408592935645936,
+          0.6498601399921222,
+          0.6816992072433918,
+          0.6667821775320243
+        ],
+        "unweightedFoldMacroF1": [
+          0.7370518609742748,
+          0.6468687443968074,
+          0.7076051185785698,
+          0.7192892855374114,
+          0.6052848231531617
+        ],
+        "selectionMeanMacroF1": 0.6510180019428166
+      },
+      {
+        "C": 1.0,
+        "unknownWeight": 1.0,
+        "groupBalancedFoldMacroF1": [
+          0.7632752313544645,
+          0.7580630111016723,
+          0.7525118006737502,
+          0.8065259860546748,
+          0.8060396563589133
+        ],
+        "unweightedFoldMacroF1": [
+          0.780750052989475,
+          0.7937744812087741,
+          0.72819901907123,
+          0.7160318400379625,
+          0.689808362369338
+        ],
+        "selectionMeanMacroF1": 0.777283137108695
+      },
+      {
+        "C": 1.0,
+        "unknownWeight": 2.0,
+        "groupBalancedFoldMacroF1": [
+          0.7751442232963414,
+          0.7624313718442898,
+          0.7150563996816648,
+          0.7854300675132059,
+          0.7748044363452626
+        ],
+        "unweightedFoldMacroF1": [
+          0.8213244384139906,
+          0.7984736704999226,
+          0.7651925683424734,
+          0.7221061186578428,
+          0.7048888246256667
+        ],
+        "selectionMeanMacroF1": 0.7625732997361528
+      },
+      {
+        "C": 10.0,
+        "unknownWeight": 1.0,
+        "groupBalancedFoldMacroF1": [
+          0.7241165655472629,
+          0.7334603244230341,
+          0.6828773502263349,
+          0.7777390981873,
+          0.7715541865381076
+        ],
+        "unweightedFoldMacroF1": [
+          0.7685300899015733,
+          0.7685311730200964,
+          0.7373310298842214,
+          0.70310960591133,
+          0.6848988016458238
+        ],
+        "selectionMeanMacroF1": 0.7379495049844079
+      },
+      {
+        "C": 10.0,
+        "unknownWeight": 2.0,
+        "groupBalancedFoldMacroF1": [
+          0.687631144563125,
+          0.7240003110571972,
+          0.6615440895951884,
+          0.7820372251691349,
+          0.7826613991723197
+        ],
+        "unweightedFoldMacroF1": [
+          0.7432490387459332,
+          0.7717414275760514,
+          0.7386634716046481,
+          0.7178170144462279,
+          0.7115490789403833
+        ],
+        "selectionMeanMacroF1": 0.727574833911393
+      }
+    ],
+    "selected": {
+      "C": 0.1,
+      "unknownWeight": 1.0
+    },
+    "selectionRoles": [
+      "train",
+      "unknown_train"
+    ],
+    "tiePreference": "First exact mean-score tie: lower C then lower unknown weight",
+    "sampleWeighting": "Equal total per class; equal groups within class; equal clips within class/group; unknown class multiplier; mean weight normalized to 1"
+  },
+  "calibration": {
+    "allClassesEligible": true,
+    "classes": {
+      "buzz": {
+        "trueClassCount": 25,
+        "candidateCount": 29,
+        "eligibleCostChoices": 3,
+        "threshold": 21199393314,
+        "correct": 11,
+        "knownAccepted": 12,
+        "unknownAccepted": 0,
+        "coverage": 0.44
+      },
+      "mechanical_fan": {
+        "trueClassCount": 20,
+        "candidateCount": 29,
+        "eligibleCostChoices": 2,
+        "threshold": 38230519945,
+        "correct": 8,
+        "knownAccepted": 8,
+        "unknownAccepted": 1,
+        "coverage": 0.4
+      },
+      "speech": {
+        "trueClassCount": 73,
+        "candidateCount": 75,
+        "eligibleCostChoices": 3,
+        "threshold": 11391888018,
+        "correct": 50,
+        "knownAccepted": 50,
+        "unknownAccepted": 0,
+        "coverage": 0.684931506849315
+      },
+      "traffic": {
+        "trueClassCount": 37,
+        "candidateCount": 56,
+        "eligibleCostChoices": 3,
+        "threshold": 33646713313,
+        "correct": 13,
+        "knownAccepted": 13,
+        "unknownAccepted": 1,
+        "coverage": 0.35135135135135137
+      },
+      "wind": {
+        "trueClassCount": 60,
+        "candidateCount": 67,
+        "eligibleCostChoices": 3,
+        "threshold": 18237466464,
+        "correct": 27,
+        "knownAccepted": 28,
+        "unknownAccepted": 0,
+        "coverage": 0.45
+      }
+    },
+    "unknownBudget": 2,
+    "unknownAccepted": 2,
+    "maximizedMinimumCorrectClassCoverage": 0.35135135135135137,
+    "empiricalUnknownCalibrationRateLimit": 0.025,
+    "selectionUncertaintyIncludedInWilson": false
+  },
+  "developmentAudit": {
+    "developmentAuditPassed": false,
+    "promotionAllowed": false,
+    "criteria": {
+      "min_known_per_class": 20,
+      "min_groups_per_class": 3,
+      "min_correct_accepted_per_class": 5,
+      "min_correct_class_coverage": 0.2,
+      "min_predicted_class_precision": 0.9,
+      "min_known_precision": 0.9,
+      "min_known_precision_wilson_lower": 0.8,
+      "min_unknown_clips": 100,
+      "min_unknown_groups": 10,
+      "max_unknown_wilson_upper": 0.05
+    },
+    "perClass": [
+      {
+        "label": "buzz",
+        "passed": true,
+        "clipCount": 26,
+        "groupCount": 19,
+        "correctAcceptedCoverage": {
+          "successes": 15,
+          "total": 26,
+          "rate": 0.5769230769230769,
+          "wilson95": [
+            0.3894861374659171,
+            0.7445555668634343
+          ]
+        },
+        "groupsWithAnyCorrectAcceptance": 9,
+        "precisionAmongAcceptedKnown": {
+          "successes": 15,
+          "total": 15,
+          "rate": 1.0,
+          "wilson95": [
+            0.7961166989641515,
+            1.0
+          ]
+        },
+        "precisionAmongAllAcceptedPredictions": {
+          "successes": 15,
+          "total": 16,
+          "rate": 0.9375,
+          "wilson95": [
+            0.7167126242970107,
+            0.9888806552353576
+          ]
+        }
+      },
+      {
+        "label": "mechanical_fan",
+        "passed": true,
+        "clipCount": 21,
+        "groupCount": 20,
+        "correctAcceptedCoverage": {
+          "successes": 10,
+          "total": 21,
+          "rate": 0.47619047619047616,
+          "wilson95": [
+            0.2834400610153417,
+            0.6763046541715557
+          ]
+        },
+        "groupsWithAnyCorrectAcceptance": 10,
+        "precisionAmongAcceptedKnown": {
+          "successes": 10,
+          "total": 10,
+          "rate": 1.0,
+          "wilson95": [
+            0.7224672001371107,
+            0.9999999999999999
+          ]
+        },
+        "precisionAmongAllAcceptedPredictions": {
+          "successes": 10,
+          "total": 10,
+          "rate": 1.0,
+          "wilson95": [
+            0.7224672001371107,
+            0.9999999999999999
+          ]
+        }
+      },
+      {
+        "label": "speech",
+        "passed": true,
+        "clipCount": 73,
+        "groupCount": 55,
+        "correctAcceptedCoverage": {
+          "successes": 46,
+          "total": 73,
+          "rate": 0.6301369863013698,
+          "wilson95": [
+            0.5154938517000784,
+            0.7317685023936353
+          ]
+        },
+        "groupsWithAnyCorrectAcceptance": 34,
+        "precisionAmongAcceptedKnown": {
+          "successes": 46,
+          "total": 48,
+          "rate": 0.9583333333333334,
+          "wilson95": [
+            0.8602434412954456,
+            0.9884981065106133
+          ]
+        },
+        "precisionAmongAllAcceptedPredictions": {
+          "successes": 46,
+          "total": 49,
+          "rate": 0.9387755102040817,
+          "wilson95": [
+            0.834795121642736,
+            0.9789598533270324
+          ]
+        }
+      },
+      {
+        "label": "traffic",
+        "passed": true,
+        "clipCount": 36,
+        "groupCount": 34,
+        "correctAcceptedCoverage": {
+          "successes": 9,
+          "total": 36,
+          "rate": 0.25,
+          "wilson95": [
+            0.13750477662994837,
+            0.4107045376672835
+          ]
+        },
+        "groupsWithAnyCorrectAcceptance": 9,
+        "precisionAmongAcceptedKnown": {
+          "successes": 9,
+          "total": 9,
+          "rate": 1.0,
+          "wilson95": [
+            0.7008549515804559,
+            1.0
+          ]
+        },
+        "precisionAmongAllAcceptedPredictions": {
+          "successes": 9,
+          "total": 10,
+          "rate": 0.9,
+          "wilson95": [
+            0.5958499732047615,
+            0.9821237869049271
+          ]
+        }
+      },
+      {
+        "label": "wind",
+        "passed": true,
+        "clipCount": 60,
+        "groupCount": 53,
+        "correctAcceptedCoverage": {
+          "successes": 23,
+          "total": 60,
+          "rate": 0.38333333333333336,
+          "wilson95": [
+            0.27088272374082023,
+            0.5098240417590008
+          ]
+        },
+        "groupsWithAnyCorrectAcceptance": 21,
+        "precisionAmongAcceptedKnown": {
+          "successes": 23,
+          "total": 24,
+          "rate": 0.9583333333333334,
+          "wilson95": [
+            0.7975819352134406,
+            0.9926065438344942
+          ]
+        },
+        "precisionAmongAllAcceptedPredictions": {
+          "successes": 23,
+          "total": 27,
+          "rate": 0.8518518518518519,
+          "wilson95": [
+            0.6752131457218702,
+            0.9408407222375568
+          ]
+        }
+      }
+    ],
+    "knownCoverage": {
+      "successes": 106,
+      "total": 216,
+      "rate": 0.49074074074074076,
+      "wilson95": [
+        0.42481947897817846,
+        0.5569855908141284
+      ]
+    },
+    "knownSelectivePrecision": {
+      "successes": 103,
+      "total": 106,
+      "rate": 0.9716981132075472,
+      "wilson95": [
+        0.9200743418151144,
+        0.9903287161344402
+      ]
+    },
+    "unknownFalseAcceptance": {
+      "successes": 6,
+      "total": 116,
+      "rate": 0.05172413793103448,
+      "wilson95": [
+        0.02391865346304596,
+        0.1082681454676646
+      ]
+    },
+    "acceptedMixturePrecision": {
+      "successes": 103,
+      "total": 112,
+      "rate": 0.9196428571428571,
+      "wilson95": [
+        0.8543044472628575,
+        0.9571494221631002
+      ]
+    },
+    "unknownAcceptedByLabel": {
+      "buzz": 1,
+      "mechanical_fan": 0,
+      "speech": 1,
+      "traffic": 1,
+      "wind": 3
+    },
+    "unknownGroupCount": 116,
+    "unknownGroupsWithAnyFalseAcceptance": 6,
+    "ungatedKnownMacroF1": 0.7977101522794954,
+    "classOrderWithUnknown": [
+      "buzz",
+      "mechanical_fan",
+      "speech",
+      "traffic",
+      "wind",
+      "__unknown__"
+    ],
+    "ungatedConfusionMatrixWithUnknown": [
+      [
+        21,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        19,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        60,
+        3,
+        2,
+        7
+      ],
+      [
+        0,
+        5,
+        3,
+        24,
+        1,
+        3
+      ],
+      [
+        0,
+        3,
+        0,
+        8,
+        46,
+        3
+      ],
+      [
+        3,
+        7,
+        8,
+        11,
+        25,
+        62
+      ]
+    ],
+    "perUnknownSource": {
+      "FSD50K": {
+        "falseAcceptance": {
+          "successes": 6,
+          "total": 116,
+          "rate": 0.05172413793103448,
+          "wilson95": [
+            0.02391865346304596,
+            0.1082681454676646
+          ]
+        },
+        "groupCount": 116,
+        "groupsWithAnyFalseAcceptance": 6
+      }
+    },
+    "perKnownSource": {
+      "FSD50K": {
+        "correctAcceptedCoverage": {
+          "successes": 103,
+          "total": 216,
+          "rate": 0.47685185185185186,
+          "wilson95": [
+            0.4112317757736602,
+            0.5432808987071068
+          ]
+        },
+        "groupCount": 166,
+        "groupsWithAnyCorrectAcceptance": 81
+      }
+    },
+    "groupResults": [
+      {
+        "group": "v3-lineage:004eae0cc0d7577663dc931dc17178b75de09b2968af6c4fabb79bbb679a844d",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:0080219c8e80673aa564ddf0c2fe2ceaf10ca99ff1901f8e34b9237d3a68e0cd",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:02df148251561541db6cb9b47faae82290284ac607c2b500c308eb8b403b9577",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:02e32d34e52869f9aa4bb07e0de88dc79604a8bc05046fc0275b8f2a62c4e2a8",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 3,
+          "total": 3,
+          "rate": 1.0,
+          "wilson95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:030c227392e86bb49dd574f29829adc2a4ecd73aa81f680ab65eb0181a84be9a",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:0521bfb8b3dfbd0e60185568c4f43053fb445c51fadb71b03f1b3fb2201756ca",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:05612d3942c1ce25b2a3e318681b0068898543d5c0806a584664188a8b47423e",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:0581bf1bf588e42bafbf00d2b335cb488d187a8a64521af7cd40c6faeeeb24c0",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:059e532883d62cc55171c39ce5d6177765ab2e204c9fda4de725e3ecd747ceb7",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:0608ebbcfb39ae70b55de20c08d1c09fb345a4d26bfc4d42ab37637339fe3b2e",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 5,
+          "rate": 0.2,
+          "wilson95": [
+            0.03622410863243014,
+            0.6244653702374747
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:0709e55805b3a8a2ad14f2e15430afc66bac3ccdfd0ba972d3253f0dc662bb82",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:07caf4e951dea7d7763be6737e6c097bf93989a457aaf51c0381c6b9d9b361e3",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 2,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:080d3c8fc95864e1e1ea54abc66075321ff0d342c7389311777d0df02530d879",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 5,
+          "total": 5,
+          "rate": 1.0,
+          "wilson95": [
+            0.5655175352168251,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:08baa5fa29db9bfa50b852564116d305b4fb8865a19eef1e10d272e4b7752629",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:0a61ada523c5012bfc8d850f87e8e335fd217299d016422a80e4c42455f20598",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:0c1f067c6dbaab017fb25f1bfc510db88db31d60470b23863ce5684ee8542b89",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:0d18bb1c08c846f8f65c72f3edc545495a57de30488ed11bce1ceac6d4f8e870",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:0d668f42765104957bb414e3a64a29d7901c875b427e2ea25815edba9074b353",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:0d7b66e22614544442aab5566f6472a182144b3137a5d1b57e856435cad5e3bd",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:0dc02074f6680179f01c31e02a67239ee8dc83611976079432993f5c469d1ab9",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:0dcf4de99c75517fdb5ebaa48ada947dbe40f85a8806e84d2c090267cfe339b5",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 2,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:0ef50e90cf1c609e64e8c1af95faf5a44f746ad7db45a1a5f8642b832e1c8ae6",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 2,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:1036d8a06d7a52aa0ab5dc2390c759ed934fd84e2ba0404b9b15b125ff8cbebc",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:105524b177bd266c50ad3a8dbaabc99769b79bbd84e22eef907f2ed1fe78011c",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:1145d403db529facee14799af477516687b957bb00c5167ba94e384e5bbcabba",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 3,
+          "rate": 0.3333333333333333,
+          "wilson95": [
+            0.06149194472039621,
+            0.7923403991979522
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:11ceb76f4309d84a9d242562faa00b1f40ba0381690f0df587bfa32909c1326f",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:12501068c16fb22d0a5d99e359dfdc12ee02724350a19ad147a5d45dbbee07ba",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:13418fbbc189c4d6b825a2b6afeff5f8459b1e5a7306a6dbfb07e8903125d640",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:1424bc7efd96fd78244a0cfb990f87fccca4210751176aada23c04ad28ee13bb",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 2,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:150e3a3a5b2f9b668ca24db32f427a817ccd94008f433011ce64ec254b40b667",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:1530b33f81e8d2ae9ea4b79d5f08ead50b9decdcfe18b80d5d1449155b1d6dce",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:166e0ea6968f516261061d69fb8eb3e8097d89a908fdf888c84019e573d408d4",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:17162d6f7cf1fbf5530cbc7f2eaff374377133ab9e3c6e01f9f1696f9a61f32d",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:178a13402135426f5bc69a305e898ceadf74295c76d131fb9a37c8fd1a7189fc",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:17aa187a18a2261511838d2d7c5c2e476a06901d49181e3cf69a8422e4678650",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:1a5defc664847e60ae782294cceb6eab526b1c5a2c1c5c1df2cb767de4b1628e",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 2,
+          "rate": 0.5,
+          "wilson95": [
+            0.09453120573423074,
+            0.9054687942657693
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:1c50edce4a7eeae50c179319fdf05bbfd9a0f04ccc142ad31c798bb89d1f678e",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 2,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:1c82b764603f2ecdda8587520abf0ef31c5e13caa6626ca217d48f563ea125cb",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:1fa121306ef26650e38bd633d85b533b22103765c37ad5e547faeb7fbf11bd89",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:1fe987b11347ea647b4c9cb81a8668258cfb0c97a48b40ac7081dffc7dbf8db1",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:21c67b1a3cf263710054a7aaa73133c93e6f9be37e4972c66bb87c9a150cd15b",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:223ffc2e27df7ac7fb2b0c889ef283402966a3a3aae615fbcb9be2ce2b1e527f",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:2248dd513fdd133372d608b38973632dff1e74dc710d086bd5553fab961ce48a",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:2285951dee51d543d44c2d394b9f8129769a473852f3b2bbe429a5b78a85735b",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:23843872b0fbd9ae33ccf2511d106fd2503ae6767211eaea341509bdd36e583a",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:23dd31dc548b50e4be3e85b5660ecf05e59e8ddbed0a37c70f0ef7a12ccbd38c",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 2,
+          "total": 2,
+          "rate": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:248deceacf2df752829fb66ec014e32c597116eb9cee7244fa8086650157b8cc",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:25a36c03158a7c827689e9b0c060e3350316dc1f69cdfe7a0954d30eaf7b8a0f",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:25a41d404dd51fd6a6a2656ad6b58c1e2ec321cc02d9b329754d4fdc5221f646",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:25fc72158579826f7e75b387161799612c65161620842b09b833f07025e6183a",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:2668986969da211735506864d96bd4c29938373e9c22f0ca7ec05ba88908e2bd",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:26c847bed01c65510de27c5d192bb9a61b4935058d7d0b8683c77bfa3d776836",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 2,
+          "rate": 0.5,
+          "wilson95": [
+            0.09453120573423074,
+            0.9054687942657693
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:270f107c9203accec81af3070220b4bdc1ad4b5257fdc0968dca9044a09913ea",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:2b8bf9fb6a64e0809d101387c6861a5a2a24d27d6ca5089fcdf2789852643a0f",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:2ca366725fdaa1360a09fed9cf89fddf2e420e6fa5971810caa252cdfb83f206",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:2d4e546684a00427fe9eaaf3cbb5a2f139e18d4e102e3e443856fbecf735bca7",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:2d942d05881ef0366d053881d62c7b2e9d1524bebde5b67c4d3205a139adbda3",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:2e357b893b1c5916f3b5e9c3d4de747f763099329713938ee2367c059078cc9e",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:2f5cf82f648992a92b8812fac6c26e8ac06b7e981a142d687290255a46d14a4f",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:2fe5c342d5489397d64480dc29694b9ecba72ac6ffcc5463a4f38ac335f9200e",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:3074488d8f2bf2d982d78eb08577c1d8324132acb9da180119a32fae323d0f3a",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:314cf0e9eda9e590f0cae0760c90229b776c2f215ab66eee26140637b9f25397",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 2,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:31a3d4bc583efa154b0bd307fab341336f892b3df5606b3bbff2dc51c30ce436",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:34b9ab765914f8596d3eb75c945f346675fe0ddfeaa781613c84bd69a4025593",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:362db01efc9de58c2eaa0dfaff4cfd99f3cbc540eae982559b038c0b330d6104",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:37ee9b083c3a7f9ed0c3d3bce92f924fc35884090ee9865278fc5af0e8087005",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 2,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:3879db8d43eb8f4fd947ae15bbc1faf9bce8aebf057e040443ae6b8d1a6d3d05",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:38a9e2c2f5b84d6f44e803323e3f6244108a1abf5b0c15f97492f0ef0b8b4aec",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:39654b6231f5b1c90b6a303fc382d4d9d2f88e028c4b64f541920c661019ab51",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:3a7003ce44179bdb58f4a42039eb9902d2063fe5a6becfb96330e83280f8a1ab",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:3bd0a0489ab73dd65b8a65ef60fd5d7c695e695b6e432ac6b6f3eeb5194c7cd2",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:3d902b5765ef64559cd255b11a28b9abdf7ce63ab14d7926afe88a6bdf03f982",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:3e1555a2ea982fa476357958e40735a915dfb7f108086df26ddbecb5098f72d1",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:40fbed525d8e1d8a783ec0c809d32c000a6e75f6db39d7ac503b7ddb11d1fc2c",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:4155b27a2509c89667a612e0e0120d168c3bb5ee22d6c6a5186002fcf8bab1b4",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:43c080fc5b32badb74f7039b156ae9b314dfe05901b156f7b93e9517c14baacd",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:45ff009f914a20598f4744727210eaeaa99acfae6585e1dd2688dd735643d504",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:4782c13b296ecb59ed30d4811d7f1253ea3751d88fff83d77ab0c83cab043cc3",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:4947e5a77fd884db8f62bffda866472b14746388c846dd44abd5164d0f71e830",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 2,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:49b9984e7346f50a421e57d8022a9a5c33dda0f51a1bccad36ad6c67ab274f95",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:4c566020153e0c40d8e52da1dee266ba6293a79268a22c434a525d99d60de050",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:4d6416e8a8325f6f1d1cc0f911aac0348dfc37d2aa26440842f37d1d49ea3ca3",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:4e6953af6ac1467b65d18ad7adf7d5a07c9b870d754dc3cf9f7843233322b0d4",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:4f217812c0c062c35fa831ee20653c5231e7158e76cd4ea4c3433747b9fd5822",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:506b29ee7e2a48f54021a694fecc1550cbab0aaf33735303d9ad19a779a98354",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:52019e2e1e37d16d17538b03ad9673e8865f4afbcaaa0c8a876182e9078c4a46",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:52b5daa6375bed3a78e33ca432e50ec83e181800e9b6bd9b599eabe431867e28",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 2,
+          "total": 2,
+          "rate": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:5397b573aa3a69072705a1e5a52574bde2f0fdc302629d53f1d36d6efe063ce2",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:53a00bb6311e4103d7d655f32f777a75d9e0d8f60912a88c7fc6696824b18663",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:53a4e6363be5a4839c7bbdcac95a26fe0a3522fc9c216882a5b9def8f14eee69",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:53bbc63a4cab58bbf2ed74f5150bf4a2dadd2887b0948f63203df3f77c83a673",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:5446a5d3f73e0b0a6bcc957f96d97575723afb47c6877696a7691fc35e859d90",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:54bf6ec47d1b6a6ca3b5e30dbac01c3b3bfc43640849147512e5fe2bc983e7eb",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:556fffa842ce06386c973b110f67f53d2ff76afa32bfac7f037f79a6d2bbd504",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:559161706a96549e3695437f232bd53efb50128ab34619f3db2444a582a68e36",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 3,
+          "rate": 0.3333333333333333,
+          "wilson95": [
+            0.06149194472039621,
+            0.7923403991979522
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:56b571cf4eab1f7ce42a10023bbc89e785ad51e5a5b259843fdacd245bb2f90d",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:5884a2cd45767104616032bfc35489b5968e3e05a328e815cf0960cd08dfa175",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:59174907761d4764dd827871a8196145ee6da25cf36df0b28a185a3a0cc73edc",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:59a5b74e21a65e6483fa3c17ef2c5461a5859c1e39806d11f5a73bfbdbf68849",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:5a27cd6564479cd319e24c5ae5c9cc86521d29f7068d98590578798f1181bada",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:5a470e29ed05e074a08d0c2b88cb02b8cb4c24c834141b6718368c72a02365f2",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:5c7cd38bb1150a50bf37763d1fa360b20257222296b2b31130a0bafd5ca30836",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:5d93949e46a0c89bbf58c5c7fa7caccffca699bbee086371e24f0724fc4df69f",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:5e420bd16e694b1e496252093cb314f208057178a79825ce706b49ab91a0641e",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:5ef33a5711c703a774106973272e94abc33cfb56fa080a6b45017655a19b9542",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:5f0077d02d3050b23f7d963598a0ee858932eb5d0e1746aa5ab21c7c0ae808a9",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:5f2f070f0b63fb9e6834699a679bd47f208dd81f158db0d525063dc30926a09a",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:613b2e3b5b43a49f8b24c905cdb38376aac9788afb5abb32d2e1b2d03d11b613",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:62de4219753a086df3cc5dec30d95da5d5ad44639ea0928b7540a57352ecf9ec",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:6454cbc56f63fee246560faff5b193f5de8f93ac70fd80d7b231aa3b6b81bc29",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:65218d0a19b874061461f86e6399488d0bff399e6f350d12c084ab2a15346e7e",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:65940551501e3d0cab57cdfe99f13cd77ee6c6db899dd11dc118dfa899c57601",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:659fb2cd5ffd6b63aa72819be6a778222cbaa6765738c3642ae35b52408ac1f1",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 4,
+          "total": 4,
+          "rate": 1.0,
+          "wilson95": [
+            0.5101091635454027,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:65ea048e1cbbd1ac63a723ecfa8acb25be798ca73b3dde831448221155747882",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:66154c7868744710a90157a8f87c3c4ab07a70b7b2127a5bb3ada3b728df15df",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:6664072bb2d01ff213c80a35fba3e410e0ee5dcf40133805490edc31305d998e",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:678cc247ce6142f2f41e265832e7266a5cbb3c89af624dd995d4d14ce1276e37",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:6843d0ba075ce5c33ae05221820b724762c3dd40dd97eab350a993f84cf719dd",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:684a82497fd2ac681c4da8ae0def926c18f5d1b20391558fa116c54ee815208b",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:6890d03f52a96f4fbd103de4175661d3934c67c158aec0ff1153bad0d8da8361",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:68d481706ca2bf864bbc6577504fdd9481c93dffb6836a6b30bd1e5f76220ded",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:69b0186f5e87e518e4dd84bfd29bc9edd636ddb5702ce6c31ca0d9d5bd26b828",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:69c63f7055dfa065bba0836aca2490b64195818701d45b840f34896ed58d553d",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:6b3a27eda1b4d3dc38ef5e0112b2b5c2bd03bd407ba84dca4ccaf8053f4e4099",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:6b76691fe4c72653f92a2cc127afad888b377bbbb274ffc19a91bb6608952064",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:6c47ec19982a826b1928d71eb696751054459f6d340277ba48c1ae90aee3af3c",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:6c90ce49f4b87f95de313d5f8c96d5f217ff7ea90fb35495f94d6f660b065fdc",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:6df6eb89ea617195b447331c0a3c9aec01a01b5b43b6d5ae0996db5bce0fde76",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:6e0180c09bed357a6db4fc6d488843b77baef5906a3e65ee2c0239f58d66507b",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 5,
+          "rate": 0.2,
+          "wilson95": [
+            0.03622410863243014,
+            0.6244653702374747
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:6ed893ebc467d8fcabed4de998dff908bed33766e7218a95d4d6956a8fdcca50",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:6f34f85e6e42f07043485186cd390058b2f34d9d58662c9de017a5e836238f61",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 2,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:70f3fcc61b33d821bab15f3eb4a271a3ca9563b72c2a9ffed3db62f54088f1c6",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:710db2ad0cdae65434c8fe29f95cfe70b8970d03f6428abed257f2c3bb2e4fc2",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:718a9141ec3ec642194859cefa69911d9af5a33f14822c9c7f2fe5418bc68e05",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:7292ee5f375c6589ea6b3dedd41bd5b0f366e1adef341af2798502804a56542a",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:72e238a3fa1bf468ff2c9b5ee5c99eede9caa9651ebdf6cc12c7dfe9ad55f8b0",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:73355dba34facd81e0c4d7f6d0a0e86c2798c5a39c346fe2e4284b75d23add90",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:73ebd0e9aef22039a96f77bb47c7ccfc2d553de16736a292a62a6a30f6f02193",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:75118446a440f3c4b229965a0d3b6c152546064160820a55eaa82adbf7e6e6a3",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:7557bf5651153345ad306d9bfaac64773a752f9eb665669da4604185e1083614",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:75682ed993c97e3ffb9f0902da22cdd1eb581bfd181258e43a2bcc300fc836e9",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:75ee31b7c4858003d8f9f48964b12978602dcb2cd2853032e47e73ab1781606d",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:767d8e80ae7b7f323d4801cb23683d26de5f1b38a7ca5a8d5e4a4aaa8cab5039",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:778474d11a8734fd256b2ad7f55b35f832b8bbd8f703cfb19374b92205765762",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:77c48111d839085f317908ea9f819a7a70f04700f3b27f6476f389c0ce67df5c",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:7a9379054b2a28ba4ade20c5f89e4f3a7d964e014ccd15838f2ca2c3afa493b7",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:7c3d8587248815c616b672d3bd67d10a94f825891b7e4d7da81b7da2b68bce52",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:7cf66ef6b734c055d7168e06a7631e4a227b53c7fce3ea1b70d57c9243909761",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:7eafd52ff47be2a2367762f3d8fa92106aa604391557e7c3db45a9f108da1c46",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 2,
+          "rate": 0.5,
+          "wilson95": [
+            0.09453120573423074,
+            0.9054687942657693
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:83f9c00dcc8f4ced8c7373e20cb9d3014f7143ab87e59bc1c2efc56ee7a0d7b7",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:8563c65a9b04802e8d8154f32dd32f4e32ea8487b12ca3335fa63a84be069a0f",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:86330ab44f47605e7c2c765579c3e8be51d51f01bdf8da4112d0b8e1c21f62cf",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:87f9b9db134134d6c5981d98105827a8aa15136c69aac0688d37d97232ceab19",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:887f8ae7d02cdcfa3d7c6a07b4cf4769385efed779bd398248a82c9c7e8e5c39",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:88d7ae4b9aee78209a7c9d38643952074c5b4fb6d1e90efe50bf04e0df16cb7b",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:8c3ff7136a80ad7e7e8692c05c5361034a06e731662bf5b16fd063070e146603",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:8c78f6b0eeb13237d7a38f8d9ddff2529be7dfee7c3c50d09620455483b5e87c",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:8d9077f8f40588b2c04d80f9e7d622c67726fd8b3bddaacd7009acd0eaeb21a1",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:8d928d0d3d42fd4e6f991144fe08c87cfb347e894dcceb253358cb52db4ecc5f",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:8fa82ab99db3c2f75c7e49a875d07c07940d16af35b9229ce5a85ea883629a83",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:8fce5abc9ccff4722730081e5044b60035b38c7e17d6fe5deb945ad79e0e6d42",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:90f7243654c0dfebb02340ac062597cfca93f9c3522583874161abe474889908",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:92002b269a0d3bd648e76ddc91db5ca145bf84617fbb0479ccf497ae7e9a1d8e",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:92b8a24f2bdd29d76ea50582970e3e6135c3063d4d260379740f8b281a2b6ce2",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:92c16cf85d92670a912c1de292437066d3a2e6aa996cd979f844be3affe06a80",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:93e8d1d1920b866fa2a7631197fecc227ea7b0b8b591cc0c548a83addee4f87c",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:942a49d194c933c617cd5d17e8ec6fc2f82a2733f196baaad33d20790d22c82a",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:949098c320e3037d3990103916026e353c8c3ff954d1ffc138be96406e2250ae",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:9540dbd8eac62c4423859864bad0a24665e1c24b742cea38713dc448ce188714",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:95c6c53e094b3a6bd74c085dc6465f257c34959e2a2c6ae38bf32155e1eb832e",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:962f80f5dbf48c3e152debd8e5b9549099e3e59ebda65217cf878248d47b7f78",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:970b1d645e721dcd3204da47b2d4e60e720a47ef36b9d42bdbbe9080cb60a6e0",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:97a04d86b862d427ac3d7a07d42bb14e0343acb877102368b8411102b02c7867",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:97e1befc655c3fe9546afa15c523ce789c22d60afd1b1533c627401c8fe7c4d4",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:983303bebee35d10f4de61b00d7c89b33b0fd98fe3932d72ce3c6d592e2df6b1",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:9cc899076fd7ebddbb3f6acbd65aca829b1f6343d95f1da2288627963176930d",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:9ddacdbc178fe5bbd35dea959dddcd4e93551e8526dc5d9d23f681a651fe1311",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:9dee81977460b04187df22d376c87f3203c63e06129bcb7b25377e325c644949",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:9e559300f30d3bc68562038a0b9d85545f005e9e4e3e75bd3cacdbfbec924ee4",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:9ea79539a55efd24dc14895de46d1c78298d8a118bb9562253832806d3247cb9",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:9f52344aa85afdfa2a51d777edd3b92697f1131ed4a7ef6cfd0bb5054dbba8e9",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:9fbb0262f4102ba93fa93b75fc885f70d4b4021a4bc8346425bf2f45c237d69b",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 2,
+          "total": 2,
+          "rate": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:9fbbf21207827dd17e8c116d1f2850bfafc533c30a3e7670cc3674d1f110e40e",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:a23e934c58cd3eeb28557ed946c8642fd4be4cf9ac5389b5eb5c296f56d99c22",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:a2fedfc9c9379f67101a40f78b7c64da7bc3a82b44837c83b1501df98cc29fcc",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:a45b996f8e5de10373b1b3982d5c7fc43c22c50ac44a8e2761ef41f2f398301f",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:a4ad282ef36d648ce5ce1e5ad29271423c2ba1a02f1f076c1cfa260053d87246",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 2,
+          "total": 2,
+          "rate": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:a543ee4f9f4932c3fe64153b618ad053775687f9c2cfa6f6dfaa831778d251f8",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:a6458875103050200b112d20c53715e48b6046bbdbd50a6504cc99c1648ddcfa",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:a6b121d964083c40904755ce70f37eb02483de4c625da462f363131979be972f",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:a7847660ba6761dcc01c92745099ff7eca976dac79b4e1ef332daec3648af047",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 2,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:a8323da14b8565ad5a73b1a0958789978790a24d3941c9bff3f831092e2e7680",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:a83f0476939409ed6aa08e2e5ebcfa703c592e3fcce663bf4120ca555cd66234",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:a8b05b9fdc3c060383cd776cf9b199a5df257c87093cf1f7e742b4c8d8d5a0e6",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:a8d7f8a9350793ec8bba185430778e95868c58fa5030f04e3dc9504e9a44baab",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:a96eae98e90557a3edc89b8b49af456cfccbb4859c1afb37f709c18bbb011132",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:af2ad272f02fa0286eb66b664b5cd5028471c2bcc036f4fd83cf6b895347cd5c",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:afd9f79c0986263879a3fa3a8a4e8ba454054f95b3e1e6aa08fb0773e666bc04",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:b0b6d78a96c6fe34358362d6e09492b1456b64419625031e301742d8f8198084",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:b12827fa46a5b8256fa13981c57a3fc390b69fad0052d99260c2c8a2984758c0",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:b14e90767b8042992e0d2980d70dbb4111f96e5ca4733b4261fc0cc287f0e985",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:b184bcdeca966deb91383579a34c596732c1c1103dadb7434813acab93903c0e",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:b21ee144df4d32d7517f56076508cee376a856bbddd676630715959651923176",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:b240c257c9ff7ae79313533cd16eb77ea9bca6515336e69b0d4cdde1ae0d8ce7",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:b24b63c93668136ffd0f2932fb1747266fa480bb45bfccb2ffdf16176b137a62",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:b30a0249033cb6fa104039a88e9cb749cfe37df00a4a000fcc93b1111149d8b5",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:b31b27456facc0c92bdfa11a57bf13b4229c20defd36eb1988bf6498ad11090d",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 2,
+          "total": 2,
+          "rate": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:b3b9f67568baec0289a0f43fe884629bc3cdb5ba375fb333a48876a03c266a00",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:b47e855dc60bdd587dc384c77b0a7d5398020752ef17a5e06cceb31d95b715b0",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:b57770195246b81f1c37b1e538dbed9bb5b40cb2610f78376befa8562efb67dc",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:b5a32b1a8beec987e0daec7bb1f2c69e059ec15d1109f56b12f71559c1c18e60",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:b5a7ddc64fd435ebe4383a5bf77cca8ed23c9e15598a1ec491c3736a8b9d95b1",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:bd2ca7d624914cffa96d7dc48d688cdfa083d2a381778e9686bd881866cce593",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:bd6f6c49a4404c203d3b546330ce745986bd5723b1bab86cb19999a10a6e20aa",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:be5a5e9ae3f00f0a5ebc40ba3c449b836c4dbcbde6416fe07879369c07e52595",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 2,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:bf3794531ecf3b5c47e435fa79a3d38a10e61c6d339c4c480ced3aa5aecbe1fa",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:bf763412019866d286efd58bcf0b77239deefa039d79e8b8081b41926e4d292b",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:c0a17e6969f4fb7455ed8431a844b221d07645590b75494d9666385cfc2400fc",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:c1381df9ec3b3587d0dc6e20f5ef7d7457f8d97df837627de554b12f446da863",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:c1666fa2f2a0e3f47c6373fac7002109e01fc583f41ec023959accb753d3b423",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:c25bfe01689104d211cd4026a4f345012959712aaa38726128f5574c9de183b6",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 2,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.6576197724933469
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:c27330629923099bc39cc025bfa868fb154016a193e8efe011fad82b8dfeb471",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:c2e2720cc46e2e925504a99caf48640c29ee26735d322093fb58d814362e5195",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:c4c0568ae9aa734f6ffdc2d870301b27e511c863f5197025a9119b001ffd0dda",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 2,
+          "rate": 0.5,
+          "wilson95": [
+            0.09453120573423074,
+            0.9054687942657693
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:c51f2303f15b0ce63561c95227827615e62bbc8b5dfaec63edaafbe641d34fdb",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:c5d8e641d855293455ed25db5c4cb8a07dd2d83d19b9ca5dc81605ff5021e3c7",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:c77f2e91d486c153fa00c44936302f07a62c919650020d5dc35f8bf78d8ce74e",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:c93e536b4d373ff8f32bad71eeaa390679a80c729121ffd8b972a2febfb7d392",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:c96c6b4c0c7f0dcfa8eb03677bf28bc9645b195ee8ff14f2893545bb8d4c7d5b",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:c9a2f8bc2e3a1ab8b4764ccefbcb126dd3adb649d6db681d7a68e4ceec65b544",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:ca311b92de5120644b1317888a531066897c38de6e47f658a7b7cc58c38661ec",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:ca5b1723eb60f23e7fd004efaa29b6d65438e20c29c0268789d394abcd9c0e3a",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:cb03cc28825e0854a811e2ecd1ef3c84f07b9ddc4d36fdcc04a344e44fe1a297",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:cbd01b440452308b4b3cff8dcbfb5c6e3f102bb217512f4357c94e116864b1aa",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:cdb55f568adf599ade272cba4b5fb96f5e98f6cb4b3dcb05cadc527ccc0d7cce",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:d133f1a72411f01f9f7a12231a60185a65893bb3e60e49074afc4fb38ed5bc3e",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:d2f7d48b6bf0d308ac34417ba90345f0d2b29df75c6ce220ce387212cb013c58",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:d300c3b2cc56a13cf56fc3c3548e27251c88ad36186e138fb68a7ac28337e6e0",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:d3df4df80ec5fe6fec42f85a830b402ac614159215ff28ca3fad6c5365a6c554",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:d4a3dd56d79e9fc0be685ba5dfc73bab811c5f0431a1dd3f34c7a05333999a71",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:d4b69028bc8d9afdc3cd5e8a3decf892fa8248db9db8d38182d782be6017bddc",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:d5c8939a57792269e43840f44d83c02112c9dd5f2922ceed7af693671cc44660",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:d648a1708d1515cda4ce4dcffa5787de5df985e2586ab69edc7643a62aa75315",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:d94848d9747e4b210e4bb6e8a290026d1fe7f4108bfd08ac707ed64ef092b920",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 6,
+          "total": 6,
+          "rate": 1.0,
+          "wilson95": [
+            0.6096657120978346,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:db503600923ca5e44fd19bd3c4d8beefeebf0de177b108774491b2e188454049",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 3,
+          "total": 3,
+          "rate": 1.0,
+          "wilson95": [
+            0.4385029682449546,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:dbcd4f87b4e4da243f9585abb681e0e64d070b3683d51a09eef0f3ebfb684e08",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:dc7e0d508c713c10dd4e5dd4d793a90ecef3ab4f6486ea28ef7e4bfc99f29f3f",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:ddafe2f10deb4e0efb4a2605ca1723d96275608c8b7b1b336fafd767a4ed5c26",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:deb39c10cbb48734c87e787246c6859deae85fa91698669d8c47f92df0b1de4b",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:df72dcece31bc9b08b1d399aade88348b590e6d66f8be323179999b55784aeef",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:e0017b6af79973da38ba348d84c9c1c2c3f6da141aad3681ea58c9456f634af9",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:e09aa17b3feb0c8a9a28753edba4bc4c2f9087ce442e2924975ee6f40b5cc076",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:e120e5e771d5aa1e13d6116a2e195eb265a9fe11ff1657521754be7acb4174cc",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:e1dd6ae06a37c281658008de2957793bb5b401fc7a7ff4523138bf97eaf4276f",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:e24d73deb300485a26e122a4c5bef2de12950a395b76d3398867c65a0f474e94",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:e2912a322853a904b53764c90957648a7098ad3d943503a53f3c5b12ddfa708f",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:e357d2a388c1847fa58f7aa5d31b193ed6748d2076e70d7c3704f9636e1403d6",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:e390b025742a6dc10df48d14c90cb20ee2dae443b87e8456631353743b8b77e3",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:e3f1a16fa275e18ef7c602bb8013f15eb2b26f0d40e5016333377438b02cdec8",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:e44cb7b0587505eb3ea48d386008d073cdfa4055cab9f3686fa2d711c4cb2d75",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:e52014c5db539b20a6422375d5efce078b74492f2b0d1fa1bde8018f5644e136",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:e641ce76dc4a99783f5efe1d529acd89b8602379c7bb880303762aff4b00dd7c",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:e6eeb4ffa4787446f7a714162243cd27220e2e775d457a2ce591b74f4438b5d2",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:e75a36c17e999e3a08885db10686ff4bc88be63fe5b7d537a6861cf20e28784e",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:e8153805a48aa6a58827765d686cc64120875c9a9804cff551a076d8d3a023f0",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:ea68a9d7f9c59ccf1b70fdee4604d43fcf0004dd5c8a196b8d41a3df3472c9e4",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:ea76b6bbbb2d9f5732b2da0e5bca9cfd50e8d0685c6602abbbaa87ad78f8fe8f",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:eaa7626596d80cb93e325bdb0ba0eee32430b5a2d1e24a0122b4e326d069effa",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:ec6180ad8ab553ee833d2a60c2b73dc45472fce93709274b86e9f199b22210ce",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:ec6df63f2bc2e77decd4b7227448d64c626b9ef5f5a919d51e35269868e7ed7b",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:ed76af005e1d9231c0d63ce717192d53ef3563ff881aa5887ba037096d0e43cc",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:eea37124d1a4e224e9d9838607c5df9aad78fe832f00290a35fcb747d4ca625c",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:ef851caca41e33e2d5933a8f277098f95aa4bdd7eeea453936b340973bf7b1f0",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:f139bf7b17e3a7af49b9eade924f4e97d6e3f75ebcee95723fe47a2673625a8c",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:f1d6deb04438191e4580f4351151d66b79b263dd5987c12dc0405b8c42c73f4f",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:f814c9c8e34c01acf0be4288ee78e08e227193fbb12900d0722b425a58c9f67a",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:f848aa2588298721cbb021a773957e47f9b6ac49f7e71372be922049d0312258",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:f8aa7cf8d20a5cbbcebdf9d33cf9a2884d8a52417b4410c38699c808b540cc99",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:f8ab983577ff6b1bb32bda96393a8c521d96ee5c1d7a2386fdf4d5824502df61",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:f9b0e514137d187b24beff5ecac6a193a348fa288dd79e58bf816d2cc014872e",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0,
+          "wilson95": [
+            0.0,
+            0.7934506856227626
+          ]
+        }
+      },
+      {
+        "group": "v3-lineage:fe55502e074bb6b8bbfdbbd3186343a76437fa80d4057f70b5aa42c65a898ba9",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 2,
+          "total": 2,
+          "rate": 1.0,
+          "wilson95": [
+            0.34238022750665303,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      {
+        "group": "v3-lineage:ff44546466d103ff5d26de98ac8e52ccdc36647ca601bbe52560837428e4e0ea",
+        "datasets": [
+          "FSD50K"
+        ],
+        "knownCorrectAcceptedCoverage": {
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0,
+          "wilson95": [
+            0.20654931437723745,
+            1.0
+          ]
+        },
+        "unknownFalseAcceptance": {
+          "successes": 0,
+          "total": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      }
+    ],
+    "limitation": "Descriptive clip-level intervals omit group/collection dependence and field-domain uncertainty; this is development evidence, not a fresh final test."
+  },
+  "provenance": {
+    "embeddingContract": {
+      "canonicalBackend": "browser-wasm",
+      "dimension": 512,
+      "normalization": "l2-float32",
+      "modelSha256": "3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f",
+      "runtimeFingerprintSha256": "f28a76756690691b355ee60359aaed7460b2c9674be6e8e10df2dd0159acdac9",
+      "preprocessingContractSha256": "8a3c23901e5ef9b122ae5170c7da1d92c0d92aeea0c1aa8552997dc64b5a8fc8",
+      "runtimeFingerprint": {
+        "ortVersion": "1.31.0-dev.20260914-8d85527a0",
+        "artifacts": {
+          "ort.wasm.bundle.min.mjs": {
+            "sha256": "17b52c1ac62b421dc508b4c28b9a9675251c6e25dd512ef54b83a5e2c4242869",
+            "bytes": 73123
+          },
+          "ort-wasm-simd-threaded.mjs": {
+            "sha256": "c57ca56328877353a575e51bbca6f18450027d6c9bf2307a2cb2c41363b4de9f",
+            "bytes": 24381
+          },
+          "ort-wasm-simd-threaded.wasm": {
+            "sha256": "06ba057753da3847e4c24f02d91ab133455b0817c69a44993a9a53a2146df9e3",
+            "bytes": 14264838
+          }
+        },
+        "execution": {
+          "provider": "wasm",
+          "numThreads": 1,
+          "proxy": false,
+          "simdFeatureCheck": "fixed",
+          "graphOptimizationLevel": "all",
+          "executionMode": "sequential"
+        }
+      },
+      "preprocessingContract": {
+        "implementation": "tw-canonical-clap-wasm-v1",
+        "transformersVersion": "4.3.1",
+        "transformersBrowserBundleSha256": "ad44c6e41ff23fd5b01fa3fe08199a0440a35711dc9f80a31132fcce08fbd432",
+        "preprocessorSha256": "9739f58296aa6f9ac18008fd0150fb2649bc554985fbde86d0a4041c882ac753",
+        "encoderSourceSha256": "6cda0b9db5fee7c1612629d014ead11a93d6e369b101a68af9e32d82c031ebb4",
+        "resamplerSourceSha256": "a73257786eb279a269e4df0bab86eeb2c1b8d682dcd3c32e8fba1df5b89efb81",
+        "compiledResamplerSha256": "2ab0e2e2a8d3bbc8dc2d3608993c7b27c2df4726a20411e5054414f4223d0477",
+        "compiledModelSha256": "a082366e74a74302ca4b55b3a333b53320d619bdc5f2a17a824cfd1b898f25b0",
+        "sampleRateHz": 48000,
+        "durationSeconds": 5,
+        "featureShape": [
+          1,
+          1,
+          1001,
+          64
+        ],
+        "normalization": "Float64 sequential squared sum and sqrt, then Float32 coordinate division",
+        "preprocessing": "Transformers.js4.3.1 ClapFeatureExtractor: five seconds input plus five seconds zero padding"
+      }
+    },
+    "embeddingContractSha256": "256227f319c7733394a04066cd4fb97455f17f70f376c423c53c71fd938d72bc",
+    "manifestSha256": "4e1b32b3261993731b2c750bafe2e505aa5f377e3ac93cbc43b2e4c37c2ca0be",
+    "quantizedEmbeddingSha256ByPhase": {
+      "train": "544018a85e9c755f69b89787374824eee79f6b5ef828f645e162a4940b746364",
+      "calibration": "22f04275c42c4beaf82f449ef8c426c96333394e79f11cbe707aeefc7e9eda88",
+      "audit": "fd230f4d63cd132de7ea714d8c28a536daac692c37a042492978c68f946ed5af"
+    },
+    "frozenParametersAndRulesSha256": "6f1119be47ffeea7fcf8b3e1b4212af7d387cdef14667c3c871f46e9c98c8a92",
+    "sourceSha256": "640e11d60776d8f87f01e9c19f356c49bd5cc02c433e2abd8edb740aecc026d1",
+    "fitRuntime": {
+      "python": "3.13.16",
+      "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+      "numpy": "2.2.6",
+      "scikit-learn": "1.7.2"
+    }
+  },
+  "limitations": [
+    "No fresh final test was evaluated.",
+    "Explicit background training does not represent every possible unknown sound.",
+    "Integer head parity requires identical quantized inputs; encoder/runtime drift remains an independent gate.",
+    "The one-quantum guard is a fixed representation bound, not a bound on encoder drift or acceptance-bit invariance.",
+    "Scores and margins are not calibrated probabilities or equipment/source identity.",
+    "Browser parity, independent field validation, licensing and a fresh frozen final test are required before promotion."
+  ]
+}

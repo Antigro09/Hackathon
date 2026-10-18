@@ -1,0 +1,429 @@
+{
+  "formatVersion": 1,
+  "purpose": "Immutable first-v3-fit metadata; DEVELOPMENT AUDIT FAILED",
+  "promotionAllowed": false,
+  "predictionsRecomputed": false,
+  "freshFinalQueried": false,
+  "rawAudioIncluded": false,
+  "encoderBinariesIncluded": false,
+  "accountNotebookIncluded": false,
+  "fittedResearchHeadIncluded": true,
+  "originalDownloadSha256": "ee633cf4b02c86592fedcf9ec70dc995ed1da1d1163802ebadc113391e9e8003",
+  "originalFitCompletionSha256": "74cf3f85891cba5f940d8e19ef61eae1d922e1e1640605df48dac09d376a7dee",
+  "headParityCompletionSha256": "ad7cdb971464ec6660534bd6e93019a795e03beda190204bd8578048f28a45d5",
+  "headParityCases": 1360,
+  "headParityPassed": true,
+  "frozenFinalSourceSha256": "197e24e42c36de1368f9cd25424c98a4f8935af7c60429c4521d8d80feaa9520",
+  "copiedArtifacts": {
+    "fit/development_manifest_v3.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/development_manifest_v3.json",
+      "byteIdentical": true
+    },
+    "fit/development_v3.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/development_v3.json",
+      "byteIdentical": true
+    },
+    "fit/fit-completion.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/fit-completion.json",
+      "byteIdentical": true
+    },
+    "fit/fit-input.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/fit-input.json",
+      "byteIdentical": true
+    },
+    "fit/inputs/development/final-reservations.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/inputs/development/final-reservations.json",
+      "byteIdentical": true
+    },
+    "fit/inputs/development/historical-exclusions.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/inputs/development/historical-exclusions.json",
+      "byteIdentical": true
+    },
+    "fit/inputs/development/historical-manifests/v1.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/inputs/development/historical-manifests/v1.json",
+      "byteIdentical": true
+    },
+    "fit/inputs/development/historical-manifests/v2.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/inputs/development/historical-manifests/v2.json",
+      "byteIdentical": true
+    },
+    "fit/inputs/development/historical-records.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/inputs/development/historical-records.json",
+      "byteIdentical": true
+    },
+    "fit/inputs/development/manifest-v3-development.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/inputs/development/manifest-v3-development.json",
+      "byteIdentical": true
+    },
+    "fit/inputs/development-embeddings.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/inputs/development-embeddings.json",
+      "byteIdentical": true
+    },
+    "fit/inputs/development-staged.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/inputs/development-staged.json",
+      "byteIdentical": true
+    },
+    "fit/inputs/qualification/chrome-reference.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/inputs/qualification/chrome-reference.json",
+      "byteIdentical": true
+    },
+    "fit/inputs/qualification/comparison.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/inputs/qualification/comparison.json",
+      "byteIdentical": true
+    },
+    "fit/inputs/qualification/embeddings.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/inputs/qualification/embeddings.json",
+      "byteIdentical": true
+    },
+    "fit/inputs/qualification/staged.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/inputs/qualification/staged.json",
+      "byteIdentical": true
+    },
+    "fit/research_head_v3.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/research_head_v3.json",
+      "byteIdentical": true
+    },
+    "fit/sources/ml/browser/canonicalCheckpoint.mjs": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/sources/ml/browser/canonicalCheckpoint.mjs",
+      "byteIdentical": true
+    },
+    "fit/sources/ml/browser/canonicalEncoder.mjs": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/sources/ml/browser/canonicalEncoder.mjs",
+      "byteIdentical": true
+    },
+    "fit/sources/ml/browser/canonicalPage.mjs": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/sources/ml/browser/canonicalPage.mjs",
+      "byteIdentical": true
+    },
+    "fit/sources/ml/browser/canonicalServer.mjs": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/sources/ml/browser/canonicalServer.mjs",
+      "byteIdentical": true
+    },
+    "fit/sources/ml/browser/extractCanonicalNode.mjs": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/sources/ml/browser/extractCanonicalNode.mjs",
+      "byteIdentical": true
+    },
+    "fit/sources/ml/browser/prepareCanonical.py": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/sources/ml/browser/prepareCanonical.py",
+      "byteIdentical": true
+    },
+    "fit/sources/ml/canonical_v3.py": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/sources/ml/canonical_v3.py",
+      "byteIdentical": true
+    },
+    "fit/sources/ml/data_v3.py": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/sources/ml/data_v3.py",
+      "byteIdentical": true
+    },
+    "fit/sources/ml/experiment.py": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/sources/ml/experiment.py",
+      "byteIdentical": true
+    },
+    "fit/sources/ml/experiment_v3.py": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/sources/ml/experiment_v3.py",
+      "byteIdentical": true
+    },
+    "fit/sources/ml/features.py": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/sources/ml/features.py",
+      "byteIdentical": true
+    },
+    "fit/sources/ml/requirements.txt": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/sources/ml/requirements.txt",
+      "byteIdentical": true
+    },
+    "fit/sources/ml/run_v3.py": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/sources/ml/run_v3.py",
+      "byteIdentical": true
+    },
+    "fit/sources/ml/V3_PROTOCOL.md": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/sources/ml/V3_PROTOCOL.md",
+      "byteIdentical": true
+    },
+    "fit/sources/src/ai/model.ts": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/sources/src/ai/model.ts",
+      "byteIdentical": true
+    },
+    "fit/sources/src/ai/resample.ts": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata/sources/src/ai/resample.ts",
+      "byteIdentical": true
+    },
+    "head-parity/completion.json": {
+      "sourcePath": "output/v3-first-fit-head-parity/completion.json",
+      "byteIdentical": true
+    },
+    "head-parity/head.json": {
+      "sourcePath": "output/v3-first-fit-head-parity/head.json",
+      "byteIdentical": true
+    },
+    "head-parity/input-evidence.json": {
+      "sourcePath": "output/v3-first-fit-head-parity/input-evidence.json",
+      "byteIdentical": true
+    },
+    "head-parity/inputs/00-staged.json": {
+      "sourcePath": "output/v3-first-fit-head-parity/inputs/00-staged.json",
+      "byteIdentical": true
+    },
+    "head-parity/inputs/00.json": {
+      "sourcePath": "output/v3-first-fit-head-parity/inputs/00.json",
+      "byteIdentical": true
+    },
+    "head-parity/inputs/01.json": {
+      "sourcePath": "output/v3-first-fit-head-parity/inputs/01.json",
+      "byteIdentical": true
+    },
+    "head-parity/javascript/compiled/integerHeadV3.js": {
+      "sourcePath": "output/v3-first-fit-head-parity/javascript/compiled/integerHeadV3.js",
+      "byteIdentical": true
+    },
+    "head-parity/javascript/compiled/package.json": {
+      "sourcePath": "output/v3-first-fit-head-parity/javascript/compiled/package.json",
+      "byteIdentical": true
+    },
+    "head-parity/javascript/input-evidence.json": {
+      "sourcePath": "output/v3-first-fit-head-parity/javascript/input-evidence.json",
+      "byteIdentical": true
+    },
+    "head-parity/javascript/parity.json": {
+      "sourcePath": "output/v3-first-fit-head-parity/javascript/parity.json",
+      "byteIdentical": true
+    },
+    "head-parity/node-stderr.txt": {
+      "sourcePath": "output/v3-first-fit-head-parity/node-stderr.txt",
+      "byteIdentical": true
+    },
+    "head-parity/node-stdout.txt": {
+      "sourcePath": "output/v3-first-fit-head-parity/node-stdout.txt",
+      "byteIdentical": true
+    },
+    "head-parity/python-reference.json": {
+      "sourcePath": "output/v3-first-fit-head-parity/python-reference.json",
+      "byteIdentical": true
+    },
+    "logs/fit-v3-first-verified-metadata.log": {
+      "sourcePath": "output/v3-first-fit-reviewed/fit-v3-first-verified-metadata.log",
+      "byteIdentical": true
+    },
+    "logs/preflight-failed-before-fit.log": {
+      "sourcePath": "output/v3-first-fit-reviewed/preflight-failed-before-fit.log",
+      "byteIdentical": true
+    },
+    "logs/verified-fit-summary.json": {
+      "sourcePath": "output/v3-first-fit-reviewed/verified-fit-summary.json",
+      "byteIdentical": true
+    },
+    "verification/download_verifier_original.py": {
+      "sourcePath": "output/verify-v3-first-fit.py",
+      "byteIdentical": true
+    }
+  },
+  "files": {
+    "fit/development_manifest_v3.json": {
+      "sha256": "e767567dec6fbc3765c2f41cc12c067cc048d570a4488d43bdb9cea8e212aa9d",
+      "bytes": 384133
+    },
+    "fit/development_v3.json": {
+      "sha256": "a2333a10e957e4b9846fddfa4ece79711de37a25323bc2ee399614047b993a81",
+      "bytes": 164510
+    },
+    "fit/fit-completion.json": {
+      "sha256": "74cf3f85891cba5f940d8e19ef61eae1d922e1e1640605df48dac09d376a7dee",
+      "bytes": 5154
+    },
+    "fit/fit-input.json": {
+      "sha256": "2a323fc1d4b282b4d35023951ecb6724e7de10fd26cb9fac211c99bbdc6c06b5",
+      "bytes": 16160
+    },
+    "fit/inputs/development/final-reservations.json": {
+      "sha256": "08f9e9bcd5eecdcf7fe3273ffd8d8e75397ce3291938fd0d32fe6b8e10ea5b7b",
+      "bytes": 146747
+    },
+    "fit/inputs/development/historical-exclusions.json": {
+      "sha256": "55060c72e09459ac42452f0748cff8009e57a5ee055bfd9e5c02e371828b12a1",
+      "bytes": 1000781
+    },
+    "fit/inputs/development/historical-manifests/v1.json": {
+      "sha256": "1c5f7a8ba2f5d38c661073deeadc5253a5e4c70ce8d2143a975a69a392731549",
+      "bytes": 1292590
+    },
+    "fit/inputs/development/historical-manifests/v2.json": {
+      "sha256": "8a22e336d2eb1806ab228b381badb46156e67f198013d77b31a0565fbb3f0ab8",
+      "bytes": 2509717
+    },
+    "fit/inputs/development/historical-records.json": {
+      "sha256": "87ada977e57c9d7b22a428a63fc90a5dc8199cf981182c15ad8fedb4a511cf07",
+      "bytes": 4139647
+    },
+    "fit/inputs/development/manifest-v3-development.json": {
+      "sha256": "e0c86b5613b2c0b16e3f6df8f19abe7241228eb30b3df40f67ba1632b08d9ff7",
+      "bytes": 3517690
+    },
+    "fit/inputs/development-embeddings.json": {
+      "sha256": "4c6cfb659085a23b9420fd11d3945d3e670adaf7e6ed302c4e85c0f317c59200",
+      "bytes": 27241072
+    },
+    "fit/inputs/development-staged.json": {
+      "sha256": "5345e3d17959966ef39588a1689d23920d585ecb1e1ae5996f1b7786a18b9cd6",
+      "bytes": 3825404
+    },
+    "fit/inputs/qualification/chrome-reference.json": {
+      "sha256": "f713e30fb35ed458a3ec80337476bf2e0feccf627e8a2e5d27248563610404f4",
+      "bytes": 548240
+    },
+    "fit/inputs/qualification/comparison.json": {
+      "sha256": "cf35d88ff18bbb06dc6a51edd2d6cfa070247b529f83fec306edba6f22b56b71",
+      "bytes": 4577
+    },
+    "fit/inputs/qualification/embeddings.json": {
+      "sha256": "32f34acd2313ca358425232e6dd22370ac0270b9467f2affcc3ec0565517d498",
+      "bytes": 528228
+    },
+    "fit/inputs/qualification/staged.json": {
+      "sha256": "25448ca576662cf21511b2f691100e6e8d93d4f76c985bc35e6da55430f63e68",
+      "bytes": 67223
+    },
+    "fit/research_head_v3.json": {
+      "sha256": "1e373cd18cbd706812dac10b19a320b73a568e6ee40e3f34236e03ae6122f491",
+      "bytes": 47746
+    },
+    "fit/sources/ml/browser/canonicalCheckpoint.mjs": {
+      "sha256": "0e91bce95cdddebdf5ca95e6d2b6e2fd343b02c901364bf7bfd9b717aa10ad4a",
+      "bytes": 1704
+    },
+    "fit/sources/ml/browser/canonicalEncoder.mjs": {
+      "sha256": "6cda0b9db5fee7c1612629d014ead11a93d6e369b101a68af9e32d82c031ebb4",
+      "bytes": 4625
+    },
+    "fit/sources/ml/browser/canonicalPage.mjs": {
+      "sha256": "1273509167880a81c1ccbb9cc7f437d33eabea9bcb11042f24619126370e72d0",
+      "bytes": 4659
+    },
+    "fit/sources/ml/browser/canonicalServer.mjs": {
+      "sha256": "a810a5a9012bba870f10be18e67468df36cb441afd9ae37a3d0bcd6b76b95902",
+      "bytes": 11365
+    },
+    "fit/sources/ml/browser/extractCanonicalNode.mjs": {
+      "sha256": "ea25c92f666b14b54c7a8b3a545b5099617f30d497670d1032b6173ecd1d396d",
+      "bytes": 13694
+    },
+    "fit/sources/ml/browser/prepareCanonical.py": {
+      "sha256": "3026887d64a227ba23dbd8b12bd1ff741f35ea62bf8c72c0c93599f76e398b30",
+      "bytes": 3418
+    },
+    "fit/sources/ml/canonical_v3.py": {
+      "sha256": "3e0c79d1525244c11fdbe05c1f154ea515c919d5dd2c8203cf8c6054b76948f1",
+      "bytes": 22907
+    },
+    "fit/sources/ml/data_v3.py": {
+      "sha256": "a170ba3bcb47c48f98cf2b1698acd9a54e56310b79851c6c1cc0a00aac442fa2",
+      "bytes": 23361
+    },
+    "fit/sources/ml/experiment.py": {
+      "sha256": "911e000d0c79c23b17afd9979df8a4098c1f50036faf164fa2b0e36fb9e6962c",
+      "bytes": 20775
+    },
+    "fit/sources/ml/experiment_v3.py": {
+      "sha256": "640e11d60776d8f87f01e9c19f356c49bd5cc02c433e2abd8edb740aecc026d1",
+      "bytes": 34026
+    },
+    "fit/sources/ml/features.py": {
+      "sha256": "43c1c42a38ea4eb84497f956e8d6cbc7f76a3f1774e2ccd6b44d2e37e0ef11d9",
+      "bytes": 13823
+    },
+    "fit/sources/ml/requirements.txt": {
+      "sha256": "38804772c3bc851042e564f20a0a83927c1e4968f212fee4d8b83714ac3bbece",
+      "bytes": 384
+    },
+    "fit/sources/ml/run_v3.py": {
+      "sha256": "d17980566bab63efeb6579de91d8636c281bbdd6e31eca38178b085a625d1945",
+      "bytes": 36419
+    },
+    "fit/sources/ml/V3_PROTOCOL.md": {
+      "sha256": "6ae78b127ca9254340e7f7fea62da93970118de84b1100f8851a94c62c5fe983",
+      "bytes": 6654
+    },
+    "fit/sources/src/ai/model.ts": {
+      "sha256": "04f764ff1abd63d3342126b3d2bc26aaf752664319483f85885c963fa6b04388",
+      "bytes": 1269
+    },
+    "fit/sources/src/ai/resample.ts": {
+      "sha256": "a73257786eb279a269e4df0bab86eeb2c1b8d682dcd3c32e8fba1df5b89efb81",
+      "bytes": 4160
+    },
+    "head-parity/completion.json": {
+      "sha256": "ad7cdb971464ec6660534bd6e93019a795e03beda190204bd8578048f28a45d5",
+      "bytes": 1900
+    },
+    "head-parity/head.json": {
+      "sha256": "1e373cd18cbd706812dac10b19a320b73a568e6ee40e3f34236e03ae6122f491",
+      "bytes": 47746
+    },
+    "head-parity/input-evidence.json": {
+      "sha256": "dad84ceac29ba30a06b1c0ab0b12b5957f8356b2670c760b77b687d7cf142467",
+      "bytes": 4365
+    },
+    "head-parity/inputs/00-staged.json": {
+      "sha256": "5345e3d17959966ef39588a1689d23920d585ecb1e1ae5996f1b7786a18b9cd6",
+      "bytes": 3825404
+    },
+    "head-parity/inputs/00.json": {
+      "sha256": "4c6cfb659085a23b9420fd11d3945d3e670adaf7e6ed302c4e85c0f317c59200",
+      "bytes": 27241072
+    },
+    "head-parity/inputs/01.json": {
+      "sha256": "6d5414df3b9413283c88f599887d149314c9c8fb189c5324205b452e33a2212d",
+      "bytes": 36622
+    },
+    "head-parity/javascript/compiled/integerHeadV3.js": {
+      "sha256": "5b969fa736aad8b336c198d24f20bf59bbe4e788ef7878ea86dd8126c20ed25f",
+      "bytes": 6814
+    },
+    "head-parity/javascript/compiled/package.json": {
+      "sha256": "3ca9d4afd21425087cf31893b8f9f63c81b0b8408db5e343ca76e5f8aa26ab9a",
+      "bytes": 23
+    },
+    "head-parity/javascript/input-evidence.json": {
+      "sha256": "0d657e4ea954819748321c61c2bfc1a3774cf7523600af48d9e099b25a686501",
+      "bytes": 1414
+    },
+    "head-parity/javascript/parity.json": {
+      "sha256": "9c716c3d38fe7183a78da322f3997acf29e4f51dfd48c724764e6e5e533b650c",
+      "bytes": 808877
+    },
+    "head-parity/node-stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "head-parity/node-stdout.txt": {
+      "sha256": "51f0961ac302e240973c31b80f707bf183482f7126dd229cedc2f9626993b02e",
+      "bytes": 54
+    },
+    "head-parity/python-reference.json": {
+      "sha256": "a2fa7d8a971eb5b5134f2d5f90c61e35fb1931dea1206955d23f0a7439ff585c",
+      "bytes": 10429398
+    },
+    "logs/fit-v3-first-verified-metadata.log": {
+      "sha256": "e2432032d18f04e05d7c75e1b0b674874ebe9d41a6bd440c9146f93f85e5c8f6",
+      "bytes": 84
+    },
+    "logs/preflight-failed-before-fit.log": {
+      "sha256": "c54d42f832bf720eaa16dc0a93d3454ddb899a4c31e4da136b98955ccf606952",
+      "bytes": 1055
+    },
+    "logs/verified-fit-summary.json": {
+      "sha256": "9947a7f81898652cd980635cfc99768cb1151e2d2cb65445d2931e71ded32f0f",
+      "bytes": 7224
+    },
+    "README.md": {
+      "sha256": "53d43987e5a5d99910266bab6111b679f0f88abbcbd2ded3b829c253a74d6676",
+      "bytes": 10143
+    },
+    "verification/download_verifier_original.py": {
+      "sha256": "4131f9d6eff0d39f98365216444621cbb8abaa6cc46f3fb169747d7024d4ec26",
+      "bytes": 10972
+    },
+    "verify.py": {
+      "sha256": "3adc1a9735e301078c9e48df615cdb468756684227b60be0ec8c873f8464a352",
+      "bytes": 12226
+    }
+  }
+}

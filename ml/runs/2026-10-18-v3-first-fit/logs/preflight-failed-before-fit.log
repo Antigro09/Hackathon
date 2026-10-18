@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/content/tonalwatch-source/ml/run_v3.py", line 509, in <module>
+    main()
+    ~~~~^^
+  File "/content/tonalwatch-source/ml/run_v3.py", line 497, in main
+    result = fit_v3(*common, expected_development_sha256=args.source_sha256,
+                    golden_reference_sha256=args.golden_reference_sha256,
+                    frozen_final_source_sha256=args.frozen_final_source_sha256)
+  File "/content/tonalwatch-source/ml/run_v3.py", line 308, in fit_v3
+    data = load_canonical_batches([CanonicalBatch(embeddings, staged_manifest)], maps["roleByClipId"], group_by_clip_id=maps["groupByClipId"], reserved_final_groups=document["finalReservations"]["document"].get("groups", []))
+  File "/content/tonalwatch-source/ml/canonical_v3.py", line 222, in load_canonical_batches
+    raise ValueError("Canonical row differs from staged manifest/order")
+ValueError: Canonical row differs from staged manifest/order

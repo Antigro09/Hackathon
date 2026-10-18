@@ -1,0 +1,284 @@
+{
+  "verified": true,
+  "promotionAllowed": false,
+  "predictionsRecomputed": false,
+  "fitDirectory": "C:\\Users\\antho\\Documents\\Hackathon\\output\\v3-first-fit-reviewed\\fit-v3-first-verified-metadata",
+  "headRawSha256": "1e373cd18cbd706812dac10b19a320b73a568e6ee40e3f34236e03ae6122f491",
+  "fitCompletionSha256": "74cf3f85891cba5f940d8e19ef61eae1d922e1e1640605df48dac09d376a7dee",
+  "frozenParametersAndRulesSha256": "6f1119be47ffeea7fcf8b3e1b4212af7d387cdef14667c3c871f46e9c98c8a92",
+  "selected": {
+    "C": 0.1,
+    "unknownWeight": 1.0
+  },
+  "calibration": {
+    "allClassesEligible": true,
+    "classes": {
+      "buzz": {
+        "trueClassCount": 25,
+        "candidateCount": 29,
+        "eligibleCostChoices": 3,
+        "threshold": 21199393314,
+        "correct": 11,
+        "knownAccepted": 12,
+        "unknownAccepted": 0,
+        "coverage": 0.44
+      },
+      "mechanical_fan": {
+        "trueClassCount": 20,
+        "candidateCount": 29,
+        "eligibleCostChoices": 2,
+        "threshold": 38230519945,
+        "correct": 8,
+        "knownAccepted": 8,
+        "unknownAccepted": 1,
+        "coverage": 0.4
+      },
+      "speech": {
+        "trueClassCount": 73,
+        "candidateCount": 75,
+        "eligibleCostChoices": 3,
+        "threshold": 11391888018,
+        "correct": 50,
+        "knownAccepted": 50,
+        "unknownAccepted": 0,
+        "coverage": 0.684931506849315
+      },
+      "traffic": {
+        "trueClassCount": 37,
+        "candidateCount": 56,
+        "eligibleCostChoices": 3,
+        "threshold": 33646713313,
+        "correct": 13,
+        "knownAccepted": 13,
+        "unknownAccepted": 1,
+        "coverage": 0.35135135135135137
+      },
+      "wind": {
+        "trueClassCount": 60,
+        "candidateCount": 67,
+        "eligibleCostChoices": 3,
+        "threshold": 18237466464,
+        "correct": 27,
+        "knownAccepted": 28,
+        "unknownAccepted": 0,
+        "coverage": 0.45
+      }
+    },
+    "unknownBudget": 2,
+    "unknownAccepted": 2,
+    "maximizedMinimumCorrectClassCoverage": 0.35135135135135137,
+    "empiricalUnknownCalibrationRateLimit": 0.025,
+    "selectionUncertaintyIncludedInWilson": false
+  },
+  "developmentAuditPassed": false,
+  "perClass": [
+    {
+      "label": "buzz",
+      "passed": true,
+      "clipCount": 26,
+      "groupCount": 19,
+      "correctAcceptedCoverage": {
+        "successes": 15,
+        "total": 26,
+        "rate": 0.5769230769230769,
+        "wilson95": [
+          0.3894861374659171,
+          0.7445555668634343
+        ]
+      },
+      "groupsWithAnyCorrectAcceptance": 9,
+      "precisionAmongAcceptedKnown": {
+        "successes": 15,
+        "total": 15,
+        "rate": 1.0,
+        "wilson95": [
+          0.7961166989641515,
+          1.0
+        ]
+      },
+      "precisionAmongAllAcceptedPredictions": {
+        "successes": 15,
+        "total": 16,
+        "rate": 0.9375,
+        "wilson95": [
+          0.7167126242970107,
+          0.9888806552353576
+        ]
+      }
+    },
+    {
+      "label": "mechanical_fan",
+      "passed": true,
+      "clipCount": 21,
+      "groupCount": 20,
+      "correctAcceptedCoverage": {
+        "successes": 10,
+        "total": 21,
+        "rate": 0.47619047619047616,
+        "wilson95": [
+          0.2834400610153417,
+          0.6763046541715557
+        ]
+      },
+      "groupsWithAnyCorrectAcceptance": 10,
+      "precisionAmongAcceptedKnown": {
+        "successes": 10,
+        "total": 10,
+        "rate": 1.0,
+        "wilson95": [
+          0.7224672001371107,
+          0.9999999999999999
+        ]
+      },
+      "precisionAmongAllAcceptedPredictions": {
+        "successes": 10,
+        "total": 10,
+        "rate": 1.0,
+        "wilson95": [
+          0.7224672001371107,
+          0.9999999999999999
+        ]
+      }
+    },
+    {
+      "label": "speech",
+      "passed": true,
+      "clipCount": 73,
+      "groupCount": 55,
+      "correctAcceptedCoverage": {
+        "successes": 46,
+        "total": 73,
+        "rate": 0.6301369863013698,
+        "wilson95": [
+          0.5154938517000784,
+          0.7317685023936353
+        ]
+      },
+      "groupsWithAnyCorrectAcceptance": 34,
+      "precisionAmongAcceptedKnown": {
+        "successes": 46,
+        "total": 48,
+        "rate": 0.9583333333333334,
+        "wilson95": [
+          0.8602434412954456,
+          0.9884981065106133
+        ]
+      },
+      "precisionAmongAllAcceptedPredictions": {
+        "successes": 46,
+        "total": 49,
+        "rate": 0.9387755102040817,
+        "wilson95": [
+          0.834795121642736,
+          0.9789598533270324
+        ]
+      }
+    },
+    {
+      "label": "traffic",
+      "passed": true,
+      "clipCount": 36,
+      "groupCount": 34,
+      "correctAcceptedCoverage": {
+        "successes": 9,
+        "total": 36,
+        "rate": 0.25,
+        "wilson95": [
+          0.13750477662994837,
+          0.4107045376672835
+        ]
+      },
+      "groupsWithAnyCorrectAcceptance": 9,
+      "precisionAmongAcceptedKnown": {
+        "successes": 9,
+        "total": 9,
+        "rate": 1.0,
+        "wilson95": [
+          0.7008549515804559,
+          1.0
+        ]
+      },
+      "precisionAmongAllAcceptedPredictions": {
+        "successes": 9,
+        "total": 10,
+        "rate": 0.9,
+        "wilson95": [
+          0.5958499732047615,
+          0.9821237869049271
+        ]
+      }
+    },
+    {
+      "label": "wind",
+      "passed": true,
+      "clipCount": 60,
+      "groupCount": 53,
+      "correctAcceptedCoverage": {
+        "successes": 23,
+        "total": 60,
+        "rate": 0.38333333333333336,
+        "wilson95": [
+          0.27088272374082023,
+          0.5098240417590008
+        ]
+      },
+      "groupsWithAnyCorrectAcceptance": 21,
+      "precisionAmongAcceptedKnown": {
+        "successes": 23,
+        "total": 24,
+        "rate": 0.9583333333333334,
+        "wilson95": [
+          0.7975819352134406,
+          0.9926065438344942
+        ]
+      },
+      "precisionAmongAllAcceptedPredictions": {
+        "successes": 23,
+        "total": 27,
+        "rate": 0.8518518518518519,
+        "wilson95": [
+          0.6752131457218702,
+          0.9408407222375568
+        ]
+      }
+    }
+  ],
+  "knownPrecision": {
+    "successes": 103,
+    "total": 106,
+    "rate": 0.9716981132075472,
+    "wilson95": [
+      0.9200743418151144,
+      0.9903287161344402
+    ]
+  },
+  "unknownFalseAcceptance": {
+    "successes": 6,
+    "total": 116,
+    "rate": 0.05172413793103448,
+    "wilson95": [
+      0.02391865346304596,
+      0.1082681454676646
+    ]
+  },
+  "fitRuntime": {
+    "implementation": "CPython",
+    "machine": "x86_64",
+    "packages": {
+      "joblib": "1.6.0",
+      "numpy": "2.2.6",
+      "scikit-learn": "1.7.2",
+      "scipy": "1.15.3"
+    },
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+    "python": "3.13.16"
+  },
+  "developmentSourceSha256": "e0c86b5613b2c0b16e3f6df8f19abe7241228eb30b3df40f67ba1632b08d9ff7",
+  "frozenFinalSourceSha256": "197e24e42c36de1368f9cd25424c98a4f8935af7c60429c4521d8d80feaa9520",
+  "indexedFitFiles": 32,
+  "download": {
+    "entries": 35,
+    "expandedBytes": 45644001,
+    "zipSha256": "ee633cf4b02c86592fedcf9ec70dc995ed1da1d1163802ebadc113391e9e8003"
+  }
+}

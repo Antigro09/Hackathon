@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "contractSha256": "ca8670144ccaef1b9b191dc02b53a9f97026a5e3e3bd027e278c605326e2a865",
+  "allBitExact": true,
+  "cases": [
+    {
+      "clipId": "109083",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "116400",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "mimii_0db_pump_id04_abnormal_00000011",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "mimii_0db_pump_id04_abnormal_00000028",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "mimii_0db_slider_id04_abnormal_00000057",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "mimii_0db_slider_id04_abnormal_00000059",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "mimii_0db_valve_id04_abnormal_00000002",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "mimii_0db_valve_id04_abnormal_00000049",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "144017",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "167455",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "179245",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "216376",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "mimii_0db_fan_id04_abnormal_00000012",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "mimii_0db_fan_id04_abnormal_00000013",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "103382",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "103385",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "140342",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "140344",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "129427",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "129429",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "sine63-44100",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "sine1000-44100",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "noise-44100",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "sine63-48000",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "sine1000-48000",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    },
+    {
+      "clipId": "noise-48000",
+      "pcmBitExact": true,
+      "featuresBitExact": true,
+      "embeddingBitExact": true,
+      "embeddingMaxAbs": 0
+    }
+  ],
+  "promotionAllowed": false
+}
