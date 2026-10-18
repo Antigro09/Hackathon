@@ -2,11 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#244b3b" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="TonalWatch" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="manifest" href="./manifest.webmanifest" />
     <meta name="description" content="Document a recurring hum with transparent audio screening and a source-linked observation packet. Audio stays in your browser." />
-    <title>TonalWatch — Make the hum an observation</title>
+    <title>TonalWatch — The law can't hear it</title>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+      <script>try{var t=new URLSearchParams(location.search).get("theme");if(t){localStorage.setItem("tw-theme",t)}else{t=localStorage.getItem("tw-theme")}if(t&&t!=="mono")document.documentElement.dataset.theme=t}catch(e){}</script>
   </head>
   <body>
     <div id="root"></div>

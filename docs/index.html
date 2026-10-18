@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TonalWatch — Judge Presentation Guide</title>
+<style>
+:root{--ink:#1f2328;--mute:#656d76;--line:#d8dee4;--soft:#f6f8fa;--accent:#0969da;--me:#0969da}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4rem}
+body{margin:0;color:var(--ink);background:#fff;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent)}
+.bar{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
+.bar-in{max-width:760px;margin:0 auto;padding:.5rem 1rem;display:flex;gap:.4rem;align-items:center;overflow-x:auto}
+.bar .lbl{color:var(--mute);font-size:.85rem;margin-right:.2rem;white-space:nowrap}
+.bar button{font:inherit;font-size:.88rem;padding:.3rem .7rem;border:1px solid var(--line);background:#fff;border-radius:6px;cursor:pointer;white-space:nowrap;color:var(--ink)}
+.bar button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.bar button[data-part]:not([data-part=everyone]){border-bottom:2px solid var(--c)}
+.bar #timerBtn{margin-left:auto;font-variant-numeric:tabular-nums}
+main{max-width:760px;margin:0 auto;padding:1.5rem 1rem 5rem}
+h1{font-size:1.75rem;line-height:1.25;margin:.5rem 0 .75rem}
+.intro{color:var(--mute);margin:0 0 1rem}
+.intro p{margin:0}
+.toc{margin:0 0 1rem;padding:.75rem 1rem;list-style:none;background:var(--soft);border-radius:6px}
+.toc li{margin:.15rem 0}
+section{border-top:1px solid var(--line);padding-top:.5rem;margin-top:2rem}
+h2{font-size:1.35rem;margin:.75rem 0}
+h3{font-size:1.05rem;margin:1.5rem 0 .5rem}
+p,ul,ol{margin:.6rem 0}
+ul,ol{padding-left:1.4rem}
+li{margin:.25rem 0}
+blockquote{margin:.8rem 0;padding:.2rem 1rem;border-left:3px solid var(--line);color:var(--ink)}
+blockquote.say{border-left-color:var(--c,var(--line));background:var(--soft);border-radius:0 6px 6px 0;padding:.4rem 1rem}
+em.dir{color:var(--mute)}
+.tag{display:inline-block;font-size:.75rem;font-weight:600;color:#fff;background:var(--c);padding:.05rem .45rem;border-radius:4px;vertical-align:2px}
+.sub{transition:opacity .15s}
+body.filtering .sub.speaker:not(.hit){opacity:.35}
+.tw{overflow-x:auto;margin:.8rem 0}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:var(--soft);font-weight:600}
+td.t{white-space:nowrap}
+tr.hit td{background:color-mix(in srgb,var(--me) 10%,#fff)}
+li.never del{color:#cf222e}
+li.task{list-style:none;margin-left:-1.4rem}
+li.task label{cursor:pointer}
+li.task input:checked+span{color:var(--mute);text-decoration:line-through}
+#timer{position:fixed;right:1rem;bottom:1rem;z-index:20;width:min(300px,calc(100vw - 2rem));background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.12);padding:.9rem 1rem;display:none}
+#timer.open{display:block}
+#timer .time{font-size:2.4rem;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.1}
+#timer.warn .time{color:#bf8700}#timer.over .time{color:#cf222e}
+#timer .now{margin-top:.3rem;font-weight:600}
+#timer .next{color:var(--mute);font-size:.88rem}
+#timer .btns{display:flex;gap:.4rem;margin-top:.7rem}
+#timer .btns button{flex:1;font:inherit;font-size:.9rem;padding:.4rem;border:1px solid var(--line);background:#fff;border-radius:6px;cursor:pointer}
+#timer .btns button.go{background:var(--ink);color:#fff;border-color:var(--ink)}
+@media(max-width:600px){
+  h1{font-size:1.45rem}
+  table{min-width:520px}
+}
+@media print{.bar,#timer{display:none}body.filtering .sub.speaker{opacity:1}}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in" id="parts">
+<span class="lbl">My part:</span><button type="button" data-part="everyone">Everyone</button><button type="button" data-part="ricardo" style="--c:#2563eb">Ricardo</button><button type="button" data-part="vihaan" style="--c:#7c3aed">Vihaan</button><button type="button" data-part="anthony" style="--c:#16a34a">Anthony</button><button type="button" data-part="tate" style="--c:#ea580c">Tate</button>
+<button type="button" id="timerBtn">Timer</button>
+</div></div>
+<main>
+<h1>TonalWatch — Judge Presentation Guide</h1>
+<div class="intro"><p><strong>5 minutes</strong> of presentation, then <strong>2 minutes</strong> of judge questions. Everyone speaks. Your job: memorize your part, learn the speaking techniques, and know your answers in the Q&amp;A section.</p>
+</div>
+<ul class="toc"><li><a href="#sec-1">1. What the judges score</a></li><li><a href="#sec-2">2. Speaking order</a></li><li><a href="#sec-3">3. The script</a></li><li><a href="#sec-4">4. Why these words work</a></li><li><a href="#sec-5">5. Speaking techniques</a></li><li><a href="#sec-6">6. Judge questions</a></li><li><a href="#sec-7">7. What we can and can't say</a></li><li><a href="#sec-8">8. How to practice your part</a></li></ul>
+<section id="sec-1">
+<h2>1. What the judges score</h2>
+<div class="tw"><table>
+<thead><tr><th>Criterion</th><th>Points</th><th>Who carries it</th><th>What the judges want to see</th></tr></thead>
+<tbody>
+<tr data-people="ricardo vihaan tate"><td data-label="Criterion">Problem / Solution</td><td data-label="Points">20</td><td data-label="Who carries it">Ricardo, Tate, Vihaan</td><td data-label="What the judges want to see">A real environmental problem, why it matters, and a solution that clearly fixes it</td></tr>
+<tr data-people="ricardo"><td data-label="Criterion">Target Market &amp; UVP</td><td data-label="Points">10</td><td data-label="Who carries it">Ricardo</td><td data-label="What the judges want to see">Exactly who it's for, and why it's better than what already exists</td></tr>
+<tr data-people="ricardo"><td data-label="Criterion">Marketing Plan</td><td data-label="Points">5</td><td data-label="Who carries it">Ricardo</td><td data-label="What the judges want to see">A specific plan to reach users, more than just &quot;social media&quot; or &quot;flyers&quot;</td></tr>
+<tr data-people="vihaan anthony"><td data-label="Criterion"><strong>Functionality</strong></td><td data-label="Points"><strong>35</strong></td><td data-label="Who carries it">Anthony, Vihaan</td><td data-label="What the judges want to see">The product working live, in front of them</td></tr>
+<tr><td data-label="Criterion">Team Chemistry &amp; Presentation</td><td data-label="Points">20</td><td data-label="Who carries it"><strong>Everyone</strong></td><td data-label="What the judges want to see">Everyone speaks, clean handoffs, clear and confident voices</td></tr>
+<tr data-people="vihaan"><td data-label="Criterion">Questions</td><td data-label="Points">10</td><td data-label="Who carries it"><strong>Everyone</strong> (Vihaan for anything technical)</td><td data-label="What the judges want to see">Accurate, confident answers</td></tr>
+</tbody></table></div>
+<p><strong>The takeaway:</strong> 30 of the 100 points (presentation + questions) depend on <em>how</em> we speak. Every part below is built around what each of us does best.</p>
+</section>
+<section id="sec-2">
+<h2>2. Speaking order</h2>
+<p>Stand left to right: <strong>Ricardo, Tate, Vihaan, Anthony.</strong> Anthony stands next to the laptop.</p>
+<div class="tw"><table>
+<thead><tr><th>Time</th><th>Speaker</th><th>Section</th><th>Rubric</th></tr></thead>
+<tbody>
+<tr data-people="ricardo"><td data-label="Time" class="t">0:00–0:20</td><td data-label="Speaker"><strong>Ricardo</strong></td><td data-label="Section">Hook</td><td data-label="Rubric">Problem 20</td></tr>
+<tr data-people="tate"><td data-label="Time" class="t">0:20–0:40</td><td data-label="Speaker"><strong>Tate</strong></td><td data-label="Section">The evidence, in their own words</td><td data-label="Rubric">Problem 20</td></tr>
+<tr data-people="ricardo"><td data-label="Time" class="t">0:40–1:00</td><td data-label="Speaker"><strong>Ricardo</strong></td><td data-label="Section">The problem</td><td data-label="Rubric">Problem 20</td></tr>
+<tr data-people="vihaan"><td data-label="Time" class="t">1:00–1:50</td><td data-label="Speaker"><strong>Vihaan</strong></td><td data-label="Section">The science, in plain English</td><td data-label="Rubric">Problem, Functionality</td></tr>
+<tr data-people="anthony"><td data-label="Time" class="t">1:50–3:15</td><td data-label="Speaker"><strong>Anthony</strong></td><td data-label="Section">Live demo</td><td data-label="Rubric">Functionality 35</td></tr>
+<tr data-people="ricardo"><td data-label="Time" class="t">3:15–4:25</td><td data-label="Speaker"><strong>Ricardo</strong></td><td data-label="Section">Who it's for, why we're different, how we reach them</td><td data-label="Rubric">Market 10, Marketing 5</td></tr>
+<tr data-people="anthony"><td data-label="Time" class="t">4:25–5:00</td><td data-label="Speaker"><strong>Anthony</strong></td><td data-label="Section">Vision + closing line</td><td data-label="Rubric">Problem, Presentation</td></tr>
+</tbody></table></div>
+<p><strong>Bold words in the scripts are the words you stress.</strong> <em>(Italic notes in brackets are actions, not words to say.)</em></p>
+</section>
+<section id="sec-3">
+<h2>3. The script</h2>
+<div class="sub speaker" data-people="ricardo" style="--c:#2563eb" id="part-ricardo"><h3><span class="tag">Ricardo</span> Ricardo (Business lead): hook (0:00–0:20)</h3>
+<blockquote class="say">
+<p>&quot;About two hours north of this room, people are hearing a sound <strong>all day and all night.</strong> Residents in Ashburn told NBC4 it's like a <strong>helicopter hovering over their neighborhood.</strong> News4 measured it at <strong>90 decibels</strong>, a level they said calls for ear protection with long exposure. Tate has what people actually wrote.&quot;</p>
+</blockquote>
+<p><strong>Ricardo's delivery:</strong></p>
+<ul>
+<li>You set the energy for the whole pitch. Say the first sentence slowly, looking at the judges.</li>
+<li>Pause one second after &quot;all day and all night&quot; and after &quot;90 decibels.&quot;</li>
+<li>Turn toward Tate as you say his name, and keep looking at him while he reads. The judges will look where you look.</li>
+</ul>
+</div>
+<div class="sub speaker" data-people="tate" style="--c:#ea580c" id="part-tate"><h3><span class="tag">Tate</span> Tate: the evidence, in their own words (0:20–0:40)</h3>
+<p><em>(Tate reads from a printed card. Reading quotes from paper is normal and expected.)</em></p>
+<blockquote class="say">
+<p>&quot;One resident posted: <em>'Anyone hear the low frequency hum in the area? I'm just over a mile from the nearest data center.'</em></p>
+<p>Another wrote: <em>'I live 5 miles from there.'</em></p>
+<p>And this is from <strong>Loudoun County's own website</strong>, about the way the county measures noise: <em>'…measurements generally do not capture low frequency noise or the discomfort caused by steady tonal sounds.'</em>&quot;</p>
+</blockquote>
+<p><strong>Tate's delivery:</strong></p>
+<ul>
+<li>Hold the card at chest height, so your face stays visible.</li>
+<li>Read <strong>slowly</strong>, one quote at a time. After each quote, look up at the judges for one second, then read the next one.</li>
+<li>Stand still with your feet planted. When you finish, look back at Ricardo.</li>
+<li>That's your whole part: three quotes, read slowly and clearly. Practice it ten times out loud.</li>
+</ul>
+</div>
+<div class="sub speaker" data-people="ricardo" style="--c:#2563eb"><h3><span class="tag">Ricardo</span> Ricardo: the problem (0:40–1:00)</h3>
+<blockquote class="say">
+<p>&quot;In plain English: <strong>the county's noise meter barely hears deep sounds, and this hum is almost all deep sound.</strong> And Loudoun's own page says some studies link low-frequency noise to effects ranging from <strong>discomfort to potential health complications.</strong> Virginia has more data centers than anywhere on Earth.</p>
+<p><strong>The law can't hear it.</strong> We figured out how to fix that.&quot;</p>
+</blockquote>
+<p><strong>Ricardo's delivery:</strong></p>
+<ul>
+<li>&quot;In plain English&quot; tells the judges you're about to make the quote simple. Say it, pause, then deliver the translation.</li>
+<li>&quot;The law can't hear it&quot; is the line the whole pitch comes back to. Say it slower than anything else in your part. Then turn toward Vihaan.</li>
+</ul>
+</div>
+<div class="sub speaker" data-people="vihaan" style="--c:#7c3aed" id="part-vihaan"><h3><span class="tag">Vihaan</span> Vihaan (Technical lead): the science (1:00–1:50)</h3>
+<p><em>(Vihaan holds a phone in both hands at waist level. He uses it in gesture 3.)</em></p>
+<blockquote class="say">
+<p>&quot;<strong>Official noise meters are set up like our ears: they turn down deep, low sounds.</strong> <em class="dir">(Gesture 1.)</em> That works for traffic and voices. But data-center hum is almost all deep, low sound. So the official reading comes out low, even when people hear it from miles away.</p>
+<p><strong>TonalWatch measures twice: once the official way, and once with the low sounds left in.</strong> <em class="dir">(Gesture 2.)</em> <strong>If the second reading is much louder, that gap is the hum the law misses.</strong></p>
+<p>It runs on <strong>any phone or laptop.</strong> <em class="dir">(Gesture 3.)</em> It also checks for one steady tone that never stops: <strong>a machine, not traffic.</strong></p>
+<p>It's not a certified meter, and we say so. <strong>It doesn't replace the county's measurement. It gets one ordered.</strong> Anthony, show them.&quot;</p>
+</blockquote>
+<p><em>(Only if true, add one line: &quot;I've heard this hum from my own neighborhood.&quot; A personal line is the strongest credibility you have.)</em></p>
+<p><strong>Vihaan's three gestures (exactly these, nothing else):</strong></p>
+<div class="tw"><table>
+<thead><tr><th>#</th><th>Starts on the words</th><th>What your hands do</th></tr></thead>
+<tbody>
+<tr><td data-label="#">Rest position</td><td data-label="Starts on the words">(whole part)</td><td data-label="What your hands do">Hold the phone with both hands at belly-button height, screen facing you. Return here after every gesture.</td></tr>
+<tr><td data-label="#">1</td><td data-label="Starts on the words">&quot;they <strong>turn down</strong> deep, low sounds&quot;</td><td data-label="What your hands do">Let go of the phone with your right hand. Raise the right hand to chest height, palm facing the floor, fingers together. On &quot;down,&quot; push it slowly straight down about one hand-length, like turning down a volume slider. Back to rest.</td></tr>
+<tr><td data-label="#">2</td><td data-label="Starts on the words">&quot;once with the low sounds <strong>left in</strong>&quot;</td><td data-label="What your hands do">Raise the right hand to the same chest height, palm facing the floor. Sweep it sideways, flat and level, from the middle of your chest out to your right, about the width of your shoulders. It must stay at the same height the whole time. Back to rest.</td></tr>
+<tr><td data-label="#">3</td><td data-label="Starts on the words">&quot;<strong>any phone</strong> or laptop&quot;</td><td data-label="What your hands do">Lift the phone with both hands to shoulder height and turn the screen toward the judges. Hold it there for two seconds, then lower it back to rest.</td></tr>
+</tbody></table></div>
+<p>The point: gesture 1 goes <strong>down</strong> (the official meter turns the hum down), gesture 2 stays <strong>flat</strong> (our second reading keeps it). Practice in a mirror until the two look clearly different. Look at the judges during the gestures, not at your hand.</p>
+<p><strong>Vihaan's delivery:</strong></p>
+<ul>
+<li>Your sentences are short on purpose. <strong>Say each one, then stop.</strong> Let your voice go <em>down</em> at the end of each sentence, so it sounds like a fact, not a question.</li>
+<li>Memorize the <strong>bold sentences word for word.</strong> They are your whole argument.</li>
+<li><strong>Eyes:</strong> pick two judges. Look at one for a sentence, then the other. That's enough eye contact, and it looks natural.</li>
+<li>Your last line, &quot;It gets one ordered,&quot; is a strength, so say it with the most confidence of anything in your part.</li>
+</ul>
+</div>
+<div class="sub speaker" data-people="anthony" style="--c:#16a34a" id="part-anthony"><h3><span class="tag">Anthony</span> Anthony (Demo lead): live demo (1:50–3:15)</h3>
+<p><strong>Where everyone stands during the demo:</strong></p>
+<ul>
+<li><strong>The laptop runs the whole demo.</strong> Nobody hands a laptop or a phone to the judges. (Vihaan's phone is only a prop.)</li>
+<li><strong>Judges at a table:</strong> put the laptop on the table in front of them, screen turned toward them and angled so all of them can see it. Anthony stands <strong>beside</strong> the laptop at the corner, never behind it, half-turned so he can see both the screen and the judges. He reaches over to the trackpad to click.</li>
+<li><strong>Presenting to a projector or big screen:</strong> Anthony stands to the <strong>side</strong> of the screen, never between the screen and the judges.</li>
+<li>The rest of the team stays standing in a line, looking at the screen.</li>
+<li>Point with an <strong>open hand</strong> at the number on screen, then step back so nobody's view is blocked.</li>
+</ul>
+<p><strong>Set up before the pitch starts (all of these, every time):</strong></p>
+<ul>
+<li>App open on the <strong>Check</strong> tab. Tap <strong>Try a demo</strong>, then choose <strong>&quot;1 kHz tone&quot;</strong> in the <strong>Demo signal</strong> dropdown. Don't run it yet.</li>
+<li>Microphone permission already granted (run one test check beforehand), so no permission popup appears in front of the judges.</li>
+<li>Browser zoomed in (Ctrl and +) until the result text is readable from 3 meters. Notifications off. Laptop plugged in.</li>
+</ul>
+<p><strong>Run the demo in this order. &quot;Do&quot; is what you click; &quot;Say&quot; is what you say at the same time.</strong></p>
+<div class="tw"><table>
+<thead><tr><th>Step</th><th>Do</th><th>Say</th></tr></thead>
+<tbody>
+<tr><td data-label="Step">1</td><td data-label="Do">Point at the screen.</td><td data-label="Say">&quot;This is TonalWatch. <strong>One button, one answer.</strong> Watch what it says, and this number: <strong>the gap.</strong>&quot;</td></tr>
+<tr><td data-label="Step">2</td><td data-label="Do">Tap <strong>Analyze demo</strong> (1 kHz tone is already selected). When the result appears, point at it.</td><td data-label="Say">&quot;First, a normal sound: a plain tone. <em>(Result appears.)</em> <strong>No deep hum found. The gap: zero.</strong>&quot;</td></tr>
+<tr><td data-label="Step">3</td><td data-label="Do">Under <strong>Check again</strong>, choose <strong>Harmonic hum</strong> in the <strong>Demo signal</strong> dropdown. Tap <strong>Analyze demo</strong>.</td><td data-label="Say">&quot;Now a <strong>deep hum</strong>, the kind a cooling system makes.&quot;</td></tr>
+<tr><td data-label="Step">4</td><td data-label="Do">When the red result appears, point at <strong>Deep hum detected</strong>, then at the gap number.</td><td data-label="Say">&quot;<em>(Pause.)</em> <strong>Deep hum detected. Twenty. A huge gap. That gap is the sound the law can't hear.</strong>&quot;</td></tr>
+<tr><td data-label="Step">5</td><td data-label="Do">Tap <strong>Use microphone</strong>. Look at the judges and ask for quiet. Then tap the big <strong>Check</strong> button and stay silent while it records.</td><td data-label="Say">&quot;And it works <strong>live.</strong> Can we have <strong>five seconds of quiet?</strong> <em>(Silence while it records.)</em> Analyzed right here. <strong>No audio ever leaves this laptop.</strong>&quot;</td></tr>
+<tr><td data-label="Step">6a</td><td data-label="Do"><em>If it says &quot;No deep hum found&quot;:</em> point at it.</td><td data-label="Say">&quot;This room is quiet, and it says so. <strong>It only flags what's actually there.</strong>&quot;</td></tr>
+<tr><td data-label="Step">6b</td><td data-label="Do"><em>If it says &quot;Deep hum detected&quot;:</em> point at it.</td><td data-label="Say">&quot;It's picking up deep sound in this room, probably the ventilation. <strong>It reports what's there.</strong>&quot;</td></tr>
+<tr><td data-label="Step">6c</td><td data-label="Do"><em>If it says &quot;Couldn't tell — try again&quot;:</em> point at it.</td><td data-label="Say">&quot;Five seconds wasn't a clean sample, and it <strong>tells you instead of guessing.</strong>&quot;</td></tr>
+<tr><td data-label="Step">7</td><td data-label="Do">Set <strong>County for your report</strong> to <strong>Loudoun County, VA</strong> (just above the button), then tap <strong>Create report</strong>.</td><td data-label="Say">&quot;Then the part a resident actually needs. Pick your county...&quot;</td></tr>
+<tr data-people="ricardo"><td data-label="Step">8</td><td data-label="Do">On the <strong>Report</strong> page, scroll slowly past the picture of the sound to the official sources.</td><td data-label="Say">&quot;...and it builds a <strong>report</strong>: the readings, the picture of the sound, and Loudoun's own sources, ready to attach to a complaint. <strong>Ricardo, who's it for?</strong>&quot;</td></tr>
+</tbody></table></div>
+<p><em>(Only if we're ahead of time, between steps 4 and 5: tap <strong>What this can do to sleep and health</strong>, point at the first card, and say: &quot;And this is why it matters: the World Health Organization says low-frequency hum can disturb sleep even at low levels.&quot; Then tap <strong>Check</strong> in the tab bar to go back.)</em></p>
+<p><em>(If we printed a sample report: Tate hands one copy to each judge at step 8. Judges remember what they hold.)</em></p>
+<p><em>(Only if the new map page is in the app: during Ricardo's &quot;Who it's for&quot; line, Anthony silently taps <strong>Map</strong>. Ricardo points to the screen with an open hand and adds: &quot;Every black dot is a data center building in Loudoun County.&quot;)</em></p>
+<p><strong>Anthony's delivery:</strong></p>
+<ul>
+<li><strong>Tell the judges where to look before it happens</strong> (&quot;Watch what it says&quot;). Then the switch from &quot;No deep hum&quot; to the red &quot;Deep hum detected&quot; is the moment they remember.</li>
+<li>Asking for &quot;five seconds of quiet&quot; makes the whole room go silent and lean in. Wait for real silence before you click.</li>
+<li>Never stay silent for more than 3 seconds while something loads. Narrate: &quot;It's analyzing all five seconds now.&quot;</li>
+<li>Point at the number on screen, then step slightly aside so every judge can see it.</li>
+<li><strong>Rehearse with the real app and say the real numbers.</strong> Our test signals give about 0 for the tone and about 20 for the hum; if the screen shows something different, say what the screen shows.</li>
+<li>If the live capture misbehaves, calmly say <strong>&quot;The test signals show the same analysis&quot;</strong> and go to step 7. Said calmly, it looks planned.</li>
+</ul>
+</div>
+<div class="sub speaker" data-people="ricardo" style="--c:#2563eb"><h3><span class="tag">Ricardo</span> Ricardo (Business lead): market, UVP, marketing (3:15–4:25)</h3>
+<blockquote class="say">
+<p><strong>Who it's for.</strong> &quot;Our first users are residents near data centers in Loudoun and Prince William counties, the people already posting about the hum. Our second user is the counties: Loudoun rewrites its noise rules in <strong>2027</strong>, and it needs evidence from residents, not just from the companies.&quot;</p>
+<p><strong>Why we're different.</strong> &quot;TonalWatch checks for the <strong>exact sound the law misses</strong>, and turns it into a report with the county's own sources. Other sound apps give you one decibel number, the official-style reading that turns the hum down. We show the gap.&quot;</p>
+<p><strong>How we reach them.</strong> &quot;Our biggest channel is <strong>going viral</strong>, and there's proof it works. <strong>DeFlock</strong> was one engineer's side project with no ad budget: a simple map of license-plate cameras. Volunteers mapped <strong>over 16,000</strong> of them, and those cameras are now a <strong>midterm election issue.</strong> When a hidden problem becomes easy to see, people share it.</p>
+<p>TonalWatch makes the hum visible: every report shows the spectrum with the hum's peak marked. People are already posting about this hum online. <strong>Now they can post proof.</strong></p>
+<p>Then we turn attention into action: <strong>HOA newsletters</strong> next to data centers, like the 143-home Regency neighborhood NBC4 covered, and <strong>printed reports at Loudoun's 2027 hearings.</strong> Anthony, take us home.&quot;</p>
+</blockquote>
+<p><strong>Ricardo's delivery:</strong></p>
+<ul>
+<li>The DeFlock story is your strongest moment. Tell it like a story, not a statistic: slow down on &quot;no ad budget&quot; and &quot;midterm election issue.&quot;</li>
+<li>Say names and numbers crisply: &quot;DeFlock,&quot; &quot;16,000,&quot; &quot;143 homes,&quot; &quot;2027.&quot; Specifics are what score Marketing.</li>
+<li>If we're running behind, cut the HOA sentence and go straight to &quot;printed reports at Loudoun's 2027 hearings.&quot;</li>
+</ul>
+</div>
+<div class="sub speaker" data-people="anthony" style="--c:#16a34a"><h3><span class="tag">Anthony</span> Anthony: vision + close (4:25–5:00)</h3>
+<blockquote class="say">
+<p>&quot;Today, TonalWatch works for Loudoun and Prince William. Next, every Virginia county with data centers, including the ones coming to the 804. Eventually, anywhere a facility hums at its neighbors.</p>
+<p>Loudoun rewrites its noise rules in 2027. The evidence should come from the people living with the sound. <strong>The law can't hear it. TonalWatch can.</strong>&quot;</p>
+</blockquote>
+<p><strong>Anthony's delivery (close):</strong></p>
+<ul>
+<li>Step away from the laptop and face the judges. Memorize this word for word.</li>
+<li>Slow down for the last two sentences. Pause between &quot;The law can't hear it.&quot; and &quot;TonalWatch can.&quot; Then stop and hold eye contact for two seconds.</li>
+<li>Don't add &quot;so yeah&quot; or &quot;that's it.&quot; Ricardo then says: <strong>&quot;We're happy to take questions.&quot;</strong></li>
+<li>If we're running behind, skip &quot;including the ones coming to the 804.&quot;</li>
+</ul>
+</div>
+</section>
+<section id="sec-4">
+<h2>4. Why these words work (so you deliver them on purpose)</h2>
+<ul>
+<li><strong>We start close to home.</strong> &quot;Two hours north of this room&quot; makes the problem feel near, and near problems feel urgent.</li>
+<li><strong>Real people's words beat statistics.</strong> That's why Tate reads what residents actually wrote.</li>
+<li><strong>Every big number gets a meaning.</strong> &quot;90 decibels&quot; means nothing alone; &quot;a level that calls for ear protection&quot; does.</li>
+<li><strong>No jargon the judges have to decode.</strong> On stage we never say &quot;dBA,&quot; &quot;dBC&quot; or &quot;C minus A.&quot; Judges who have to decode stop listening. Use the words in the table below.</li>
+<li><strong>Every problem is followed by what we do about it.</strong> Fear with no solution makes people tune out.</li>
+<li><strong>Judges are told where to look before the moment happens.</strong> That's why Anthony says &quot;Watch this one number&quot; before the jump.</li>
+<li><strong>Parts end on strengths, not limits.</strong> Vihaan admits the limit in the middle and ends on &quot;It gets one ordered.&quot;</li>
+<li><strong>The ending repeats the beginning.</strong> &quot;The law can't hear it&quot; opens the problem and closes the pitch, and the very last word is our product name.</li>
+<li><strong>We always say &quot;we.&quot;</strong> Credit goes to the team, which is exactly what Team Chemistry scores.</li>
+</ul>
+<p><strong>Words to use on stage (everyone):</strong></p>
+<div class="tw"><table>
+<thead><tr><th>Instead of the technical term</th><th>Say this</th></tr></thead>
+<tbody>
+<tr><td data-label="Instead of the technical term">dBA / A-weighting</td><td data-label="Say this">&quot;the official reading&quot; or &quot;the official noise meter&quot;</td></tr>
+<tr><td data-label="Instead of the technical term">dBC / C-weighting</td><td data-label="Say this">&quot;the reading with the low sounds left in&quot;</td></tr>
+<tr><td data-label="Instead of the technical term">C minus A / C−A</td><td data-label="Say this">&quot;the gap&quot;</td></tr>
+<tr><td data-label="Instead of the technical term">low-frequency</td><td data-label="Say this">&quot;deep, low sound&quot;</td></tr>
+<tr><td data-label="Instead of the technical term">tonal / sustained peak</td><td data-label="Say this">&quot;one steady tone that never stops&quot;</td></tr>
+<tr><td data-label="Instead of the technical term">spectrum</td><td data-label="Say this">&quot;the picture of the sound&quot;</td></tr>
+</tbody></table></div>
+<p>Only Vihaan uses the real terms, and only if a judge asks a technical question (&quot;Engineers call these A-weighting and C-weighting&quot;).</p>
+</section>
+<section id="sec-5">
+<h2>5. Speaking techniques (everyone)</h2>
+<p><strong>Voice</strong></p>
+<ul>
+<li><strong>Slow down.</strong> Nerves make everyone talk fast. Aim for a calm pace, about 2–3 words per second.</li>
+<li><strong>Project to the judge farthest from you.</strong> If they can hear you easily, everyone can.</li>
+<li><strong>Stress the bold words.</strong> They carry the meaning; everything else can be lighter.</li>
+<li><strong>End sentences going down,</strong> not up. Going up sounds like a question; going down sounds certain.</li>
+</ul>
+<p><strong>Pauses instead of filler</strong></p>
+<ul>
+<li>When you feel &quot;um,&quot; &quot;like&quot; or &quot;so&quot; coming, <strong>pause instead.</strong> A one-second pause sounds confident; a filler word sounds unsure.</li>
+<li>Pause after every big number and after the demo shows the jump. Silence lets it land.</li>
+</ul>
+<p><strong>Eyes</strong></p>
+<ul>
+<li><strong>One sentence, one judge.</strong> Look at one judge for a full sentence, then move to the next.</li>
+<li>Don't look at the screen while speaking, except Anthony while pointing at something.</li>
+</ul>
+<p><strong>Body</strong></p>
+<ul>
+<li>Feet shoulder-width apart, weight even. No swaying or shifting.</li>
+<li>Hands at waist level, out of your pockets. If you don't know what to do with them, hold your card or phone with both hands.</li>
+<li>Smile when your part starts. It relaxes you and the judges.</li>
+</ul>
+<p><strong>While someone else is speaking</strong></p>
+<ul>
+<li><strong>Look at the speaker</strong> (or at the screen during the demo) and nod naturally. Judges watch the whole team, not just the speaker.</li>
+<li>No checking phones, no fidgeting, no whispering.</li>
+</ul>
+<p><strong>Handoffs (this is where Team Chemistry points come from)</strong></p>
+<ul>
+<li>Say the next person's name and <strong>turn toward them</strong> as you say it.</li>
+<li>The next speaker starts <strong>within one second.</strong> Don't wait for a pause to fill.</li>
+</ul>
+<p><strong>If you blank</strong></p>
+<ul>
+<li>Take one breath and jump to your <strong>handoff line.</strong> Skipping a sentence is invisible; rambling is not.</li>
+<li>Teammates never prompt out loud. If someone freezes, the next speaker starts their part.</li>
+<li>Never apologize (&quot;sorry, I'm nervous&quot;). Just continue.</li>
+</ul>
+<p><strong>Memorizing</strong></p>
+<ul>
+<li>Memorize your <strong>first sentence and last sentence word for word.</strong> Know the middle by its ideas, so it sounds natural.</li>
+<li>No reading from a phone screen. Tate's quote card is the only script on stage.</li>
+</ul>
+</section>
+<section id="sec-6">
+<h2>6. Judge questions (2 minutes, 10 points)</h2>
+<p>Judges will often point at one person and ask them directly. Everyone needs a short, confident answer ready, even if it's just the basic version.</p>
+<p><strong>The rules:</strong></p>
+<ol>
+<li><strong>Asked by name? You answer first.</strong> Nobody jumps in before you've given your basic answer.</li>
+<li><strong>Asked to the whole team?</strong> The owner in the table answers.</li>
+<li><strong>Technical questions</strong> (how it works, the math, the code, accuracy) go to <strong>Vihaan</strong>. If you're asked one, give the one-line basic answer below, then hand off: <em>&quot;Vihaan designed the analysis, so he can go deeper.&quot;</em></li>
+<li><strong>Two sentences, then stop.</strong> Short answers leave time for more questions, which means more chances to score.</li>
+<li><strong>Don't know?</strong> <em>&quot;Honest answer: today's version doesn't do that. Here's how we'd add it.&quot;</em> Never guess a number or make up technical details.</li>
+</ol>
+<p><strong>Everyone memorizes this one-sentence answer</strong> for &quot;So what does it do?&quot;:</p>
+<blockquote>
+<p>&quot;It checks whether a hum is the low-frequency machine noise the law can't measure, and turns it into a report a resident can attach to a complaint.&quot;</p>
+</blockquote>
+<p><strong>How to answer well:</strong></p>
+<ul>
+<li>Listen to the whole question. Don't start answering halfway through.</li>
+<li>Pause one second before answering. It looks thoughtful, not slow.</li>
+<li>Start by looking at the judge who asked, then include the other judges.</li>
+<li>End firmly on your last word. No trailing &quot;...so yeah.&quot;</li>
+</ul>
+<p><strong>Vihaan, for your answers:</strong> you know this deeply, so the risk is saying too much. Use this pattern: <strong>one clear headline sentence, one reason, then stop</strong> and offer: <em>&quot;Happy to go deeper on that.&quot;</em> Let the judge ask for more.</p>
+<div class="tw"><table>
+<thead><tr><th>Likely question</th><th>Owner (if asked to the team)</th><th>Answer (two sentences)</th></tr></thead>
+<tbody>
+<tr data-people="vihaan"><td data-label="Likely question">How accurate is a phone mic?</td><td data-label="Owner (if asked to the team)">Vihaan</td><td data-label="Answer (two sentences)">It's not a certified meter, and the app says so on every report. Phone mics under-hear low frequencies, so a flag is conservative: it tells a resident their complaint is worth a professional measurement.</td></tr>
+<tr data-people="vihaan"><td data-label="Likely question">How does the analysis actually work?</td><td data-label="Owner (if asked to the team)">Vihaan</td><td data-label="Answer (two sentences)">It cuts the recording into short overlapping slices, turns each into a picture of which pitches are present, and measures it twice: the official way and with the low sounds left in. Then it looks for one pitch that stands out in almost every slice, which is what a machine hum does and traffic doesn't.</td></tr>
+<tr data-people="vihaan"><td data-label="Likely question">What are those two readings, technically?</td><td data-label="Owner (if asked to the team)">Vihaan</td><td data-label="Answer (two sentences)">Engineers call them A-weighting and C-weighting. A-weighting is the official setting that turns down low sounds the way our ears do; C-weighting leaves them in, and the gap between the two is our main signal.</td></tr>
+<tr data-people="vihaan"><td data-label="Likely question">Why 15 decibels as the line?</td><td data-label="Owner (if asked to the team)">Vihaan</td><td data-label="Answer (two sentences)">It's a screening line we chose for the prototype, and the app labels it that way. Acoustics research treats a gap of around 15 to 20 decibels between those two readings as a sign that deep, low noise needs a closer look.</td></tr>
+<tr data-people="ricardo"><td data-label="Likely question">How is this different from Decibel X or the Data Center Noise app?</td><td data-label="Owner (if asked to the team)">Ricardo</td><td data-label="Answer (two sentences)">Those give one decibel number, the official-style reading that turns the hum down. TonalWatch shows the gap the official reading hides, checks for a steady machine tone, and produces a report with the county's own sources.</td></tr>
+<tr data-people="ricardo"><td data-label="Likely question">How would you actually go viral?</td><td data-label="Owner (if asked to the team)">Ricardo</td><td data-label="Answer (two sentences)">We don't need everyone, just the neighborhoods next to data centers, where people are already posting about the hum. DeFlock showed that a simple, visual way to see a hidden problem spreads on its own, and our report gives residents that visual.</td></tr>
+<tr data-people="ricardo"><td data-label="Likely question">Can't a data center just dispute it?</td><td data-label="Owner (if asked to the team)">Ricardo</td><td data-label="Answer (two sentences)">We're not trying to replace the official measurement; we're trying to get it ordered. The report asks for exactly what the county process relies on: a qualified professional measurement.</td></tr>
+<tr data-people="ricardo"><td data-label="Likely question">How would this make money / sustain itself?</td><td data-label="Owner (if asked to the team)">Ricardo</td><td data-label="Answer (two sentences)">Free for residents, always. Counties and HOAs could pay for combined reporting across many residents as they rewrite their ordinances.</td></tr>
+<tr data-people="ricardo"><td data-label="Likely question">What's next?</td><td data-label="Owner (if asked to the team)">Ricardo</td><td data-label="Answer (two sentences)">A calibrated USB-mic mode for stronger evidence, then a shared public map of many residents' reports, piloted with one HOA before Loudoun's 2027 hearings.</td></tr>
+<tr data-people="anthony"><td data-label="Likely question">Can't someone fake or mess up a reading?</td><td data-label="Owner (if asked to the team)">Anthony</td><td data-label="Answer (two sentences)">Every report shows quality flags like clipping, silence and interruptions, and bad input stays &quot;inconclusive&quot; instead of guessing. Test signals are always labeled as demos, so a demo can never pass as a real reading.</td></tr>
+<tr data-people="vihaan anthony"><td data-label="Likely question">What did you build vs. the AI?</td><td data-label="Owner (if asked to the team)">Anthony</td><td data-label="Answer (two sentences)">AI coding agents wrote most of the code, which the event allows. Our work was the decisions: Vihaan designed what it measures and what it must never claim, I directed the build and tested every screen, and we cut anything we couldn't verify.</td></tr>
+<tr data-people="tate"><td data-label="Likely question">Why is noise an environmental issue?</td><td data-label="Owner (if asked to the team)">Tate</td><td data-label="Answer (two sentences)">Noise is legally a pollutant: Congress passed the Noise Control Act in 1972. And this one is happening right now, next to people's homes.</td></tr>
+<tr data-people="vihaan"><td data-label="Likely question">Did you start before today?</td><td data-label="Owner (if asked to the team)">Vihaan</td><td data-label="Answer (two sentences)"><em>(Answer exactly per what the organizers told us. The facts: the idea, the plan and two small audio test pages existed before; the app itself was written today, and the commit times show it.)</em></td></tr>
+</tbody></table></div>
+</section>
+<section id="sec-7">
+<h2>7. What we can and can't say</h2>
+<p><em>This section uses the technical terms so you know exactly what's true. When you say any of it out loud, use the plain words from section 4.</em></p>
+<p><strong>Facts you can say (verified):</strong></p>
+<ul>
+<li>Loudoun's page: &quot;dBA measurements generally do not capture low frequency noise or the discomfort caused by steady tonal sounds&quot;; &quot;some studies suggest low frequency sound may pose adverse impacts ranging from general discomfort to potential health complications&quot;; no policy or regulatory language specific to tonal noise; amendments anticipated spring or summer 2027. <a href="https://www.loudoun.gov/6405/Noise-Air-Quality-Concerns" target="_blank" rel="noopener">loudoun.gov/6405/Noise-Air-Quality-Concerns</a></li>
+<li>Prince William County's steady tonal noise rules took effect <strong>May 1, 2026</strong>, are measured in <strong>C-weighting</strong> at the complainant's property line, and define steady tonal noise as not fluctuating more than 3 dBC. <a href="https://www.pwcva.gov/department/public-works/steady-tonal-noise" target="_blank" rel="noopener">pwcva.gov/department/public-works/steady-tonal-noise</a></li>
+<li>NBC4 (March 23, 2026): residents compared it to a helicopter hovering all day and night; <strong>News4 measured 90 decibels using an app</strong>, &quot;a level considered high and requires ear protection if there is sustained exposure&quot;; residents up to five miles away reported hearing it; zoning enforcement said it would investigate. <a href="https://www.nbcwashington.com/news/local/northern-virginia/neighbors-raise-concerns-about-noisy-data-center-in-loudoun/4080249/" target="_blank" rel="noopener">nbcwashington.com/news/local/northern-virginia/neighbors-raise-concerns-about-noisy-data-center-in-loudoun/4080249</a></li>
+<li>DeFlock: started by one software engineer as a side project with no advertising campaign; volunteers have mapped more than 16,000 license-plate cameras; by August 2026 Flock cameras had become a midterm election issue. <a href="https://www.404media.co/flock-threatens-open-source-developer-mapping-its-surveillance-cameras/" target="_blank" rel="noopener">404media.co/flock-threatens-open-source-developer-mapping-its-surveillance-cameras</a> · <a href="https://www.denvergazette.com/2026/08/28/deflock-started-from-one-mans-curiosity-now-flock-cameras-are-a-midterm-issue/" target="_blank" rel="noopener">denvergazette.com/2026/08/28/deflock-started-from-one-mans-curiosity-now-flock-cameras-are-a-midterm-issue</a></li>
+<li>C-minus-A is a WHO-recommended low-frequency indicator; above 20 dB warrants further investigation (Leventhall). It is an <em>indicator</em>, not proof.</li>
+</ul>
+<p><strong>How to describe the app (say it exactly this way):</strong></p>
+<ul>
+<li>Two <strong>screening</strong> checks: the C-minus-A difference (15 dB prototype screen) and an experimental sustained-peak check (a narrow peak present across most of the 5 seconds), plus recording-quality flags.</li>
+<li>Levels are <strong>uncalibrated digital levels</strong>, not real dBA/dBC sound-pressure readings.</li>
+<li>It produces a printable <strong>observation report</strong> with the spectrum, notes and official sources. It does not file complaints. The map shows Loudoun County's data center buildings (county GIS) and demo readings; your own observations stay in your browser, so there is no shared public map yet.</li>
+</ul>
+<p><strong>Never say these (false or unverified):</strong></p>
+<ul>
+<li class="never"><del>&quot;Nothing like this exists.&quot;</del> A Data Center Noise app, dcmeasure.com and a UCCS monitoring lab exist. Say &quot;every existing tool gives one number.&quot;</li>
+<li class="never"><del>&quot;Nothing flagged&quot; for the 1 kHz tone.</del> The peak check does find the tone; say &quot;Not low-frequency.&quot;</li>
+<li class="never"><del>&quot;It runs the legal tests&quot; / &quot;three tests from the standards.&quot;</del> The checks are screens, not standardized tonality or the county's legal definition.</li>
+<li class="never"><del>&quot;It files the complaint for you&quot; / &quot;our map of readings.&quot;</del> It builds a report to attach; the map is &quot;what's next.&quot;</li>
+<li class="never"><del>&quot;We coded it ourselves.&quot;</del> AI agents wrote most of the code. Say what we decided and verified.</li>
+<li class="never"><del>&quot;It causes health problems.&quot;</del> Say &quot;some studies link it to effects from discomfort to potential health complications,&quot; and credit Loudoun's page.</li>
+<li class="never"><del>&quot;PWC uses the same A-vs-C gap.&quot;</del> Say &quot;PWC switched to C-weighting because A-weighting misses this.&quot;</li>
+<li class="never"><del>&quot;73 dBC day / 68 dBC night.&quot;</del> Not confirmed in the ordinance text; don't quote specific limits.</li>
+<li class="never"><del>&quot;Proves a violation.&quot;</del> Say &quot;indicates a low-frequency hum worth a professional measurement.&quot;</li>
+</ul>
+</section>
+<section id="sec-8">
+<h2>8. How to practice your part</h2>
+<ul>
+<li>Read your part <strong>out loud</strong> five times. Reading silently doesn't train your mouth.</li>
+<li>Time yourself. Your part should fit its slot with a few seconds to spare.</li>
+<li>Record yourself on your phone once and listen back for filler words and speed.</li>
+<li>Practice your <strong>handoff line</strong> with the next speaker, so the switch is instant.</li>
+<li>Have a teammate ask you two random questions from section 6, and answer each in two sentences.</li>
+<li>Run the full 5 minutes standing up, in speaking order, with the timer (button at the top of the page).</li>
+</ul>
+<p><strong>Extra practice by person:</strong></p>
+<ul>
+<li><strong>Ricardo:</strong> you speak three times, so practice the transitions: hook into Tate, problem into Vihaan, market into Anthony. Practice the DeFlock story until it sounds like a story you're telling, not reading.</li>
+<li><strong>Tate:</strong> read your three quotes out loud ten times, slowly, looking up after each one. Memorize the one-sentence &quot;what does it do&quot; answer and the environmental-issue answer.</li>
+<li><strong>Vihaan:</strong> practice the three gestures in a mirror until &quot;down&quot; and &quot;flat&quot; look clearly different, then practice your part in front of one teammate with the two-judge eye pattern. For Q&amp;A, use headline-reason-stop; have someone stop you at 20 seconds.</li>
+<li><strong>Anthony:</strong> run the full demo table on the presentation laptop at least five times, including the setup list. Practice the honest AI answer until it sounds confident, not defensive. Memorize the closing line word for word.</li>
+</ul>
+</section>
+
+</main>
+<div id="timer" role="dialog" aria-label="Rehearsal timer">
+<div class="time" id="tTime"></div>
+<div class="now" id="tNow"></div>
+<div class="next" id="tNext"></div>
+<div class="btns"><button type="button" class="go" id="tGo">Start</button><button type="button" id="tReset">Reset</button></div>
+</div>
+<script>
+var SEGMENTS = [{"start":0,"end":20,"who":"Ricardo","name":"Hook"},{"start":20,"end":40,"who":"Tate","name":"The evidence, in their own words"},{"start":40,"end":60,"who":"Ricardo","name":"The problem"},{"start":60,"end":110,"who":"Vihaan","name":"The science, in plain English"},{"start":110,"end":195,"who":"Anthony","name":"Live demo"},{"start":195,"end":265,"who":"Ricardo","name":"Who it's for, why we're different, how we reach them"},{"start":265,"end":300,"who":"Anthony","name":"Vision + closing line"}];
+var COLORS = {"ricardo":"#2563eb","vihaan":"#7c3aed","anthony":"#16a34a","tate":"#ea580c"};
+var TOTAL = 300;
+function fmt(s){ return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); }
+function store(k,v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v); }catch(e){ return null; } }
+
+function setPart(id, jump){
+  if(!COLORS[id]) id = 'everyone';
+  store('myPart', id);
+  document.body.classList.toggle('filtering', id !== 'everyone');
+  document.documentElement.style.setProperty('--me', COLORS[id] || '#0969da');
+  document.querySelectorAll('#parts [data-part]').forEach(function(b){ b.classList.toggle('on', b.dataset.part === id); });
+  document.querySelectorAll('.sub, tbody tr').forEach(function(el){
+    el.classList.toggle('hit', id !== 'everyone' && (' ' + (el.dataset.people || '') + ' ').indexOf(' ' + id + ' ') !== -1);
+  });
+  if(jump && id !== 'everyone'){ var t = document.getElementById('part-' + id); if(t) t.scrollIntoView({behavior:'smooth'}); }
+}
+document.getElementById('parts').addEventListener('click', function(e){
+  var b = e.target.closest('[data-part]'); if(b) setPart(b.dataset.part, true);
+});
+setPart(new URLSearchParams(location.search).get('part') || store('myPart') || 'everyone', false);
+
+document.querySelectorAll('li.task input').forEach(function(cb){
+  if(store('cb-' + cb.id) === '1') cb.checked = true;
+  cb.addEventListener('change', function(){ store('cb-' + cb.id, cb.checked ? '1' : '0'); });
+});
+
+var left = TOTAL, t = null, box = document.getElementById('timer'), btn = document.getElementById('timerBtn');
+function segAt(el){ for(var i=0;i<SEGMENTS.length;i++){ if(el >= SEGMENTS[i].start && el < SEGMENTS[i].end) return i; } return SEGMENTS.length - 1; }
+function draw(){
+  var el = TOTAL - left, done = left === 0;
+  document.getElementById('tTime').textContent = fmt(left);
+  btn.textContent = 'Timer ' + fmt(left);
+  document.getElementById('tGo').textContent = t ? 'Pause' : 'Start';
+  var now = document.getElementById('tNow'), next = document.getElementById('tNext');
+  if(done){ now.textContent = 'Time is up.'; next.textContent = ''; }
+  else if(SEGMENTS.length){
+    var i = segAt(el), s = SEGMENTS[i];
+    now.textContent = s.who + ': ' + s.name;
+    next.textContent = i + 1 < SEGMENTS.length ? 'Next: ' + SEGMENTS[i+1].who : 'Closing line';
+    box.classList.toggle('warn', s.end - el <= 15);
+  }
+  box.classList.toggle('over', done);
+}
+document.getElementById('tGo').addEventListener('click', function(){
+  if(t){ clearInterval(t); t = null; draw(); return; }
+  if(left <= 0) return;
+  t = setInterval(function(){ if(left > 0) left--; if(left <= 0){ clearInterval(t); t = null; } draw(); }, 1000);
+  draw();
+});
+document.getElementById('tReset').addEventListener('click', function(){ if(t){ clearInterval(t); t = null; } left = TOTAL; box.classList.remove('warn'); draw(); });
+btn.addEventListener('click', function(){ box.classList.toggle('open'); });
+draw();
+</script>
+</body>
+</html>

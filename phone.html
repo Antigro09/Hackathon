@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TonalWatch · phone preview</title>
+<style>
+  html,body{margin:0;height:100%;background:#e5e5ea;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  body{display:flex;align-items:center;justify-content:center;gap:48px;padding:24px;box-sizing:border-box}
+  .phone{position:relative;width:390px;height:844px;border-radius:56px;background:#1c1c1e;padding:14px;box-shadow:0 30px 80px rgba(0,0,0,.25),inset 0 0 0 2px #3a3a3c;flex:0 0 auto}
+  .screen{position:relative;width:100%;height:100%;border-radius:44px;overflow:hidden;background:#fff}
+  .status{position:absolute;top:0;left:0;right:0;height:47px;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;font-size:15px;font-weight:600;color:#000;background:#fff;pointer-events:none}
+  .island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:120px;height:34px;border-radius:20px;background:#000;z-index:3}
+  .icons{display:flex;gap:6px;align-items:center}
+  .icons i{display:block;background:#000;border-radius:2px}
+  iframe{position:absolute;top:47px;left:0;width:100%;height:calc(100% - 47px - 24px);border:0;background:#fff}
+  .screen::after{content:"";position:absolute;left:0;right:0;bottom:0;height:24px;background:rgba(255,255,255,.97)}
+  .home-bar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:#000;z-index:3;pointer-events:none}
+  .side{max-width:280px;color:#3a3a3c}
+  .side h1{font-size:22px;margin:0 0 8px;color:#1c1c1e}
+  .side p{font-size:15px;line-height:1.5;margin:0 0 16px}
+  .side a{display:block;color:#1c1c1e;font-size:15px;margin:6px 0}
+  body{overflow:hidden}
+  .fit{flex:0 0 auto;position:relative}
+  .fit .phone{position:absolute;top:0;left:0;transform-origin:top left}
+  @media (max-width:760px){.side{display:none}}
+  .themes{display:flex;gap:8px}
+  .themes button{font:inherit;font-size:14px;padding:8px 12px;border-radius:10px;border:1px solid #d1d1d6;background:#fff;cursor:pointer}
+  .themes button.on{background:#1c1c1e;color:#fff;border-color:#1c1c1e}
+</style>
+</head>
+<body>
+  <div class="fit" id="fit"><div class="phone" id="phone">
+    <div class="screen">
+      <div class="status"><span id="clock">9:41</span><span class="icons"><i style="width:17px;height:11px"></i><i style="width:15px;height:11px;border-radius:3px"></i><i style="width:25px;height:12px;border-radius:4px"></i></span></div>
+      <div class="island"></div>
+      <iframe id="app" src="/#/" title="TonalWatch app" allow="microphone"></iframe>
+      <div class="home-bar"></div>
+    </div>
+  </div></div>
+  <div class="side">
+    <h1>TonalWatch on a phone</h1>
+    <p>This is the real app running at phone size (390 × 844, like an iPhone 14). Tap and scroll inside the phone; the microphone works too.</p>
+    <a href="#" data-route="/">Home</a>
+    <a href="#" data-route="/measure">Check</a>
+    <a href="#" data-route="/map">Map</a>
+    <a href="#" data-route="/why">Why it matters</a>
+    <p style="margin:20px 0 6px;font-weight:600;color:#1c1c1e">Colors</p>
+    <div class="themes"><button data-theme="mono">Black &amp; white</button><button data-theme="classic">Classic green</button></div>
+  </div>
+<script>
+  const frame = document.getElementById('app');
+  document.querySelectorAll('[data-route]').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    frame.contentWindow.location.hash = a.dataset.route;
+  }));
+  // Color theme switch: reloads the app with ?theme=mono|classic (the app remembers the choice).
+  const setTheme = t => {
+    document.querySelectorAll('[data-theme]').forEach(b => b.classList.toggle('on', b.dataset.theme === t));
+    const hash = (frame.contentWindow && frame.contentWindow.location.hash) || '#/';
+    frame.src = '/?theme=' + t + hash;
+  };
+  let current = 'mono'; try { current = localStorage.getItem('tw-theme') || 'mono'; } catch (e) {}
+  document.querySelectorAll('[data-theme]').forEach(b => { b.classList.toggle('on', b.dataset.theme === current); b.addEventListener('click', () => setTheme(b.dataset.theme)); });
+  // Scale the whole phone to fit the window (Windows laptops have short browser windows).
+  const W = 418, H = 872; // phone incl. bezel padding
+  const fit = () => {
+    const s = Math.min(1, (window.innerHeight - 32) / H, (window.innerWidth - 32) / W);
+    document.getElementById('phone').style.transform = `scale(${s})`;
+    const box = document.getElementById('fit');
+    box.style.width = W * s + 'px'; box.style.height = H * s + 'px';
+  };
+  fit(); window.addEventListener('resize', fit);
+  // Hide desktop scrollbars inside the phone so it looks like a real phone (same-origin iframe).
+  frame.addEventListener('load', () => {
+    try {
+      const st = frame.contentDocument.createElement('style');
+      st.textContent = 'html{scrollbar-width:none}html::-webkit-scrollbar{display:none}';
+      frame.contentDocument.head.appendChild(st);
+    } catch (e) {}
+  });
+  const tick = () => { const d = new Date(); document.getElementById('clock').textContent = ((d.getHours() + 11) % 12 + 1) + ':' + String(d.getMinutes()).padStart(2, '0'); };
+  tick(); setInterval(tick, 30000);
+</script>
+</body>
+</html>

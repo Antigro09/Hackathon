@@ -1,9 +1,9 @@
 .site-header{height:auto;min-height:94px;flex-wrap:wrap;row-gap:10px;padding-top:16px;padding-bottom:16px}
 .site-header nav{height:auto;min-width:0;flex-wrap:wrap;gap:22px;margin-left:12px}
 .site-header nav a{height:auto;min-height:38px;padding:8px 0}
-.site-header nav a.home-nav-link{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border:1px solid #d5dfc9;border-radius:7px;background:#edf3e5;color:#254838;font-weight:650}
-.site-header nav a.home-nav-link:hover{background:#e0ebd4}
-.site-header nav a.home-nav-link[aria-current=page]{background:#234d3c;border-color:#234d3c;color:#fff}
+.site-header nav a.home-nav-link{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border:1px solid #dbdbdb;border-radius:7px;background:#f1f1f1;color:#414141;font-weight:650}
+.site-header nav a.home-nav-link:hover{background:#e7e7e7}
+.site-header nav a.home-nav-link[aria-current=page]{background:#454545;border-color:#454545;color:#ffffff}
 .result-stack{min-width:0}
 @media(max-width:1050px){.site-header{column-gap:24px}.site-header nav{gap:17px;margin-left:0}.header-privacy{font-size:10px}}
 @media(max-width:760px){.site-header{min-height:0;padding-top:16px;padding-bottom:14px;row-gap:12px}.site-header nav{flex-basis:100%;width:100%;gap:8px 18px;margin-left:0;font-size:12px}.site-header nav a{min-height:35px}.site-header nav a.home-nav-link{padding:7px 10px}.header-privacy{display:none}}
