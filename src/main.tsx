@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 import './styles.css';
 import './navigation.css';
+import './learn.css';
 import './meter.css';
 import './sound-hints.css';
 import './print.css';

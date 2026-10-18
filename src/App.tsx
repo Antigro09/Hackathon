@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { FIXTURES, generateFixture, syntheticMeta } from './analysis/fixtures';
 import type { FixtureId } from './analysis/fixtures';
 import { ALGORITHM_VERSION, METHOD_UPDATED } from './analysis/version';
@@ -12,18 +12,19 @@ import { Icon } from './components/Icon';
 import { ObservationForm } from './components/ObservationForm';
 import { ResultPanel } from './components/ResultPanel';
 import { InputMeter } from './components/InputMeter';
+import { LearnPage, LearnPanel } from './components/Learn';
 import type { InputMeterReading } from './audio/meter';
 import { SoundHintsPanel } from './components/SoundHintsPanel';
 import type { SoundHintsInput } from './components/SoundHintsPanel';
 import type { AnalysisResponse, AnalysisResult, InputMeta, ObservationContext } from './types';
 
-type Route = '/' | '/measure' | '/report' | '/sources';
+type Route = '/' | '/measure' | '/report' | '/sources' | '/learn';
 type Phase = 'idle' | 'permission-pending' | 'warming-up' | 'recording' | 'decoding' | 'analyzing' | 'ready';
 type InputMode = 'demo' | 'microphone' | 'file';
 const emptyContext: ObservationContext = { jurisdiction: 'unknown-other', environment: 'unknown', locationDescription: '', recurrenceNotes: '', conditionsNotes: '', suspectedSourceNotes: '' };
 const readRoute = (): Route => {
   const hash = window.location.hash.slice(1);
-  return hash === '/measure' || hash === '/report' || hash === '/sources' ? hash : '/';
+  return hash === '/measure' || hash === '/report' || hash === '/sources' || hash === '/learn' ? hash : '/';
 };
 
 function Home({ onDemo }: { onDemo: () => void }) {
@@ -53,6 +54,12 @@ export default function App() {
   const [report, setReport] = useState<ReportModel | null>(null);
   const [error, setError] = useState('');
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [tonePlaying, setTonePlaying] = useState(false);
+  const tonePlayingRef = useRef(false);
+  const updateTonePlayback = useCallback((playing: boolean) => {
+    tonePlayingRef.current = playing;
+    setTonePlaying(playing);
+  }, []);
   const activeId = useRef(0);
   const controller = useRef<AbortController | null>(null);
   const worker = useRef<Worker | null>(null);
@@ -106,6 +113,10 @@ export default function App() {
     analyze(generateFixture(id, 48000), 48000, syntheticMeta(id), sessionId);
   };
   const startInput = async () => {
+    if (mode === 'microphone' && tonePlayingRef.current) {
+      setError('Stop the Learn tone before recording an observation.');
+      return;
+    }
     invalidate(); const sessionId = activeId.current;
     const abort = new AbortController(); controller.current = abort;
     try {
@@ -140,19 +151,20 @@ export default function App() {
 
   return <>
     <a className="skip-link" href="#main-content" onClick={event => { event.preventDefault(); const main = document.getElementById('main-content'); main?.setAttribute('tabindex', '-1'); main?.focus(); main?.scrollIntoView(); }}>Skip to content</a>
-    <header className="site-header"><a className="brand" href="#/" aria-label="TonalWatch home"><span className="brand-icon"><Icon name="wave" size={24}/></span>Tonal<span>Watch</span></a><nav aria-label="Main navigation"><a className="home-nav-link" href="#/" aria-current={route === '/' ? 'page' : undefined}><Icon name="home" size={16}/>Home</a><a href="#/measure" aria-current={route === '/measure' ? 'page' : undefined}>Observation</a><a href="#/sources" aria-current={route === '/sources' ? 'page' : undefined}>Sources & method</a></nav><span className="header-privacy"><span className="live-dot"/> Local by design</span></header>
+    <header className="site-header"><a className="brand" href="#/" aria-label="TonalWatch home"><span className="brand-icon"><Icon name="wave" size={24}/></span>Tonal<span>Watch</span></a><nav aria-label="Main navigation"><a className="home-nav-link" href="#/" aria-current={route === '/' ? 'page' : undefined}><Icon name="home" size={16}/>Home</a><a href="#/measure" aria-current={route === '/measure' ? 'page' : undefined}>Observation</a><a href="#/learn" aria-current={route === '/learn' ? 'page' : undefined}>Learn</a><a href="#/sources" aria-current={route === '/sources' ? 'page' : undefined}>Sources & method</a></nav><span className="header-privacy"><span className="live-dot"/> Local by design</span></header>
     {result ? <div className={`origin-strip ${result.inputKind === 'synthetic' ? 'synthetic-strip' : ''}`}><strong>{originLabel}</strong><span>{result.inputKind === 'synthetic' ? 'Generated audio validates software behavior, not field accuracy.' : result.inputKind === 'imported-file' ? 'Original recording time and processing are not established.' : 'A short screening sample, not a certified measurement.'}</span></div> : null}
     {route === '/' ? <Home onDemo={() => { window.location.hash = '/measure'; runDemo('hum-harmonics'); }}/ > : null}
     {route === '/measure' ? <main id="main-content" className="page-shell measure-page"><div className="page-heading"><div><p className="eyebrow">Your noise observation</p><h1>Listen. Inspect. Document.</h1><p>A short sample, two independent indicators, and the details only you can add.</p></div><button className="text-button" onClick={() => { invalidate(); setSelectedFile(null); setContext({ ...emptyContext }); }}>Clear session <span aria-hidden="true">↺</span></button></div>
       <div className="analysis-layout"><aside className="input-column"><section className="panel input-panel"><div className="section-heading"><h2>Choose your input</h2><span className="tiny-label">5 SEC</span></div><div className="input-tabs" role="group" aria-label="Input type">{(['demo', 'microphone', 'file'] as const).map(item => <button key={item} className={mode === item ? 'selected' : ''} aria-pressed={mode === item} onClick={() => switchMode(item)} disabled={busy}><Icon name={item === 'demo' ? 'demo' : item === 'microphone' ? 'mic' : 'file'} size={18}/>{item === 'microphone' ? 'Mic' : item === 'file' ? 'File' : 'Demo'}</button>)}</div>
         {mode === 'demo' ? <><div className="input-symbol"><Icon name="demo" size={32}/></div><h3>Explore a known signal</h3><p className="muted">A reliable way to see what the indicators can—and can’t—tell you.</p><label>Demo signal<select value={fixture} disabled={busy} onChange={e => { invalidate(); setFixture(e.target.value as FixtureId); }}>{FIXTURES.map(item => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label><p className="fixture-description">{selectedFixture?.description}</p><button className="button primary input-action" disabled={busy} onClick={() => runDemo()}>Analyze demo <Icon name="arrow" size={18}/></button><p className="demo-disclosure">SYNTHETIC DEMO<br/><span>Generated locally. Not a field recording.</span></p></> : null}
-        {mode === 'microphone' ? <><div className="input-symbol"><Icon name="mic" size={32}/></div><h3>Record what you hear</h3><p className="muted">Hold your device still. Avoid speaking, touching the microphone, or blocking it.</p><div className="capture-note"><strong>0.5 s warm-up + 5 s capture</strong><p>We request disabled audio processing, but your device may still filter or reshape the sound.</p></div><InputMeter reading={meterReading} active={phase === 'warming-up' || phase === 'recording'}/><button className="button primary input-action" onClick={startInput} disabled={busy}><Icon name="mic" size={18}/> Start 5-second capture</button><small className="input-footnote">Microphone requires permission and HTTPS or localhost. Access ends after capture, cancel, or navigation.</small></> : null}
+        {mode === 'microphone' ? <><div className="input-symbol"><Icon name="mic" size={32}/></div><h3>Record what you hear</h3><p className="muted">Hold your device still. Avoid speaking, touching the microphone, or blocking it.</p><div className="capture-note"><strong>0.5 s warm-up + 5 s capture</strong><p>We request disabled audio processing, but your device may still filter or reshape the sound.</p></div><InputMeter reading={meterReading} active={phase === 'warming-up' || phase === 'recording'}/><button className="button primary input-action" onClick={startInput} disabled={busy || tonePlaying}><Icon name="mic" size={18}/> Start 5-second capture</button>{tonePlaying ? <p className="learn-disabled" role="status">Stop the listening tone before microphone capture.</p> : null}<small className="input-footnote">Microphone requires permission and HTTPS or localhost. Access ends after capture, cancel, or navigation.</small></> : null}
         {mode === 'file' ? <><div className="input-symbol"><Icon name="file" size={32}/></div><h3>Load a local recording</h3><p className="muted">Choose an audio file at least five seconds long. PCM WAV is the supported baseline.</p><label className="file-picker">Audio file · up to 10 MB<input type="file" accept="audio/*,.wav" disabled={busy} onChange={e => { const file = e.target.files?.[0] ?? null; invalidate(); setSelectedFile(file); e.target.value = ''; }}/></label>{selectedFile ? <p className="selected-filename">{selectedFile.name}</p> : null}<button className="button primary input-action" onClick={startInput} disabled={busy || !selectedFile}>Analyze file <Icon name="arrow" size={18}/></button><small className="input-footnote">First five seconds from offset 0, first channel. Decoded locally; browser may resample. Original recording time and processing unknown.</small></> : null}
         {busy ? <div className="capture-progress" role="status"><strong>{phase === 'permission-pending' ? 'Waiting for microphone permission…' : phase === 'warming-up' ? 'Warming up the microphone…' : phase === 'recording' ? `Recording ${(Math.max(0, progress) * 5).toFixed(1)} / 5.0 s` : phase === 'decoding' ? 'Decoding local audio…' : 'Analyzing the captured PCM…'}</strong>{phase === 'recording' ? <progress value={progress} max={1} aria-label="Recorded sample progress"/> : <span className="working-line"/>}<button className="button secondary" onClick={invalidate}>Cancel</button></div> : null}
         {error ? <div className="error-box" role="alert"><strong>Input needs attention</strong><p>{error}</p><span>Retry, choose a demo, or load a local file.</span></div> : null}
-      </section><div className="local-note"><Icon name="shield" size={22}/><div><strong>Your audio stays here.</strong><p>Processed in this browser. No recording is uploaded or attached to your report.</p></div></div></aside><ResultPanel result={result} analyzing={phase === 'analyzing'}/></div>
+      </section><div className="local-note"><Icon name="shield" size={22}/><div><strong>Your audio stays here.</strong><p>Processed in this browser. No recording is uploaded or attached to your report.</p></div></div></aside><div className="result-stack"><ResultPanel result={result} analyzing={phase === 'analyzing'}/><LearnPanel result={result} disabled={busy} onPlaybackChange={updateTonePlayback}/></div></div>
       {result ? <SoundHintsPanel key={result.id} result={result} input={retainedAudio.current}/> : null}<ObservationForm context={context} onChange={value => { setContext(value); setReport(null); }}/><div className="review-bar"><div><p className="eyebrow">03 / Bring it together</p><strong>A clear observation starts a better conversation.</strong><p>Review your notes, results, and references before sharing.</p></div><button className="button primary" onClick={review} disabled={!result || busy}>Review observation <Icon name="arrow"/></button></div><div className="sr-only" aria-live="polite">{phase === 'ready' ? 'Analysis complete. Results and report review are available.' : ''}</div>
     </main> : null}
+    {route === '/learn' ? <LearnPage result={result} disabled={busy} onPlaybackChange={updateTonePlayback}/> : null}
     {route === '/sources' ? <SourcesPage/> : null}
     {route === '/report' ? <main id="main-content" className="page-shell report-page">{report && result ? <><div className="page-heading report-toolbar"><div><p className="eyebrow">03 / Review & export</p><h1>Your observation packet</h1><p>Review the preview. Your notes may contain personal information.</p></div><div className="report-actions"><button className="button secondary" onClick={downloadText}><Icon name="download" size={18}/> Download text</button><button className="button primary" onClick={() => window.print()}><Icon name="print" size={18}/> Print / save PDF</button></div></div><a className="back-link" href="#/measure">← Edit observation</a><ReportView report={report}/></> : <div className="panel empty-report"><Icon name="file" size={42}/><h1>Create an observation first</h1><p>A report needs an input and its analysis. A synthetic demo works, too.</p><a className="button primary" href="#/measure">Start an observation <Icon name="arrow"/></a></div>}</main> : null}
     <footer className="site-footer"><a className="brand footer-brand" href="#/"><Icon name="wave" size={20}/> TonalWatch</a><p>Careful observations. Clearer conversations.</p><span>Uncalibrated screening · <a href="#/sources">Method & limitations</a></span></footer>
