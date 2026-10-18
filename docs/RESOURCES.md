@@ -4,6 +4,7 @@
 - **Judging rubric (100 pts)**: https://docs.google.com/document/d/18qsN9ITcCPEGY4uMNW0Q54AK5lkNU78DbPR7Gfs0-SE — Functionality 35 / Team Chem 20 / Problem-Solution 20 / Q&A 10 / UVP 10 / Marketing 5. Pitch max 5 MIN, ALL members speak, 2-min Q&A.
 - **Devpost resources**: https://804hacks.devpost.com/resources
 - **Tracks**: 1) Protect our Planet (OURS — defend against ongoing threats, air/water pollution) 2) Build a Sustainable Future.
+- **Tracks screenshot**: ![tracks](tracks.png) — verbatim: Track 1 "Protect our Planet — Step up to defend our environment against ongoing threats... air and water pollution, overflowing waste systems, and the urgent need for biodiversity and ecosystem protection." Track 2 "Build a Sustainable Future — Look ahead and proactively redesign our world... rethink human infrastructure, optimize resource consumption... build for long-term sustainability."
 
 ## The legal seam (our citations)
 - Loudoun County noise page (the admission in their own words): https://www.loudoun.gov/6405/Noise-Air-Quality-Concerns — dBA standards "do not capture low frequency noise or the discomfort caused by steady tonal sounds"; no tonal/low-frequency regulatory language; amendments anticipated 2027.
