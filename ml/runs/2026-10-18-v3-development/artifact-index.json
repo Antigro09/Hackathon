@@ -1,0 +1,26 @@
+{
+  "final-reservations.json": {
+    "bytes": 146747,
+    "sha256": "08f9e9bcd5eecdcf7fe3273ffd8d8e75397ce3291938fd0d32fe6b8e10ea5b7b"
+  },
+  "historical-exclusions.json": {
+    "bytes": 1000781,
+    "sha256": "55060c72e09459ac42452f0748cff8009e57a5ee055bfd9e5c02e371828b12a1"
+  },
+  "historical-manifests/v1.json": {
+    "bytes": 1292590,
+    "sha256": "1c5f7a8ba2f5d38c661073deeadc5253a5e4c70ce8d2143a975a69a392731549"
+  },
+  "historical-manifests/v2.json": {
+    "bytes": 2509717,
+    "sha256": "8a22e336d2eb1806ab228b381badb46156e67f198013d77b31a0565fbb3f0ab8"
+  },
+  "historical-records.json": {
+    "bytes": 4139647,
+    "sha256": "87ada977e57c9d7b22a428a63fc90a5dc8199cf981182c15ad8fedb4a511cf07"
+  },
+  "manifest-v3-development.json": {
+    "bytes": 3517690,
+    "sha256": "e0c86b5613b2c0b16e3f6df8f19abe7241228eb30b3df40f67ba1632b08d9ff7"
+  }
+}
