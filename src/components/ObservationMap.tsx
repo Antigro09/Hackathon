@@ -95,6 +95,21 @@ function markerIcon(reading: MapReading, number: number): L.DivIcon {
   return L.divIcon({ html: node, className: 'tw-map-marker', iconSize: [28, 42], iconAnchor: [14, 14], popupAnchor: [0, -16] });
 }
 
+/** Keep provenance readable at narrow edges without moving geographic pins. */
+function alignProvenanceBadges(map: L.Map, markers: Iterable<L.Marker>) {
+  const size = map.getSize();
+  const updates = Array.from(markers).flatMap(marker => {
+    const badge = marker.getElement()?.querySelector<HTMLElement>('.tw-map-pin-origin');
+    if (!badge) return [];
+    const point = map.latLngToContainerPoint(marker.getLatLng());
+    const halfWidth = badge.offsetWidth / 2;
+    const visible = point.x >= 0 && point.x <= size.x && point.y >= 0 && point.y <= size.y;
+    const center = Math.max(halfWidth + 4, Math.min(size.x - halfWidth - 4, point.x));
+    return [{ badge, offset: visible ? center - point.x : 0 }];
+  });
+  for (const { badge, offset } of updates) badge.style.marginLeft = `${offset}px`;
+}
+
 function ReadingCard({ reading, onLocate }: { reading: MapReading; onLocate: (id: string) => void }) {
   return <article className={`map-reading map-reading--${readingColor(reading)}`}>
     <p className="map-provenance">{readingProvenance(reading)}</p>
@@ -147,13 +162,17 @@ export default function ObservationMap({ currentResult, sessionReadings, onAddRe
       scrollWheelZoom: false, minZoom: 2, maxZoom: 18,
       zoomAnimation: !reducedMotion, fadeAnimation: !reducedMotion, markerZoomAnimation: !reducedMotion,
     });
+    map.zoomControl.setPosition('topright');
     map.attributionControl.setPrefix('<a href="https://leafletjs.com/">Leaflet</a>');
     map.fitBounds(syntheticReadings.map(reading => [reading.coordinates.latitude, reading.coordinates.longitude] as L.LatLngTuple), { padding: [45, 45], maxZoom: 11, animate: false });
     const layer = L.layerGroup().addTo(map);
     mapRef.current = map;
     layerRef.current = layer;
+    const alignBadges = () => alignProvenanceBadges(map, markersRef.current.values());
+    map.on('moveend', alignBadges);
     const observer = new ResizeObserver(() => {
-      map.invalidateSize({ pan: false });
+      map.invalidateSize({ pan: true, animate: false });
+      alignBadges();
       hostRef.current?.style.setProperty('--map-popup-max', `${Math.max(110, map.getSize().x - 64)}px`);
     });
     observer.observe(hostRef.current);
@@ -161,6 +180,7 @@ export default function ObservationMap({ currentResult, sessionReadings, onAddRe
     window.addEventListener('offline', offline);
     return () => {
       observer.disconnect();
+      map.off('moveend', alignBadges);
       window.removeEventListener('offline', offline);
       markersRef.current.clear();
       map.remove();
@@ -185,6 +205,7 @@ export default function ObservationMap({ currentResult, sessionReadings, onAddRe
       marker.addTo(layer);
       markersRef.current.set(reading.id, marker);
     });
+    if (mapRef.current) alignProvenanceBadges(mapRef.current, markersRef.current.values());
   }, [readings]);
 
   useEffect(() => {
