@@ -1,10 +1,13 @@
 import type { InputMeta, QualityCode } from '../types';
 import { CaptureCollector, filterDeviceSettings } from './chunks';
 import { abortable, AudioInputError, cancelledError } from './errors';
+import { InputMeterAccumulator } from './meter';
+import type { InputMeterReading } from './meter';
 
 export interface CapturedInput { pcm: Float32Array; fs: number; meta: InputMeta }
 export interface CaptureOptions {
   onProgress: (phase: 'permission-pending' | 'warming-up' | 'recording', fraction: number) => void;
+  onMeter?: (reading: InputMeterReading) => void;
   signal: AbortSignal;
 }
 
@@ -27,7 +30,7 @@ function captureError(error: unknown): Error {
 }
 
 /** Invoke directly from a button gesture so creation/resume retain user activation. */
-export async function startCapture({ onProgress, signal }: CaptureOptions): Promise<CapturedInput> {
+export async function startCapture({ onProgress, onMeter, signal }: CaptureOptions): Promise<CapturedInput> {
   if (signal.aborted) throw cancelledError();
   if (!globalThis.isSecureContext || !navigator.mediaDevices?.getUserMedia) {
     throw new AudioInputError('secure-context-required', 'Microphone capture needs HTTPS or localhost. Open this app there, or choose a local file or demo.');
@@ -93,6 +96,7 @@ export async function startCapture({ onProgress, signal }: CaptureOptions): Prom
     if (processing.some(value => value === true)) qualityCodes.push('processing-active');
     if (processing.some(value => value !== true && value !== false)) qualityCodes.push('processing-unknown');
     const collector = new CaptureCollector(context.sampleRate);
+    const meter = onMeter ? new InputMeterAccumulator() : null;
     source = context.createMediaStreamSource(stream);
     recorder = new AudioWorkletNode(context, 'tonalwatch-capture', {
       numberOfInputs: 1, numberOfOutputs: 1, outputChannelCount: [1],
@@ -107,12 +111,14 @@ export async function startCapture({ onProgress, signal }: CaptureOptions): Prom
       if (!recorder) return;
       recorder.onprocessorerror = () => reject(new AudioInputError('incomplete', 'The audio recorder stopped unexpectedly. Retry, or choose a file or demo.'));
       recorder.port.onmessage = (event: MessageEvent) => {
-        if (finished) return;
+        if (finished || signal.aborted || collector.complete) return;
         try {
           if (event.data?.type === 'interrupted') { interruption(); return; }
           if (event.data?.type !== 'chunk') return;
           collector.push(event.data);
           lastChunkAt = performance.now();
+          const reading = meter?.push(event.data.samples, lastChunkAt);
+          if (reading) onMeter?.(reading);
           onProgress(collector.warmingUp ? 'warming-up' : 'recording', collector.progress);
           if (collector.complete) resolve();
         } catch (error) { reject(error); }

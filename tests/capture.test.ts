@@ -65,7 +65,7 @@ beforeEach(() => {
   vi.stubGlobal('AudioWorkletNode', MockWorklet);
 });
 
-afterEach(() => { vi.unstubAllGlobals(); });
+afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
 describe('sample collector', () => {
   it.each([44100, 48000])('discards exactly .5 s and crops five seconds at %i Hz across irregular chunks', fs => {
@@ -134,6 +134,46 @@ describe('render-thread recorder', () => {
 });
 
 describe('microphone lifetime', () => {
+  it('previews actual warm-up and recording chunks and ignores callbacks after completion', async () => {
+    let now = 0;
+    vi.spyOn(performance, 'now').mockImplementation(() => now);
+    const onMeter = vi.fn();
+    const onProgress = vi.fn();
+    const pending = startCapture({ onProgress, onMeter, signal: new AbortController().signal });
+    await vi.waitFor(() => expect(MockWorklet.latest?.port.onmessage).toBeTypeOf('function'));
+    const handler = MockWorklet.latest!.port.onmessage!;
+    for (let startSample = 0; startSample < 48000 * 5.5; startSample += 2048) {
+      handler({ data: { type: 'chunk', startSample, samples: new Float32Array(2048).fill(startSample < 24000 ? 0.1 : 0.5) } });
+      now += 50;
+    }
+    await pending;
+    expect(onMeter.mock.calls[0][0].rms).toBeCloseTo(0.1, 6);
+    expect(onMeter.mock.calls.at(-1)![0].rms).toBeCloseTo(0.5, 6);
+    expect(onMeter.mock.calls.at(-1)![0].levelDb).toBeCloseTo(-6.0206, 4);
+    expect(onProgress).toHaveBeenCalledWith('warming-up', 0);
+    expect(onProgress).toHaveBeenLastCalledWith('recording', 1);
+    const count = onMeter.mock.calls.length;
+    handler({ data: { type: 'chunk', startSample: 999999, samples: new Float32Array([1]) } });
+    expect(onMeter).toHaveBeenCalledTimes(count);
+  });
+
+  it('stops preview callbacks immediately when cancellation is requested', async () => {
+    const onMeter = vi.fn();
+    const controller = new AbortController();
+    const pending = startCapture({ onProgress: () => {}, onMeter, signal: controller.signal });
+    const outcome = expect(pending).rejects.toMatchObject({ name: 'AbortError' });
+    await vi.waitFor(() => expect(MockWorklet.latest?.port.onmessage).toBeTypeOf('function'));
+    const handler = MockWorklet.latest!.port.onmessage!;
+    handler({ data: { type: 'chunk', startSample: 0, samples: new Float32Array(2048).fill(0.1) } });
+    expect(onMeter).toHaveBeenCalledOnce();
+    controller.abort();
+    handler({ data: { type: 'chunk', startSample: 2048, samples: new Float32Array(2048).fill(1) } });
+    await outcome;
+    expect(onMeter).toHaveBeenCalledOnce();
+    expect(MockWorklet.latest!.port.onmessage).toBeNull();
+    expect(track.stop).toHaveBeenCalledOnce();
+  });
+
   it('records a fresh exact sample count through a silent graph and releases every resource', async () => {
     const progress = vi.fn();
     const pending = startCapture({ onProgress: progress, signal: new AbortController().signal });

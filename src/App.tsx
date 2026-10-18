@@ -10,6 +10,8 @@ import { ReportView } from './report/ReportView';
 import { Icon } from './components/Icon';
 import { ObservationForm } from './components/ObservationForm';
 import { ResultPanel } from './components/ResultPanel';
+import { InputMeter } from './components/InputMeter';
+import type { InputMeterReading } from './audio/meter';
 import type { AnalysisResponse, AnalysisResult, InputMeta, ObservationContext } from './types';
 
 type Route = '/' | '/measure' | '/report' | '/sources';
@@ -42,6 +44,7 @@ export default function App() {
   const [fixture, setFixture] = useState<FixtureId>('hum-harmonics');
   const [phase, setPhase] = useState<Phase>('idle');
   const [progress, setProgress] = useState(0);
+  const [meterReading, setMeterReading] = useState<InputMeterReading | null>(null);
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [context, setContext] = useState<ObservationContext>({ ...emptyContext });
   const [report, setReport] = useState<ReportModel | null>(null);
@@ -60,7 +63,7 @@ export default function App() {
       if (next !== '/measure' && !['idle', 'ready'].includes(phaseRef.current)) {
         ++activeId.current;
         controller.current?.abort(); worker.current?.terminate(); worker.current = null;
-        setPhase('idle'); setResult(null); setReport(null); setError('');
+        setPhase('idle'); setResult(null); setReport(null); setError(''); setMeterReading(null);
       }
       setRoute(next);
       window.scrollTo({ top: 0 });
@@ -72,7 +75,7 @@ export default function App() {
   const invalidate = () => {
     ++activeId.current; controller.current?.abort(); controller.current = null;
     worker.current?.terminate(); worker.current = null;
-    setResult(null); setReport(null); setPhase('idle'); setProgress(0); setError('');
+    setResult(null); setReport(null); setPhase('idle'); setProgress(0); setError(''); setMeterReading(null);
   };
   const analyze = (pcm: Float32Array, fs: number, meta: InputMeta, sessionId: number) => {
     if (sessionId !== activeId.current) return;
@@ -101,7 +104,8 @@ export default function App() {
     try {
       if (mode === 'microphone') {
         setPhase('permission-pending');
-        const input = await startCapture({ signal: abort.signal, onProgress: (nextPhase, fraction) => { if (sessionId === activeId.current) { setPhase(nextPhase); setProgress(fraction); } } });
+        const input = await startCapture({ signal: abort.signal, onProgress: (nextPhase, fraction) => { if (sessionId === activeId.current) { setPhase(nextPhase); setProgress(fraction); } }, onMeter: reading => { if (sessionId === activeId.current) setMeterReading(reading); } });
+        if (sessionId === activeId.current) setMeterReading(null);
         analyze(input.pcm, input.fs, input.meta, sessionId);
       } else if (selectedFile) {
         setPhase('decoding');
@@ -110,7 +114,7 @@ export default function App() {
       }
     } catch (cause) {
       if (sessionId !== activeId.current || abort.signal.aborted) return;
-      setError(cause instanceof Error ? cause.message : 'This input could not be read. Try a demo or another recording.'); setPhase('idle');
+      setError(cause instanceof Error ? cause.message : 'This input could not be read. Try a demo or another recording.'); setPhase('idle'); setMeterReading(null);
     }
   };
   const review = () => {
@@ -135,7 +139,7 @@ export default function App() {
     {route === '/measure' ? <main id="main-content" className="page-shell measure-page"><div className="page-heading"><div><p className="eyebrow">Your noise observation</p><h1>Listen. Inspect. Document.</h1><p>A short sample, two independent indicators, and the details only you can add.</p></div><button className="text-button" onClick={() => { invalidate(); setSelectedFile(null); setContext({ ...emptyContext }); }}>Clear session <span aria-hidden="true">↺</span></button></div>
       <div className="analysis-layout"><aside className="input-column"><section className="panel input-panel"><div className="section-heading"><h2>Choose your input</h2><span className="tiny-label">5 SEC</span></div><div className="input-tabs" role="group" aria-label="Input type">{(['demo', 'microphone', 'file'] as const).map(item => <button key={item} className={mode === item ? 'selected' : ''} aria-pressed={mode === item} onClick={() => switchMode(item)} disabled={busy}><Icon name={item === 'demo' ? 'demo' : item === 'microphone' ? 'mic' : 'file'} size={18}/>{item === 'microphone' ? 'Mic' : item === 'file' ? 'File' : 'Demo'}</button>)}</div>
         {mode === 'demo' ? <><div className="input-symbol"><Icon name="demo" size={32}/></div><h3>Explore a known signal</h3><p className="muted">A reliable way to see what the indicators can—and can’t—tell you.</p><label>Demo signal<select value={fixture} disabled={busy} onChange={e => { invalidate(); setFixture(e.target.value as FixtureId); }}>{FIXTURES.map(item => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label><p className="fixture-description">{selectedFixture?.description}</p><button className="button primary input-action" disabled={busy} onClick={() => runDemo()}>Analyze demo <Icon name="arrow" size={18}/></button><p className="demo-disclosure">SYNTHETIC DEMO<br/><span>Generated locally. Not a field recording.</span></p></> : null}
-        {mode === 'microphone' ? <><div className="input-symbol"><Icon name="mic" size={32}/></div><h3>Record what you hear</h3><p className="muted">Hold your device still. Avoid speaking, touching the microphone, or blocking it.</p><div className="capture-note"><strong>0.5 s warm-up + 5 s capture</strong><p>We request disabled audio processing, but your device may still filter or reshape the sound.</p></div><button className="button primary input-action" onClick={startInput} disabled={busy}><Icon name="mic" size={18}/> Start 5-second capture</button><small className="input-footnote">Microphone requires permission and HTTPS or localhost. Access ends after capture, cancel, or navigation.</small></> : null}
+        {mode === 'microphone' ? <><div className="input-symbol"><Icon name="mic" size={32}/></div><h3>Record what you hear</h3><p className="muted">Hold your device still. Avoid speaking, touching the microphone, or blocking it.</p><div className="capture-note"><strong>0.5 s warm-up + 5 s capture</strong><p>We request disabled audio processing, but your device may still filter or reshape the sound.</p></div><InputMeter reading={meterReading} active={phase === 'warming-up' || phase === 'recording'}/><button className="button primary input-action" onClick={startInput} disabled={busy}><Icon name="mic" size={18}/> Start 5-second capture</button><small className="input-footnote">Microphone requires permission and HTTPS or localhost. Access ends after capture, cancel, or navigation.</small></> : null}
         {mode === 'file' ? <><div className="input-symbol"><Icon name="file" size={32}/></div><h3>Load a local recording</h3><p className="muted">Choose an audio file at least five seconds long. PCM WAV is the supported baseline.</p><label className="file-picker">Audio file · up to 10 MB<input type="file" accept="audio/*,.wav" disabled={busy} onChange={e => { const file = e.target.files?.[0] ?? null; invalidate(); setSelectedFile(file); e.target.value = ''; }}/></label>{selectedFile ? <p className="selected-filename">{selectedFile.name}</p> : null}<button className="button primary input-action" onClick={startInput} disabled={busy || !selectedFile}>Analyze file <Icon name="arrow" size={18}/></button><small className="input-footnote">First five seconds from offset 0, first channel. Decoded locally; browser may resample. Original recording time and processing unknown.</small></> : null}
         {busy ? <div className="capture-progress" role="status"><strong>{phase === 'permission-pending' ? 'Waiting for microphone permission…' : phase === 'warming-up' ? 'Warming up the microphone…' : phase === 'recording' ? `Recording ${(Math.max(0, progress) * 5).toFixed(1)} / 5.0 s` : phase === 'decoding' ? 'Decoding local audio…' : 'Analyzing the captured PCM…'}</strong>{phase === 'recording' ? <progress value={progress} max={1} aria-label="Recorded sample progress"/> : <span className="working-line"/>}<button className="button secondary" onClick={invalidate}>Cancel</button></div> : null}
         {error ? <div className="error-box" role="alert"><strong>Input needs attention</strong><p>{error}</p><span>Retry, choose a demo, or load a local file.</span></div> : null}
