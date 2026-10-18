@@ -1,6 +1,8 @@
 import type { AnalysisResult, ObservationContext } from '../types';
 import { interpretResult, methodLimitations, qualityDescriptions, referenceProfiles } from '../data/references';
 import type { ReferenceProfile, ReferenceSource } from '../data/references';
+import { buildReportSpectrum, reportSpectrumText } from './spectrum';
+import type { ReportSpectrumModel } from './spectrum';
 
 export interface ReportRow { readonly label: string; readonly value: string }
 export interface ReportSection {
@@ -17,6 +19,7 @@ export interface ReportModel {
   readonly sections: readonly ReportSection[];
   readonly referenceProfile: ReferenceProfile;
   readonly references: readonly ReferenceSource[];
+  readonly spectrum: ReportSpectrumModel;
   readonly text: string;
 }
 
@@ -71,6 +74,8 @@ export function buildReport(
       ? 'IMPORTED FILE — recording context unknown'
       : 'MICROPHONE INPUT — uncalibrated browser capture';
   const referenceProfile = referenceProfiles[context.jurisdiction];
+  const spectrumOrigin = `${provenanceLabel}${result.fixtureId ? ` · Fixture ${result.fixtureId}` : result.inputLabel ? ` · ${result.inputLabel}` : ''}`;
+  const spectrum = buildReportSpectrum(result, spectrumOrigin);
   const settings = safeSettings.flatMap(key => {
     const value = result.deviceSettings?.[key];
     return typeof value === 'boolean' || typeof value === 'string' || (typeof value === 'number' && Number.isFinite(value))
@@ -152,11 +157,13 @@ export function buildReport(
   ]);
   const references = referenceProfile.sources;
   const text = [title, 'TonalWatch noise observation — screening only', provenanceLabel, '',
-    ...sections.flatMap(part => [part.title, ...part.rows.map(item => `${item.label}: ${item.value}`), ...part.paragraphs, '']),
+    ...sections.flatMap(part => [part.title, ...part.rows.map(item => `${item.label}: ${item.value}`), ...part.paragraphs, '',
+      ...(part.title === 'Captured-signal results' ? reportSpectrumText(spectrum) : []),
+    ]),
     'Dated official reference links',
     ...(references.length ? references.flatMap(source => [
       source.title, source.summary, source.url, sourceStatus(source), source.scopeNote, '',
     ]) : ['No county applicability evaluated; no county profile applied.']),
   ].join('\n');
-  return Object.freeze({ title, isSynthetic, provenanceLabel, preparedAtUtc, analysisId: result.id, sections, referenceProfile, references, text });
+  return Object.freeze({ title, isSynthetic, provenanceLabel, preparedAtUtc, analysisId: result.id, sections, referenceProfile, references, spectrum, text });
 }

@@ -1,5 +1,7 @@
 import type { ReportModel } from './buildReport';
 import { sourceStatus } from './buildReport';
+import { Fragment } from 'react';
+import { ReportSpectrum } from './ReportSpectrum';
 
 export function ReportView({ report }: { report: ReportModel }) {
   return (
@@ -14,7 +16,7 @@ export function ReportView({ report }: { report: ReportModel }) {
         <p>Uncalibrated screening only. No source identification or legal-compliance determination.</p>
       </header>
       {report.sections.map(section => (
-        <section className={`report-section ${section.rows.length <= 5 && section.paragraphs.join('').length + section.rows.map(item => item.value).join('').length < 1800 ? 'compact-section' : ''}`} key={section.title}>
+        <Fragment key={section.title}><section className={`report-section ${section.rows.length <= 5 && section.paragraphs.join('').length + section.rows.map(item => item.value).join('').length < 1800 ? 'compact-section' : ''}`}>
           <h2>{section.title}</h2>
           {section.rows.length > 0 && (
             <dl className="report-fields">
@@ -25,6 +27,7 @@ export function ReportView({ report }: { report: ReportModel }) {
           )}
           {section.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
         </section>
+        {section.title === 'Captured-signal results' ? <ReportSpectrum spectrum={report.spectrum}/> : null}</Fragment>
       ))}
       <section className="report-section report-references">
         <h2>Dated official reference links</h2>

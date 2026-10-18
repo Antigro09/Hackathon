@@ -3,6 +3,13 @@
   @top-center{content:'SYNTHETIC DEMONSTRATION · NOT A FIELD OBSERVATION';font-family:Arial,Helvetica,sans-serif;font-size:7pt;color:#333;vertical-align:middle}
   @bottom-right{content:counter(page);font-family:Arial,Helvetica,sans-serif;font-size:7pt;color:#555}
 }
+.report-spectrum-figure{margin:0;border:1px solid #c8c8c8;padding:12px;background:#fff;color:#111;border-radius:4px}
+.report-spectrum{display:block;width:100%;height:auto;font-family:Arial,Helvetica,sans-serif}
+.report-spectrum-figure figcaption{font-size:10px;line-height:1.7;margin:7px 5px 0;overflow-wrap:anywhere}
+.report-spectrum-figure figcaption strong{font-size:9px;letter-spacing:.3px}
+.report-spectrum-peak{paint-order:stroke;stroke:#fff;stroke-width:5px;stroke-linejoin:round}
+.report-spectrum-empty{padding:24px;text-align:center;font-size:14px;border:1px dashed #aaa}
+.report-spectrum-warning{font-weight:600}
 @media print{
   :root,body{background:white!important;color:#000!important;font-family:Arial,Helvetica,sans-serif;font-size:10pt}
   .site-header,.site-footer,.skip-link,.report-toolbar,.back-link,.origin-strip,.report-actions,.page-heading{display:none!important}
@@ -20,6 +27,11 @@
   .report-fields>div{display:grid;grid-template-columns:150pt 1fr;gap:12pt;break-inside:avoid;padding:5pt 0;font-size:8pt;border-color:#ddd}
   .report-fields dt,.report-fields dd{color:#111;line-height:1.6}
   .report-section p{font-size:8.5pt;line-height:1.6;color:#111;orphans:3;widows:3}
+  .report-spectrum-section{break-inside:avoid-page;page-break-inside:avoid}
+  .report-spectrum-figure{padding:7pt;border-color:#888;border-radius:0;break-inside:avoid}
+  .report-spectrum-figure figcaption{font-size:7pt;line-height:1.5;margin:4pt 3pt 0}
+  .report-spectrum-figure figcaption strong{font-size:7pt;letter-spacing:0}
+  .report-spectrum-section p{font-size:8pt;margin:7pt 0}
   .reference-entry{break-inside:avoid;padding:7pt 0;font-size:9pt}
   .reference-entry h3{font-size:9pt;color:black}
   .reference-entry p,.reference-entry .source-status{font-size:8pt;color:#222}
