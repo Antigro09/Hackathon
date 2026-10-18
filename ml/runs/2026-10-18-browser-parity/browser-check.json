@@ -1,0 +1,263 @@
+{
+  "state": {
+    "status": "ready",
+    "libraryVersion": "4.3.1",
+    "onnxVersions": {
+      "common": "1.31.0-dev.20260911-2a43ec07e",
+      "web": "1.31.0-dev.20260914-8d85527a0"
+    },
+    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "resampler": "src/ai/resample.ts: deterministic Kaiser beta=5 Float32 polyphase",
+    "modelLoadMs": 4170.299999952316,
+    "cases": [
+      {
+        "id": "sine63-48000",
+        "sourceRateHz": 48000,
+        "resampledSamples": 240000,
+        "featureShape": [
+          1,
+          1,
+          1001,
+          64
+        ],
+        "embeddingShape": [
+          1,
+          512
+        ],
+        "inferenceMs": 539
+      },
+      {
+        "id": "sine1000-48000",
+        "sourceRateHz": 48000,
+        "resampledSamples": 240000,
+        "featureShape": [
+          1,
+          1,
+          1001,
+          64
+        ],
+        "embeddingShape": [
+          1,
+          512
+        ],
+        "inferenceMs": 436.19999980926514
+      },
+      {
+        "id": "noise-48000",
+        "sourceRateHz": 48000,
+        "resampledSamples": 240000,
+        "featureShape": [
+          1,
+          1,
+          1001,
+          64
+        ],
+        "embeddingShape": [
+          1,
+          512
+        ],
+        "inferenceMs": 407
+      },
+      {
+        "id": "sine63-44100",
+        "sourceRateHz": 44100,
+        "resampledSamples": 240000,
+        "featureShape": [
+          1,
+          1,
+          1001,
+          64
+        ],
+        "embeddingShape": [
+          1,
+          512
+        ],
+        "inferenceMs": 491.40000009536743
+      },
+      {
+        "id": "sine1000-44100",
+        "sourceRateHz": 44100,
+        "resampledSamples": 240000,
+        "featureShape": [
+          1,
+          1,
+          1001,
+          64
+        ],
+        "embeddingShape": [
+          1,
+          512
+        ],
+        "inferenceMs": 444.7000000476837
+      },
+      {
+        "id": "noise-44100",
+        "sourceRateHz": 44100,
+        "resampledSamples": 240000,
+        "featureShape": [
+          1,
+          1,
+          1001,
+          64
+        ],
+        "embeddingShape": [
+          1,
+          512
+        ],
+        "inferenceMs": 337.40000009536743
+      }
+    ],
+    "modelRevision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+    "modelFile": "onnx/audio_model_quantized.onnx",
+    "processorClass": "Processor",
+    "featureExtractorClass": "ClapFeatureExtractor",
+    "disposed": true
+  },
+  "errors": [],
+  "network": [
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/parity.mjs",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/transformers.web.js",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/app/resample.js",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/app/model",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/ort.webgpu.bundle.min.mjs",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/cases.json",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/models/c28f2883575e590e04d3146ff0713c2448d691ba/preprocessor_config.json",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/models/c28f2883575e590e04d3146ff0713c2448d691ba/config.json",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/models/c28f2883575e590e04d3146ff0713c2448d691ba/onnx/audio_model_quantized.onnx",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/runtime/ort-wasm-simd-threaded.asyncify.wasm",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/runtime/ort-wasm-simd-threaded.asyncify.mjs",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/cases/sine63-48000-source.f32",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/cases/sine63-48000-native-features.f32",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/cases/sine1000-48000-source.f32",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/cases/sine1000-48000-native-features.f32",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/cases/noise-48000-source.f32",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/cases/noise-48000-native-features.f32",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/cases/sine63-44100-source.f32",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/cases/sine63-44100-native-features.f32",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/cases/sine1000-44100-source.f32",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/cases/sine1000-44100-native-features.f32",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/cases/noise-44100-source.f32",
+      "method": "GET",
+      "bodyBytes": 0
+    },
+    {
+      "host": "127.0.0.1:4184",
+      "path": "/cases/noise-44100-native-features.f32",
+      "method": "GET",
+      "bodyBytes": 0
+    }
+  ]
+}

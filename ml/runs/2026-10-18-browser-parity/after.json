@@ -1,0 +1,414 @@
+{
+  "purpose": "Synthetic-only parity, no classification or unseen-test predictions; not a promotion decision",
+  "browser": {
+    "status": "ready",
+    "libraryVersion": "4.3.1",
+    "onnxVersions": {
+      "common": "1.31.0-dev.20260911-2a43ec07e",
+      "web": "1.31.0-dev.20260914-8d85527a0"
+    },
+    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "resampler": "src/ai/resample.ts: deterministic Kaiser beta=5 Float32 polyphase",
+    "modelLoadMs": 4170.299999952316,
+    "modelRevision": "c28f2883575e590e04d3146ff0713c2448d691ba",
+    "modelFile": "onnx/audio_model_quantized.onnx",
+    "processorClass": "Processor",
+    "featureExtractorClass": "ClapFeatureExtractor",
+    "disposed": true
+  },
+  "native": {
+    "nativeOrtVersion": "1.23.2",
+    "numpyVersion": "2.2.6",
+    "nativeResampler": "scipy.signal.resample_poly(160,147), first five seconds, no gain normalization"
+  },
+  "modelSha256": "3fcff2c8824e7bcb83a983f2a49edab3b60cbcf4872ac70efee517355173bd1f",
+  "cases": [
+    {
+      "id": "sine63-48000",
+      "sourceRateHz": 48000,
+      "featureShape": [
+        1,
+        1,
+        1001,
+        64
+      ],
+      "embeddingShape": [
+        1,
+        512
+      ],
+      "samePcmPreprocessingError": {
+        "maxAbs": 7.62939453125e-06,
+        "meanAbs": 5.907059966267406e-08,
+        "rmse": 5.917618505694211e-07
+      },
+      "sameFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.0024209897965192795,
+        "meanAbs": 0.0006924122968019475,
+        "rmse": 0.0008651445575721823,
+        "cosine": 0.9998083903723904,
+        "normA": 1.0000000004768923,
+        "normB": 0.9999999963777734
+      },
+      "sameNativeFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.0024209897965192795,
+        "meanAbs": 0.0006924122968019475,
+        "rmse": 0.0008651445575721823,
+        "cosine": 0.9998083903723904,
+        "normA": 1.0000000004768923,
+        "normB": 0.9999999963777734
+      },
+      "sameBrowserPcmEndToEndEmbeddingError": {
+        "maxAbs": 0.0024209897965192795,
+        "meanAbs": 0.0006924122968019475,
+        "rmse": 0.0008651445575721823,
+        "cosine": 0.9998083903723904,
+        "normA": 1.0000000004768923,
+        "normB": 0.9999999963777734
+      },
+      "browserVsTrainingResamplePcmError": {
+        "maxAbs": 0.0,
+        "meanAbs": 0.0,
+        "rmse": 0.0
+      },
+      "browserVsTrainingFeaturesError": {
+        "maxAbs": 7.62939453125e-06,
+        "meanAbs": 5.907059966267406e-08,
+        "rmse": 5.917618505694211e-07
+      },
+      "browserVsTrainingEndToEndEmbeddingError": {
+        "maxAbs": 0.0024209897965192795,
+        "meanAbs": 0.0006924122968019475,
+        "rmse": 0.0008651445575721823,
+        "cosine": 0.9998083903723904,
+        "normA": 1.0000000004768923,
+        "normB": 0.9999999963777734
+      }
+    },
+    {
+      "id": "sine1000-48000",
+      "sourceRateHz": 48000,
+      "featureShape": [
+        1,
+        1,
+        1001,
+        64
+      ],
+      "embeddingShape": [
+        1,
+        512
+      ],
+      "samePcmPreprocessingError": {
+        "maxAbs": 7.62939453125e-06,
+        "meanAbs": 6.399156021458524e-08,
+        "rmse": 4.788483253884062e-07
+      },
+      "sameFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.0027725957334041595,
+        "meanAbs": 0.0006951284612313202,
+        "rmse": 0.000869541507482134,
+        "cosine": 0.9998064377775238,
+        "normA": 1.0000000008906509,
+        "normB": 1.0000000013392913
+      },
+      "sameNativeFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.0027725957334041595,
+        "meanAbs": 0.0006951284612313202,
+        "rmse": 0.000869541507482134,
+        "cosine": 0.9998064377775238,
+        "normA": 1.0000000008906509,
+        "normB": 1.0000000013392913
+      },
+      "sameBrowserPcmEndToEndEmbeddingError": {
+        "maxAbs": 0.0027725957334041595,
+        "meanAbs": 0.0006951284612313202,
+        "rmse": 0.000869541507482134,
+        "cosine": 0.9998064377775238,
+        "normA": 1.0000000008906509,
+        "normB": 1.0000000013392913
+      },
+      "browserVsTrainingResamplePcmError": {
+        "maxAbs": 0.0,
+        "meanAbs": 0.0,
+        "rmse": 0.0
+      },
+      "browserVsTrainingFeaturesError": {
+        "maxAbs": 7.62939453125e-06,
+        "meanAbs": 6.399156021458524e-08,
+        "rmse": 4.788483253884062e-07
+      },
+      "browserVsTrainingEndToEndEmbeddingError": {
+        "maxAbs": 0.0027725957334041595,
+        "meanAbs": 0.0006951284612313202,
+        "rmse": 0.000869541507482134,
+        "cosine": 0.9998064377775238,
+        "normA": 1.0000000008906509,
+        "normB": 1.0000000013392913
+      }
+    },
+    {
+      "id": "noise-48000",
+      "sourceRateHz": 48000,
+      "featureShape": [
+        1,
+        1,
+        1001,
+        64
+      ],
+      "embeddingShape": [
+        1,
+        512
+      ],
+      "samePcmPreprocessingError": {
+        "maxAbs": 7.62939453125e-06,
+        "meanAbs": 1.0945877947888293e-07,
+        "rmse": 4.2816053705580055e-07
+      },
+      "sameFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.0026569683104753494,
+        "meanAbs": 0.0006594111498401389,
+        "rmse": 0.000811039035577582,
+        "cosine": 0.9998316072147749,
+        "normA": 0.9999999973879925,
+        "normB": 1.000000002526677
+      },
+      "sameNativeFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.0026569683104753494,
+        "meanAbs": 0.0006594111498401389,
+        "rmse": 0.000811039035577582,
+        "cosine": 0.9998316072147749,
+        "normA": 0.9999999973879925,
+        "normB": 1.000000002526677
+      },
+      "sameBrowserPcmEndToEndEmbeddingError": {
+        "maxAbs": 0.0026569683104753494,
+        "meanAbs": 0.0006594111498401389,
+        "rmse": 0.000811039035577582,
+        "cosine": 0.9998316072147749,
+        "normA": 0.9999999973879925,
+        "normB": 1.000000002526677
+      },
+      "browserVsTrainingResamplePcmError": {
+        "maxAbs": 0.0,
+        "meanAbs": 0.0,
+        "rmse": 0.0
+      },
+      "browserVsTrainingFeaturesError": {
+        "maxAbs": 7.62939453125e-06,
+        "meanAbs": 1.0945877947888293e-07,
+        "rmse": 4.2816053705580055e-07
+      },
+      "browserVsTrainingEndToEndEmbeddingError": {
+        "maxAbs": 0.0026569683104753494,
+        "meanAbs": 0.0006594111498401389,
+        "rmse": 0.000811039035577582,
+        "cosine": 0.9998316072147749,
+        "normA": 0.9999999973879925,
+        "normB": 1.000000002526677
+      }
+    },
+    {
+      "id": "sine63-44100",
+      "sourceRateHz": 44100,
+      "featureShape": [
+        1,
+        1,
+        1001,
+        64
+      ],
+      "embeddingShape": [
+        1,
+        512
+      ],
+      "samePcmPreprocessingError": {
+        "maxAbs": 7.62939453125e-06,
+        "meanAbs": 6.041966832720197e-08,
+        "rmse": 6.070288461643393e-07
+      },
+      "sameFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.0034376680850982666,
+        "meanAbs": 0.0007545379306463929,
+        "rmse": 0.0009319454614093599,
+        "cosine": 0.9997776582802717,
+        "normA": 1.0000000006535934,
+        "normB": 0.9999999997526073
+      },
+      "sameNativeFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.0034376680850982666,
+        "meanAbs": 0.0007545379306463929,
+        "rmse": 0.0009319454614093599,
+        "cosine": 0.9997776582802717,
+        "normA": 1.0000000006535934,
+        "normB": 0.9999999997526073
+      },
+      "sameBrowserPcmEndToEndEmbeddingError": {
+        "maxAbs": 0.0034376680850982666,
+        "meanAbs": 0.0007545379306463929,
+        "rmse": 0.0009319454614093599,
+        "cosine": 0.9997776582802717,
+        "normA": 1.0000000006535934,
+        "normB": 0.9999999997526073
+      },
+      "browserVsTrainingResamplePcmError": {
+        "maxAbs": 0.0,
+        "meanAbs": 0.0,
+        "rmse": 0.0
+      },
+      "browserVsTrainingFeaturesError": {
+        "maxAbs": 7.62939453125e-06,
+        "meanAbs": 6.041966832720197e-08,
+        "rmse": 6.070288461643393e-07
+      },
+      "browserVsTrainingEndToEndEmbeddingError": {
+        "maxAbs": 0.0034376680850982666,
+        "meanAbs": 0.0007545379306463929,
+        "rmse": 0.0009319454614093599,
+        "cosine": 0.9997776582802717,
+        "normA": 1.0000000006535934,
+        "normB": 0.9999999997526073
+      }
+    },
+    {
+      "id": "sine1000-44100",
+      "sourceRateHz": 44100,
+      "featureShape": [
+        1,
+        1,
+        1001,
+        64
+      ],
+      "embeddingShape": [
+        1,
+        512
+      ],
+      "samePcmPreprocessingError": {
+        "maxAbs": 3.814697265625e-06,
+        "meanAbs": 3.939664287196768e-08,
+        "rmse": 3.504550323578891e-07
+      },
+      "sameFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.003239598125219345,
+        "meanAbs": 0.0008217685705318445,
+        "rmse": 0.0010087814554412347,
+        "cosine": 0.9997394841541255,
+        "normA": 1.0000000007908652,
+        "normB": 1.0000000010705603
+      },
+      "sameNativeFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.003239598125219345,
+        "meanAbs": 0.0008217685705318445,
+        "rmse": 0.0010087814554412347,
+        "cosine": 0.9997394841541255,
+        "normA": 1.0000000007908652,
+        "normB": 1.0000000010705603
+      },
+      "sameBrowserPcmEndToEndEmbeddingError": {
+        "maxAbs": 0.003239598125219345,
+        "meanAbs": 0.0008217685705318445,
+        "rmse": 0.0010087814554412347,
+        "cosine": 0.9997394841541255,
+        "normA": 1.0000000007908652,
+        "normB": 1.0000000010705603
+      },
+      "browserVsTrainingResamplePcmError": {
+        "maxAbs": 0.0,
+        "meanAbs": 0.0,
+        "rmse": 0.0
+      },
+      "browserVsTrainingFeaturesError": {
+        "maxAbs": 3.814697265625e-06,
+        "meanAbs": 3.939664287196768e-08,
+        "rmse": 3.504550323578891e-07
+      },
+      "browserVsTrainingEndToEndEmbeddingError": {
+        "maxAbs": 0.003239598125219345,
+        "meanAbs": 0.0008217685705318445,
+        "rmse": 0.0010087814554412347,
+        "cosine": 0.9997394841541255,
+        "normA": 1.0000000007908652,
+        "normB": 1.0000000010705603
+      }
+    },
+    {
+      "id": "noise-44100",
+      "sourceRateHz": 44100,
+      "featureShape": [
+        1,
+        1,
+        1001,
+        64
+      ],
+      "embeddingShape": [
+        1,
+        512
+      ],
+      "samePcmPreprocessingError": {
+        "maxAbs": 3.814697265625e-06,
+        "meanAbs": 1.0913872456812596e-07,
+        "rmse": 4.186082889335247e-07
+      },
+      "sameFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.003480512648820877,
+        "meanAbs": 0.0008996184049578915,
+        "rmse": 0.0011331575651715511,
+        "cosine": 0.9996712842061699,
+        "normA": 0.9999999982860303,
+        "normB": 1.000000000044399
+      },
+      "sameNativeFeaturesBackendEmbeddingError": {
+        "maxAbs": 0.003480512648820877,
+        "meanAbs": 0.0008996184049578915,
+        "rmse": 0.0011331575651715511,
+        "cosine": 0.9996712842061699,
+        "normA": 0.9999999982860303,
+        "normB": 1.000000000044399
+      },
+      "sameBrowserPcmEndToEndEmbeddingError": {
+        "maxAbs": 0.003480512648820877,
+        "meanAbs": 0.0008996184049578915,
+        "rmse": 0.0011331575651715511,
+        "cosine": 0.9996712842061699,
+        "normA": 0.9999999982860303,
+        "normB": 1.000000000044399
+      },
+      "browserVsTrainingResamplePcmError": {
+        "maxAbs": 0.0,
+        "meanAbs": 0.0,
+        "rmse": 0.0
+      },
+      "browserVsTrainingFeaturesError": {
+        "maxAbs": 3.814697265625e-06,
+        "meanAbs": 1.0913872456812596e-07,
+        "rmse": 4.186082889335247e-07
+      },
+      "browserVsTrainingEndToEndEmbeddingError": {
+        "maxAbs": 0.003480512648820877,
+        "meanAbs": 0.0008996184049578915,
+        "rmse": 0.0011331575651715511,
+        "cosine": 0.9996712842061699,
+        "normA": 0.9999999982860303,
+        "normB": 1.000000000044399
+      }
+    }
+  ],
+  "limitations": [
+    "Only six synthetic signals on one Chrome/WASM and one native-CPU runtime were checked.",
+    "The q8 audio-only branch differs from the deployed combined CLAP graph; no model replacement was performed.",
+    "Backend differences with identical feature inputs are isolated from preprocessing and resampling differences.",
+    "Training uses scipy polyphase conversion; this rerun uses the actual deterministic app resampler compiled from TypeScript."
+  ],
+  "reproducibilityHashes": {
+    "src/ai/resample.ts": "a73257786eb279a269e4df0bab86eeb2c1b8d682dcd3c32e8fba1df5b89efb81",
+    "output/ai-parity/app/resample.js": "2ab0e2e2a8d3bbc8dc2d3608993c7b27c2df4726a20411e5054414f4223d0477",
+    "node_modules/@huggingface/transformers/dist/transformers.web.js": "ad44c6e41ff23fd5b01fa3fe08199a0440a35711dc9f80a31132fcce08fbd432",
+    "node_modules/onnxruntime-web/dist/ort.webgpu.bundle.min.mjs": "7c93a51e9906b246af505bbfbfa4e5806ebe70a081ab0ca0d34e1180293f4f8d",
+    "node_modules/onnxruntime-web/dist/ort-wasm-simd-threaded.asyncify.mjs": "0966b6105cd936744498aa60df7a22cbd47af3374dbc64a9ab561c08a71e3611",
+    "node_modules/onnxruntime-web/dist/ort-wasm-simd-threaded.asyncify.wasm": "49871f5a4409519797e127440868a6d1923339d9185907f301a5b2a1d90af082",
+    "tests/fixtures/resample-poly/reference.json": "de20c290af53ecf20c79018224cf44977d0ec2bff40887068a683a5f34b7865d"
+  },
+  "networkEvidence": {
+    "file": "browser-check.json",
+    "requestCount": 24,
+    "externalRequests": 0,
+    "requestBodyBytes": 0
+  }
+}
