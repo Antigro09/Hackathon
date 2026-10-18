@@ -31,6 +31,10 @@ absence of a qualified outdoor source-attribution dataset in its bounded search;
 indoor server-room examples do not qualify data-center identification or faithful
 microphone capture.
 
+The same flow subsequently passed on the actual public HTTPS deployment, with
+six frontend artifact matches and a working HTTP 200 community feed. See
+[local/public recording-check evidence](qa/2026-10-18-recording-check.json).
+
 ## Automatic street-map follow-up
 
 Street tiles load automatically when the map opens, recover on reconnect and

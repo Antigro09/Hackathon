@@ -1,0 +1,293 @@
+{
+  "sourceCommit": "a8e02a56c748255d5969979c3e6505c2126f952a",
+  "deployment": "dpl_6586YGUpesjjGfxJqfzLhkpE8fwR",
+  "immutableUrl": "https://tonalwatch-7pl8fg4gl-antigro09s-projects.vercel.app",
+  "publicUrl": "https://tonalwatch.vercel.app",
+  "readyState": "READY",
+  "tests": {
+    "files": 28,
+    "passed": 529,
+    "recordingCheckTests": 32,
+    "strictTypesAndViteBuildPassed": true
+  },
+  "local": {
+    "origin": "http://127.0.0.1:4175",
+    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "input": "Generated 63 Hz / 48 kHz virtual microphone. Software integration only; not field or acoustic fidelity validation.",
+    "liveMeter": "-26.4 dB relative to RMS 1",
+    "card": "Recording check\nNo obvious digital capture problem\n\nThe digital checks found no flagged capture problem in this recorded window. They do not validate faithful acoustic capture.\n\nRecorded window\n15 seconds\nDigital input\n48,000 Hz · 720,000 samples\nAnalyzed frames\n174 complete FFT windows\nBrowser-reported processing\nEcho cancellation\nReported off\nNoise suppression\nReported off\nAutomatic gain control\nReported off\n\nThe browser reports these three settings off. Other device or hardware processing is not established.\n\nThese checks assess digital recording usability across the recorded window. They do not validate microphone accuracy, faithful capture of the real sound, calibrated sound levels, or a data-center source. Optional AI sound-family hints provide separate context.",
+    "hints": "OPTIONAL / LOCAL AI\n\nExplore a broad sound family\nLimited / experimental\n\nThis limited model explores buzz-like, mechanical fan-like, speech-like, traffic-like and wind-like sounds. It can leave a sound unclassified.\n\nData-center sound comparison: not validated.\n\nThese broad sound families occur in many settings. A hint cannot confirm a data-center source or faithful microphone capture. Use the separate Recording check to review digital capture problems.\n\nAI window: the first 5 seconds of this 15.00-second observation. The standard indicators and report use the full 15.00 seconds. Sounds after the first five seconds are not included in these hints.\n\nRuns locally after you choose Explore.\n\nAbout 51 MB is downloaded when you start the local model. Loading can take a few minutes and needs available memory. Audio stays on this device. No download starts until you choose Explore.\n\nExplore sound families (experimental)\n\nHints do not change the indicators and are excluded from exported reports. They cannot identify a facility, device, location or physical source.\n\nModel, preprocessing & limitations",
+    "layouts": [
+      {
+        "route": "/measure",
+        "width": 320,
+        "contentWidth": 320,
+        "scale": 1,
+        "footerBottom": 900.21875,
+        "height": 900
+      },
+      {
+        "route": "/sources",
+        "width": 320,
+        "contentWidth": 320,
+        "scale": 1,
+        "footerBottom": 900.296875,
+        "height": 900
+      },
+      {
+        "route": "/measure",
+        "width": 390,
+        "contentWidth": 390,
+        "scale": 1,
+        "footerBottom": 899.8125,
+        "height": 900
+      },
+      {
+        "route": "/sources",
+        "width": 390,
+        "contentWidth": 390,
+        "scale": 1,
+        "footerBottom": 899.78125,
+        "height": 900
+      },
+      {
+        "route": "/measure",
+        "width": 1280,
+        "contentWidth": 1280,
+        "scale": 1,
+        "footerBottom": 900.34375,
+        "height": 900
+      },
+      {
+        "route": "/sources",
+        "width": 1280,
+        "contentWidth": 1280,
+        "scale": 1,
+        "footerBottom": 899.9375,
+        "height": 900
+      }
+    ],
+    "printedSpectrumUnchanged": true,
+    "modelRequestsBeforeExplore": 0,
+    "modelInferenceRequested": false,
+    "requests": [
+      {
+        "url": "http://127.0.0.1:4175/assets/analysis.worker-BwKrUFVx.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "http://127.0.0.1:4175/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      }
+    ],
+    "errors": [],
+    "consoleErrors": []
+  },
+  "public": {
+    "origin": "https://tonalwatch.vercel.app",
+    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "input": "Generated 63 Hz / 48 kHz virtual microphone. Software integration only; not field or acoustic fidelity validation.",
+    "liveMeter": "-26.4 dB relative to RMS 1",
+    "card": "Recording check\nNo obvious digital capture problem\n\nThe digital checks found no flagged capture problem in this recorded window. They do not validate faithful acoustic capture.\n\nRecorded window\n15 seconds\nDigital input\n48,000 Hz · 720,000 samples\nAnalyzed frames\n174 complete FFT windows\nBrowser-reported processing\nEcho cancellation\nReported off\nNoise suppression\nReported off\nAutomatic gain control\nReported off\n\nThe browser reports these three settings off. Other device or hardware processing is not established.\n\nThese checks assess digital recording usability across the recorded window. They do not validate microphone accuracy, faithful capture of the real sound, calibrated sound levels, or a data-center source. Optional AI sound-family hints provide separate context.",
+    "hints": "OPTIONAL / LOCAL AI\n\nExplore a broad sound family\nLimited / experimental\n\nThis limited model explores buzz-like, mechanical fan-like, speech-like, traffic-like and wind-like sounds. It can leave a sound unclassified.\n\nData-center sound comparison: not validated.\n\nThese broad sound families occur in many settings. A hint cannot confirm a data-center source or faithful microphone capture. Use the separate Recording check to review digital capture problems.\n\nAI window: the first 5 seconds of this 15.00-second observation. The standard indicators and report use the full 15.00 seconds. Sounds after the first five seconds are not included in these hints.\n\nRuns locally after you choose Explore.\n\nAbout 51 MB is downloaded when you start the local model. Loading can take a few minutes and needs available memory. Audio stays on this device. No download starts until you choose Explore.\n\nExplore sound families (experimental)\n\nHints do not change the indicators and are excluded from exported reports. They cannot identify a facility, device, location or physical source.\n\nModel, preprocessing & limitations",
+    "layouts": [
+      {
+        "route": "/measure",
+        "width": 320,
+        "contentWidth": 320,
+        "scale": 1,
+        "footerBottom": 900.21875,
+        "height": 900
+      },
+      {
+        "route": "/sources",
+        "width": 320,
+        "contentWidth": 320,
+        "scale": 1,
+        "footerBottom": 900.296875,
+        "height": 900
+      },
+      {
+        "route": "/measure",
+        "width": 390,
+        "contentWidth": 390,
+        "scale": 1,
+        "footerBottom": 899.8125,
+        "height": 900
+      },
+      {
+        "route": "/sources",
+        "width": 390,
+        "contentWidth": 390,
+        "scale": 1,
+        "footerBottom": 899.78125,
+        "height": 900
+      },
+      {
+        "route": "/measure",
+        "width": 1280,
+        "contentWidth": 1280,
+        "scale": 1,
+        "footerBottom": 900.34375,
+        "height": 900
+      },
+      {
+        "route": "/sources",
+        "width": 1280,
+        "contentWidth": 1280,
+        "scale": 1,
+        "footerBottom": 899.9375,
+        "height": 900
+      }
+    ],
+    "printedSpectrumUnchanged": true,
+    "modelRequestsBeforeExplore": 0,
+    "modelInferenceRequested": false,
+    "requests": [
+      {
+        "url": "https://tonalwatch.vercel.app/assets/analysis.worker-BwKrUFVx.js",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tonalwatch.vercel.app/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tonalwatch.vercel.app/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tonalwatch.vercel.app/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tonalwatch.vercel.app/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tonalwatch.vercel.app/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tonalwatch.vercel.app/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tonalwatch.vercel.app/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      },
+      {
+        "url": "https://tonalwatch.vercel.app/favicon.svg",
+        "method": "GET",
+        "bodyBytes": 0
+      }
+    ],
+    "errors": [],
+    "consoleErrors": []
+  },
+  "publicArtifacts": {
+    "checkedUtc": "2026-10-18T19:45:24.867Z",
+    "artifacts": [
+      {
+        "path": "index.html",
+        "status": 200,
+        "bytes": 729,
+        "sha256": "f8a647f928d10d6d63075dbefee3780df84fea59a1d0ae369555329262b89228",
+        "matchesLocalBuild": true
+      },
+      {
+        "path": "assets/analysis.worker-BwKrUFVx.js",
+        "status": 200,
+        "bytes": 10766,
+        "sha256": "a5918dda07bf28fd7b705d797734185446be9d13ab0feb7f5b5a5025717d443f",
+        "matchesLocalBuild": true
+      },
+      {
+        "path": "assets/index-BrOEqgWh.css",
+        "status": 200,
+        "bytes": 53395,
+        "sha256": "f5e7eefc4068b5aacb6ab4a81f86be06f50339c579ae839c9d72f73fa537360d",
+        "matchesLocalBuild": true
+      },
+      {
+        "path": "assets/index-CUBsluil.js",
+        "status": 200,
+        "bytes": 337398,
+        "sha256": "9f3bced78912b6927fbf53422a70997314392e49532fd6146e59045d8ee73501",
+        "matchesLocalBuild": true
+      },
+      {
+        "path": "assets/ObservationMap-C6XNpDn4.css",
+        "status": 200,
+        "bytes": 26593,
+        "sha256": "09e3b25e5716c0af06f64de2757cca9f8ee28c9caec800ac290c6d8ede68cc21",
+        "matchesLocalBuild": true
+      },
+      {
+        "path": "assets/ObservationMap-CoUNtFok.js",
+        "status": 200,
+        "bytes": 199621,
+        "sha256": "7d29c26fef9ac28979bc5cbe6c6808b613d75717ac4ad577ec8301e2dc3399f2",
+        "matchesLocalBuild": true
+      }
+    ],
+    "communityFeed": {
+      "status": 200,
+      "validSchema": true,
+      "rows": 0
+    },
+    "writesRequested": false,
+    "modelInferenceRequested": false
+  },
+  "notes": [
+    "These generated virtual-microphone checks validate software integration, not physical microphone fidelity or data-center sound attribution.",
+    "The frozen classifier, DSP, quality gates, opaque model payloads and community API/schema were not modified. No model inference, training, community publication or audio upload was requested.",
+    "The first local Sources assertion preceded committed navigation. It was corrected to wait for the heading. A following hash navigation retained the existing observation, so a fresh reload preceded the final clean local run.",
+    "The first read-only API smoke request used unsupported parameter names and was rejected. The final check uses the client's documented lat/lon/radiusKm/limit query and returned HTTP 200."
+  ]
+}
