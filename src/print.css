@@ -1,0 +1,25 @@
+@page{size:auto;margin:17mm 15mm 18mm}
+@media print{
+  :root,body{background:white!important;color:#000!important;font-family:Arial,Helvetica,sans-serif;font-size:10pt}
+  .site-header,.site-footer,.skip-link,.report-toolbar,.back-link,.origin-strip,.report-actions,.page-heading{display:none!important}
+  .page-shell.report-page{margin:0!important;padding:0!important;max-width:none!important}
+  .observation-report{border:0;border-radius:0;box-shadow:none;margin:0;padding:0;max-width:none}
+  .report-provenance{background:white!important;border:2px solid #222;color:black!important;border-radius:0;font-size:9pt;padding:9pt;margin-bottom:16pt;break-inside:avoid}
+  .report-provenance.synthetic-badge{font-weight:700;border:2px solid #000}
+  .report-provenance.synthetic-badge::before{content:'SYNTHETIC DEMONSTRATION — NOT A FIELD OBSERVATION';display:block;font-size:10pt;margin-bottom:5pt}
+  .report-header{padding-bottom:10pt;border-color:#888;break-inside:avoid}
+  .report-header h1{font-size:19pt;letter-spacing:-.3pt;color:#000}
+  .report-header p{font-size:9pt;color:#222}
+  .report-section{margin-top:15pt;padding-bottom:8pt;border-color:#ccc;break-inside:auto}
+  .report-section h2,.report-references h2{font-size:12pt;color:black;break-after:avoid;margin-bottom:8pt}
+  .report-fields>div{display:grid;grid-template-columns:150pt 1fr;gap:12pt;break-inside:avoid;padding:5pt 0;font-size:8pt;border-color:#ddd}
+  .report-fields dt,.report-fields dd{color:#111;line-height:1.6}
+  .report-section p{font-size:8.5pt;line-height:1.6;color:#111;orphans:3;widows:3}
+  .reference-entry{break-inside:avoid;padding:7pt 0;font-size:9pt}
+  .reference-entry h3{font-size:9pt;color:black}
+  .reference-entry p,.reference-entry .source-status{font-size:8pt;color:#222}
+  .report-source-url{font-size:7.5pt;overflow-wrap:anywhere;color:#111}
+  a{color:#111;text-decoration:underline}
+  body:has(.synthetic-badge)::after{content:'SYNTHETIC DEMONSTRATION · NOT A FIELD OBSERVATION';position:fixed;bottom:-11mm;left:0;right:0;text-align:center;font-size:7pt;color:#333;border-top:1px solid #888;padding-top:3mm;background:white}
+  .report-page .empty-report{border:0}
+}
